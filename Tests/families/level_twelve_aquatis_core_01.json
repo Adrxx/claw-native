@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "id": "level_twelve_aquatis_core_01",
+  "title": "Level 12 Aquatis core",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwelveAquatisCore01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4041f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x404310",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x404990",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x404e20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4050b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405240",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4053d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4054c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4055e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405740",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4058b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405af0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Native rectangle platform operation; original game decisions remain original-backed."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Native rectangle platform operation; original game decisions remain original-backed."
+    },
+    "0x40e0d0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_twelve_aquatis_core_01.cases.py",
+    "entry": "claw_level_twelve_aquatis_core_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40424c",
+        "end": "0x40424e",
+        "reason": "Original null operator-new result zeroes EDI here, then 0x40424e immediately dereferences address zero. No successful original execution can use this allocation-failure branch."
+      },
+      {
+        "start": "0x404365",
+        "end": "0x404393",
+        "reason": "Original table-grow failure calls 0x4db6e0 -> 0x4dc680 after assigning EBP the null realloc result; 0x4dc680 reads [EBP+4] and faults at address 4 before returning. Confirmed by original-only failing realloc cases."
+      },
+      {
+        "start": "0x4043ae",
+        "end": "0x4043c5",
+        "reason": "The same index was just checked or successfully grown into these same bounds before 0x404393. No intervening call or bound write occurs before the repeated comparisons, so this second out-of-range growth cannot execute."
+      },
+      {
+        "start": "0x4043df",
+        "end": "0x404412",
+        "reason": "Repeated out-of-range check is unreachable after the successful first lookup; additionally original growth failure reaches 0x4dc680 with EBP zero and faults at address 4 before returning."
+      },
+      {
+        "start": "0x405cb1",
+        "end": "0x405cc9",
+        "reason": "Original 0x441030 clears receiver+0x20 (0x5376b8) at entry. Six preceding 0x406020 lookups have already brought the unchanged key into the same table bounds; no key/bounds write intervenes, so 0x441030 takes its in-bounds path and leaves count zero. The immediately following destruction loop cannot execute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2810599195,
+      "cases": 336,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.977,
+      "reasons": [],
+      "build_inputs_sha256": "f4514a3b02d6544af93b623e0835b571e16483b792275110e42e096669ee7923"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Original-reviewed game-owned Aquatis core. 0x4041f0 reads one cdecl argument at entry ESP+4. Cyclic state peers remain original-backed until their canonical admission and native join. Base constructor 0x40e0d0 runs original-backed with balanced exact x87 state so its status flags remain inputs to the owned constructor conversions."
+}

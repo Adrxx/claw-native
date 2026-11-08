@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "id": "level_one_object_actions_04",
+  "title": "Observed Level 1 level object actions batch 3, treasure and glitter",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneObjectActions04Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x46fd10",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x470110",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4719e0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4736b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_object_actions_04.cases.py",
+    "entry": "claw_level_one_object_actions_04_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4700e2",
+        "end": "0x4700f4",
+        "reason": "State 0 stores 0x40000 into [obj+0xd0] at 0x46fdb6; the only call before the table search is the owned builder 0x4719e0, which writes global tables only. The compare of [obj+0xd0] with 1 at 0x4700d9 therefore never succeeds in the original, so the original cannot execute these bytes. The native body keeps the compare and the copy."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1957203060,
+      "cases": 703,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.978,
+      "reasons": [],
+      "build_inputs_sha256": "8c25c75add5df02d3aac0e64eca4e7f71fd73ce09a1347a079955827a2a84196"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

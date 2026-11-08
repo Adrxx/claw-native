@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "id": "application_bootstrap_managers",
+  "title": "Original application bootstrap manager construction",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationBootstrapManagersRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x493c20",
+      "name": "initializeCharacterLookup",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec010",
+      "name": "initializeOwnerResourceManager",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x422890",
+      "name": "initializeCommandRegistry",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x430590",
+      "name": "initializeInputManager",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42b900",
+      "name": "playStartupMovie",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 string-length service used by unchanged CString allocation; cases return the actual byte length."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic decrement used by unchanged CString release; cases decrement the pointed word and return its new value."
+    },
+    "0x546a30": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!OpenFile",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "cstr",
+        "out:136",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file-existence query used by unchanged movie startup; cases model OF_EXIST success or file-not-found without replacing movie decisions."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard sample used by unchanged input manager; cases return SHORT key-state bits."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "WINMM.dll!joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:52"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical joystick sample used by unchanged input manager; successful cases populate JOYINFOEX and failure cases preserve the buffer."
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "CRT synchronization for original multibyte string comparison; execution is single-threaded."
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "CRT synchronization release paired with the original multibyte string comparison lock."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_bootstrap_managers.cases.py",
+    "entry": "claw_application_bootstrap_managers_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2846321283,
+      "cases": 50,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.909,
+      "reasons": [],
+      "build_inputs_sha256": "597f4d07a579eb8a9ac9b575d4fbef49b3e5ca7e5d68eea130570f32a76ed0f2"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "the C runtime heap ends in operating-system calls",
+    "pairs with operator new",
+    "Physical Win32 string-length service used by unchanged CString allocation; cases return the actual byte length.",
+    "Physical atomic decrement used by unchanged CString release; cases decrement the pointed word and return its new value.",
+    "Physical file-existence query used by unchanged movie startup; cases model OF_EXIST success or file-not-found without replacing movie decisions.",
+    "Physical keyboard sample used by unchanged input manager; cases return SHORT key-state bits.",
+    "Physical joystick sample used by unchanged input manager; successful cases populate JOYINFOEX and failure cases preserve the buffer.",
+    "All five owned functions retain their whole original intervals; no coverage exemptions are granted.",
+    "Movie startup delegates to unchanged original movie code; bounded missing-resource and application-mode cases do not establish successful movie playback.",
+    "Allocation failure is supported only at original checked allocations; unchecked map and string allocations require valid memory.",
+    "CRT synchronization for original multibyte string comparison; execution is single-threaded.",
+    "CRT synchronization release paired with the original multibyte string comparison lock."
+  ],
+  "notes": "Boundary reviewed against the hash-checked original and caller return consumption. The resource initializer returns 1 despite its void decompile; the startup movie wrapper preserves ECX and supplies -1 to the original movie controller. Its sole caller ignores its propagated EAX, so the wrapper return is void. Input and registry maps require original constructor invariants; see ignored packet NOTES.md."
+}

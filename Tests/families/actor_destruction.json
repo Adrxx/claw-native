@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "id": "actor_destruction",
+  "title": "Original actor and logic destruction",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ActorDestructionCanonical.cpp"
+  ],
+  "docs": [
+    "docs/actor-destruction.md"
+  ],
+  "owned": [
+    {
+      "address": "0x47cc80",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47cca0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48cf50",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c80c0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c80e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c99a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c99c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9a70",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9b30",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9b50",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9be0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9c00",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9e60",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9e80",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dbcd0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime free implementation uses CRT heap locks and HeapFree at import 0x546964."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic operation reached by the original MFC string release boundary 0x4f6584."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/actor_destruction.cases.py",
+    "entry": "claw_actor_destruction_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4228230409,
+      "cases": 120,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.938,
+      "reasons": [],
+      "build_inputs_sha256": "83808c59fb51920221255356069e93510f64041a125ba93e7d362581b670c84e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator delete at 0x4f6428 uses the release fixture instead of the platform heap.",
+    "CRT free at 0x4a49b0 uses the release fixture instead of CRT locking and HeapFree.",
+    "InterlockedDecrement at import 0x5469e8 is a scripted stand-in for the Windows atomic operation.",
+    "MFC string release 0x4f6584 remains unchanged original code and is not owned or certified by this game family.",
+    "Animation reset 0x4c8210 remains delegated to the elected actor_animation family and executes as original code at this family boundary."
+  ],
+  "notes": "Canonical migration covers the 15 game-owned destruction entries. Legacy ActorDestruction.cpp and ActorDestruction.h remain unchanged for current native callers; canonical integration is source-only. Historical ownership of 0x4f6584 is removed because its shared-empty-string sentinel and reference-counted string-buffer destructor are MFC platform behavior. Overlapping 0x4c8210 remains actor_animation-owned."
+}

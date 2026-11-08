@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "id": "ani_cycle",
+  "title": "AniCycle object logic (also AniCycleNormal)",
+  "abi": "canonical",
+  "sources": [
+    "Sources/AniCycleRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4918b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/ani_cycle.cases.py",
+    "entry": "claw_ani_cycle_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1658595668,
+      "cases": 91,
+      "mutants_killed": 12,
+      "mutants_tried": 14,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "cf48029ab24061121a4309cb080fb9893448733f9139440db503295401ce8e1c"
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeAniCycle.swift",
+      "Sources/ClawNativeObjectConnections.swift"
+    ],
+    "native_owner": "ClawNativeAniCycle",
+    "evidence_command": "scripts/check-native-object-connection.sh ani_cycle",
+    "evidence_path": "work/native-object-connections/ani_cycle/result.json",
+    "connection_evidence": {
+      "status": "pass",
+      "original_callback": "0x4918b0",
+      "classes": [
+        "AniCycle",
+        "AniCycleNormal"
+      ],
+      "route": "loadGridObject -> scene.gameplay -> ClawNativeAniCycle -> ClawNativeCanonicalHost on ClawNativeScene.heap",
+      "clock": "scene.animationDelta -> shared heap 0x5430c4",
+      "comparisons": 6,
+      "exercised_service_edges": [
+        "0x4918b0 -> 0x4c79e0 -> 0x4f6286 / ClawActorResources",
+        "0x4918b0 -> 0x4c82a0 / ActorAnimationRuntime"
+      ],
+      "controls": {
+        "missing_service_fault": true,
+        "out_of_callback_service_rejected": true,
+        "replacement_allocation_rejected": true,
+        "retired_owner_rejected": true,
+        "scene_destruction_retires_owner": true,
+        "unelected_callback_rejected": true
+      },
+      "faults": 0,
+      "unresolved_dependencies": [],
+      "scope": "Original Level 2 WWD id 4481 with controlled existing Level 1 physical resources; AniCycleNormal changes only the registered logic name. No level, recorded app trace or device acceptance."
+    }
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py. Registered object-logic callback: cdecl, one argument (the object), callers discard EAX."
+}

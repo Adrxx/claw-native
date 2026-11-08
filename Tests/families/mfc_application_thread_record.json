@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "id": "mfc_application_thread_record",
+  "title": "MFC application thread record factory and containers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcApplicationThreadRecordRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x502301",
+      "name": "MfcApplicationThreadRecord::factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502301",
+          "end": "0x502335",
+          "sha256": "5575648ef86a43d708a2eacee787f0a0e4cf645724bb4aa8d3d441750905a105"
+        }
+      ]
+    },
+    {
+      "address": "0x50210b",
+      "name": "MfcApplicationThreadRecord::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x50210b",
+          "end": "0x502176",
+          "sha256": "71bcdd3cac5bc42325ec7165c9511027b1bdc785469e94206e26d6bf2f30b2ca"
+        }
+      ]
+    },
+    {
+      "address": "0x4f5e89",
+      "name": "MfcPointerMap::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f5e89",
+          "end": "0x4f5eb0",
+          "sha256": "9c21fcbe390483adfe0971cd053201bcd26a8db4d84249cd679552de340cd85c"
+        }
+      ]
+    },
+    {
+      "address": "0x4f5133",
+      "name": "MfcPointerList::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f5133",
+          "end": "0x4f5156",
+          "sha256": "7f1dd0ab5b317c53102867986ed75cece0aa510e2b06784e9e57e73a24195d38"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48c0": {
+      "kind": "whole",
+      "name": "Original compiler scope registration",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      }
+    },
+    "0x502f84": {
+      "kind": "whole",
+      "name": "Original checked local allocation",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical local allocation returns fresh live zeroed storage for flags0x40 or null; original checked allocator and source constructors execute whole."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary must Halt without returning; only prefix evidence is claimed, with original throw helpers unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_application_thread_record.cases.py",
+    "entry": "claw_mfc_application_thread_record_entry",
+    "equivalent_mutants": [
+      {
+        "line": 92,
+        "operator": "drop-statement",
+        "source_sha256": "5cdd5df2e65eb880a557493cfbe023aeb833ad934ea0c2bdffc8dc1046a646f5",
+        "mutant_sha256": "960a04283bb6970ee9a1e91ac3e7db61ea19dc2d626fbd81f00c7735d2891fe9",
+        "reason": "Independent full-domain review: work/coordination/mfc-application-thread-record-equivalent-review.md. Original helper fixes EBP=F-4 and ESP=F-16. PUSH ECX already stores O at F-20; ESI=ECX and no intervening overlapping store or call occurs. The store rewrites identical bytes. Valid mapped record/control-disjoint inputs, synchronous source observations and sufficient guard budget only. Host counters, exhausted-budget diagnostic timing and asynchronous/per-instruction observers excluded. Preserve source stores; re-review if owned-member entry snapshots become observable."
+      },
+      {
+        "line": 93,
+        "operator": "drop-statement",
+        "source_sha256": "5cdd5df2e65eb880a557493cfbe023aeb833ad934ea0c2bdffc8dc1046a646f5",
+        "mutant_sha256": "1c15bf23bebf30411107220a7b9433c14a28a6eb84405fcdfae6ca34dd138c31",
+        "reason": "Independent full-domain review: work/coordination/mfc-application-thread-record-equivalent-review.md. Temporary receiver vtable is never read before the final vtable overwrites it. Owned member leaves access disjoint member fields and genuine stack operands without external calls or valid-memory exceptions. Valid mapped record/control-disjoint inputs, synchronous source observations and sufficient guard budget only. Host counters, exhausted-budget diagnostic timing and asynchronous/per-instruction observers excluded. Preserve source stores; re-review if owned-member entry snapshots become observable."
+      },
+      {
+        "line": 100,
+        "operator": "drop-statement",
+        "source_sha256": "5cdd5df2e65eb880a557493cfbe023aeb833ad934ea0c2bdffc8dc1046a646f5",
+        "mutant_sha256": "8b0fea8583ba2888503c82c4a534bc193e21e0b7eefec3aedc2e31e3ca3a8415",
+        "reason": "Independent full-domain review: work/coordination/mfc-application-thread-record-equivalent-review.md. Temporary zero at receiver+0xc is never read before the final0x54 overwrite. Member fields and active controls are disjoint; no external observer or valid-memory throwing operation intervenes. Initial storage need not be zero. Valid mapped record/control-disjoint inputs, synchronous source observations and sufficient guard budget only. Host counters, exhausted-budget diagnostic timing and asynchronous/per-instruction observers excluded. Preserve source stores; re-review if owned-member entry snapshots become observable."
+      },
+      {
+        "line": 104,
+        "operator": "drop-statement",
+        "source_sha256": "5cdd5df2e65eb880a557493cfbe023aeb833ad934ea0c2bdffc8dc1046a646f5",
+        "mutant_sha256": "970865592155c4b7cc9eedc62d235ea0f7e46970d43b21eea9846846f4125cba",
+        "reason": "Independent full-domain review: work/coordination/mfc-application-thread-record-equivalent-review.md. Transient low-byte state1 is unread during the second owned map leaf and overwritten by state2 before permitted observation. Record/control disjointness prevents leaf stores from aliasing state; constructor exceptions are outside this physical-prefix contract. Valid mapped record/control-disjoint inputs, synchronous source observations and sufficient guard budget only. Host counters, exhausted-budget diagnostic timing and asynchronous/per-instruction observers excluded. Preserve source stores; re-review if owned-member entry snapshots become observable."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3336743674,
+      "cases": 226,
+      "mutants_killed": 35,
+      "mutants_tried": 40,
+      "mutants_equivalent": 4,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "490b507eeddabd23405124b03a5685b93bc728ee567fefb94484d248f747eee4"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Complete233-byte seed ownership with required full source CPU and bounded stack comparison. Admission is determined by the recorded gate.",
+    "Records exclude aliases corrupting active control or saved-register stack slots; physical allocator supplies fresh heap-backed zeroed storage.",
+    "Legacy sound_trigger_logic ownership and implementation of0x4f5133 remain unchanged; this is the unique new canonical capability, independently compared.",
+    "LocalAlloc is a modeled physical OS service; no internal allocator, factory, constructor, container or scope helper is a fixture.",
+    "RaiseException failure reaches an honest nonreturning physical stop only; this family does not claim native handler search, cleanup funclets, unwind or unhandled outcome.",
+    "Auxiliary EH actions508508/5084ac/5084b4/5084bf and destructor dependencies remain separately identified outside supplied seed ownership.",
+    "Actual consumer is TLS getter50335e CALL5033ba/return5033be; current finite TLS callback authority requires separate extension and verification for502301.",
+    "Native dependency election, real CRT initialization, CWinApp construction, startup and playable flow remain separate work.",
+    "Semantic parity observes CPU/FS, memory, ownership, outside calls and physical failure prefixes synchronously with valid mapped spans and sufficient budget. Host operation/access counters, invalid ABI/memory/budget diagnostic timing and asynchronous/per-instruction observers are excluded. Owned member entries are not external snapshot boundaries; equivalent-store proofs require re-review if that changes."
+  ],
+  "notes": "Boundary review: work/coordination/cwinapp-factory-boundary-current.md. Preserve full bodies and exact genuine PCs; no source state fabrication. Leaf4f5133 ordinary result is unused, but complete source EAX=receiver remains compared."
+}

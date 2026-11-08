@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "id": "mfc_tls_manager",
+  "title": "Original MFC TLS manager initialization and slot allocation",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcTlsManagerRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x502fb6",
+      "name": "MfcTlsManager::initialize",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1122,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x502ff8",
+      "name": "MfcTlsManager::allocateSlot",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024,
+        "optional": true
+      }
+    }
+  ],
+  "callees": {
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS-index allocation; successful indices are owned and distinct, and exhaustion returns 0xffffffff."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical initialization of the receiver-owned 24-byte critical section; service exceptions do not return."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical critical-section acquisition with address, ownership and recursion state."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical critical-section release paired with acquisition."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global allocation with exact flags, separate handle and data identities, and null on failure."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical conversion from a global block data pointer to its handle; null input on initial allocation failure yields null."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical global-handle lock-count decrement; zero is also the successful final-unlock result."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global reallocation preserving the old prefix; failure preserves the old handle, pointer and allocation."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical global-handle lock and data-pointer lookup, including the cached IAT target; valid successful locks increment the count."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary reached through unchanged original 0x4f50fd and 0x4a5690; stop without faking a return or exception dispatch."
+    },
+    "0x4a4a20": {
+      "kind": "whole",
+      "name": "CRT memset",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1106,
+        "optional": true
+      },
+      "reason": "Unchanged whole original byte fill at real return PC0x5030d3; required full-state child transport for the optional manager source body, preserving argument and saved-EDI aliases."
+    },
+    "0x4f50fd": {
+      "kind": "whole",
+      "name": "MFC memory exception throw helper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Unchanged original nonreturning throw chain at real return PCs0x502fea and0x5030af; preserve the actual frame through original0x4a5690 to physical RaiseException. No synthetic return or exception dispatch."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_tls_manager.cases.py",
+    "entry": "claw_mfc_tls_manager_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "codex": {
+      "prior_ordinary_only": {
+        "level": "admitted",
+        "gate": {
+          "kind": "admission",
+          "status": "admitted",
+          "seed": 1105935636,
+          "cases": 55,
+          "mutants_killed": 38,
+          "mutants_tried": 44,
+          "mutants_equivalent": 0,
+          "mutation_score": 0.95,
+          "reasons": []
+        }
+      },
+      "note": "Historical recorded ordinary admission retained as provenance; optional full-source extension awaits fresh independent cases, translation and admission."
+    },
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1733498175,
+      "cases": 215,
+      "mutants_killed": 76,
+      "mutants_tried": 87,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.95,
+      "reasons": [],
+      "build_inputs_sha256": "0f1494683e603468c0512643eb7708b9ea505691fdd1ce457d5b8867d2163047"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "TlsAlloc is a modeled physical service: physical TLS-index allocation; successful indices are owned and distinct, and exhaustion returns 0xffffffff.",
+    "InitializeCriticalSection is a modeled physical service: physical initialization of the receiver-owned 24-byte critical section; service exceptions do not return.",
+    "EnterCriticalSection is a modeled physical service: physical critical-section acquisition with address, ownership and recursion state.",
+    "LeaveCriticalSection is a modeled physical service: physical critical-section release paired with acquisition.",
+    "GlobalAlloc is a modeled physical service: physical movable global allocation with exact flags, separate handle and data identities, and null on failure.",
+    "GlobalHandle is a modeled physical service: physical conversion from a global block data pointer to its handle; null input on initial allocation failure yields null.",
+    "GlobalUnlock is a modeled physical service: physical global-handle lock-count decrement; zero is also the successful final-unlock result.",
+    "GlobalReAlloc is a modeled physical service: physical movable global reallocation preserving the old prefix; failure preserves the old handle, pointer and allocation.",
+    "GlobalLock is a modeled physical service: physical global-handle lock and data-pointer lookup, including the cached IAT target; valid successful locks increment the count.",
+    "RaiseException is a modeled physical service: physical noncontinuable exception boundary reached through unchanged original 0x4f50fd and 0x4a5690; stop without faking a return or exception dispatch.",
+    "Optional source contracts preserve both ordinary thiscall0/u32 entries. Full-state input/output masks are0x7ff; initializer preservation0x462 omits aliasable saved ESI, allocator preservation0x400 retains only FS because backed slot-table aliases may overwrite any saved general register. All outputs and every bounded stack byte remain compared.",
+    "Source normal-return inputs require mapped bounded stack, valid receiver/table accesses, adequate operation budget and no writes corrupting return words or FS control storage; backed receiver/table aliases are permitted, including saved-register slots. Physical fixtures explicitly own their CPU and memory effects. A memory-free critical-section model is abstract physical-service evidence, not a claim about Windows in-place bytes.",
+    "Source children retain required full-state whole-original contracts for memset and the real throw helper; ordinary context-free calls retain their prior mode. No fake zero CPU fallback, child fixture, coverage exemption or duplicate family is introduced.",
+    "The prior ordinary-only gate recorded55cases, seed1105935636 and mutation_score0.95; the extended family is unadmitted until independently re-gated. Existing compiled integration records describe the prior ordinary implementation and do not establish native source dispatch, cold TLS composition, startup/menu or device acceptance."
+  ],
+  "notes": "Whole original functions: 66-byte constructor and 274-byte slot allocator, 340 bytes total with no exemptions. Both use ECX only, no stack arguments, and return consumed EAX values. All game and CRT callees remain original, including memset and the complete throw-helper chain. Physical failures stop at RaiseException; this proves pre-raise state, not Windows exception dispatch. See ignored packet NOTES.md for exact layouts, branches, cached import identity, ownership and frame contracts. Optional source capability is bounded to the actual cold getter0x50335e manager edges0x50337c->0x503381 and0x50338d->0x503392, while directly callable source profiles retain valid storage aliases. Source contracts observe every CPU field and exact original frames/flags, including cached GlobalLock target identity."
+}

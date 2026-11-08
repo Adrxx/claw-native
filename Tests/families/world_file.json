@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "id": "world_file",
+  "title": "Original v1.0 world file runtime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/WorldFileCanonicalRuntime.cpp"
+  ],
+  "docs": [
+    "docs/world-file-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4cace0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb200",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb470",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb5a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb700",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cd660",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cdd10",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cde70",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2210",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5330",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5840",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5870",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5c30",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb670",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb960",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cdca0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native allocation replaces the C runtime heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native release pairs with allocation."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The original codec uses the C runtime heap; native allocation replaces it."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native Windows rectangle transport reached through unchanged scene camera code."
+    },
+    "0x4f72c9": {
+      "kind": "fixture",
+      "name": "CFile constructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f7369": {
+      "kind": "fixture",
+      "name": "CFile destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f7448": {
+      "kind": "fixture",
+      "name": "CFile Open",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f774d": {
+      "kind": "fixture",
+      "name": "CFile GetLength",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f7570": {
+      "kind": "fixture",
+      "name": "CFile Read",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native release replaces the C runtime heap."
+    },
+    "0x4adf50": {
+      "kind": "fixture",
+      "name": "calloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Original zlib allocator 0x4d86d0 calls CRT calloc; native zeroed allocation replaces the platform heap."
+    },
+    "0x4d2050": {
+      "kind": "whole",
+      "name": "Selected-plane grid resize tail target",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/world_file.cases.py",
+    "entry": "claw_world_file_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4cb776",
+        "end": "0x4cb778",
+        "reason": "All incoming edges at 0x4cb734, 0x4cb750 and 0x4cb769 require operator new to return zero; this xor leaves ESI zero at 0x4cb778 and the original unconditionally dereferences [ESI] at 0x4cb77d before any recoverable return. Null guest memory is intentionally inaccessible; no returning case can execute these two bytes."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2905963765,
+      "cases": 176,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.915,
+      "reasons": [],
+      "build_inputs_sha256": "5ec83bc78b50a17c7dbb73baca6524733dfb3f9d7b0c83f41b087ed14758f85b"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Canonical code is separate from the existing app-facing legacy adapter; native composition remains in menu-native-batch-join.",
+    "Allocator, MFC file transport and CopyRect are native platform fixtures; all other unowned game and codec callees execute unchanged original code."
+  ],
+  "notes": "Canonical migration retains all 13 legacy-declared owners and adds reviewed world wrappers 0x4cb670, 0x4cb960, 0x4cdca0. Tail target 0x4d2050 remains owned by spatial_grid; plane viewport callee 0x4d0c50 remains owned by scene_camera."
+}

@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "id": "audio_resource",
+  "title": "Original audio resource metadata and voice pool",
+  "abi": "canonical",
+  "sources": [
+    "Sources/AudioResourceCanonicalRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b3cb0",
+      "name": "AudioBuffer::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4200",
+      "name": "AudioResource::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b42e0",
+      "name": "AudioResource::allocateVoice",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4430",
+      "name": "AudioResource::acquireVoice",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b46b0",
+      "name": "AudioVoice::construct",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b48b0",
+      "name": "AudioManager::createResource",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4e30",
+      "name": "parseWaveChunks",
+      "convention": "cdecl",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5240",
+      "name": "AudioList::append",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/audio_resource.cases.py",
+    "entry": "claw_audio_resource_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4b44b9",
+        "end": "0x4b44bb",
+        "reason": "The zero voice result passes null to original list remove at 0x4b44be, which unconditionally reads null+4; no normal return exists in this bounded readable-memory domain."
+      },
+      {
+        "start": "0x4b44d8",
+        "end": "0x4b44e8",
+        "reason": "This post-remove null-voice branch cannot be reached without the preceding original list remove dereferencing a null node."
+      },
+      {
+        "start": "0x4b49d8",
+        "end": "0x4b49da",
+        "reason": "Allocation failure passes a null node to original prepend at 0x4b49de and then divides and stores through a null resource; no normal return exists in this bounded readable-memory domain."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 198,
+        "operator": "shift-offset",
+        "mutant_sha256": "ca52709ecd0c6e339329de8b9e05305022c2cd69edd8b3c64a27c93f1a221b53",
+        "source_sha256": "7f0d72b655448456f47f47577f2fcb4e14ffb413201bb320f6be4814399e20ce",
+        "reason": "The mutant shifts an initial zero scratch write from descriptor+0 to descriptor+4. Both words are overwritten unconditionally with size and flags before the first external call; the descriptor is stack-local and has no observer between these writes."
+      },
+      {
+        "line": 199,
+        "operator": "shift-offset",
+        "mutant_sha256": "b5e93b1e7e4bfa6923d02323da3e58b90c0676f4e883b58adc5a326503769363",
+        "source_sha256": "7f0d72b655448456f47f47577f2fcb4e14ffb413201bb320f6be4814399e20ce",
+        "reason": "The mutant shifts an initial zero scratch write from descriptor+4 to descriptor+8. Both words are overwritten unconditionally with flags and byte length before the first external call; the descriptor is stack-local and has no observer between these writes."
+      },
+      {
+        "line": 202,
+        "operator": "drop-statement",
+        "mutant_sha256": "ace54aff25282579ae9c6a0d3ade5ba06d531d1a98249b042a5084ab0eef8a39",
+        "source_sha256": "7f0d72b655448456f47f47577f2fcb4e14ffb413201bb320f6be4814399e20ce",
+        "reason": "Dropping the initial zero write to descriptor+8 cannot change any permitted input: the same scratch word is unconditionally overwritten with the saved byte length before the first external call and no intervening instruction reads it."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1518735066,
+      "cases": 236,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 3,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "146ebe21ee47de43d3bcad55645eea43a4faf3c876219abcf17d572c7688a42f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new is a fixture; allocation exceptions and guest exception unwinding are outside this ordinary return contract.",
+    "Cases supply physical DirectSound COM methods through function pointers; no real audio buffer or device is created.",
+    "Diagnostics execute unchanged original 0x4b4ed0 with reporting globals 0x54130c, 0x541310, 0x541314 and 0x541318 zero; host reporting paths are outside this domain.",
+    "Voice acquisition requires successful creation when no reusable voice exists because its failure path dereferences a null list node.",
+    "Resource creation requires successful allocation after successful nonnull COM creation, a nonzero format byte rate and readable 18-byte format storage; malformed memory and division faults are outside the domain.",
+    "RIFF parsing covers bounded readable chunk storage and nonwrapping progress; truncated or malicious sizes that escape readable memory are outside the domain."
+  ],
+  "notes": "Eight full original seeds are owned. The canonical source is separate so the existing app-facing legacy audio implementation remains intact. The third stack argument of 0x4b48b0 is unused; 0x4b42e0 consumes one mode argument despite incomplete decompile signatures."
+}

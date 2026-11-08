@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "id": "warp_fade",
+  "title": "Original type2 warp fade",
+  "abi": "legacy",
+  "sources": [
+    "Sources/WarpFadeRuntime.cpp",
+    "Sources/WarpFadeRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/WarpFadeRuntime.cpp": "ff5d94dd974864d8c33d83d89b11629f25157ee6ff153dbfdb7ea84346b483ab",
+    "Sources/WarpFadeRuntime.h": "0649985f324614ea254e2832158d319ba460bc9f11ee9ad774fd007e1c9f7821"
+  },
+  "docs": [
+    "docs/warp-fade-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_warp_fade_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/warp_fade_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/original-disc-assets",
+      "work/warp-fade-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-warp-fade-independent.log"
+      ],
+      "worker_evidence": [
+        "work/warp-fade-agent/verification.json",
+        "work/warp-fade-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_warp_fade_runtime.py": "pass"
+      },
+      "seconds": 518.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1851063433,
+      "owned": 9,
+      "owned_inferred_from_tests": false,
+      "directly_called": 8,
+      "fully_executed": 7,
+      "bytes_owned": 1775,
+      "bytes_executed": 1731,
+      "coverage": 0.9752
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeWarpFade.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: scene_fade_closure_02 (0x4ed060, 0x4ed080, 0x4ed0a0, 0x4ed0b0, 0x4ed1a0, 0x4ed5d0, 0x4efb00, 0x4efc40); special_command (0x4ecc00). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

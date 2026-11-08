@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "id": "level_twelve_aquatis_states_01",
+  "title": "Level 12 Aquatis states",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwelveAquatisStates01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4051a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405440",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405540",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405640",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4057a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4059e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405a60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405d50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405df0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405ed0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405fa0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Windows USER32 geometry API is a native platform boundary; fixture writes the supplied rectangle."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_twelve_aquatis_states_01.cases.py",
+    "entry": "claw_level_twelve_aquatis_states_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2248898558,
+      "cases": 357,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.923,
+      "reasons": [],
+      "build_inputs_sha256": "014197d794cbeb98101da620ecd28038c2e8430a2c9c98fa685369b5c39e0baa"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect is a stand-in (set-rect); the original supplies all rectangle coordinates."
+  ],
+  "notes": "Original-reviewed thiscall entries; outside game callees, including the Aquatis core peer, execute unchanged original code."
+}

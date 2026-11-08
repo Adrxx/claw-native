@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "id": "level_one_world_services_01",
+  "title": "Level 1 rect, string-owner and view service entries",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneWorldServices01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x422350",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4296f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42ce20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42d1f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service: write left, top, right, bottom in argument order and return nonzero."
+    },
+    "0x429ed0": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "View viewport setter reaches USER32 CopyRect through 0x4cb960 and 0x4d0c50 with no declared fixture; it is not owned by this family. Its recorded arguments are compared."
+    },
+    "0x4f650f": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC CString release-to-empty is a native string service that reaches lstrlenA and InterlockedDecrement; it is not recovered game logic."
+    },
+    "0x4f6584": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC CString data release reaches InterlockedDecrement; it is a native string service called by the original list clear 0x4f5288."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_world_services_01.cases.py",
+    "entry": "claw_level_one_world_services_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 790210389,
+      "cases": 286,
+      "mutants_killed": 30,
+      "mutants_tried": 32,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ab865e6aa35419a16826630035b9d1bc347cced55daf0fdc415819d16b1fb5f3"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator delete is a stand-in (release).",
+    "0x429ed0 is a stand-in; its body is outside this family.",
+    "0x4f650f and 0x4f6584 are stand-ins (MFC string services)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "elevator_logic",
+  "title": "Original Elevator controllers and level rectangle profile",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ElevatorLogicRuntime.cpp",
+    "Sources/ElevatorLogicRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/ElevatorLogicRuntime.cpp": "9a12b0d3deaf6261dc357481a3b96f29eb9513ca617eddff0dd4476ee61a5148",
+    "Sources/ElevatorLogicRuntime.h": "9b0da1e9cbb0cfda9d6a22a75290fde1947c75caaa7c19e9144fa907c421e2fa"
+  },
+  "docs": [
+    "docs/elevator-logic-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_elevator_logic_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/elevator_logic_helpers.py"
+    ],
+    "work_dirs": [
+      "work/elevator-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-elevator-independent.log"
+      ],
+      "worker_evidence": [
+        "work/elevator-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_elevator_logic_runtime.py": "pass"
+      },
+      "seconds": 3.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 4293949583,
+      "owned": 9,
+      "owned_inferred_from_tests": false,
+      "directly_called": 8,
+      "fully_executed": 8,
+      "bytes_owned": 2511,
+      "bytes_executed": 2421,
+      "coverage": 0.9642
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlatforms.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: end_of_level_elevator (0x49e060, 0x49e1c0, 0x49e2a0); level_one_batch_pegs_and_elevators_01 (0x49cdd0, 0x49daf0, 0x49db10, 0x49db30, 0x49db50, 0x49db70). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

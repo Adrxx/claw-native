@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "human_enemy",
+  "title": "Original CHumanEnemy shared controller layer",
+  "abi": "legacy",
+  "sources": [
+    "Sources/HumanEnemy.cpp",
+    "Sources/HumanEnemy.h"
+  ],
+  "source_sha256": {
+    "Sources/HumanEnemy.cpp": "6808041eef1ba5a8e98c5ddfda2c153c8bd917e7d050afd97c24b533fbe4bba5",
+    "Sources/HumanEnemy.h": "54548d0c0c36eae3c91443f2b8a3ec0369fea044d552aff16cf80a312db9426a"
+  },
+  "docs": [
+    "docs/human-enemy.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_human_enemy.py"
+      }
+    ],
+    "helpers": [
+      "Tests/human_enemy_helpers.py"
+    ],
+    "work_dirs": [
+      "work/human-enemy-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/human-enemy-agent/comparison.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_human_enemy.py": "pass"
+      },
+      "seconds": 20.5
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 4148318319,
+      "owned": 30,
+      "owned_inferred_from_tests": true,
+      "directly_called": 30,
+      "fully_executed": 15,
+      "bytes_owned": 10499,
+      "bytes_executed": 9392,
+      "coverage": 0.8946
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeHumanoid.swift"
+    ]
+  },
+  "limits": []
+}

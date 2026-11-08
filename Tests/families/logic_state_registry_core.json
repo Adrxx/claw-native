@@ -1,0 +1,296 @@
+{
+  "schema": 1,
+  "id": "logic_state_registry_core",
+  "title": "Level 1 state registry core and first registrations",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LogicStateRegistryCoreRuntime.cpp",
+    "Sources/LogicStateRegistryCoreRuntime.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4db6e0",
+      "name": "IndexedTable::grow",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4db7f0",
+      "name": "RegistryTrie::insert",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dba00",
+      "name": "RegistryTrie::find",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dc690",
+      "name": "firstDifferingBit",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4036c0",
+      "name": "registerIdle4036c0",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x404420",
+      "name": "registerAquatis",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406020",
+      "name": "CStringIndex::slot",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406640",
+      "name": "registerIdleDelay",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407010",
+      "name": "registerIdle407010",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407620",
+      "name": "registerEnemyStates",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408690",
+      "name": "registerArchingProjectile",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the native CRT realloc boundary replaces Windows heap allocation, copying, and release while preserving guest allocation lifetime"
+    },
+    "0x4dc680": {
+      "kind": "whole",
+      "name": "diagnostic saved EBP word",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "diagnostic source return PC",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/logic_state_registry_core.cases.py",
+    "entry": "claw_logic_state_registry_core_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4db788",
+        "end": "0x4db7ab",
+        "reason": "Grow realloc failure has EBP=0; diagnostic helper 0x4dc680 reads unmapped address 4 before returning to caller."
+      },
+      {
+        "start": "0x4db7fe",
+        "end": "0x4db822",
+        "reason": "Insert no-prior path uses incoming EBP; ordinary context-free entry has EBP=0 and diagnostic helper 0x4dc680 reads unmapped address 4. This is ABI-domain-limited, not universally unreachable under arbitrary CPU states."
+      },
+      {
+        "start": "0x4dba0e",
+        "end": "0x4dba33",
+        "reason": "Find null-key path sets EBP=0 from key, then diagnostic helper 0x4dc680 reads unmapped address 4."
+      },
+      {
+        "start": "0x406067",
+        "end": "0x406086",
+        "reason": "CString slot growth-failure tail requires grow to return zero, which cannot occur because diagnostic helper 0x4dc680 faults first."
+      },
+      {
+        "start": "0x403750",
+        "end": "0x403779",
+        "reason": "Name-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x403819",
+        "end": "0x40384d",
+        "reason": "Callback-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x4066be",
+        "end": "0x4066d6",
+        "reason": "Name-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x406766",
+        "end": "0x40677f",
+        "reason": "First callback growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x4067fd",
+        "end": "0x406826",
+        "reason": "Name-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x4068c8",
+        "end": "0x4068ec",
+        "reason": "Second callback growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x4070a0",
+        "end": "0x4070c9",
+        "reason": "Name-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x407169",
+        "end": "0x40719d",
+        "reason": "Callback-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x407845",
+        "end": "0x40785e",
+        "reason": "Name-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x408760",
+        "end": "0x408789",
+        "reason": "Name-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      },
+      {
+        "start": "0x408829",
+        "end": "0x40885d",
+        "reason": "Callback-table growth-failure continuation requires a normal zero return from grow, impossible before the read at address 4 diagnostic fault."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2280091328,
+      "cases": 267,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "8328b3c5f795f14b4b5e6d0cda24a47dda492e34e81cc779e9f53bc78f8dcf45"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a native heap allocation stand-in.",
+    "operator delete is a native heap release stand-in.",
+    "realloc is a scripted native CRT allocation boundary; cases preserve copied bytes and allocation lifetime.",
+    "lstrlenA is a scripted Windows string-length boundary.",
+    "InterlockedDecrement is a scripted Windows atomic decrement boundary.",
+    "Original realloc failure and null-key lookup fault inside the saved-EBP diagnostic read at address 4; the ordinary comparison cannot certify their fault outcomes or their unreachable normal-return continuations.",
+    "The insert entry uses the ordinary context-free ABI. Its no-prior-lookup error path reads inherited EBP before loading the key; arbitrary inherited CPU inputs are outside this family contract.",
+    "Later registration groups may link the read-only core bridge as an auxiliary source; this family owns only its 11 listed entries, not callback bodies or the legacy whole bootstrap."
+  ],
+  "notes": "The 11 seeded functions own registry/index algorithms and first registrations, but no callback bodies. Diagnostic accessors remain original code with explicit compiler contexts; callbacks are stored as data."
+}

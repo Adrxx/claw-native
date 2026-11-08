@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "id": "flare",
+  "title": "Original Flare and WolvingtonLFX",
+  "abi": "legacy",
+  "sources": [
+    "Sources/FlareRuntime.cpp",
+    "Sources/FlareRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/FlareRuntime.cpp": "dad86a70580a0e995880855226df71639941321dd215e23c14984485f58a3990",
+    "Sources/FlareRuntime.h": "2269af5ce0c8e299f080c8109eb057d06b164a745c09bac919dc86fa6d5a4a03"
+  },
+  "docs": [
+    "docs/flare-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_flare_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/flare_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/flare-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-flare-independent.log"
+      ],
+      "worker_evidence": [
+        "work/flare-agent/smoke.log",
+        "work/flare-agent/verification.json",
+        "work/flare-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_flare_runtime.py": "pass"
+      },
+      "seconds": 8.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1928266975,
+      "owned": 12,
+      "owned_inferred_from_tests": true,
+      "directly_called": 12,
+      "fully_executed": 9,
+      "bytes_owned": 1494,
+      "bytes_executed": 1364,
+      "coverage": 0.913
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeFlare.swift"
+    ]
+  },
+  "limits": []
+}

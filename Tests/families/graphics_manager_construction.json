@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "graphics_manager_construction",
+  "title": "Original graphics-manager construction",
+  "abi": "legacy",
+  "sources": [
+    "Sources/GraphicsManagerConstructionRuntime.cpp",
+    "Sources/GraphicsManagerConstructionRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/GraphicsManagerConstructionRuntime.cpp": "2f4c4125480b2c269c3780c03f56eca21c3b2ff3b7a7cad8845c41242e9bd3d5",
+    "Sources/GraphicsManagerConstructionRuntime.h": "0c1b610d22acbac6d210d54f54d95d83f9a819f6772a9b771e6fe3e800ba5932"
+  },
+  "docs": [
+    "docs/graphics-manager-construction-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_graphics_manager_construction.py"
+      }
+    ],
+    "extra": [
+      "Tests/check_graphics_manager_construction_asan.py"
+    ],
+    "work_dirs": [
+      "work/graphics-manager-construction"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-graphics-manager-construction-asan.log"
+      ],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_graphics_manager_construction.py": "pass"
+      },
+      "seconds": 1.5
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 276337595,
+      "owned": 3,
+      "owned_inferred_from_tests": true,
+      "directly_called": 3,
+      "fully_executed": 3,
+      "bytes_owned": 171,
+      "bytes_executed": 171,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePaletteResources.swift"
+    ]
+  },
+  "limits": []
+}

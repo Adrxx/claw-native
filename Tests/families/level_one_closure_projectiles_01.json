@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_projectiles_01",
+  "title": "Level 1 closure projectile, elemental bullet, rat bomb and flare helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosureProjectiles01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x410a80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x414010",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411030",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4114e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411990",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411cd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4030e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x458280",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows import reached through the C runtime typeid 0x4a36f0; the stand-in answers from the run's live objects, image and stack"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_projectiles_01.cases.py",
+    "entry": "claw_level_one_closure_projectiles_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x410ad5",
+        "end": "0x410b03",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x410b1e",
+        "end": "0x410b35",
+        "reason": "Second range check cannot fail: the first lookup either finds the index inside the table bounds or grows the table through 0x4db6e0, which moves exactly one bound to the index, with no call in between that changes the bounds. Every table this dispatcher reads is built by its static constructor through 0x403ad0 with bounds 2000 to 2010 and stride 4, and 0x4db6e0 is the only routine that changes the bounds, so the lower bound never exceeds the upper bound plus one and the check always passes on the original. A path that would leave the index outside faults first in 0x4dc680 (see the failure-path ranges)."
+      },
+      {
+        "start": "0x410b4f",
+        "end": "0x410b82",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x411085",
+        "end": "0x4110b3",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x4110ce",
+        "end": "0x4110e5",
+        "reason": "Second range check cannot fail: the first lookup either finds the index inside the table bounds or grows the table through 0x4db6e0, which moves exactly one bound to the index, with no call in between that changes the bounds. Every table this dispatcher reads is built by its static constructor through 0x403ad0 with bounds 2000 to 2010 and stride 4, and 0x4db6e0 is the only routine that changes the bounds, so the lower bound never exceeds the upper bound plus one and the check always passes on the original. A path that would leave the index outside faults first in 0x4dc680 (see the failure-path ranges)."
+      },
+      {
+        "start": "0x4110ff",
+        "end": "0x411132",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x411535",
+        "end": "0x411563",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x41157e",
+        "end": "0x411595",
+        "reason": "Second range check cannot fail: the first lookup either finds the index inside the table bounds or grows the table through 0x4db6e0, which moves exactly one bound to the index, with no call in between that changes the bounds. Every table this dispatcher reads is built by its static constructor through 0x403ad0 with bounds 2000 to 2010 and stride 4, and 0x4db6e0 is the only routine that changes the bounds, so the lower bound never exceeds the upper bound plus one and the check always passes on the original. A path that would leave the index outside faults first in 0x4dc680 (see the failure-path ranges)."
+      },
+      {
+        "start": "0x4115af",
+        "end": "0x4115e2",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x4119e5",
+        "end": "0x411a13",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x411a2e",
+        "end": "0x411a45",
+        "reason": "Second range check cannot fail: the first lookup either finds the index inside the table bounds or grows the table through 0x4db6e0, which moves exactly one bound to the index, with no call in between that changes the bounds. Every table this dispatcher reads is built by its static constructor through 0x403ad0 with bounds 2000 to 2010 and stride 4, and 0x4db6e0 is the only routine that changes the bounds, so the lower bound never exceeds the upper bound plus one and the check always passes on the original. A path that would leave the index outside faults first in 0x4dc680 (see the failure-path ranges)."
+      },
+      {
+        "start": "0x411a5f",
+        "end": "0x411a92",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x4582d5",
+        "end": "0x458303",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      },
+      {
+        "start": "0x45831e",
+        "end": "0x458335",
+        "reason": "Second range check cannot fail: the first lookup either finds the index inside the table bounds or grows the table through 0x4db6e0, which moves exactly one bound to the index, with no call in between that changes the bounds. Every table this dispatcher reads is built by its static constructor through 0x403ad0 with bounds 2000 to 2010 and stride 4, and 0x4db6e0 is the only routine that changes the bounds, so the lower bound never exceeds the upper bound plus one and the check always passes on the original. A path that would leave the index outside faults first in 0x4dc680 (see the failure-path ranges)."
+      },
+      {
+        "start": "0x45834f",
+        "end": "0x458382",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with its own EBP still 0, so the original reads address 4 and faults; no case can complete this path."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2488666647,
+      "cases": 220,
+      "mutants_killed": 29,
+      "mutants_tried": 32,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "6764669e29e83f67fa569b8cba2b69c29c1a84a11234f94cec9d2539e56c64a4"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "realloc is a stand-in (reallocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr is a stand-in (is-bad-read-ptr)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

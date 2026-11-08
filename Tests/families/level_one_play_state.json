@@ -1,0 +1,430 @@
+{
+  "schema": 1,
+  "id": "level_one_play_state",
+  "title": "Level 1 Play state vtable slots and helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOnePlayStateRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x429470",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429480",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4294a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46a840",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46a870",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46b8f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46ba80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46bc00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46ca50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46ef80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48fcf0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40af60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x546880": {
+      "kind": "fixture",
+      "name": "SetTextColor",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546888": {
+      "kind": "fixture",
+      "name": "SetBkMode",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546890": {
+      "kind": "fixture",
+      "name": "TextOutA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical RECT copy import at original selected-world-plane initializer 4d0689; world parsing and viewport selection remain original."
+    },
+    "0x546d30": {
+      "kind": "fixture",
+      "name": "DrawTextA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x54686c": {
+      "kind": "fixture",
+      "name": "DeleteObject",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows GDI import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows cursor import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows sound import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor display counter"
+    },
+    "0x54691c": {
+      "kind": "fixture",
+      "name": "SelectObject",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows GDI import reached through the import table; physical platform service, cases supply the result."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_play_state.cases.py",
+    "entry": "claw_level_one_play_state_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1595237515,
+      "cases": 232,
+      "mutants_killed": 35,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.921,
+      "reasons": [],
+      "build_inputs_sha256": "a3f978133bf3c93350b7167f36ab5619266188eac46a588d51cef86c311ae1ea"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_enemy_base_callee_02",
+  "title": "Level 1 enemy shared helpers 0x404dd0, 0x43f640, 0x43f740",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchEnemyBaseCallee02Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x404dd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43f640",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43f740",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "original float to integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1,
+      "returns": "u32"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_enemy_base_callee_02.cases.py",
+    "entry": "claw_level_one_batch_enemy_base_callee_02_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 594677607,
+      "cases": 515,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.977,
+      "reasons": [],
+      "build_inputs_sha256": "f7fd03254073aaa3f0d29a0a40ddde18bcd61f028bb17fb199c59c0a9d41181e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

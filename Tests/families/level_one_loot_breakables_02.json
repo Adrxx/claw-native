@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "id": "level_one_loot_breakables_02",
+  "title": "Level 1 loot and breakables, batch 2",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneLootBreakables02Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x434170",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x434180",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46f1e0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46f2a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46f6a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x471530",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x471720",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x471750",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48d560",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48d6e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48de40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_loot_breakables_02.cases.py",
+    "entry": "claw_level_one_loot_breakables_02_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x46f23c",
+        "end": "0x46f23e",
+        "reason": "operator new returning null leads to an unconditional read through the null object at the next instruction; the original faults here, so no normal-return input executes this path. The native body must retain the original read and fault, not add a guard."
+      },
+      {
+        "start": "0x48d5c5",
+        "end": "0x48d5c7",
+        "reason": "operator new returning null leads to an unconditional read through the null object at the next instruction; the original faults here, so no normal-return input executes this path. The native body must retain the original read and fault, not add a guard."
+      },
+      {
+        "start": "0x46f6f5",
+        "end": "0x46f723",
+        "reason": "Table grow failure: 0x4db6e0 returns 0 only after its realloc fails and then calls 0x4dc680 with its own EBP set to 0, so the original itself faults reading address 4 before returning (reproduced on the original by harness-mfc-callee-caller-frame, 2026-10-18). No normal-return input executes this path; the native body must keep the original read."
+      },
+      {
+        "start": "0x46f73e",
+        "end": "0x46f755",
+        "reason": "Table grow failure: 0x4db6e0 returns 0 only after its realloc fails and then calls 0x4dc680 with its own EBP set to 0, so the original itself faults reading address 4 before returning (reproduced on the original by harness-mfc-callee-caller-frame, 2026-10-18). No normal-return input executes this path; the native body must keep the original read."
+      },
+      {
+        "start": "0x46f76f",
+        "end": "0x46f7a2",
+        "reason": "Table grow failure: 0x4db6e0 returns 0 only after its realloc fails and then calls 0x4dc680 with its own EBP set to 0, so the original itself faults reading address 4 before returning (reproduced on the original by harness-mfc-callee-caller-frame, 2026-10-18). No normal-return input executes this path; the native body must keep the original read."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1856485337,
+      "cases": 475,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.955,
+      "reasons": [],
+      "build_inputs_sha256": "dcbbab002aea1b4ba4ae4846bd2d207bfc257164834f23b0b66cb2a1292b489a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

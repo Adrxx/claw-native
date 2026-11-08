@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "id": "image_resource_lifecycle",
+  "title": "Source image resource lifecycle",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ImageResourceLifecycleCanonical.cpp"
+  ],
+  "docs": [
+    "docs/image-resource-lifecycle-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4bf680",
+      "name": "ImageSurface::loadPID",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bfc20",
+      "name": "ImageBuffer::destroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce8e0",
+      "name": "ImageResource::deletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce900",
+      "name": "ImageResource::destroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2540",
+      "name": "ImageResource::createSurface",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d26c0",
+      "name": "ImageResource::releaseSurface",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2790",
+      "name": "ImageResource::flip",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d27a0",
+      "name": "ImageResource::restoreFromResource",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d56d0",
+      "name": "ImageResource::retryRestore",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "diagnostic import 0x546ca4",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Physical Windows diagnostic service reached by original error reporting."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "diagnostic import 0x546d48",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Physical Windows diagnostic service reached by original error reporting."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/image_resource_lifecycle.cases.py",
+    "entry": "claw_image_resource_lifecycle_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4bf75c",
+        "end": "0x4bf764",
+        "reason": "Original 4bf6e8..4bf6f5 sets change iff depth !=8; no calls or writes alter depth/change before 4bf757. Reaching 4bf75c requires change nonzero and depth8 simultaneously, so no permitted input reaches this branch."
+      },
+      {
+        "start": "0x4bf7b3",
+        "end": "0x4bf7c8",
+        "reason": "Original 4bef50 returns zero only for null output or input. Caller 4bf798 excludes null allocated output; input is readable PID data+32 following earlier header reads and cannot be null within backed guest address space. It otherwise returns one or faults, never zero; no fixture replaces this callee."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 659877857,
+      "cases": 76,
+      "mutants_killed": 46,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.958,
+      "reasons": [],
+      "build_inputs_sha256": "e91f0bf06113227804b6855f3b236a2c1de478b22792896cbf2933f30e6c798c"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Operator new and malloc use the comparison allocator instead of the Windows heap.",
+    "Operator delete uses the comparison release service instead of the Windows heap.",
+    "Windows diagnostic imports 0x546ca4 and 0x546d48 return zero without sound or a dialog.",
+    "DirectDraw and receiver virtual services are case-supplied physical or callback boundaries; game callees remain original-backed.",
+    "Cases use cached resource bytes and disabled diagnostic logging to avoid unrelated file and formatting service paths.",
+    "Legacy native exports remain in the existing source and header; this canonical module adds a separate dispatch entry."
+  ],
+  "notes": "All eight legacy game owners are retained and retry policy 0x4d56d0 is added. ABI and original-backed boundary reviewed from corpus disassembly; packet NOTES.md records hidden arguments and re-reads."
+}

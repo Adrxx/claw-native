@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_rat_and_speech_01",
+  "title": "Level 1 Rat construction and update, batch 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchRatAndSpeech01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x47c850",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47c910",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408050",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406310",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4357a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "original float to integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1,
+      "returns": "u32"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic decrement reached by the original MFC string release 0x4f6584 and 0x4f64ec when a string is not the shared empty string"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import called through a register by the original base constructor 0x4332f0; cases write the empty rectangle"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import called through a register (call ebx) by 0x433130; cases write left, top, right, bottom in argument order and return nonzero"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_rat_and_speech_01.cases.py",
+    "entry": "claw_level_one_batch_rat_and_speech_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x47c8ac",
+        "end": "0x47c8ae",
+        "reason": "Reached only when operator new returns 0. The next instruction then loads the vtable from address 0 (edi is 0), so the original stops with an access violation; no valid returning case can execute these bytes."
+      },
+      {
+        "start": "0x47cb6c",
+        "end": "0x47cb76",
+        "reason": "Needs the bit-set capacity at [ebx+8] to be 0 at 0x47cb68. The preceding capacity check grows it with 0x4dbd20, whose grow path returns 0 only after a realloc failure; that failure calls 0x4dc680 with EBP still 0, so the original reads address 4 and stops with an access violation. No valid returning case can execute these bytes."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1629949389,
+      "cases": 132,
+      "mutants_killed": 33,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.971,
+      "reasons": [],
+      "build_inputs_sha256": "2ffbc3e543eb2ff3b38737b0a6858fd57adce3a75cf285ab4cf5922917a91bf1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

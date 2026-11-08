@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "tile_collision",
+  "title": "Tile Collision",
+  "abi": "legacy",
+  "sources": [
+    "Sources/TileCollision.cpp",
+    "Sources/TileCollision.h"
+  ],
+  "source_sha256": {
+    "Sources/TileCollision.cpp": "d021713baaf70e2c00c08af173e9347c91bb700e00ef46f243e2cb6c1ced688f",
+    "Sources/TileCollision.h": "834407c129a8f09624028e9519788b776f1f1294b5feb45b8e34dc818088f0b5"
+  },
+  "docs": [],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_tile_collision.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/libTileCollision.dylib",
+          "--world",
+          "Original/cd-assets/LEVEL1/WORLDS/WORLD.WWD",
+          "--swift-world",
+          "work/swift-world.json"
+        ],
+        "prerequisites": [
+          "xcrun clang++ -std=c++17 -dynamiclib Sources/TileCollision.cpp -o work/libTileCollision.dylib"
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_tile_collision.py": "pass"
+      },
+      "seconds": 0.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1534422717,
+      "owned": 5,
+      "owned_inferred_from_tests": true,
+      "directly_called": 5,
+      "fully_executed": 5,
+      "bytes_owned": 354,
+      "bytes_executed": 354,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawCollision.swift"
+    ]
+  },
+  "limits": []
+}

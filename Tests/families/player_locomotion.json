@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "player_locomotion",
+  "title": "Original v1.0 player locomotion",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerLocomotion.cpp",
+    "Sources/PlayerLocomotion.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerLocomotion.cpp": "70f447bee7291bd340d3169e6b7471a74f4ed832ece7df2282d44cd82fa4dc33",
+    "Sources/PlayerLocomotion.h": "0e881e80c67da80aaf6d40ef2d1a639912235b022921486c77a4c7850d24501a"
+  },
+  "docs": [
+    "docs/player-locomotion.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_locomotion.py"
+      }
+    ],
+    "work_dirs": [
+      "work/player-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/player-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_locomotion.py": "pass"
+      },
+      "seconds": 14.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3250395545,
+      "owned": 11,
+      "owned_inferred_from_tests": true,
+      "directly_called": 11,
+      "fully_executed": 10,
+      "bytes_owned": 7156,
+      "bytes_executed": 7003,
+      "coverage": 0.9786
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePickup.swift",
+      "Sources/ClawNativePlayer.swift",
+      "Sources/ClawPlayerDrawing.swift",
+      "Tests/NativePlayer/main.swift",
+      "Tests/NativeRespawn/main.swift"
+    ]
+  },
+  "limits": []
+}

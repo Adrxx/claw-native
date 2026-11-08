@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "id": "level_one_world_timer_01",
+  "title": "Level 1 timer-update entry 0x4224f0",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneWorldTimer01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4224f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4f53eb": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC map remove-start; it is a native container service that builds a CString through InterlockedIncrement and an exception frame. It is not recovered game logic. Its receiver and the output slot pointer are compared."
+    },
+    "0x4f650f": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC CString release-to-empty is a native string service that reaches lstrlenA and InterlockedDecrement; it is not recovered game logic."
+    },
+    "0x4f6584": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC CString data release reaches InterlockedDecrement; it is a native string service."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_world_timer_01.cases.py",
+    "entry": "claw_level_one_world_timer_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3126193144,
+      "cases": 504,
+      "mutants_killed": 26,
+      "mutants_tried": 26,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "3609860fadd7ab841581acf3e47e752134ad29729aba71dcae6caaef64a62f12"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

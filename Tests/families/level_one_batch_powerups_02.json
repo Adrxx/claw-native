@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_powerups_02",
+  "title": "Level 1 claw hit box setup and powerup lookup",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchPowerups02Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x417050",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x436860",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_powerups_02.cases.py",
+    "entry": "claw_level_one_batch_powerups_02_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1543959535,
+      "cases": 98,
+      "mutants_killed": 24,
+      "mutants_tried": 24,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "4c338574c44fc547865a2855b4b50dccd533f04609d15ebf16f7ee9823bd3224"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

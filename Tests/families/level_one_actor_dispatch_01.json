@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "id": "level_one_actor_dispatch_01",
+  "title": "Observed Level 1 actor dispatch batch 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneActorDispatch01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x402ca0",
+      "name": "AmbientSoundGlobal",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402cc0",
+      "name": "AmbientSound",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402e20",
+      "name": "AmbientPointSound",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x403b40",
+      "name": "PhysicsUpdate",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x405000",
+      "name": "ActorUpdateAttackRectangle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4060b0",
+      "name": "ActorMirrorRectangles",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4061b0",
+      "name": "ActorLookup",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4061e0",
+      "name": "ActorSpriteRectangle",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406290",
+      "name": "ActorRefreshSpriteRectangle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4062e0",
+      "name": "ActorLookupShared",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle import; cases perform its exact rectangle write and return success"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle import; cases perform its exact rectangle write and return success"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_actor_dispatch_01.cases.py",
+    "entry": "claw_level_one_actor_dispatch_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 168270105,
+      "cases": 216,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.956,
+      "reasons": [],
+      "build_inputs_sha256": "852354b4881e5cf39cb920fea489b326dc89a1b8de7d9dce178c72be8b176dc8"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "CopyRect is a scripted Win32 fixture that writes the requested rectangle; no window service runs.",
+    "SetRect is a scripted Win32 fixture that writes the requested rectangle; no window service runs."
+  ],
+  "notes": "Boundary reviewed against original corpus for exactly ten seeds. Ambient callbacks are cdecl with one actor pointer. Physics takes one binary64 as two stack words, returns void, and has no x87 result boundary. See local packet NOTES.md for hidden callee arguments, memory effects, signed branches and internal floating-point precision requirements. This is the elected canonical owner for legacy actor_wrapper overlaps at 0x4061b0, 0x406290 and 0x4062e0; legacy manifests and implementations remain unchanged."
+}

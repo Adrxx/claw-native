@@ -1,0 +1,717 @@
+{
+  "schema": 1,
+  "id": "static_final_records",
+  "title": "Final static platform and core records",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticFinalRecordsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x502dac",
+      "name": "GuiSystemData::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502dac",
+          "end": "0x502e47",
+          "sha256": "11e92c85e2017c2d4baa8270ff5f42ba5b618d42697da5914e80bcfba4bee519"
+        }
+      ]
+    },
+    {
+      "address": "0x4fb3ba",
+      "name": "GuiSystemData::refreshMetrics",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4fb3ba",
+          "end": "0x4fb412",
+          "sha256": "f643ea98d71f71fcd9ce30ffc38b185af29c7779d5d18cd9cee6545c6d241f5f"
+        }
+      ]
+    },
+    {
+      "address": "0x4fb376",
+      "name": "GuiSystemData::refreshColors",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4fb376",
+          "end": "0x4fb3ba",
+          "sha256": "b53551658f5b2a546ce6eea956830a01d86df29a98c73d236c17b7482cb6fe34"
+        }
+      ]
+    },
+    {
+      "address": "0x502d5a",
+      "name": "GlobalMetrics::modernPublisher",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502d5a",
+          "end": "0x502d8a",
+          "sha256": "61f9d959850f17300282521cf2931c75a6c6eaef85a361df12ffb467e0936e98"
+        }
+      ]
+    },
+    {
+      "address": "0x502d8a",
+      "name": "GlobalMetrics::legacyPublisher",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502d8a",
+          "end": "0x502dac",
+          "sha256": "171ab628fa618884ddbd9e80eb6f2377763488d9606698c88cce3f11cf6e955a"
+        }
+      ]
+    },
+    {
+      "address": "0x4ffce9",
+      "name": "WheelState::initialize",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4ffce9",
+          "end": "0x4ffd07",
+          "sha256": "817a8b1b8bcfc3b65704f862283a1b0103643cf12235f66b007f415e597e3d42"
+        }
+      ]
+    },
+    {
+      "address": "0x4ffd0c",
+      "name": "WheelMessage::initialize",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4ffd0c",
+          "end": "0x4ffd61",
+          "sha256": "0a213a5a1f8692c985629c6381edc798a190da6d10d08c031501e79ecd0b266f"
+        }
+      ]
+    },
+    {
+      "address": "0x4db610",
+      "name": "CoreGlobalErrorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4db610",
+          "end": "0x4db620",
+          "sha256": "c2daf0161bb066ba837a308f6b327d97fa2e8499c23187e2b8d507faa1175341"
+        }
+      ]
+    },
+    {
+      "address": "0x4dbb80",
+      "name": "CoreDynamicArrayThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dbb80",
+          "end": "0x4dbb90",
+          "sha256": "e93166eb02ecd32a121fac20bdd6eb665121213f458095082deff236b964ed0b"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc170",
+      "name": "CoreBitSetThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc170",
+          "end": "0x4dc180",
+          "sha256": "a1c2555bba6d3396477a0328b7294965d9abee2d58ba3b382c397dc83687dc32"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc270",
+      "name": "CoreSymTabThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc270",
+          "end": "0x4dc280",
+          "sha256": "2d643718ce618176d20faae24d81b8cc410348f6f07e6c31dd8552b958f98b90"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc390",
+      "name": "CoreNoopThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc390",
+          "end": "0x4dc391",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc3a0",
+      "name": "CoreErrorRecord::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc3a0",
+          "end": "0x4dc3c3",
+          "sha256": "95e5ed841a0a3c10c313847b1d5971096b2f362f4981e5d8762898e05b4c0f86"
+        }
+      ]
+    },
+    {
+      "address": "0x503818",
+      "name": "FinalRuntimeClassThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x503818",
+          "end": "0x503828",
+          "sha256": "f5a4f552e79e1f4a3ae0d64110d39c905e20a727a5b1a319792868088d1ae432"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4f709b": {
+      "kind": "whole",
+      "name": "MfcRuntimeClassList::registerRecord",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50228f": {
+      "kind": "whole",
+      "name": "MfcModuleState::get",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024,
+        "optional": true
+      }
+    },
+    "0x502e95": {
+      "kind": "whole",
+      "name": "MFC acquire numbered lock",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    },
+    "0x502f05": {
+      "kind": "whole",
+      "name": "MFC release numbered lock",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    },
+    "0x502f26": {
+      "kind": "whole",
+      "name": "MfcList::prepend",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock acquisition tracks section identity, owner and recursion."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock release balances the current owner and section."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle unlock decrements its lock count; zero can be a successful final unlock."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global reallocation preserves the prefix and preserves old ownership on failure."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle lock returns its data pointer; the cached IAT target remains this same physical import."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:1",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical version bits control source branches and remain an explicit coherent per-case policy; all original calls remain observable."
+    },
+    "0x546a94": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetProcessVersion",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical process-version scalar for process zero controls the unsigned version threshold; zero and failure stops are explicit inputs."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical finite-selector metric scalars are supplied for selectors 2, 3, 11 and 12; original publishers and arithmetic remain native."
+    },
+    "0x546c7c": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical desktop-DC acquisition for window zero owns a typed handle or explicitly returns zero; source has no null guard."
+    },
+    "0x546894": {
+      "kind": "fixture",
+      "name": "GDI32.dll!GetDeviceCaps",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical DC capability lookup accepts the exact acquired handle with selector 88 or 90, with explicit zero-handle policy."
+    },
+    "0x546c80": {
+      "kind": "fixture",
+      "name": "USER32.dll!ReleaseDC",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical desktop-DC release for window zero balances acquisition and declares failure effects; source ignores its semantic result."
+    },
+    "0x546d20": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical system-color lookup supplies scalars for selectors 15, 16, 20, 18 and 6 without source-cache seeding."
+    },
+    "0x546b64": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColorBrush",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical system-brush lookup returns stable borrowed identities for selectors 15 and 6 or explicit zero; no guest allocation is manufactured."
+    },
+    "0x546b60": {
+      "kind": "fixture",
+      "name": "USER32.dll!LoadCursorA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical system-cursor lookup with null instance and resource IDs 32514 or 32512 returns borrowed identities or explicit zero."
+    },
+    "0x546c2c": {
+      "kind": "fixture",
+      "name": "USER32.dll!RegisterWindowMessageA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical exact-ANSI named-message registry is used only at the source-selected conditional call; success, reuse, zero failure and stops are explicit."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_final_records.cases.py",
+    "entry": "claw_static_final_records_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1554231641,
+      "cases": 160,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.956,
+      "reasons": [],
+      "build_inputs_sha256": "a48d29a97eeda10ac0777c5fd7af9b4fc123abaa3db43e82f49acf93d24e3c66"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Fourteen complete original bodies total624bytes with exact body hashes and full RET instructions; no coverage exemptions.",
+    "Every owned entry requires ordinary full source context input/output0x7ff and preserve0; semantic returns are void because inspected callers do not consume EAX, while actual incidental EAX, flags, physical frames and FS remain compared.",
+    "The three GUI receiver methods require108,108 and60bytes; the core record requires24bytes and preserves untouched bytes including the high16bits beside its cleared error word.",
+    "The two global metrics helpers always publish fixed globals, independently of the receiver supplied to their caller; alias and nonalias backing are distinct valid inputs.",
+    "The complete wheel publisher includes its internal forward jump and final epilogue; repeated version calls and16bit arithmetic must not be collapsed.",
+    "Owned children execute natively when entered from owned parents; existing class linker, module getter, locks and list prepend remain unchanged whole source dependencies, never game-helper fixtures.",
+    "The final class thunk requires the existing coherent module/TLS/lock graph and24byte runtime-class node, with the live list link offset respected; it stores and links pointers without invoking factories.",
+    "All physical services use explicit finite source callsites and actual arguments from packet NOTES; borrowed brushes/cursors and acquired DCs have separate declared ownership, without replacing source publishers.",
+    "Physical before-effect and after-effect stops preserve the original source prefix and do not publish later stores or a successful returned disposition; source continues through zero DC/caps/brush/cursor values only under an explicit physical policy.",
+    "Six roots overlap legacy core_registration ownership only; legacy files stay unchanged and generated canonical election is deferred until admission.",
+    "Table140 resets only low16 error-code bits and sets mode2; do not restore earlier diagnostic mode4 after ordered source initialization.",
+    "Frozen-v8 policy and evidence remain immutable; constantGetVersion10 excludes the wheel-message branch, while canonical branch coverage requires additional explicit unit version inputs.",
+    "Source-boundary preparation is separate from admission, original table144 completion, joined native election/comparison, remaining CRT/app startup, menus, gameplay and device acceptance.",
+    "TlsAlloc is a physical fixture: Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion.",
+    "TlsGetValue is a physical fixture: Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null.",
+    "TlsSetValue is a physical fixture: Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged.",
+    "InitializeCriticalSection is a physical fixture: Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions.",
+    "EnterCriticalSection is a physical fixture: Physical lock acquisition tracks section identity, owner and recursion.",
+    "LeaveCriticalSection is a physical fixture: Physical lock release balances the current owner and section.",
+    "GlobalAlloc is a physical fixture: Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null.",
+    "GlobalHandle is a physical fixture: Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure.",
+    "GlobalUnlock is a physical fixture: Physical handle unlock decrements its lock count; zero can be a successful final unlock.",
+    "GlobalReAlloc is a physical fixture: Physical movable global reallocation preserves the prefix and preserves old ownership on failure.",
+    "GlobalLock is a physical fixture: Physical handle lock returns its data pointer; the cached IAT target remains this same physical import.",
+    "LocalAlloc is a physical fixture: Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents.",
+    "LocalReAlloc is a physical fixture: Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure.",
+    "RaiseException is a physical fixture: Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated.",
+    "KERNEL32.dll!GetVersion is a physical fixture: Physical version bits control source branches and remain an explicit coherent per-case policy; all original calls remain observable.",
+    "KERNEL32.dll!GetProcessVersion is a physical fixture: Physical process-version scalar for process zero controls the unsigned version threshold; zero and failure stops are explicit inputs.",
+    "USER32.dll!GetSystemMetrics is a physical fixture: Physical finite-selector metric scalars are supplied for selectors 2, 3, 11 and 12; original publishers and arithmetic remain native.",
+    "USER32.dll!GetDC is a physical fixture: Physical desktop-DC acquisition for window zero owns a typed handle or explicitly returns zero; source has no null guard.",
+    "GDI32.dll!GetDeviceCaps is a physical fixture: Physical DC capability lookup accepts the exact acquired handle with selector 88 or 90, with explicit zero-handle policy.",
+    "USER32.dll!ReleaseDC is a physical fixture: Physical desktop-DC release for window zero balances acquisition and declares failure effects; source ignores its semantic result.",
+    "USER32.dll!GetSysColor is a physical fixture: Physical system-color lookup supplies scalars for selectors 15, 16, 20, 18 and 6 without source-cache seeding.",
+    "USER32.dll!GetSysColorBrush is a physical fixture: Physical system-brush lookup returns stable borrowed identities for selectors 15 and 6 or explicit zero; no guest allocation is manufactured.",
+    "USER32.dll!LoadCursorA is a physical fixture: Physical system-cursor lookup with null instance and resource IDs 32514 or 32512 returns borrowed identities or explicit zero.",
+    "USER32.dll!RegisterWindowMessageA is a physical fixture: Physical exact-ANSI named-message registry is used only at the source-selected conditional call; success, reuse, zero failure and stops are explicit."
+  ],
+  "notes": "Original-only boundary refinement; complete byte hashes and precise source/physical contracts are recorded in work/packets/static_final_records/NOTES.md and work/coordination/static-final-records-boundary.json. No native implementations or test cases were read."
+}

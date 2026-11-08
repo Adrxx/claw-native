@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "actor_interactions",
+  "title": "Original actor pair interactions",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ActorInteractions.cpp",
+    "Sources/ActorInteractions.h"
+  ],
+  "source_sha256": {
+    "Sources/ActorInteractions.cpp": "d09becc120c9a556532b11f9c04896e423589175fbf4e4f01c9df828e141ba2d",
+    "Sources/ActorInteractions.h": "200d04893ac4fe1fcdb1fb7ecd6028dc6f1d22dde85b3ae18d63b01095226f2a"
+  },
+  "docs": [
+    "docs/actor-interactions.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_actor_interactions.py"
+      }
+    ],
+    "work_dirs": [
+      "work/actor-interactions-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_actor_interactions.py": "pass"
+      },
+      "seconds": 3.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3027918799,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 4,
+      "bytes_owned": 850,
+      "bytes_executed": 850,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeScene.swift"
+    ]
+  },
+  "limits": []
+}

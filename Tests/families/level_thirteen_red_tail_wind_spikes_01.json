@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "id": "level_thirteen_red_tail_wind_spikes_01",
+  "title": "Level 13 Red Tail wind spikes closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelThirteenRedTailWindSpikes01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4843d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484680",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4848d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484ca0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484db0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484e10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484e30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484ea0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484f00",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484f60",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484fa0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle membership import; cases supply geometric behavior for RECT and by-value POINT."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Win32 address probe reached by original RTTI lookup; fixture checks guest memory readability"
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "WinMM clock import reached by original sound ramp initialization; cases supply deterministic time."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_thirteen_red_tail_wind_spikes_01.cases.py",
+    "entry": "claw_level_thirteen_red_tail_wind_spikes_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x484425",
+        "end": "0x484453",
+        "reason": "Original failed table growth cannot return: 0x4db6e0 assigns the null realloc result to EBP then 0x4dc680 reads [EBP+4]. Both lower and upper failed growth fault at address 0x4 in the original; retained probe work/level-thirteen-wind-grow-failure-probe.json."
+      },
+      {
+        "start": "0x48446e",
+        "end": "0x484485",
+        "reason": "The second bounds miss is impossible in the original: the first lookup either observes the same bounds or successfully grows them to include the index; the intervening instructions only load metadata and test a callback, without calls or writes to either bound. Original lower/upper growth cases pass; failed growth faults before returning."
+      },
+      {
+        "start": "0x48449f",
+        "end": "0x4844d2",
+        "reason": "The second growth-failure fallback cannot execute: its second bounds-miss predecessor is impossible after the original first lookup; additionally original failed realloc faults at 0x4dc680 reading null EBP+4 before a zero return. Retained original failed-growth probe work/level-thirteen-wind-grow-failure-probe.json."
+      },
+      {
+        "start": "0x484925",
+        "end": "0x484953",
+        "reason": "Original failed table growth cannot return: 0x4db6e0 assigns the null realloc result to EBP then 0x4dc680 reads [EBP+4]. Both lower and upper failed growth fault at address 0x4 in the original; retained probe work/level-thirteen-wind-grow-failure-probe.json."
+      },
+      {
+        "start": "0x48496e",
+        "end": "0x484985",
+        "reason": "The second bounds miss is impossible in the original: the first lookup either observes the same bounds or successfully grows them to include the index; the intervening instructions only load metadata and test a callback, without calls or writes to either bound. Original lower/upper growth cases pass; failed growth faults before returning."
+      },
+      {
+        "start": "0x48499f",
+        "end": "0x4849d2",
+        "reason": "The second growth-failure fallback cannot execute: its second bounds-miss predecessor is impossible after the original first lookup; additionally original failed realloc faults at 0x4dc680 reading null EBP+4 before a zero return. Retained original failed-growth probe work/level-thirteen-wind-grow-failure-probe.json."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1335821512,
+      "cases": 186,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.923,
+      "reasons": [],
+      "build_inputs_sha256": "b171cec6b1833d2b5537e0e3df6d33be7c4205750b779287da2bb0686fee9e2e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "PtInRect is a scripted Win32 geometry stand-in.",
+    "IsBadReadPtr uses the mapped guest-memory fixture.",
+    "timeGetTime is a scripted clock stand-in."
+  ],
+  "notes": "Reviewed against original disassembly; constructor signatures follow ECX and ret 4; 0x484f00 is cdecl with no arguments; 0x484f60 is stdcall with one argument and returns the original player pointer left in EAX."
+}

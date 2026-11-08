@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "id": "level_fourteen_lava_hand_01",
+  "title": "Level 14 lava hand closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelFourteenLavaHand01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4562e0",
+      "name": "LavaHand::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4566b0",
+      "name": "LavaHand::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456840",
+      "name": "LavaHand::enterIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456880",
+      "name": "LavaHand::updateIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4568b0",
+      "name": "LavaHand::enterThrow",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456a10",
+      "name": "LavaHand::updateThrow",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "current return address",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      },
+      "reason": "Returns the physical CALL continuation; explicit compiler context supplies the original return word at each of the two call sites."
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows memory-probe import reached by the original RTTI fallback 0x4a36f0."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with operator new in original object creation and cleanup paths."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_fourteen_lava_hand_01.cases.py",
+    "entry": "claw_level_fourteen_lava_hand_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x456335",
+        "end": "0x456363",
+        "reason": "Original table-growth failure cannot return to this block: 0x4db6e0 stores failed realloc result zero in EBP at 0x4db70b or 0x4db77f, then 0x4db788 calls 0x4dc680 which reads [EBP+4] and faults at address 4. Original-only allocator-failure probes for both growth directions confirmed that fault (work/lava-hand-fault-probe.log)."
+      },
+      {
+        "start": "0x4563af",
+        "end": "0x4563e2",
+        "reason": "Original table-growth failure cannot return to this block: 0x4db6e0 stores failed realloc result zero in EBP at 0x4db70b or 0x4db77f, then 0x4db788 calls 0x4dc680 which reads [EBP+4] and faults at address 4. Original-only allocator-failure probes for both growth directions confirmed that fault (work/lava-hand-fault-probe.log)."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 31,
+        "operator": "drop-statement",
+        "mutant_sha256": "49597de8531ef4253ddc9ad08531359ad3b12199a3a30a5265ea8131ad76f80f",
+        "source_sha256": "d2fa316a3d6bd65817bc832f089325916197136fdb459e418d2bf7c7dbe690a9",
+        "reason": "Checked against original 0x456311/0x456386 calls and 0x4db6e0: the only zero result requires realloc failure, which sets EBP=0 then faults reading address 4 at 0x4dc680 before either caller failure block. Original-only failure probes confirm both growth directions. This mutation acts only within the unreachable failure blocks 0x456335..0x456363 or 0x4563af..0x4563e2; all original executions returning normally are unchanged."
+      },
+      {
+        "line": 43,
+        "operator": "swap-statements",
+        "mutant_sha256": "ca58aeb9d71eb4f68ef43170bcf20e3c0b1c7418ca3d9a3f87975b4205b03dc6",
+        "source_sha256": "d2fa316a3d6bd65817bc832f089325916197136fdb459e418d2bf7c7dbe690a9",
+        "reason": "Checked against original 0x456311/0x456386 calls and 0x4db6e0: the only zero result requires realloc failure, which sets EBP=0 then faults reading address 4 at 0x4dc680 before either caller failure block. Original-only failure probes confirm both growth directions. This mutation acts only within the unreachable failure blocks 0x456335..0x456363 or 0x4563af..0x4563e2; all original executions returning normally are unchanged."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1791908808,
+      "cases": 196,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "79fe2c0d4396d3125999a2c50f36267ef2a346d3146e598bdce06e0026a2632a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr is a stand-in that checks the modeled memory."
+  ],
+  "notes": "Boundary reviewed against corpus disassembly: all owned entries use ECX; only the constructor has a consumed EAX result. The return-address helper runs unchanged with an explicit compiler context. See the ignored packet NOTES.md for object layouts, branches, and original failure-path limitations."
+}

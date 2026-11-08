@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "id": "audio_manager_lifecycle",
+  "title": "Original audio manager initialization and lifecycle",
+  "abi": "canonical",
+  "sources": [
+    "Sources/AudioManagerLifecycleCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b3c80",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4670",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4710",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4770",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4790",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b47e0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4860",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4b40",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546864": {
+      "kind": "fixture",
+      "name": "DirectSoundCreate",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "out:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical DirectSound creation is supplied by the platform."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "C runtime heap release is a platform boundary."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical diagnostic notification reached through unchanged original 0x4b4ed0."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/audio_manager_lifecycle.cases.py",
+    "entry": "claw_audio_manager_lifecycle_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2869466791,
+      "cases": 109,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.977,
+      "reasons": [],
+      "build_inputs_sha256": "05ceabea1e7852be2f7e0c549ef8175097ce259b1239c90324b4f56a69e332be"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "DirectSound creation and COM methods are physical stand-ins; no real audio device is exercised.",
+    "The unchanged original volume conversion, voice operations and diagnostic body remain original-backed callees.",
+    "Cases keep formatting controls 0x54130c, 0x541310 and 0x541318 disabled; beep control 0x541314 may enable the physical notification fixture.",
+    "MessageBeep is a scripted physical notification; no diagnostic game body is replaced."
+  ],
+  "notes": "Canonical migration preserves all eight game entries; existing AudioManagerLifecycleRuntime.cpp/.h remain the separate legacy app implementation. Constructor/destructor normal returns only; no guest exception admission."
+}

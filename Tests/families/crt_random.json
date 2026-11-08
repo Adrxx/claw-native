@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "id": "crt_random",
+  "title": "Original CRT random state and TLS lifecycle",
+  "abi": "legacy",
+  "sources": [
+    "Sources/CRTRandomRuntime.cpp",
+    "Sources/CRTRandomRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/CRTRandomRuntime.cpp": "8cd29086a2f4b282963c876bc636392857fc8aae4e7bfe33df1f9863a2166098",
+    "Sources/CRTRandomRuntime.h": "6e14f11edec98b75aab72f81a41a321ca07dff73a5eaf5f5fa8ee3e69dac05d6"
+  },
+  "docs": [
+    "docs/crt-random-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4a3040",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a3050",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a7d40",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a7da0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a7dc0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a7e40",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_crt_random_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/crt_random_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/crt-random-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-crt-rng-independent.log"
+      ],
+      "worker_evidence": [
+        "work/crt-random-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_crt_random_runtime.py": "pass"
+      },
+      "seconds": 37.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 705775547,
+      "owned": 6,
+      "owned_inferred_from_tests": false,
+      "directly_called": 6,
+      "fully_executed": 6,
+      "bytes_owned": 467,
+      "bytes_executed": 467,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeRandom.swift"
+    ]
+  },
+  "limits": []
+}

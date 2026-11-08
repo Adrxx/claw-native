@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "id": "pause_menu_widgets",
+  "title": "Level 1 in-game pause menu: IFC widget callback 0x4529f0 and widget name lookup 0x4508d0",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PauseMenuWidgetsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4529f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4508d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical string-length import reached by unchanged CString assignment (0x4f66cc) in 0x4508d0."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic decrement import reached by unchanged CString release (0x4f6584)."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic increment import reached by unchanged CString copy (0x4f6449)."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pause_menu_widgets.cases.py",
+    "entry": "claw_pause_menu_widgets_entry",
+    "equivalent_mutants": [
+      {
+        "line": 104,
+        "operator": "swap-statements",
+        "mutant_sha256": "5e1635bcbb7a3aa14d137b3054a3fb2feea8aed222320c4ad92517b344b2729d",
+        "source_sha256": "87ed5faedab923740e9bb78b4f0e2ed12f61fa2ad17aa06ad1328111c19fe65e",
+        "reason": "Swapping the zero store of the stack-local index with the CString default constructor 0x4f6439 on the separate local name reorders two writes to disjoint stack words with no outside call between them; 0x4f6439 makes no import or fixture call, so memory, outside calls and the result are identical."
+      },
+      {
+        "line": 104,
+        "operator": "drop-statement",
+        "mutant_sha256": "3d07a190777557192fe9904cf68bb1de3521d3e1878a314bbdd5e74385530b3f",
+        "source_sha256": "87ed5faedab923740e9bb78b4f0e2ed12f61fa2ad17aa06ad1328111c19fe65e",
+        "reason": "The stack-local index is always overwritten before it is read: 0x4529f0 passes its address to 0x4508d0, which stores atoi(name) into it unconditionally at 0x450920 before any branch, so the initial zero cannot reach any output."
+      },
+      {
+        "line": 105,
+        "operator": "swap-statements",
+        "mutant_sha256": "cdb4347a50d500800a2424363964f8df4c928536d3d1c3aba09a417b7398aaa8",
+        "source_sha256": "87ed5faedab923740e9bb78b4f0e2ed12f61fa2ad17aa06ad1328111c19fe65e",
+        "reason": "Swapping the default constructor 0x4f6439 of the local name with the copy constructor 0x4f6449 of the argument copy reorders writes to disjoint stack words; 0x4f6439 reads only the static empty-string pointer and makes no outside call, so the only outside call (InterlockedIncrement inside 0x4f6449) keeps its order and arguments and every output is identical."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3394126462,
+      "cases": 406,
+      "mutants_killed": 27,
+      "mutants_tried": 37,
+      "mutants_equivalent": 3,
+      "mutation_score": 0.964,
+      "reasons": [],
+      "build_inputs_sha256": "1eede135c6559ed0912d2d3f7255a9873f8f820f2443e51170243eb322756c57"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "lstrlenA is a stand-in (scripted).",
+    "InterlockedDecrement is a stand-in (scripted).",
+    "InterlockedIncrement is a stand-in (scripted)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

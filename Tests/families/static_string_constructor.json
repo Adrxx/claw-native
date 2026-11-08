@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "id": "static_string_constructor",
+  "title": "Original ANSI string or resource-token constructor",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticStringConstructorRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4f65f2",
+      "name": "ANSI string or resource-token constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f65f2",
+          "end": "0x4f6650",
+          "sha256": "dfc5f710a1af19e6c8f0e65511c9cf1c8ac2c47cdafe716162f0fdeb7d75e93d"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4f6433": {
+      "kind": "whole",
+      "name": "Shared empty string pointer slot",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x4f6480": {
+      "kind": "whole",
+      "name": "String buffer allocation",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x4fb253": {
+      "kind": "whole",
+      "name": "Resource string loading",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x4a4a80": {
+      "kind": "whole",
+      "name": "Overlapping byte copy",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 string-length service; cases return the actual byte count before the first zero byte."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_string_constructor.cases.py",
+    "entry": "claw_static_string_constructor_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 91500516,
+      "cases": 64,
+      "mutants_killed": 9,
+      "mutants_tried": 13,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8a53ea2b2c3e5b2dc6aa5fd7a7ed0925f2e05b9ceffd06c41d0e1b32c2d6396f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new and operator delete remain physical allocate/release stand-ins; original string helpers execute unchanged.",
+    "lstrlenA is a physical scripted string-length boundary; cases must supply its actual pointer-reading behavior.",
+    "Optional ordinary source capability compares the complete integer CPU and physical stack at a genuine original caller continuation; ordinary ABI mode remains independently testable.",
+    "Four whole original dependencies allow ordinary calls through their declared conventional signatures and optional exact full-register source transport; this declares comparison capability and does not establish native callee availability.",
+    "Resource-token paths require original module/TLS/resource helpers and their real physical import fixtures; cold initialization is not established by this constructor boundary.",
+    "Source-family admission does not establish native static startup, connected app startup, or device acceptance."
+  ],
+  "notes": "Boundary reviewed against the hash-checked original executable and corpus; detailed memory, caller, branch and source-state obligations remain in the ignored worker packet."
+}

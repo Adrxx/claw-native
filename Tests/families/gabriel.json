@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "gabriel",
+  "title": "Original Gabriel boss core",
+  "abi": "legacy",
+  "sources": [
+    "Sources/GabrielRuntime.cpp",
+    "Sources/GabrielRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/GabrielRuntime.cpp": "b4931e1ba0345051aefc23afefba183ed233cbf418283e56a7f8b337389c6646",
+    "Sources/GabrielRuntime.h": "a77a24a2e4cb462e972a853f873939c2f4f973b58a24b1e10ac73735c5820ea2"
+  },
+  "docs": [
+    "docs/gabriel-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_gabriel_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/gabriel_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/gabriel-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-gabriel-independent.log"
+      ],
+      "worker_evidence": [
+        "work/gabriel-agent/sanitizer.log",
+        "work/gabriel-agent/verification.json",
+        "work/gabriel-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_gabriel_runtime.py": "pass"
+      },
+      "seconds": 49.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2655949329,
+      "owned": 35,
+      "owned_inferred_from_tests": false,
+      "directly_called": 31,
+      "fully_executed": 21,
+      "bytes_owned": 9567,
+      "bytes_executed": 7866,
+      "coverage": 0.8222
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_eight_gabriel_attacks_pirate_01 (0x4444d0, 0x4445d0, 0x4446f0, 0x444760, 0x444850, 0x444960, 0x444aa0, 0x444b70, 0x444c20, 0x444d00, 0x444d90, 0x444f80); level_eight_gabriel_bomb_01 (0x4459d0, 0x445af0, 0x446130); level_eight_gabriel_cannon (0x446550, 0x446670); level_eight_gabriel_core_01 (0x443290, 0x4433b0, 0x443ab0, 0x444120, 0x444140, 0x4441b0, 0x4441f0, 0x4442c0, 0x444330); level_eight_gabriel_death (0x445090, 0x4452d0, 0x4455b0, 0x445600, 0x445660, 0x4456c0, 0x445720, 0x445810, 0x445950). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

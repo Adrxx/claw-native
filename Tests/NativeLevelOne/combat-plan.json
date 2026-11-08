@@ -1,0 +1,973 @@
+[
+ {
+  "start_ms": 0,
+  "end_ms": 510,
+  "action": "settle",
+  "keys": []
+ },
+ {
+  "start_ms": 510,
+  "end_ms": 612,
+  "action": "pistol-stand-loaded-select",
+  "keys": [
+   49
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 49
+  }
+ },
+ {
+  "start_ms": 612,
+  "end_ms": 1632,
+  "action": "pistol-stand-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 1632,
+  "end_ms": 1734,
+  "action": "pistol-stand-loaded-prepare",
+  "keys": []
+ },
+ {
+  "start_ms": 1734,
+  "end_ms": 1938,
+  "action": "pistol-stand-loaded-fire",
+  "keys": [
+   18
+  ]
+ },
+ {
+  "start_ms": 1938,
+  "end_ms": 3468,
+  "action": "pistol-stand-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 3468,
+  "end_ms": 3570,
+  "action": "pistol-duck-loaded-select",
+  "keys": [
+   49
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 49
+  }
+ },
+ {
+  "start_ms": 3570,
+  "end_ms": 4590,
+  "action": "pistol-duck-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 4590,
+  "end_ms": 4692,
+  "action": "pistol-duck-loaded-prepare",
+  "keys": [
+   40
+  ]
+ },
+ {
+  "start_ms": 4692,
+  "end_ms": 4896,
+  "action": "pistol-duck-loaded-fire",
+  "keys": [
+   40,
+   18
+  ]
+ },
+ {
+  "start_ms": 4896,
+  "end_ms": 6426,
+  "action": "pistol-duck-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 6426,
+  "end_ms": 6528,
+  "action": "pistol-air-loaded-select",
+  "keys": [
+   49
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 49
+  }
+ },
+ {
+  "start_ms": 6528,
+  "end_ms": 7548,
+  "action": "pistol-air-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 7548,
+  "end_ms": 7650,
+  "action": "pistol-air-loaded-prepare",
+  "keys": [
+   32
+  ]
+ },
+ {
+  "start_ms": 7650,
+  "end_ms": 7854,
+  "action": "pistol-air-loaded-fire",
+  "keys": [
+   32,
+   18
+  ]
+ },
+ {
+  "start_ms": 7854,
+  "end_ms": 9384,
+  "action": "pistol-air-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 9384,
+  "end_ms": 9486,
+  "action": "magic-stand-loaded-select",
+  "keys": [
+   50
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 50
+  }
+ },
+ {
+  "start_ms": 9486,
+  "end_ms": 10506,
+  "action": "magic-stand-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 10506,
+  "end_ms": 10608,
+  "action": "magic-stand-loaded-prepare",
+  "keys": []
+ },
+ {
+  "start_ms": 10608,
+  "end_ms": 10812,
+  "action": "magic-stand-loaded-fire",
+  "keys": [
+   18
+  ]
+ },
+ {
+  "start_ms": 10812,
+  "end_ms": 12342,
+  "action": "magic-stand-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 12342,
+  "end_ms": 12444,
+  "action": "magic-duck-loaded-select",
+  "keys": [
+   50
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 50
+  }
+ },
+ {
+  "start_ms": 12444,
+  "end_ms": 13464,
+  "action": "magic-duck-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 13464,
+  "end_ms": 13566,
+  "action": "magic-duck-loaded-prepare",
+  "keys": [
+   40
+  ]
+ },
+ {
+  "start_ms": 13566,
+  "end_ms": 13770,
+  "action": "magic-duck-loaded-fire",
+  "keys": [
+   40,
+   18
+  ]
+ },
+ {
+  "start_ms": 13770,
+  "end_ms": 15300,
+  "action": "magic-duck-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 15300,
+  "end_ms": 15402,
+  "action": "magic-air-loaded-select",
+  "keys": [
+   50
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 50
+  }
+ },
+ {
+  "start_ms": 15402,
+  "end_ms": 16422,
+  "action": "magic-air-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 16422,
+  "end_ms": 16524,
+  "action": "magic-air-loaded-prepare",
+  "keys": [
+   32
+  ]
+ },
+ {
+  "start_ms": 16524,
+  "end_ms": 16728,
+  "action": "magic-air-loaded-fire",
+  "keys": [
+   32,
+   18
+  ]
+ },
+ {
+  "start_ms": 16728,
+  "end_ms": 18258,
+  "action": "magic-air-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 18258,
+  "end_ms": 18360,
+  "action": "dynamite-stand-loaded-select",
+  "keys": [
+   51
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 51
+  }
+ },
+ {
+  "start_ms": 18360,
+  "end_ms": 19380,
+  "action": "dynamite-stand-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 19380,
+  "end_ms": 19482,
+  "action": "dynamite-stand-loaded-prepare",
+  "keys": []
+ },
+ {
+  "start_ms": 19482,
+  "end_ms": 20094,
+  "action": "dynamite-stand-loaded-fire",
+  "keys": [
+   18
+  ]
+ },
+ {
+  "start_ms": 20094,
+  "end_ms": 21624,
+  "action": "dynamite-stand-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 21624,
+  "end_ms": 21726,
+  "action": "dynamite-duck-loaded-select",
+  "keys": [
+   51
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 51
+  }
+ },
+ {
+  "start_ms": 21726,
+  "end_ms": 22746,
+  "action": "dynamite-duck-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 22746,
+  "end_ms": 22848,
+  "action": "dynamite-duck-loaded-prepare",
+  "keys": [
+   40
+  ]
+ },
+ {
+  "start_ms": 22848,
+  "end_ms": 23460,
+  "action": "dynamite-duck-loaded-fire",
+  "keys": [
+   40,
+   18
+  ]
+ },
+ {
+  "start_ms": 23460,
+  "end_ms": 24990,
+  "action": "dynamite-duck-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 24990,
+  "end_ms": 25092,
+  "action": "dynamite-air-loaded-select",
+  "keys": [
+   51
+  ],
+  "diagnostic": {
+   "ammo": 3,
+   "key": 51
+  }
+ },
+ {
+  "start_ms": 25092,
+  "end_ms": 26112,
+  "action": "dynamite-air-loaded-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 26112,
+  "end_ms": 26214,
+  "action": "dynamite-air-loaded-prepare",
+  "keys": [
+   32
+  ]
+ },
+ {
+  "start_ms": 26214,
+  "end_ms": 26826,
+  "action": "dynamite-air-loaded-fire",
+  "keys": [
+   32,
+   18
+  ]
+ },
+ {
+  "start_ms": 26826,
+  "end_ms": 28356,
+  "action": "dynamite-air-loaded-release",
+  "keys": []
+ },
+ {
+  "start_ms": 28356,
+  "end_ms": 28458,
+  "action": "pistol-stand-empty-select",
+  "keys": [
+   49
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 49
+  }
+ },
+ {
+  "start_ms": 28458,
+  "end_ms": 29478,
+  "action": "pistol-stand-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 29478,
+  "end_ms": 29580,
+  "action": "pistol-stand-empty-prepare",
+  "keys": []
+ },
+ {
+  "start_ms": 29580,
+  "end_ms": 29784,
+  "action": "pistol-stand-empty-fire",
+  "keys": [
+   18
+  ]
+ },
+ {
+  "start_ms": 29784,
+  "end_ms": 31314,
+  "action": "pistol-stand-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 31314,
+  "end_ms": 31416,
+  "action": "pistol-duck-empty-select",
+  "keys": [
+   49
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 49
+  }
+ },
+ {
+  "start_ms": 31416,
+  "end_ms": 32436,
+  "action": "pistol-duck-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 32436,
+  "end_ms": 32538,
+  "action": "pistol-duck-empty-prepare",
+  "keys": [
+   40
+  ]
+ },
+ {
+  "start_ms": 32538,
+  "end_ms": 32742,
+  "action": "pistol-duck-empty-fire",
+  "keys": [
+   40,
+   18
+  ]
+ },
+ {
+  "start_ms": 32742,
+  "end_ms": 34272,
+  "action": "pistol-duck-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 34272,
+  "end_ms": 34374,
+  "action": "pistol-air-empty-select",
+  "keys": [
+   49
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 49
+  }
+ },
+ {
+  "start_ms": 34374,
+  "end_ms": 35394,
+  "action": "pistol-air-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 35394,
+  "end_ms": 35496,
+  "action": "pistol-air-empty-prepare",
+  "keys": [
+   32
+  ]
+ },
+ {
+  "start_ms": 35496,
+  "end_ms": 35700,
+  "action": "pistol-air-empty-fire",
+  "keys": [
+   32,
+   18
+  ]
+ },
+ {
+  "start_ms": 35700,
+  "end_ms": 37230,
+  "action": "pistol-air-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 37230,
+  "end_ms": 37332,
+  "action": "magic-stand-empty-select",
+  "keys": [
+   50
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 50
+  }
+ },
+ {
+  "start_ms": 37332,
+  "end_ms": 38352,
+  "action": "magic-stand-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 38352,
+  "end_ms": 38454,
+  "action": "magic-stand-empty-prepare",
+  "keys": []
+ },
+ {
+  "start_ms": 38454,
+  "end_ms": 38658,
+  "action": "magic-stand-empty-fire",
+  "keys": [
+   18
+  ]
+ },
+ {
+  "start_ms": 38658,
+  "end_ms": 40188,
+  "action": "magic-stand-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 40188,
+  "end_ms": 40290,
+  "action": "magic-duck-empty-select",
+  "keys": [
+   50
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 50
+  }
+ },
+ {
+  "start_ms": 40290,
+  "end_ms": 41310,
+  "action": "magic-duck-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 41310,
+  "end_ms": 41412,
+  "action": "magic-duck-empty-prepare",
+  "keys": [
+   40
+  ]
+ },
+ {
+  "start_ms": 41412,
+  "end_ms": 41616,
+  "action": "magic-duck-empty-fire",
+  "keys": [
+   40,
+   18
+  ]
+ },
+ {
+  "start_ms": 41616,
+  "end_ms": 43146,
+  "action": "magic-duck-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 43146,
+  "end_ms": 43248,
+  "action": "magic-air-empty-select",
+  "keys": [
+   50
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 50
+  }
+ },
+ {
+  "start_ms": 43248,
+  "end_ms": 44268,
+  "action": "magic-air-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 44268,
+  "end_ms": 44370,
+  "action": "magic-air-empty-prepare",
+  "keys": [
+   32
+  ]
+ },
+ {
+  "start_ms": 44370,
+  "end_ms": 44574,
+  "action": "magic-air-empty-fire",
+  "keys": [
+   32,
+   18
+  ]
+ },
+ {
+  "start_ms": 44574,
+  "end_ms": 46104,
+  "action": "magic-air-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 46104,
+  "end_ms": 46206,
+  "action": "dynamite-stand-empty-select",
+  "keys": [
+   51
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 51
+  }
+ },
+ {
+  "start_ms": 46206,
+  "end_ms": 47226,
+  "action": "dynamite-stand-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 47226,
+  "end_ms": 47328,
+  "action": "dynamite-stand-empty-prepare",
+  "keys": []
+ },
+ {
+  "start_ms": 47328,
+  "end_ms": 47940,
+  "action": "dynamite-stand-empty-fire",
+  "keys": [
+   18
+  ]
+ },
+ {
+  "start_ms": 47940,
+  "end_ms": 49470,
+  "action": "dynamite-stand-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 49470,
+  "end_ms": 49572,
+  "action": "dynamite-duck-empty-select",
+  "keys": [
+   51
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 51
+  }
+ },
+ {
+  "start_ms": 49572,
+  "end_ms": 50592,
+  "action": "dynamite-duck-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 50592,
+  "end_ms": 50694,
+  "action": "dynamite-duck-empty-prepare",
+  "keys": [
+   40
+  ]
+ },
+ {
+  "start_ms": 50694,
+  "end_ms": 51306,
+  "action": "dynamite-duck-empty-fire",
+  "keys": [
+   40,
+   18
+  ]
+ },
+ {
+  "start_ms": 51306,
+  "end_ms": 52836,
+  "action": "dynamite-duck-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 52836,
+  "end_ms": 52938,
+  "action": "dynamite-air-empty-select",
+  "keys": [
+   51
+  ],
+  "diagnostic": {
+   "ammo": 0,
+   "key": 51
+  }
+ },
+ {
+  "start_ms": 52938,
+  "end_ms": 53958,
+  "action": "dynamite-air-empty-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 53958,
+  "end_ms": 54060,
+  "action": "dynamite-air-empty-prepare",
+  "keys": [
+   32
+  ]
+ },
+ {
+  "start_ms": 54060,
+  "end_ms": 54672,
+  "action": "dynamite-air-empty-fire",
+  "keys": [
+   32,
+   18
+  ]
+ },
+ {
+  "start_ms": 54672,
+  "end_ms": 56202,
+  "action": "dynamite-air-empty-release",
+  "keys": []
+ },
+ {
+  "start_ms": 56202,
+  "end_ms": 56406,
+  "action": "ghost-activate",
+  "keys": [],
+  "diagnostic": {
+   "command": 32909
+  }
+ },
+ {
+  "start_ms": 56406,
+  "end_ms": 56610,
+  "action": "ghost-active",
+  "keys": []
+ },
+ {
+  "start_ms": 56610,
+  "end_ms": 56780,
+  "action": "ghost-expiry",
+  "keys": [],
+  "diagnostic": {
+   "remaining_ms": 68
+  }
+ },
+ {
+  "start_ms": 56780,
+  "end_ms": 56984,
+  "action": "ghost-expired",
+  "keys": []
+ },
+ {
+  "start_ms": 56984,
+  "end_ms": 57188,
+  "action": "invulnerable-activate",
+  "keys": [],
+  "diagnostic": {
+   "command": 32910
+  }
+ },
+ {
+  "start_ms": 57188,
+  "end_ms": 57392,
+  "action": "invulnerable-active",
+  "keys": []
+ },
+ {
+  "start_ms": 57392,
+  "end_ms": 57562,
+  "action": "invulnerable-expiry",
+  "keys": [],
+  "diagnostic": {
+   "remaining_ms": 68
+  }
+ },
+ {
+  "start_ms": 57562,
+  "end_ms": 57766,
+  "action": "invulnerable-expired",
+  "keys": []
+ },
+ {
+  "start_ms": 57766,
+  "end_ms": 57970,
+  "action": "ice-activate",
+  "keys": [],
+  "diagnostic": {
+   "command": 32913
+  }
+ },
+ {
+  "start_ms": 57970,
+  "end_ms": 58174,
+  "action": "ice-active",
+  "keys": []
+ },
+ {
+  "start_ms": 58174,
+  "end_ms": 58344,
+  "action": "ice-expiry",
+  "keys": [],
+  "diagnostic": {
+   "remaining_ms": 68
+  }
+ },
+ {
+  "start_ms": 58344,
+  "end_ms": 58548,
+  "action": "ice-expired",
+  "keys": []
+ },
+ {
+  "start_ms": 58548,
+  "end_ms": 58752,
+  "action": "fire-activate",
+  "keys": [],
+  "diagnostic": {
+   "command": 32914
+  }
+ },
+ {
+  "start_ms": 58752,
+  "end_ms": 58956,
+  "action": "fire-active",
+  "keys": []
+ },
+ {
+  "start_ms": 58956,
+  "end_ms": 59126,
+  "action": "fire-expiry",
+  "keys": [],
+  "diagnostic": {
+   "remaining_ms": 68
+  }
+ },
+ {
+  "start_ms": 59126,
+  "end_ms": 59330,
+  "action": "fire-expired",
+  "keys": []
+ },
+ {
+  "start_ms": 59330,
+  "end_ms": 59534,
+  "action": "lightning-activate",
+  "keys": [],
+  "diagnostic": {
+   "command": 32915
+  }
+ },
+ {
+  "start_ms": 59534,
+  "end_ms": 59738,
+  "action": "lightning-active",
+  "keys": []
+ },
+ {
+  "start_ms": 59738,
+  "end_ms": 59908,
+  "action": "lightning-expiry",
+  "keys": [],
+  "diagnostic": {
+   "remaining_ms": 68
+  }
+ },
+ {
+  "start_ms": 59908,
+  "end_ms": 60112,
+  "action": "lightning-expired",
+  "keys": []
+ },
+ {
+  "start_ms": 60112,
+  "end_ms": 60622,
+  "action": "lift-approach",
+  "keys": [],
+  "set_x": 826,
+  "set_y": 4216
+ },
+ {
+  "start_ms": 60622,
+  "end_ms": 61132,
+  "action": "lift",
+  "keys": [
+   90
+  ]
+ },
+ {
+  "start_ms": 61132,
+  "end_ms": 61642,
+  "action": "carry",
+  "keys": [
+   39
+  ]
+ },
+ {
+  "start_ms": 61642,
+  "end_ms": 61846,
+  "action": "throw",
+  "keys": [
+   17
+  ]
+ },
+ {
+  "start_ms": 61846,
+  "end_ms": 62356,
+  "action": "throw-release",
+  "keys": []
+ },
+ {
+  "start_ms": 62356,
+  "end_ms": 63886,
+  "action": "melee-ready",
+  "keys": []
+ },
+ {
+  "start_ms": 63886,
+  "end_ms": 64090,
+  "action": "melee-approach",
+  "keys": [],
+  "diagnostic": {
+   "near_target": 35
+  }
+ },
+ {
+  "start_ms": 64090,
+  "end_ms": 64600,
+  "action": "melee",
+  "keys": [
+   17
+  ]
+ },
+ {
+  "start_ms": 64600,
+  "end_ms": 65110,
+  "action": "melee-release",
+  "keys": []
+ },
+ {
+  "start_ms": 65110,
+  "end_ms": 65314,
+  "action": "hud-low",
+  "keys": [],
+  "diagnostic": {
+   "health": 7,
+   "lives": 2,
+   "score": 1234567
+  }
+ },
+ {
+  "start_ms": 65314,
+  "end_ms": 65518,
+  "action": "hud-high",
+  "keys": [],
+  "diagnostic": {
+   "health": 99,
+   "lives": 12,
+   "score": 99999999
+  }
+ },
+ {
+  "start_ms": 65518,
+  "end_ms": 68867,
+  "action": "tail",
+  "keys": []
+ }
+]

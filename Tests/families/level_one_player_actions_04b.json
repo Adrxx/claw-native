@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "level_one_player_actions_04b",
+  "title": "Observed Level 1 player actions batch 4b x87 returners",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOnePlayerActions04bRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x420af0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "x87",
+      "confidence": "declared",
+      "x87_result": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    {
+      "address": "0x420b60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "x87",
+      "confidence": "declared",
+      "x87_result": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    {
+      "address": "0x420dd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "x87",
+      "confidence": "declared",
+      "x87_result": {
+        "pop": 0,
+        "push": 1
+      }
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_player_actions_04b.cases.py",
+    "entry": "claw_level_one_player_actions_04b_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2765346999,
+      "cases": 525,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.93,
+      "reasons": [],
+      "build_inputs_sha256": "01aeec43bf24bd5cd5221cb1b6361b13b08f30f7dbe7adbd451215443f758014"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

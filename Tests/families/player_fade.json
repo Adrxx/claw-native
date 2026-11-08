@@ -1,0 +1,399 @@
+{
+  "schema": 1,
+  "id": "player_fade",
+  "title": "Original player fade factory, runner and circular rendering",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PlayerFadeCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42d420",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42d440",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48fae0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48fbe0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8960",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c61d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ebf80",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec050",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec600",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec8d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec920",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec990",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec9c0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecb00",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecb20",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecb30",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecbc0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed5e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed600",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed620",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed670",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed800",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee170",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee6b0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee820",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee860",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The release fixture pairs with operator new."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original random generator obtains thread-local state through physical imports."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical multimedia clock import; cases control elapsed time and wraparound."
+    },
+    "0x546a24": {
+      "kind": "fixture",
+      "name": "GetTickCount",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical system clock import; cases supply terminating tick sequences."
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical USER32 import; the POINT argument occupies two stack words."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical string-length import reached by original CString constructors on factory error paths."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic decrement import reached by original CString destruction."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic increment import reached by original CString copying."
+    },
+    "0x4f1b30": {
+      "kind": "whole",
+      "name": "original x87 power",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 2,
+        "push": 1
+      }
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "original x87 integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/player_fade.cases.py",
+    "entry": "claw_player_fade_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4ec0c6",
+        "end": "0x4ec0c8",
+        "reason": "Source-reviewed allocation-null arm: clears ESI then unconditionally calls owned 0x4ecb00 with ECX=0; its store at 0x4ecb08 dereferences 0x24. No returning execution exists with the unmapped null page. The returning comparison domain excludes this intrinsic fault, not any successful factory kind."
+      },
+      {
+        "start": "0x4ec323",
+        "end": "0x4ec325",
+        "reason": "Source-reviewed allocation-null arm: clears ESI then unconditionally calls owned 0x4ecb00 with ECX=0; its store at 0x4ecb08 dereferences 0x24. No returning execution exists with the unmapped null page. The returning comparison domain excludes this intrinsic fault, not any successful factory kind."
+      },
+      {
+        "start": "0x4ec41b",
+        "end": "0x4ec41d",
+        "reason": "Source-reviewed allocation-null arm: clears ESI then unconditionally calls owned 0x4ecb00 with ECX=0; its store at 0x4ecb08 dereferences 0x24. No returning execution exists with the unmapped null page. The returning comparison domain excludes this intrinsic fault, not any successful factory kind."
+      },
+      {
+        "start": "0x4ec523",
+        "end": "0x4ec525",
+        "reason": "Source-reviewed allocation-null arm: clears ESI then unconditionally calls owned 0x4ecb00 with ECX=0; its store at 0x4ecb08 dereferences 0x24. No returning execution exists with the unmapped null page. The returning comparison domain excludes this intrinsic fault, not any successful factory kind."
+      },
+      {
+        "start": "0x4ec179",
+        "end": "0x4ec194",
+        "reason": "Source-reviewed count=-1 wrap arm: new count becomes zero, any old list is freed, manager list/count/capacity become zero, then 0x4ec282 reloads the null list and 0x4ec289 writes at list + (-1)*4 = 0xfffffffc. This malformed-list path cannot return in the bounded valid-object domain."
+      },
+      {
+        "start": "0x4ec54e",
+        "end": "0x4ec596",
+        "reason": "Source-reviewed kind-3 null-init arm: original default constructor 0x4ecc30 clears init+0x10 and init+0x14; initializer 0x4ecd00 then takes the absent-table branch and at 0x4ecd3b reads palette+0xc through init+0x10=0. It faults before returning to 0x4ec563, so the entire default-init branch has no returning execution. Supplied kind-3 init and every factory kind remain covered."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 530304503,
+      "cases": 341,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "459c30d404047c19a841257e7db3b8e4975f912a15e903a001fd8ffaeb6fbef1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new: The C runtime heap ends in operating-system calls.",
+    "operator delete: The release fixture pairs with operator new.",
+    "malloc: The C runtime heap ends in operating-system calls.",
+    "rand: The original random generator obtains thread-local state through physical imports.",
+    "timeGetTime: Physical multimedia clock import; cases control elapsed time and wraparound.",
+    "GetTickCount: Physical system clock import; cases supply terminating tick sequences.",
+    "PtInRect: Physical USER32 import; the POINT argument occupies two stack words.",
+    "lstrlenA: Physical string-length import reached by original CString constructors on factory error paths.",
+    "InterlockedDecrement: Physical atomic decrement import reached by original CString destruction.",
+    "InterlockedIncrement: Physical atomic increment import reached by original CString copying."
+  ],
+  "notes": "All 26 previously declared game owners are retained, including menu wait 0x4b8960, every factory kind and positive circular gradients. Original power and integer-conversion bodies remain executable dependencies; finite owned arithmetic follows the startup 53-bit nearest-rounding profile. Legacy source and tests remain separate historical artifacts."
+}

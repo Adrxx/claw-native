@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "id": "scene_actor",
+  "title": "Original scene actor creation and scheduling",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SceneActorCanonical.cpp"
+  ],
+  "docs": [
+    "docs/scene-actor-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4c8be0",
+      "name": "Scene::createActor",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8da0",
+      "name": "Scene::createNamedActor",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8fc0",
+      "name": "Scene::updateActors",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9320",
+      "name": "Scene::insertActor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46ace0",
+      "name": "Stage::runFrame",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46ad70",
+      "name": "Stage::runSubsteps",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9860",
+      "name": "ActorService::elapseTimer",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with operator new."
+    },
+    "0x4a35f0": {
+      "kind": "fixture",
+      "name": "atexit",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The process-exit registry depends on CRT startup, TLS locks and the operating-system heap; native hosts own shutdown."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The clock is provided by each case."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The host keyboard state is outside game code."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The host desktop dimensions are outside game code."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "The host cursor is outside game code."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The host cursor is outside game code; failed reads preserve case memory."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The host joystick state is outside game code; case memory supplies the input."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "Window message delivery is outside game code."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/scene_actor.cases.py",
+    "entry": "claw_scene_actor_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c8c93",
+        "end": "0x4c8c95",
+        "reason": "A zero service allocation is stored in actor+0x6c at 0x4c8c95. The pinned generic initializer 0x4c9d40 enters 0x4c7df0, loads this null receiver at 0x4c7e0b and dereferences it at 0x4c7e8b before return. Guest null faults are outside returning cases; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4c8cf9",
+        "end": "0x4c8cfe",
+        "reason": "A zero actor allocation selects ESI=0 here and unconditionally dereferences [ESI] at 0x4c8d02 before initialization or normal return. Guest null faults are outside returning cases; no successful null allocation return is claimed."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1199001735,
+      "cases": 79,
+      "mutants_killed": 34,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.919,
+      "reasons": [],
+      "build_inputs_sha256": "eba4081a29a3a7001e66d3ca4be961ba3f57b3ab408e261974065851fe7720f2"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The C runtime heap ends in operating-system calls.",
+    "Pairs with operator new.",
+    "The process-exit registry depends on CRT startup, TLS locks and the operating-system heap; native hosts own shutdown.",
+    "The clock is provided by each case.",
+    "The host keyboard state is outside game code.",
+    "The host desktop dimensions are outside game code.",
+    "The host cursor is outside game code.",
+    "The host cursor is outside game code; failed reads preserve case memory.",
+    "The host joystick state is outside game code; case memory supplies the input.",
+    "Window message delivery is outside game code."
+  ],
+  "notes": "Canonical raw-memory surface covers seven game entries; the existing legacy API sources remain for current native consumers. World-object constructor 0x4c98c0 belongs to world_object and is not re-owned here."
+}

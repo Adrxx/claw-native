@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "id": "level_three_batch_cutthroat_01",
+  "title": "Level 3 cutthroat closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelThreeBatchCutthroat01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x437a90",
+      "name": "CutThroat::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x438010",
+      "name": "CutThroat::scalarDeletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x438030",
+      "name": "CutThroat::destruct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x438100",
+      "name": "CutThroat::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x4384f0",
+      "name": "CutThroat::enterIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4385b0",
+      "name": "CutThroat::updateIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4386d0",
+      "name": "CutThroat::updateHome",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4388a0",
+      "name": "CutThroat::tryFire",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x438900",
+      "name": "CutThroat::enterFiring",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x438a90",
+      "name": "CutThroat::updateFiring",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1,
+      "reason": "The constructor supplies one binary64-representable x87 product; execute the original conversion and compare its operand."
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "captureCallerReturnPC",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "The dispatcher can use source transport to preserve original call continuations on table-allocation failure; the original callee still executes."
+    },
+    "0x4db6e0": {
+      "kind": "whole",
+      "name": "growDispatchTable",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "The dispatcher can use source transport to preserve original call continuations on table-allocation failure; the original callee still executes."
+    },
+    "0x4db4d0": {
+      "kind": "whole",
+      "name": "reportContainerError",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "The dispatcher can use source transport to preserve original call continuations on table-allocation failure; the original callee still executes."
+    },
+    "0x44c840": {
+      "kind": "whole",
+      "name": "dispatchBaseState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "The dispatcher can use source transport to preserve original call continuations on table-allocation failure; the original callee still executes."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "USER32 import; four direct constructor calls and inherited rectangle initialization write all four rectangle coordinates."
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "USER32 import reached unconditionally through the original base constructor; writes a zero rectangle."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "KERNEL32 import reached when a destructed CString does not use the shared empty buffer; cases decrement the pointed reference count and return it."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_three_batch_cutthroat_01.cases.py",
+    "entry": "claw_level_three_batch_cutthroat_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x437aff",
+        "end": "0x437b08",
+        "reason": "Original base constructor unconditionally sets bit 9 at 0x44c224 via 0x420fc0; successful growth rounds count to at least 32, so the owned count <=8 arm cannot execute. Failed growth faults in 0x4dc680 before returning."
+      },
+      {
+        "start": "0x438155",
+        "end": "0x438183",
+        "reason": "Original 0x4db6e0 stores failed realloc result zero in EBP at 0x4db70b or 0x4db77f, then calls 0x4dc680 which reads [EBP+4] and faults. Original-only failure cases confirm no normal zero return can reach this owned arm."
+      },
+      {
+        "start": "0x43819e",
+        "end": "0x4381b5",
+        "reason": "The first range lookup either validates the state or grows bounds to contain it. Between the first and repeated range comparisons there is no call or write to the state or range bounds, so the repeated out-of-range arm cannot execute after normal first lookup."
+      },
+      {
+        "start": "0x4381cf",
+        "end": "0x438202",
+        "reason": "The repeated out-of-range arm is unreachable after normal first lookup; additionally original 0x4db6e0 failed realloc zeroes EBP then faults reading address 4 in 0x4dc680 before any zero return."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1750829187,
+      "cases": 352,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.957,
+      "reasons": [],
+      "build_inputs_sha256": "0b315bdd84aa74e60a897b2869ba5c3adf048cc695704909f8ec9b744ce7155c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect and SetRectEmpty are memory-writing stand-ins for USER32 rectangle services.",
+    "InterlockedDecrement is a scripted reference-count update; no concurrent threads execute.",
+    "The allocation-failure dispatcher paths require an optional physical source context to preserve original return-address diagnostics."
+  ],
+  "notes": "Boundary reviewed against the ten seed disassemblies. All entries use ECX receivers. Game callees execute unchanged; __ftol retains its x87 operand and dispatcher diagnostics retain original call continuations. See the local packet NOTES.md for layouts, branch conditions and transitive import guards."
+}

@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "id": "example_surface_flip",
+  "title": "Vertical flip of a surface (reference example of a canonical family)",
+  "abi": "canonical",
+  "sources": ["Tests/clawparity/examples/surface_flip/SurfaceFlip.cpp"],
+  "owned": [
+    {"address": "0x4b99d0", "name": "Surface::flipVertical", "convention": "thiscall", "argc": 0, "returns": "void", "confidence": "declared"}
+  ],
+  "callees": {
+    "0x4f63ec": {"kind": "fixture", "name": "operator new", "convention": "cdecl", "argc": 1, "arguments": ["u32"], "returns": "u32", "fixture": "allocate", "reason": "the C runtime heap ends in operating-system calls"},
+    "0x4f6428": {"kind": "fixture", "name": "operator delete", "convention": "cdecl", "argc": 1, "arguments": ["u32"], "returns": "void", "fixture": "release", "reason": "pairs with operator new"}
+  },
+  "oracle": {"kind": "clawparity", "cases": "Tests/clawparity/examples/surface_flip/cases.py", "entry": "claw_example_surface_flip_entry"},
+  "evidence": {"level": "none"},
+  "integration": {"level": "source-only"},
+  "limits": ["DirectDraw Lock and Unlock are stand-ins supplied by each case; no real surface is locked."],
+  "notes": "Kept under Tests/ as the worked example for workers. The app uses Sources/SurfaceTransformRuntime.cpp."
+}

@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "id": "peg_logic",
+  "title": "Original CrumblingPeg and TogglePeg controllers",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PegLogicRuntime.cpp",
+    "Sources/PegLogicRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PegLogicRuntime.cpp": "92b3cefcb88332727eb4144174ba1c38e4088a815449d504a3ae5e31b80b1591",
+    "Sources/PegLogicRuntime.h": "eef1efb7443f3a1b1491b14d8b2a2f27223382fca995e93daea596579d748ba1"
+  },
+  "docs": [
+    "docs/peg-logic-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x49d620",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_peg_logic_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/peg_logic_helpers.py"
+    ],
+    "work_dirs": [
+      "work/original-disc-assets",
+      "work/peg-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-peg-independent.log"
+      ],
+      "worker_evidence": [
+        "work/peg-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_peg_logic_runtime.py": "pass"
+      },
+      "seconds": 6.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1332394965,
+      "owned": 9,
+      "owned_inferred_from_tests": false,
+      "directly_called": 8,
+      "fully_executed": 9,
+      "bytes_owned": 2179,
+      "bytes_executed": 2179,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePegs.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: level_one_batch_pegs_and_elevators_01 (0x49d860, 0x49e470, 0x49e4b0, 0x49e4e0, 0x49e7b0, 0x49e7d0, 0x49e7f0, 0x4ca610). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

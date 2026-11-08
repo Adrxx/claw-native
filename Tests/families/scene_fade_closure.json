@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "id": "scene_fade_closure",
+  "title": "Level 1 closure: player fade helpers and fade blend",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SceneFadeClosureRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4ec720",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec900",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecc30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecc60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecc90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4eccb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecd00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecef0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecf10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x423f10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7650",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c76b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "original float to integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      },
+      "returns": "u32"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/scene_fade_closure.cases.py",
+    "entry": "claw_scene_fade_closure_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 272005076,
+      "cases": 317,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.929,
+      "reasons": [],
+      "build_inputs_sha256": "32ef5eeb79a6d0812603eb64ce66ca3d21317585297f7fa776f2b1cd0d461009"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly. Platform code recovered because: Coordinator decision 2026-10-22: game code in game ranges, recover"
+}

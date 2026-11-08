@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "id": "level_fourteen_omar_core_01",
+  "title": "Level 14 Omar core supported surface",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelFourteenOmarCore01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x463a30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x463a50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x463b40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x463fd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4640b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4642b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x464360",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x464500",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle service is replaced by the declared physical rectangle fixture"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 rectangle service is replaced by the declared physical rectangle fixture"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic decrement is a physical service; cases decrement the pointed signed refcount and return the resulting raw word"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_fourteen_omar_core_01.cases.py",
+    "entry": "claw_level_fourteen_omar_core_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x463b95",
+        "end": "0x463bc3",
+        "reason": "Original checked with realloc returning zero: 0x4db6e0 writes EBP=0 and calls 0x4dc680, which faults reading [EBP+4] before returning to this continuation. Retained original probe: work/packets/level_fourteen_omar_core_01/cases-check-3-original-fault.log."
+      },
+      {
+        "start": "0x463bde",
+        "end": "0x463bf5",
+        "reason": "Original successful low/high table growth checked by growing dispatch -6/6 cases. 0x4db6e0 writes minimum at 0x4db757 or maximum at 0x4db7dc to include the same state. The second bounds comparison follows without an intervening call or state/bounds write, so it cannot differ from the successful first lookup on a coherent valid table."
+      },
+      {
+        "start": "0x463c0f",
+        "end": "0x463c42",
+        "reason": "Second growth cannot be reached after first successful lookup: unchanged state and bounds already include it. Additionally, original zero realloc faults at 0x4dc680 before any failure return (retained cases-check-3-original-fault.log); this failure continuation cannot execute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2824365605,
+      "cases": 166,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.952,
+      "reasons": [],
+      "build_inputs_sha256": "51b9a71f79484c111d0ec3065cf2e61a4c0e2b227efa9adeadbe1eae54aa9ea6"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect writes the requested four coordinates through the set-rect fixture.",
+    "SetRectEmpty clears the rectangle through the set-rect-empty fixture.",
+    "InterlockedDecrement is the scripted physical atomic decrement service on CString reference counts."
+  ],
+  "notes": "Boundary reviewed against original instruction bodies. The constructor 0x463460 and ring functions 0x464010/0x464110 wait for exact FSIN/FCOS harness support and remain outside this supported-surface family."
+}

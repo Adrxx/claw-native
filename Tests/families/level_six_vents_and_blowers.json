@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "id": "level_six_vents_and_blowers",
+  "title": "Level 6 vents and blowers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelSixVentsAndBlowersRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4486e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x448850",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x448b00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x448b50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x448e30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4490e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449270",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4492c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service; cases provide rectangle semantics and record pointer operands"
+    },
+    "0x546d4c": {
+      "kind": "fixture",
+      "name": "IsRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service; cases provide rectangle semantics and record pointer operands"
+    },
+    "0x546ce0": {
+      "kind": "fixture",
+      "name": "IntersectRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "out:16",
+        "ptr:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service; cases provide rectangle semantics and record pointer operands"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Win32 mapped-memory readability service reached by original RTTI for null state-table callback"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_six_vents_and_blowers.cases.py",
+    "entry": "claw_level_six_vents_and_blowers_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4488a5",
+        "end": "0x4488d3",
+        "reason": "Original table-growth failure cannot return to this continuation: 0x4db6e0 places a null realloc result in EBP (0x4db70b or 0x4db77f), calls 0x4dc680 at 0x4db788, and faults reading [EBP+4]. Verified instruction bytes against hash-checked CLAW.EXE and reproduced first/second growth failure for both dispatchers with original-only cases-check; each faults at address 0x4 from instruction 0x4dc680."
+      },
+      {
+        "start": "0x44891f",
+        "end": "0x448952",
+        "reason": "Original table-growth failure cannot return to this continuation: 0x4db6e0 places a null realloc result in EBP (0x4db70b or 0x4db77f), calls 0x4dc680 at 0x4db788, and faults reading [EBP+4]. Verified instruction bytes against hash-checked CLAW.EXE and reproduced first/second growth failure for both dispatchers with original-only cases-check; each faults at address 0x4 from instruction 0x4dc680."
+      },
+      {
+        "start": "0x448e85",
+        "end": "0x448eb3",
+        "reason": "Original table-growth failure cannot return to this continuation: 0x4db6e0 places a null realloc result in EBP (0x4db70b or 0x4db77f), calls 0x4dc680 at 0x4db788, and faults reading [EBP+4]. Verified instruction bytes against hash-checked CLAW.EXE and reproduced first/second growth failure for both dispatchers with original-only cases-check; each faults at address 0x4 from instruction 0x4dc680."
+      },
+      {
+        "start": "0x448eff",
+        "end": "0x448f32",
+        "reason": "Original table-growth failure cannot return to this continuation: 0x4db6e0 places a null realloc result in EBP (0x4db70b or 0x4db77f), calls 0x4dc680 at 0x4db788, and faults reading [EBP+4]. Verified instruction bytes against hash-checked CLAW.EXE and reproduced first/second growth failure for both dispatchers with original-only cases-check; each faults at address 0x4 from instruction 0x4dc680."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2803810915,
+      "cases": 277,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.907,
+      "reasons": [],
+      "build_inputs_sha256": "2f53477ac89e4209affbea7c2a452c3c8489daa5d0dc51f8597975f27f69cf28"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "CopyRect is a declared scripted Win32 rectangle stand-in.",
+    "IsRectEmpty is a declared scripted Win32 rectangle stand-in.",
+    "IntersectRect is a declared scripted Win32 rectangle stand-in.",
+    "IsBadReadPtr queries the fixture mapped-memory model on original RTTI paths."
+  ],
+  "notes": "Boundary checked against original disassembly. Constructors use ordinary thiscall and return the receiver; normal-path SEH scaffolding carries no game operands. Rectangle imports are declared scripted platform services."
+}

@@ -1,0 +1,273 @@
+{
+  "schema": 1,
+  "id": "pause_menu_commands",
+  "title": "Pause menu command callback and dispatcher",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PauseMenuCommandsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4505f0",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x450b50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x450e00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x450ed0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x451230",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x451410",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x451530",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x451660",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x451210",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4519f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4526f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42cdf0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 import; cases control the operating-system result."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service: write left, top, right, bottom in argument order and return nonzero."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported Win32 rectangle copy is supplied by cases"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pause_menu_commands.cases.py",
+    "entry": "claw_pause_menu_commands_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3109995977,
+      "cases": 457,
+      "mutants_killed": 35,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.946,
+      "reasons": [],
+      "build_inputs_sha256": "8b5015f69088dd9b800e1270c29174aaaaf7632d0334eaa79912d2412a612fb0"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "PostMessageA is scripted; cases control the result.",
+    "SetRect is scripted; cases control the result.",
+    "CopyRect is scripted; cases control the result.",
+    "lstrlenA is scripted; cases control the result.",
+    "InterlockedDecrement is scripted; cases control the result.",
+    "InterlockedIncrement is scripted; cases control the result."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

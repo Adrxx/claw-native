@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "id": "breakable_object",
+  "title": "Original breakable-object routines",
+  "abi": "legacy",
+  "sources": [
+    "Sources/BreakableObjectRuntime.cpp",
+    "Sources/BreakableObjectRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/BreakableObjectRuntime.cpp": "0fd4f781f9d2c76aff1465785ac72adcab2df5b957706757e6376462a61d48d4",
+    "Sources/BreakableObjectRuntime.h": "f6434062985c5a51b9734aa09507dfa8f21c4e9e15e2b5c5a75bc6da1296452b"
+  },
+  "docs": [
+    "docs/breakable-object-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_breakable_object_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/breakable_object_level1_helpers.py",
+      "Tests/breakable_object_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/breakable-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-breakable-independent.log"
+      ],
+      "worker_evidence": [
+        "work/breakable-agent/verification.json",
+        "work/breakable-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_breakable_object_runtime.py": "pass"
+      },
+      "seconds": 10.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-18",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2374492279,
+      "owned": 34,
+      "owned_inferred_from_tests": false,
+      "directly_called": 33,
+      "fully_executed": 27,
+      "bytes_owned": 7702,
+      "bytes_executed": 7391,
+      "coverage": 0.9596
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift",
+      "Sources/ClawNativeSingleCrates.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_batch_crates_01 (0x40f450, 0x40f540, 0x46fa90, 0x46fc20, 0x4717e0, 0x4735b0, 0x473610, 0x48d620); level_one_breakable_tail_targets (0x433f30, 0x433fb0); level_one_closure_breakables_powerups_01 (0x46f5b0, 0x46f5d0, 0x46fbe0, 0x46fc60, 0x46fc90); level_one_loot_breakables_01 (0x433070, 0x433130, 0x4339e0, 0x433a00, 0x433ad0, 0x433ed0, 0x433f70, 0x434050); level_one_loot_breakables_02 (0x434170, 0x434180, 0x46f1e0, 0x46f2a0, 0x46f6a0, 0x471530, 0x471720, 0x471750, 0x48d560, 0x48d6e0, 0x48de40). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

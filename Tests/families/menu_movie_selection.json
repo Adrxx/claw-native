@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "id": "menu_movie_selection",
+  "title": "Menu movie archive availability, eligibility and sequence selection",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuMovieSelectionRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42b5d0",
+      "name": "Application::selectMovieSequence",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c0a0",
+      "name": "Application::movieArchiveAvailable",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c280",
+      "name": "Application::movieEligible",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap release ends in operating-system calls"
+    },
+    "0x4a3b10": {
+      "kind": "fixture",
+      "name": "CRT time",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows wallclock and timezone transport is replaced at this CRT boundary"
+    },
+    "0x4a3040": {
+      "kind": "fixture",
+      "name": "CRT srand",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "the CRT seed operation accesses Windows TLS through 0x4a7dc0"
+    },
+    "0x546a30": {
+      "kind": "fixture",
+      "name": "OpenFile",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x546c7c": {
+      "kind": "fixture",
+      "name": "GetDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x546914": {
+      "kind": "fixture",
+      "name": "GetSystemPaletteEntries",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x546c80": {
+      "kind": "fixture",
+      "name": "ReleaseDC",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the physical Windows service is outside the normal-return movie selection contract"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 string service reached by original CString/movie cleanup."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_movie_selection.cases.py",
+    "entry": "claw_menu_movie_selection_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x42b7fc",
+        "end": "0x42b805",
+        "reason": "Reviewed normal-return invariant: list constructor 0x42d4a0 initializes buffer zero. Failed media initialization enqueues nothing. Successful initialization reaches original 0x4f1490 before this destruction; its count loop calls 0x4f13c0(1), which succeeds while the positive count remains and decrements it. Cleanup frees and zeros media+0x8684 (the same local list+4) at 0x4f14d3. Repeated 0x4f0120 cleanup also leaves it zero. Thus this fallback delete cannot execute without corrupting private automatic state or violating allocator/service contracts; exceptions and arbitrary stack-corrupting callbacks are outside the normal-return domain."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 65,
+        "operator": "shift-offset",
+        "mutant_sha256": "a1148c6e4f7763fcc6af4f346caacd6959c6293b3db55215c195f64c99c90849",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact shift locals+0x30 to +0x34 removes only media+0x14 initialization; the next explicit store still zeros media+0x18. Original 0x4f0000 validates HWND and both surface operands, then writes media+0x14 at 0x4f002a before any physical call or field read. If any validation fails, media+4 remains zero and 0x4f1490/0x4f0120 return without reading +0x14. Missing-descriptor/surface cleanup likewise sees media+4 zero. No input or callback can observe the superseded +0x14 initializer in this normal-return domain."
+      },
+      {
+        "line": 66,
+        "operator": "shift-offset",
+        "mutant_sha256": "7f385df33f0f4241ea8c6cfa6e4b40552c4a24717730f990bc427d04c89857c4",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact shift locals+0x34 to +0x38 removes only media+0x18 initialization; the next explicit store still zeros media+0x1c. Original 0x4f0000 validates HWND and both surface operands, then writes media+0x18 at 0x4f0037 before its first physical call or field read. On failed validation or missing descriptor/surface, media+4 remains zero, so original 0x4f1490/0x4f0120 never read +0x18. No physical callback precedes the overwrite on success."
+      },
+      {
+        "line": 68,
+        "operator": "shift-offset",
+        "mutant_sha256": "ae38539d741893a7e91b239ae499910c19e9f7bba2c4725d89271072f6c2606a",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact shift locals+0x28 to +0x2c removes media+0xc zero and repeats the existing media+0x10 zero. Original 0x4f0000 writes media+0xc=1 at 0x4f0030 before any physical call/read on every path past HWND/surface validation. Paths failing validation or missing descriptor/surface retain media+4=0; both original cleanup functions return before reading +0xc. Thus this initializer is superseded or unused for every permitted normal return."
+      },
+      {
+        "line": 93,
+        "operator": "swap-statements",
+        "mutant_sha256": "852e371402c36df24c1a06373ca711d3c89bd961511bc5d96c0c6c093c10fe18",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact adjacent swap exchanges 0x4f0120(media) and 0x42d4c0(list) only on missing-descriptor/surface cleanup. Fresh media+4=0 makes 0x4f0120 return without writes/calls (0x4f0123..0x4f017d). Fresh list+4=0 makes 0x42d4c0 only write its own vtable twice; there is no allocator call. Disjoint local objects, no service event or dependency, same observable effects; guest EH and post-return automatic residue are outside this ordinary domain."
+      },
+      {
+        "line": 94,
+        "operator": "swap-statements",
+        "mutant_sha256": "db3c9ffc2ee615d766c065b571bd19190785fac3c5ef84b92e1817df4e69659f",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact adjacent swap exchanges 0x42d4c0(list) and 0x4efcd0(archive) on missing-descriptor/surface cleanup. Original constructor 0x42b4b0 sets archive+0=0 at 0x42b4eb and no operation opens it on this path, so 0x4efcd0 returns at 0x4efcf2 without effects. List destructor only changes its disjoint vtable because list+4=0. No service ordering changes; compiler EH/automatic residue is outside the domain."
+      },
+      {
+        "line": 95,
+        "operator": "swap-statements",
+        "mutant_sha256": "49893bbc2811b5ea9532b0e6caf0ab6fc64edbb262026563d22b064ebd7135e2",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact adjacent swap exchanges 0x4efcd0(archive) and 0x4f57f8(array) on missing-descriptor/surface cleanup. Fresh archive+0=0 makes its destructor effect-free. Array constructor 0x4f57c5 zeros its buffer, so its destructor retains the same sole delete(0) physical event and local vtable writes. The two objects are disjoint and neither reads the other; guest exception/compiler frame residue is excluded."
+      },
+      {
+        "line": 96,
+        "operator": "swap-statements",
+        "mutant_sha256": "087b6a9f5f5ef6dd74089b9ea57f21e5d6892c79e87e20338cf77c1d421ed2a6",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact adjacent swap exchanges 0x4f57f8(array) and 0x4f7369(file) on missing-descriptor/surface cleanup. Array buffer is zero, so destructor emits delete(0). File constructor 0x4f72c9 sets handle=-1, owns-handle=0 and CString empty sentinel; original 0x4f7369 skips Close and 0x4f6584 skips refcount/delete for the sentinel. File has no physical events and only its disjoint vtable writes, so delete(0) ordering and all observable state are unchanged. No native guest EH or compiler stack residue claim."
+      },
+      {
+        "line": 96,
+        "operator": "shift-offset",
+        "mutant_sha256": "b2b5d263a3f691a9b0e7b55fdc325a4677e56ba712060a15ad06600bc3113ead",
+        "source_sha256": "22b93e17b48269184129262626704bacaaef547b9bfcd4bc496e2ba5224bea48",
+        "reason": "Exact shift changes only the missing-descriptor/surface array destructor receiver from locals+0x688 to +0x68c. Original array constructor 0x4f57c5 zeros both array+4 and +8; neither is modified before this branch. Both destructor receivers therefore issue the identical delete(0). Its vtable stores move by four bytes inside dead automatic array storage, never read again by the remaining file destructor or caller; file ends before the array. Return, heap, globals, allocations and physical calls agree. Guest EH and post-return automatic stack residue are outside the declared ordinary normal-return domain."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 774825096,
+      "cases": 77,
+      "mutants_killed": 31,
+      "mutants_tried": 48,
+      "mutants_equivalent": 8,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "bd07d4765c81944031d3fdcf2fb7dbed3d6e87a32169f1108b9a83129ee07bbf"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a fixture: the C runtime heap ends in operating-system calls.",
+    "operator delete is a fixture: the C runtime heap release ends in operating-system calls.",
+    "CRT time is a fixture: Windows wallclock and timezone transport is replaced at this CRT boundary.",
+    "CRT srand is a fixture: the CRT seed operation accesses Windows TLS through 0x4a7dc0.",
+    "OpenFile is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "GetDC is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "GetSystemPaletteEntries is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "ReleaseDC is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "ShowCursor is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "GetFullPathNameA is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "lstrcpynA is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "CreateFileA is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "InterlockedDecrement is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "InterlockedIncrement is a fixture: the physical Windows service is outside the normal-return movie selection contract.",
+    "Cases may force CreateFileA to INVALID_HANDLE_VALUE after successful OpenFile availability to cover every selection branch without physical movie decoding; this establishes no playback or native exception equivalence.",
+    "lstrlenA is a scripted physical string-length service; original CString ownership and cleanup execute unchanged."
+  ],
+  "notes": "Normal-return selection domain; original game callees and media queue/cleanup bodies execute unchanged. Compiler stack-probe and SEH bookkeeping are native implementation details; no native guest exception claim. Movie playback acceptance belongs to the native AVFoundation join."
+}

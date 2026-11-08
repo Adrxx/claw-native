@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "item_pickup",
+  "title": "Original ordinary item pickups",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ItemPickupRuntime.cpp",
+    "Sources/ItemPickupRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/ItemPickupRuntime.cpp": "1a585a55b9efcdedc6f8202292bf70bcd5948239500a313ed15f1c62f18eb1d2",
+    "Sources/ItemPickupRuntime.h": "e8ce684dbcea891777fc4aa0a2b6619319cb142170ab8a61abd4334d26a81df1"
+  },
+  "docs": [
+    "docs/item-pickup-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_item_pickup_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/item_pickup_helpers.py"
+    ],
+    "extra": [
+      "Tests/item_pickup_test_helpers.cpp"
+    ],
+    "work_dirs": [
+      "work/item-pickup-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_item_pickup_runtime.py": "pass"
+      },
+      "seconds": 14.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2139724061,
+      "owned": 13,
+      "owned_inferred_from_tests": true,
+      "directly_called": 13,
+      "fully_executed": 6,
+      "bytes_owned": 6618,
+      "bytes_executed": 3502,
+      "coverage": 0.5292
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePickup.swift"
+    ]
+  },
+  "limits": []
+}

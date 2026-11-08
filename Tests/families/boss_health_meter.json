@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "id": "boss_health_meter",
+  "title": "BossHealthMeter actor callback",
+  "abi": "canonical",
+  "sources": [
+    "Sources/BossHealthMeterRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x491fa0",
+      "name": "BossHealthMeter",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9830",
+      "name": "Surface::fillRectangle",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 rectangle transport."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1,
+      "returns": "u32"
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical diagnostic sound import."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/boss_health_meter.cases.py",
+    "entry": "claw_boss_health_meter_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3062965871,
+      "cases": 66,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.957,
+      "reasons": [],
+      "build_inputs_sha256": "ca5f690fcc05a49741eea3c7a8de3590c4786206669986506ce207298584fcb2"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "SetRect is supplied as a native rectangle transport in cases; image lookup, surface fill and conversion run unchanged original bodies.",
+    "No boss AI or playable-scene acceptance.",
+    "Diagnostic formatting and message-box paths are disabled by the original diagnostic flags; MessageBeep is a physical fixture."
+  ],
+  "notes": "Reviewed cdecl u32 callback 0x491fa0 and finite thiscall u32 fill wrapper 0x4b9830. Reuse boss_scene_services scene rectangle, pickup_points default image binding and surface_blit slow blit; ftol is native platform conversion at integration. Original callback always returns one. Native named-creation comparison is tracked separately from admission and app integration."
+}

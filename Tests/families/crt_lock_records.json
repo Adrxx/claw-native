@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "id": "crt_lock_records",
+  "title": "Original CRT lock initialization and access",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CrtLockRecordsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a7b90",
+      "name": "CrtLocks::initialize",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a7b90",
+          "end": "0x4a7bbb",
+          "sha256": "940331d58ef357664f5d38ddc15a4f9f6ab16beb0d7b0f83149d5059873c932b"
+        }
+      ]
+    },
+    {
+      "address": "0x4a7bc0",
+      "name": "CrtLocks::acquire",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a7bc0",
+          "end": "0x4a7c36",
+          "sha256": "4ade769dea3e53dc7a6ce2d624adcf13eb97b667cf5de741c56e5e92d30358cc"
+        }
+      ]
+    },
+    {
+      "address": "0x4a7c40",
+      "name": "CrtLocks::release",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a7c40",
+          "end": "0x4a7c56",
+          "sha256": "02d0718d9283c3c36fea57d826bec8130d2fcc920709eb120e4110603ca6bec6"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a4860": {
+      "kind": "whole",
+      "name": "Original nonreturning fatal runtime exit",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x5469f4": {
+      "kind": "fixture",
+      "name": "GetModuleFileNameA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "ptr:1",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546a14": {
+      "kind": "fixture",
+      "name": "LoadLibraryA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546980": {
+      "kind": "fixture",
+      "name": "SetUnhandledExceptionFilter",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical filter registration/restoration returns previous opaque filter identity; source terminator restores the original saved filter. No Windows exception dispatch claimed."
+    },
+    "0x546998": {
+      "kind": "fixture",
+      "name": "ExitProcess",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/crt_lock_records.cases.py",
+    "entry": "claw_crt_lock_records_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4a7bea",
+        "end": "0x4a7bed",
+        "reason": "Three owned caller-cleanup bytes after fatal4a4860 cannot execute under immutable original fatal dispatch and genuine nonreturning ExitProcess. Normal allocation success branches to4a7bed. No interior entry or returning termination permitted; full118byte acquire body remains owned and real allocationfailure/fatal path required."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2087431213,
+      "cases": 71,
+      "mutants_killed": 8,
+      "mutants_tried": 9,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ce132694ff75eafbb9dcf4f613ee61956a70110d9a6b8452727b406cf4ea42ea"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Whole three-function CRTlock family183bytes;3owned unreachable fatalcontinuation bytes exempt. Requiredsource7ff/7ff/preserve472, full CPU/FS/stack; semantic void includes machineEAX output.",
+    "Physical critical sections own initialized24byte records, logicalthread owner and recursion. CRT lock17 serializes firstpublication; initialization preserves original pointer order52ed5c,52ed4c,52ed3c,52ed1c. Not sharedMFC lock16 state.",
+    "Valid bounded lockindex domain0..19 with exact32bit pointer table52ed18; nonzero entries point to live24byte sections. Cold acquisition requires initialized lock17 atactual static540e50 fromsourceinitializer or explicitly labeled unit input.",
+    "Knownmalloc/free share coherent allocationowner; source double-check afterlock17 may observe competingpublication and frees its own unused allocation. Preexisting and newsections must disjoint from active sourcecontrolstack; no fakepublication or source lockfixture.",
+    "Fatal helper executes original to physicalnonreturning ExitProcess. NativeCRT heap, Windowsprocess startup, full staticinitialization and app/gameplay acceptance remain unproven."
+  ],
+  "notes": "Pinned original boundary independently reviewed atwork/coordination/atexit-source-boundary.md; exact initializer order17,13,9,1; lock13 is preinitialized, not lazy, in actual startup."
+}

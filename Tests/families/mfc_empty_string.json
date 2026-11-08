@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "id": "mfc_empty_string",
+  "title": "Original MFC empty string construction",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcEmptyStringRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4f6433",
+      "name": "CString::emptyStorageSlot",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f6433",
+          "end": "0x4f6439",
+          "sha256": "c77ea309347d79762f5ce62c9d7fa18eb995ff73e980161e29835525e11db95c"
+        }
+      ]
+    },
+    {
+      "address": "0x4f6439",
+      "name": "CString::constructEmpty",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f6439",
+          "end": "0x4f6449",
+          "sha256": "fc30e563c121e6064a850976c2e537ca0eba83d234cc19a91311fb7fa45b7269"
+        }
+      ]
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_empty_string.cases.py",
+    "entry": "claw_mfc_empty_string_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3954353283,
+      "cases": 72,
+      "mutants_killed": 3,
+      "mutants_tried": 3,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "fda1ef158f35b13df063bd44cdb04a78d8303eb4904ee43c28a2a41bf3671c2c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Two whole original bodies,22bytes total,required fullsource7ff/7ff/preserve472; no fixtures or exemptions.",
+    "Empty constructor stores current DWORD from global slot52e1cc into a live4byte receiver and returns receiver. It neither allocates nor increments a refcount. Source stack and all CPU/FS outputs remain observable.",
+    "Receiver must not overlap active source control/restoration stack. Global slot value is data, not a required dereference by these bodies; aliasing with image storage must preserve original writes and reads.",
+    "Source-only empty-string construction does not establish nonempty/resource string constructors, static table execution, app startup or gameplay."
+  ],
+  "notes": "Instruction boundary verified using pinned original. Packet notes specify source frames and whole coverage."
+}

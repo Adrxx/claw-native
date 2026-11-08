@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "id": "application_input_configuration",
+  "title": "Original application input acquisition and binding",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationInputConfigurationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x430d30",
+      "name": "InputBindings::setDefaultSourceMasks",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x430d80",
+      "name": "InputBindings::setDefaultKeys",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x430ec0",
+      "name": "InputBindings::poll",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x431300",
+      "name": "InputBindings::reset",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3430",
+      "name": "InputSource::setModes",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3490",
+      "name": "InputSource::poll",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3ab0",
+      "name": "InputSource::reset",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3410",
+      "name": "InputSource::clearApiBuffers",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3240",
+      "name": "InputSource::initialize",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "CRT truncating x87 integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "USER32.dll!SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "WINMM.dll!joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:52"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    },
+    "0x546df4": {
+      "kind": "fixture",
+      "name": "WINMM.dll!joyGetDevCapsA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "out:404",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    },
+    "0x546df8": {
+      "kind": "fixture",
+      "name": "WINMM.dll!joyGetNumDevs",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_input_configuration.cases.py",
+    "entry": "claw_application_input_configuration_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2155839547,
+      "cases": 208,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.917,
+      "reasons": [],
+      "build_inputs_sha256": "6b3e94c028085dd4787e89f9d61add779aed87d3da632048099938a0cc222487"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "GetSystemMetrics is scripted; cases model screen dimensions without measuring a live display.",
+    "GetCursorPos is scripted and writes an eight-byte screen POINT; the owned poll does not consume that POINT.",
+    "GetAsyncKeyState is scripted; cases distinguish the low-word held-key and press-edge bits without claiming live keyboard input.",
+    "SetCursorPos is scripted; cases record screen-coordinate warps without moving a real cursor.",
+    "joyGetPosEx is scripted with the original 52-byte JOYINFOEX buffer and success or failure results.",
+    "joyGetDevCapsA is scripted with the original 404-byte JOYCAPSA buffer and success or failure results.",
+    "joyGetNumDevs is scripted; device discovery is not hardware acceptance.",
+    "The original x87 integer-conversion callee executes unchanged; no game routine is replaced by a fixture.",
+    "Bounded source and binding cases do not establish application startup, window/client conversion, menu behavior, or live input integration."
+  ],
+  "notes": "Boundary reviewed against pinned v1.0 whole-function disassembly and startup callers. Source allocation is 0x248 bytes; binding owner allocation is 0x90 bytes. Detailed layout, partial initialization, branch ledger, EAX-consumption evidence and case guidance are in the ignored packet NOTES.md. No coverage exemptions or shortened owned intervals."
+}

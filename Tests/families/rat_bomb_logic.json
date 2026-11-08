@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "id": "rat_bomb_logic",
+  "title": "RatBomb and its existing shared utility surface",
+  "abi": "canonical",
+  "sources": [
+    "Sources/RatBombCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x47e1d0",
+      "name": "selectMinimumFrame",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406240",
+      "name": "deriveFrameRectangle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484d90",
+      "name": "scalarDeletingBaseDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456030",
+      "name": "resetBaseVtable",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x473c50",
+      "name": "constructEnemyBase",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47d890",
+      "name": "constructRatBomb",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4741f0",
+      "name": "deriveCollisionRectangles",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47e050",
+      "name": "enterFalling",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47df20",
+      "name": "enterExploding",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47e180",
+      "name": "updateFalling",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47dfc0",
+      "name": "updateExploding",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4742f0",
+      "name": "updateEnemyBase",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47db20",
+      "name": "dispatchRatBombState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x473f40",
+      "name": "dispatchEnemyBaseState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47d7d0",
+      "name": "ratBombCallback",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406150",
+      "name": "mirrorFrameRectangle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406180",
+      "name": "mirrorCollisionRectangle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with operator new."
+    },
+    "0x546d24": {
+      "kind": "fixture",
+      "name": "InflateRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service. Cases apply only physical rectangle inflation; game flags remain owned."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "floatToInteger",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "CRT realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original CRT reallocator performs only heap allocation/copy/release and ends in HeapReAlloc, HeapAlloc and CRT lock services. Cases provide physical heap resizing or failure without changing game table descriptors."
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 memory-readability probe reached by the unchanged original RTTI helper on the empty base-state entry."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/rat_bomb_logic.cases.py",
+    "entry": "claw_rat_bomb_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x47db75",
+        "end": "0x47dba3",
+        "reason": "The unchanged original 0x4db6e0 sets EBP to the CRT realloc result at 0x4db70b or 0x4db77f; on null it calls 0x4dc680, which reads [EBP+4] and faults at address 4 before returning to this dispatcher. These null-result diagnostic instructions cannot execute on an ordinary normal-return path. No game fixture substitutes the growth or diagnostic body; guest fault/exception parity is not claimed."
+      },
+      {
+        "start": "0x47dbef",
+        "end": "0x47dc22",
+        "reason": "The unchanged original 0x4db6e0 sets EBP to the CRT realloc result at 0x4db70b or 0x4db77f; on null it calls 0x4dc680, which reads [EBP+4] and faults at address 4 before returning to this dispatcher. These null-result diagnostic instructions cannot execute on an ordinary normal-return path. No game fixture substitutes the growth or diagnostic body; guest fault/exception parity is not claimed."
+      },
+      {
+        "start": "0x473f95",
+        "end": "0x473fc3",
+        "reason": "The unchanged original 0x4db6e0 sets EBP to the CRT realloc result at 0x4db70b or 0x4db77f; on null it calls 0x4dc680, which reads [EBP+4] and faults at address 4 before returning to this dispatcher. These null-result diagnostic instructions cannot execute on an ordinary normal-return path. No game fixture substitutes the growth or diagnostic body; guest fault/exception parity is not claimed."
+      },
+      {
+        "start": "0x47400f",
+        "end": "0x474042",
+        "reason": "The unchanged original 0x4db6e0 sets EBP to the CRT realloc result at 0x4db70b or 0x4db77f; on null it calls 0x4dc680, which reads [EBP+4] and faults at address 4 before returning to this dispatcher. These null-result diagnostic instructions cannot execute on an ordinary normal-return path. No game fixture substitutes the growth or diagnostic body; guest fault/exception parity is not claimed."
+      },
+      {
+        "start": "0x47d82c",
+        "end": "0x47d82e",
+        "reason": "The null operator-new arm clears EDI at 0x47d82c and immediately dereferences [EDI] at 0x47d82e. It cannot complete the ordinary return contract. The implementation retains the null dereference/fault and does not fabricate successful factory construction; guest exception parity is excluded."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3942423337,
+      "cases": 188,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.95,
+      "reasons": [],
+      "build_inputs_sha256": "392445ae5117547eeba5a8ce4248d6dc6d60edf001074143ee0d1b3d1a5f4c0e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new and delete use the canonical allocation services instead of the original CRT heap.",
+    "InflateRect is a controlled Win32 fixture that changes only its pointed rectangle.",
+    "Original constructors and callback retain their normal callable return boundary; thrown guest exceptions and original unwind funclets require a separate reviewed guest capability before they can be claimed.",
+    "CRT realloc is a physical scripted heap-resize boundary; original game table growth, diagnostics and dispatch still execute unchanged.",
+    "IsBadReadPtr supplies only physical memory-readability status; original RTTI and state dispatch remain unchanged."
+  ],
+  "notes": "Coordinator elected the full 17-entry legacy RatBomb comparison surface, including its inline shared base and rectangle helpers, after finding no canonical owner collision. Other GenericEnemy and player physics ownership remains unchanged. Original game callees remain original-backed, including cyclic animation updates; this specification does not elect native app integration."
+}

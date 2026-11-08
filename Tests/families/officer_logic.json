@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "officer_logic",
+  "title": "Original v1.0 Officer logic",
+  "abi": "legacy",
+  "sources": [
+    "Sources/OfficerLogic.cpp",
+    "Sources/OfficerLogic.h"
+  ],
+  "source_sha256": {
+    "Sources/OfficerLogic.cpp": "63b71bf9e5c0540907e29c0ad4d1e295b799f89c67dbcf2f4a93f2f31690be0f",
+    "Sources/OfficerLogic.h": "09f4de941099803b9e022b250d28d12b6956841105d455931c4e61eb9e00d988"
+  },
+  "docs": [
+    "docs/officer-logic.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_officer_logic.py"
+      }
+    ],
+    "helpers": [
+      "Tests/officer_helpers.py"
+    ],
+    "work_dirs": [
+      "work/officer-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/officer-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_officer_logic.py": "pass"
+      },
+      "seconds": 10.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2609027507,
+      "owned": 13,
+      "owned_inferred_from_tests": true,
+      "directly_called": 13,
+      "fully_executed": 10,
+      "bytes_owned": 5306,
+      "bytes_executed": 5135,
+      "coverage": 0.9678
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeHumanoid.swift"
+    ]
+  },
+  "limits": []
+}

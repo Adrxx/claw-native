@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "actor_wrapper",
+  "title": "Raw actor geometry and resource wrappers",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ActorWrapperRuntime.cpp",
+    "Sources/ActorWrapperRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/ActorWrapperRuntime.cpp": "9e1d9e1c580bdbaa4bc1866de08dcd479b6daf5ac677606dadc754fcf8418250",
+    "Sources/ActorWrapperRuntime.h": "2d759898172e49441b4c8f49ca92eb560c8b55aed201a1910f7025e487d3b3c4"
+  },
+  "docs": [
+    "docs/actor-wrapper-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_actor_wrapper_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/actor_wrapper_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/actor-wrapper-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-actor-wrapper-independent.log"
+      ],
+      "worker_evidence": [
+        "work/actor-wrapper-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_actor_wrapper_runtime.py": "pass"
+      },
+      "seconds": 0.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2136316673,
+      "owned": 6,
+      "owned_inferred_from_tests": false,
+      "directly_called": 6,
+      "fully_executed": 6,
+      "bytes_owned": 322,
+      "bytes_executed": 322,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_actor_dispatch_01 (0x4061b0, 0x406290, 0x4062e0); level_one_actor_dispatch_02 (0x40f6c0, 0x4209d0); rat_bomb_logic (0x406240). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

@@ -1,0 +1,30 @@
+{
+  "archive": "CLAW-1.4.5.4-Complete-Pack.zip",
+  "files": [
+    {
+      "path": "CLAW.exe",
+      "bytes": 1409024,
+      "sha256": "33cf6e2663823f073d769c3d05a1ad5e13e3e4993ad2cb6822617737395004c6"
+    },
+    {
+      "path": "LUA51.DLL",
+      "bytes": 350720,
+      "sha256": "c0c5d598cea979ead62291d16fd8cebe75ade214c81f60be7c2993542dfd0dda"
+    },
+    {
+      "path": "CLAW.REZ",
+      "bytes": 168,
+      "sha256": "57006cd121a4b4b959c38cd5112ad87701e95ad7fa8b647367b95c0bd03bb158"
+    },
+    {
+      "path": "DDRAW.DLL",
+      "bytes": 354304,
+      "sha256": "d1934051ae0d77b5ecca6c9f0a677c66a361f4fe295b6e3b4117ba0c412a6009"
+    },
+    {
+      "path": "CrazyHook.dll",
+      "bytes": 141312,
+      "sha256": "8f16b35bf105c8d8799db6df543dcecaca801153a3fcef7da261d74573d31318"
+    }
+  ]
+}

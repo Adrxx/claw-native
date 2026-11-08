@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_scene_actor_01",
+  "title": "Level 1 closure: Scene actor and world object helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosureSceneActor01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4c7a90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7ae0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7cd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c80a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c80b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c81b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c97c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c97e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9810",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9890",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9bc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9d80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf080",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d56c0",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546ce0": {
+      "kind": "fixture",
+      "name": "IntersectRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "out:16",
+        "ptr:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 intersects two RECTs; cases implement signed RECT intersection and the nonzero/zero result."
+    },
+    "0x546d94": {
+      "kind": "fixture",
+      "name": "UnionRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "out:16",
+        "ptr:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 unions two RECTs; cases implement signed RECT union and empty-rectangle semantics."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_scene_actor_01.cases.py",
+    "entry": "claw_level_one_closure_scene_actor_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3623107436,
+      "cases": 476,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.905,
+      "reasons": [],
+      "build_inputs_sha256": "1ada6dfdcd691856e4b5f76eeb7f99acdcca3ec8de82fc1edb830252592a3247"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator delete is a stand-in (release).",
+    "IntersectRect is scripted at the Win32 rectangle boundary; original scene drawing decisions remain executable.",
+    "UnionRect is scripted at the Win32 rectangle boundary; original scene drawing decisions remain executable."
+  ],
+  "notes": "Boundary reviewed against the disassembly. 0x4c80b0 is cdecl returning constant 9; 0x4d56c0 is a bare ret 0xc (stdcall, three arguments, EAX untouched so void). 0x4c7a90 reaches MessageBeep and MessageBoxA through 0x4b9d80 -> 0x4bd260: cases stay off that path."
+}

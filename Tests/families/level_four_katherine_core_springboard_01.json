@@ -1,0 +1,308 @@
+{
+  "schema": 1,
+  "id": "level_four_katherine_core_springboard_01",
+  "title": "Level 4 Katherine core and springboard",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelFourKatherineCoreSpringboard01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x41e810",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x453d30",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x453df0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4542f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x454310",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4543e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4547c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4548c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Windows service outside the game implementation"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Windows service outside the game implementation"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service outside the game implementation"
+    },
+    "0x420dd0": {
+      "kind": "whole",
+      "name": "springboard vector solve",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    "0x40e0d0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_four_katherine_core_springboard_01.cases.py",
+    "entry": "claw_level_four_katherine_core_springboard_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x41eae8",
+        "end": "0x41eb3c",
+        "reason": "Original 41e909 loads immutable double 2250 from 50baa8 and 41e933 stores it to534dd0; quadratic coefficient 0.25*(dc8 squared+2250 squared+dd8 squared) is at least1265625, so comparisons against immutable epsilon0.1 cannot select the near-zero coefficient branch. Hash-verified original constants and instruction order checked."
+      },
+      {
+        "start": "0x453d8c",
+        "end": "0x453d8e",
+        "reason": "Original operator-new-null probe sets EDI=0 here and faults on read0 at453d8e; measured in local fault-probes.json."
+      },
+      {
+        "start": "0x454435",
+        "end": "0x454463",
+        "reason": "Original first MFC grow failure never returns: realloc0 sets EBP0 in4db6e0 then4dc680 reads[EBP+4] and faults at4; both growth directions measured in local fault-probes.json."
+      },
+      {
+        "start": "0x45447e",
+        "end": "0x454495",
+        "reason": "Original first lookup either already includes the index or successful4db6e0 establishes lower<=index<=upper; no outside call intervenes before identical second bounds checks, so second growth cannot execute for a valid table."
+      },
+      {
+        "start": "0x4544af",
+        "end": "0x4544e2",
+        "reason": "Original second grow is unreachable by identical bounds recheck after first lookup; additionally failed4db6e0 zeroes EBP and faults at4dc680 before returning, as measured for both growth directions."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 810269771,
+      "cases": 167,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.9,
+      "reasons": [],
+      "build_inputs_sha256": "904b1da58cffb403ef28b0999a350567b88544b53d4f8ff5ee9b16c3b65e33b9"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect is a stand-in (set-rect).",
+    "SetRectEmpty is a stand-in (set-rect-empty).",
+    "InterlockedDecrement is a stand-in (scripted)."
+  ],
+  "notes": "ABI checked against original disassembly; springboard takes actor and height; Katherine constructor and scalar deleting destructor return the receiver."
+}

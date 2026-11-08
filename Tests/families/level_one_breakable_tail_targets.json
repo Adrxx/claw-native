@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "level_one_breakable_tail_targets",
+  "title": "Level 1 breakable tail-jump bodies",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBreakableTailTargetsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x433fb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x433f30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_breakable_tail_targets.cases.py",
+    "entry": "claw_level_one_breakable_tail_targets_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3626919312,
+      "cases": 152,
+      "mutants_killed": 40,
+      "mutants_tried": 44,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8ea5c178d0fd3cb9c8628d1c4aeb610bd5c15d0b437f90332ae6b26f512a3228"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "id": "end_level_gem_closure",
+  "title": "Level 2 end gem closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/EndLevelGemClosureRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x40e5c0",
+      "name": "createEndLevelGem",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4205b0",
+      "name": "resetPlayerAfterEndGem",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43ca60",
+      "name": "endLevelGemLogic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43cb20",
+      "name": "constructEndLevelGem",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43cdc0",
+      "name": "dispatchEndGemState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43d070",
+      "name": "tickEndLevelGem",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43d0f0",
+      "name": "aimEndLevelGem",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4701b0",
+      "name": "levelGemLogic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic reference decrement used by original CString release; cases implement the pointed decrement"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Win32 pointer validation reached by original RTTI query when the state callback slot is null"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/end_level_gem_closure.cases.py",
+    "entry": "claw_end_level_gem_closure_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x43cabc",
+        "end": "0x43cabe",
+        "reason": "Original operator new returning null sets EDI to zero, then unconditionally reads [EDI] at 0x43cabe. Verified original-null-new-probe in work/packets/end_level_gem_closure/cases-check-7.log faults reading address 0 there."
+      },
+      {
+        "start": "0x43ce15",
+        "end": "0x43ce43",
+        "reason": "Original table-grow 0x4db6e0 cannot return null: failed realloc zeroes EBP before 0x4dc680 reads [EBP+4], faulting at address 4. Verified original-growth-failure-probe in work/packets/end_level_gem_closure/cases-check-4.log; normal successful growth bypasses this fallback."
+      },
+      {
+        "start": "0x43ce8f",
+        "end": "0x43cec2",
+        "reason": "The second table-grow uses the same original 0x4db6e0 failure path: failed realloc zeroes EBP before 0x4dc680 reads address 4, so the null-return fallback cannot execute. Original failure verified in work/packets/end_level_gem_closure/cases-check-4.log."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1310283331,
+      "cases": 200,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "1161d03ef24fe382f51479945398b966116b9ed753ff7acb83c9d17de32d19ea"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "InterlockedDecrement is a scripted stand-in for the Win32 atomic reference decrement.",
+    "IsBadReadPtr uses the mapped-memory fixture; Windows structured exception handling is not exercised."
+  ],
+  "notes": "Boundary reviewed against all eight original disassemblies; original game callees remain executable, including object construction, registry lookup, animation and motion."
+}

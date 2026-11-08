@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "id": "v13_cheat_registration",
+  "title": "v1.3 cheat registration and mode reset",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13CheatRegistrationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x423e40",
+      "interval_end": "0x423e75",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x423e80",
+      "interval_end": "0x42437c",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42a960",
+      "interval_end": "0x42a9a9",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocation replaces CRT allocator."
+    },
+    "0x4fc6d6": {
+      "kind": "fixture",
+      "name": "MFC map subscript",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native key-value storage replaces MFC map insertion; capture receiver, encoded key and insertion order in case memory."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_cheat_registration.cases.py",
+    "entry": "claw_v13_cheat_registration_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4101153344,
+      "cases": 137,
+      "mutants_killed": 17,
+      "mutants_tried": 20,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "080e5dbd3dc650ab0bbeb4694b6d3f4af859cde4a4436df391a412d1247e5240"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

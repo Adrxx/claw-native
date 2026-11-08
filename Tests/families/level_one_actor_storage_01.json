@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "id": "level_one_actor_storage_01",
+  "title": "Level 1 actor storage batch 1",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneActorStorage01Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4c7f20",
+      "name": "bind_secondary_logic",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7fa0",
+      "name": "bind_secondary_logic_named",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7fe0",
+      "name": "bind_contact_logic",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8060",
+      "name": "bind_contact_logic_named",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8a20",
+      "name": "create_plain_actor",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8b90",
+      "name": "create_plain_actor_named",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "C runtime heap release reached by original actor cleanup; native allocator boundary"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_actor_storage_01.cases.py",
+    "entry": "claw_level_one_actor_storage_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c8ad7",
+        "end": "0x4c8ad9",
+        "reason": "Primary allocation failure sets EAX zero, publishes null primary, then unconditionally reaches original4c7df0 null-vtable load at4c7e8b; no normally returning original case can exercise this path."
+      },
+      {
+        "start": "0x4c8af6",
+        "end": "0x4c8af8",
+        "reason": "Actor allocation failure sets ESI zero, then unconditionally reads actor vtable at4c8b00; no normally returning original case can exercise this path."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 143,
+        "operator": "swap-statements",
+        "mutant_sha256": "283a25249d633c3da47b78e2bace936d9c933b897c445a6220126007ec049b36",
+        "source_sha256": "280f55270399b391cc98167f4536e1329a229535d50899c1b0ae61c120a1098f",
+        "reason": "0x4c96c0 at receiver actor+0x88 writes zero only to actor+0x94,+0x90,+0xa0. 0x4c9690 at receiver actor+0xa4 writes 0x80000000 to actor+0xac and 0xffffffff to actor+0xc4. Both bodies have no calls, input memory reads, or branches. The five four-byte destinations are disjoint within the allocated 0x168-byte actor. Reversing the calls commutes these constant stores. No callback or fixture observes their intermediate state; next fixture is operator new at 0x4c8ab2. Constructor return registers are unused by owned C++ and original caller before their next ABI use. Null allocation skips both calls. Independently checked against hash-verified original bytes by fresh translator and case-author; evidence: work/readability/level_one_actor_storage_01/translator-fresh-audit.json and case-author-fresh-audit.json. Approved two-audit rule, 2026-10-30."
+      },
+      {
+        "line": 146,
+        "operator": "drop-statement",
+        "mutant_sha256": "9c71959c2e33e92e3e9dfd0d46f231545e28241f8effbde87fd3b7977a75a55f",
+        "source_sha256": "280f55270399b391cc98167f4536e1329a229535d50899c1b0ae61c120a1098f",
+        "reason": "Base constructor 0x4c9780 loads ECX=0x80000000 at 0x4c9794 and writes actor+0x4c at 0x4c97a6. It has no nested calls. Until duplicate write 0x4c8aa4, remaining base writes, member constructor writes (+0x90,+0x94,+0xa0,+0xac,+0xc4), and actor vtable write at 0x4c8a9e do not overlap actor+0x4c. No callback, fixture, or observer occurs in this interval. Omitting the duplicate write leaves identical memory before operator new at 0x4c8ab2 and all subsequent original observations. Null allocation skips both stores. Independently checked against hash-verified original bytes by fresh translator and case-author; evidence: work/readability/level_one_actor_storage_01/translator-fresh-audit.json and case-author-fresh-audit.json. Approved two-audit rule, 2026-10-30."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2060896296,
+      "cases": 137,
+      "mutants_killed": 44,
+      "mutants_tried": 60,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "215ef67b24433b4d00235d684398cd1e65b0c6eddcad6a2e469d6b9e6746508e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release) for original actor cleanup."
+  ],
+  "notes": "Exact batch ownership reviewed against original instructions; canonical adaptation preserves the existing ActorResourceBindings and PlainActorRuntime portable APIs. Guest polymorphism and publication ordering use the canonical Run interface."
+}

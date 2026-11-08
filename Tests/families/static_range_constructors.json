@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "id": "static_range_constructors",
+  "title": "Original static range object constructors",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticRangeConstructorsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x403ad0",
+      "name": "StaticRange::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x403ad0",
+          "end": "0x403afb",
+          "sha256": "b324f6e3ae2d36b83f15056bd02343be111d86c0ad8be4660bbb7904eb4c0209"
+        }
+      ]
+    },
+    {
+      "address": "0x4dbb10",
+      "name": "RangeArray::construct",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dbb10",
+          "end": "0x4dbb4c",
+          "sha256": "f5737be9fc7ce177c2179227c3cd4a3a30ce8cac727ef4124bb4f135aacefeb8"
+        }
+      ]
+    },
+    {
+      "address": "0x4dbb90",
+      "name": "RangeStorage::construct",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dbb90",
+          "end": "0x4dbc77",
+          "sha256": "bbde7e99a86a03b52c56a8563d1c832f18c9bd8e5f2d0124cbe5e1b1ebce3c8e"
+        }
+      ]
+    },
+    {
+      "address": "0x4db620",
+      "name": "ErrorAwareObject::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4db620",
+          "end": "0x4db695",
+          "sha256": "b33ed1123eb2f3eb235f6c8ea042787bc1717414e80c54aa2f0f85308e8f8cbf"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4dc680": {
+      "kind": "whole",
+      "name": "Read caller frame continuation",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4db4d0": {
+      "kind": "whole",
+      "name": "Original error manager report",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_range_constructors.cases.py",
+    "entry": "claw_static_range_constructors_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 244726754,
+      "cases": 326,
+      "mutants_killed": 61,
+      "mutants_tried": 66,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.953,
+      "reasons": [],
+      "build_inputs_sha256": "c7196c20a5599356c97f66799b12b389da65b79e320b0f6b798b88ef0e99269f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Whole four-constructor family with required full CPU/FS source context and complete bounded source stack; no coverage exemptions.",
+    "Known malloc remains physical exact-size fresh allocation or null. It does not establish CRT heap initialization. DF clear; sufficient nonwrapping live backing for uint32 size arithmetic and zero fills. Physical services preserve saved stack, EBP and FS.",
+    "Receiver is live and disjoint from active source stack, allocation outputs and error-manager storage: 36 bytes for outer and array constructors, 28 bytes for storage, 8 bytes for error-aware base. EBP+4 is readable on error paths; source error manager executes unchanged.",
+    "Error-manager mode and callback states are explicit unit inputs. Returning error modes do not establish actual static startup error policy, guest exception dispatch, CRT initialization, app or gameplay acceptance.",
+    "No argument reinterpretation: range ordering is signed; size/count arithmetic wraps at32bits. Full CPU and overwritten caller argument slots remain observable."
+  ],
+  "notes": "Boundary reviewed against hash-pinned original; source ABI needed for inline FS frame and error helper EBP input. See local packet NOTES.md."
+}

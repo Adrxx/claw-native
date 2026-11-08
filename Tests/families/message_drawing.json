@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "message_drawing",
+  "title": "Source status-message drawing",
+  "abi": "legacy",
+  "sources": [
+    "Sources/MessageDrawingRuntime.cpp",
+    "Sources/MessageDrawingRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/MessageDrawingRuntime.cpp": "6237c31775fe2319ce655cf5c215beb72dd5e42a7e187314b5a31c0f6265e25b",
+    "Sources/MessageDrawingRuntime.h": "6bba7f202b7710e96e0a8692e1033cd4042194108ee4203d1ba87ff125cef427"
+  },
+  "docs": [
+    "docs/message-drawing-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_message_drawing_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/message_drawing_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/message-drawing-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-message-drawing-independent.log"
+      ],
+      "worker_evidence": [
+        "work/message-drawing-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_message_drawing_runtime.py": "pass"
+      },
+      "seconds": 10.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3845471321,
+      "owned": 1,
+      "owned_inferred_from_tests": false,
+      "directly_called": 1,
+      "fully_executed": 1,
+      "bytes_owned": 347,
+      "bytes_executed": 347,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeStatusMessages.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_closure_engine_misc_01 (0x4226b0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

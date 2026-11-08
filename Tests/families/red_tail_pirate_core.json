@@ -1,0 +1,390 @@
+{
+  "schema": 1,
+  "id": "red_tail_pirate_core",
+  "title": "Red tail pirate construction and state behavior",
+  "abi": "canonical",
+  "sources": [
+    "Sources/RedTailPirateCoreRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4828e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x483090",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4830b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483180",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483560",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4837b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483ae0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483d20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483e10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483f30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484210",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484240",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x484260",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle write used directly and by original base behavior"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 rectangle initialization in the original base constructor"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic reference count decrement; cases decrement the pointed word and return its new value"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle copy; cases copy sixteen bytes from argument one to argument zero and return one"
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 point test; cases implement signed left/top inclusive and right/bottom exclusive containment"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x44c000": {
+      "kind": "whole",
+      "name": "base enemy constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x40abf0": {
+      "kind": "whole",
+      "name": "final collision setup",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      },
+      "reason": "Original final constructor call preserves inherited live stack and CW and publishes its actual status before ambient environment publication."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/red_tail_pirate_core.cases.py",
+    "entry": "claw_red_tail_pirate_core_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4831d5",
+        "end": "0x483203",
+        "reason": "Original table growth 0x4db6e0 assigns the realloc result to EBP at 0x4db70b or 0x4db77f. A null result calls 0x4dc680 at 0x4db788, whose first instruction reads [EBP+4], faulting at address 4 before returning zero to this error block. Verified against original disassembly and original realloc-failure case."
+      },
+      {
+        "start": "0x48324f",
+        "end": "0x483282",
+        "reason": "Original table growth 0x4db6e0 assigns the realloc result to EBP at 0x4db70b or 0x4db77f. A null result calls 0x4dc680 at 0x4db788, whose first instruction reads [EBP+4], faulting at address 4 before returning zero to this error block. Verified against original disassembly and original realloc-failure case."
+      },
+      {
+        "start": "0x48321e",
+        "end": "0x483235",
+        "reason": "Original first cached lookup establishes the key is within the well-formed registry bounds; successful table growth sets the corresponding bound to the key and zeroes its new handler slot. No callback or bound write occurs before the repeated bound check. Therefore its second slow lookup cannot execute; growth failure instead faults in original 0x4dc680. Checked against original 0x483180 and 0x4db6e0 instructions."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 199,
+        "operator": "le-to-lt",
+        "mutant_sha256": "4a098f0c640831adf4c0abf7d8a4d131d1e1c35268b961b35b6fde65d117e8af",
+        "source_sha256": "18d7aa416a645adbf8af42423aaf357623dba001e6079c74933102b8ddb8d962",
+        "reason": "Checked original 0x48300b CMP EAX,99, 0x48300e JA and 0x483010 MOV EAX,99. Changing <=99 to <99 differs only for EAX==99, when either branch leaves EAX==99. No outside call or memory store occurs inside this clamp, and original EFLAGS are not an output of this ordinary owner. Every later observable value and published x87 state is identical."
+      },
+      {
+        "line": 639,
+        "operator": "swap-statements",
+        "mutant_sha256": "1de445af36f44cb9f8872a13c2e3a8d1df2b625be0b7b80d47d48796003ce10a",
+        "source_sha256": "18d7aa416a645adbf8af42423aaf357623dba001e6079c74933102b8ddb8d962",
+        "reason": "Checked original 0x48417f FSTP qword [ESI+0x60] followed by 0x484182 FSTP ST(0). The mutant delays only the high-word publication of the already-computed stored bits until after the register-only discard. That discard has no guest-memory operand, cannot read or change the pending word or computed value, and is followed only by return. Both final memory words, x87 stack/status and return remain identical; no original observer intervenes."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3522462649,
+      "cases": 596,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 2,
+      "mutation_score": 0.902,
+      "reasons": [],
+      "build_inputs_sha256": "889435691772431e227f66d10dbe4699ac614e7f3a9dab5216ae3b94270167fb"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect is a platform stand-in (set-rect).",
+    "SetRectEmpty is a platform stand-in (set-rect-empty).",
+    "InterlockedDecrement is a platform stand-in (scripted).",
+    "CopyRect is a platform stand-in (scripted).",
+    "PtInRect is a platform stand-in (scripted)."
+  ],
+  "notes": "All thirteen draft signatures checked against original instructions; constructor/destructor SEH is compiler scaffolding. Original game callees remain executable dependencies. See ignored packet NOTES.md for object layout, branches, exact x87 conversion and platform paths."
+}

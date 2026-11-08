@@ -1,0 +1,6 @@
+// Choose a unique reverse-domain identifier for your own signed build.
+CLAW_BUNDLE_IDENTIFIER = org.claw.reconstruction
+CLAW_WORLD_TYPE_IDENTIFIER = $(CLAW_BUNDLE_IDENTIFIER).wwd
+
+// Optional private settings, including DEVELOPMENT_TEAM.
+#include? "Local.xcconfig"

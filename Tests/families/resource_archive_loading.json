@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "id": "resource_archive_loading",
+  "title": "Original resource archive loading",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ResourceArchiveLoadingCanonical.cpp",
+    "Sources/ResourceArchiveLoadingRuntime.cpp",
+    "Sources/ResourceArchiveLoadingRuntime.h"
+  ],
+  "canonical_sources": [
+    "Sources/ResourceArchiveLoadingCanonical.cpp"
+  ],
+  "docs": [
+    "docs/resource-archive-loading-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4b6b60",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6ed0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7210",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7250",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b72e0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b74d0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7bd0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7c40",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7c80",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 1,
+      "fixture": "allocate",
+      "reason": "Shared physical allocator."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 1,
+      "fixture": "release",
+      "reason": "Shared physical allocator release."
+    },
+    "0x4f1d90": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 2,
+      "fixture": "scripted",
+      "reason": "CRT fopen is a native file service, not recovered game logic."
+    },
+    "0x4a7840": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 3,
+      "fixture": "scripted",
+      "reason": "CRT fseek is a native file service."
+    },
+    "0x4a7260": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 4,
+      "fixture": "scripted",
+      "reason": "CRT fread writes actual controlled archive bytes."
+    },
+    "0x4a7ae0": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 1,
+      "fixture": "scripted",
+      "reason": "CRT fclose is a native file service."
+    },
+    "0x4a7920": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 1,
+      "fixture": "scripted",
+      "reason": "CRT fflush is a native file service."
+    },
+    "0x4a3b10": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 1,
+      "fixture": "scripted",
+      "reason": "CRT time is a physical clock service."
+    },
+    "0x4a73e0": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 4,
+      "fixture": "scripted",
+      "reason": "CRT fwrite is a physical file service."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "entry": "claw_resource_archive_loading_canonical_entry",
+    "cases": "Tests/families/resource_archive_loading.cases.py",
+    "coverage_exempt": [
+      {
+        "start": "0x4b6fbf",
+        "end": "0x4b6fc5",
+        "reason": "Null 76-byte directory allocation sets EAX=0 then unconditionally passes EAX+36 to original 0x4d5450, which dereferences the vtable at unmapped address 0x24 before returning. No well-backed returning case can execute this allocation-failure arm."
+      },
+      {
+        "start": "0x4b70d9",
+        "end": "0x4b70df",
+        "reason": "Null 96-byte resource allocation sets EDI=0 then unconditionally passes EDI+72 to original 0x4d5450, which dereferences the vtable at unmapped address 0x48 before returning. No well-backed returning case can execute this allocation-failure arm."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1862958857,
+      "cases": 81,
+      "mutants_killed": 46,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.979,
+      "reasons": [],
+      "build_inputs_sha256": "303d2a7128889a546f0c7d880dcd8c405cb6511beaf34ae02959dfc66dc3c8dd"
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeResourceArchive.swift"
+    ]
+  },
+  "limits": [
+    "Physical CRT file, time and allocator services are fixtures; all unowned game callees remain original-backed.",
+    "Retains the portable legacy API; canonical comparison uses the separate owned translation unit."
+  ]
+}

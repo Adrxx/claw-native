@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "id": "lava_geyser_states",
+  "title": "Lava geyser state closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LavaGeyserStatesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x455b00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x455ed0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456040",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4560a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4560c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456120",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows readable-memory query reached by original RTTI helper"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/lava_geyser_states.cases.py",
+    "entry": "claw_lava_geyser_states_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x455b55",
+        "end": "0x455b83",
+        "reason": "Original first table-growth failure cannot return: failed realloc in 0x4db6e0 zeroes EBP then 0x4dc680 reads [EBP+4]. Original-only failure probe faults at address 0x4 from 0x4dc680 before reaching this range."
+      },
+      {
+        "start": "0x455b9e",
+        "end": "0x455bb5",
+        "reason": "Second growth cannot execute: first lookup either accepts the signed index within bounds or original 0x4db6e0 stores that index as the new lower or upper bound. No intervening call can change the bounds before the second signed comparison."
+      },
+      {
+        "start": "0x455bcf",
+        "end": "0x455c02",
+        "reason": "Fallback after the unreachable second growth cannot execute. In addition, original failed realloc in 0x4db6e0 zeroes EBP and faults reading address 0x4 in 0x4dc680 before returning; confirmed with an original-only failure probe."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2470375847,
+      "cases": 118,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.925,
+      "reasons": [],
+      "build_inputs_sha256": "6a19ca201e3a529823a2274f5bd5ad012dffe60e16bef1a4741b38c2788e85da"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "IsBadReadPtr uses the declared readable-memory query fixture."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,327 @@
+{
+  "schema": 1,
+  "id": "logic_state_registrations_06",
+  "title": "Level 1 logic state registrations group 6",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LogicStateRegistrations06Runtime.cpp"
+  ],
+  "canonical_sources": [
+    "Sources/LogicStateRegistrations06Runtime.cpp"
+  ],
+  "shared_sources": [
+    {
+      "family": "logic_state_registry_core",
+      "sources": [
+        "Sources/LogicStateRegistryCoreRuntime.cpp",
+        "Sources/LogicStateRegistryCoreRuntime.h"
+      ]
+    }
+  ],
+  "owned": [
+    {
+      "address": "0x474060",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4748f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47ce80",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47dc30",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47e9f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47f910",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483290",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4844f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4849f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x485a70",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4874b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the native CRT realloc boundary replaces Windows heap allocation, copying, and release while preserving guest allocation lifetime"
+    },
+    "0x4dc680": {
+      "kind": "whole",
+      "name": "diagnostic saved EBP word",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "diagnostic source return PC",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/logic_state_registrations_06.cases.py",
+    "entry": "claw_logic_state_registrations_06_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4740f0",
+        "end": "0x474119",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x4741b9",
+        "end": "0x4741ed",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x474b55",
+        "end": "0x474b6e",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x47d0e5",
+        "end": "0x47d0fe",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x47dcf1",
+        "end": "0x47dd09",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x47dd94",
+        "end": "0x47ddad",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x47de2b",
+        "end": "0x47de54",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x47def4",
+        "end": "0x47df18",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x4834f5",
+        "end": "0x48350e",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x484580",
+        "end": "0x4845a9",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x484649",
+        "end": "0x48467d",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x484a6e",
+        "end": "0x484a86",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x484b16",
+        "end": "0x484b2f",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x484bad",
+        "end": "0x484bd6",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x484c78",
+        "end": "0x484c9c",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x485b31",
+        "end": "0x485b49",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x485bd4",
+        "end": "0x485bed",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x485c6b",
+        "end": "0x485c94",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      },
+      {
+        "start": "0x485d34",
+        "end": "0x485d58",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. Failed realloc sets EBP to zero at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose read from [EBP+4] faults at address 4 before growth can return. The ordinary comparison cannot certify that fault outcome."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 464849382,
+      "cases": 188,
+      "mutants_killed": 17,
+      "mutants_tried": 17,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ae00bd7499079ffe325e396cebdc74031449c31a04ade9046a934d22178107b0"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a native heap allocation stand-in.",
+    "operator delete is a native heap release stand-in.",
+    "realloc is a scripted native CRT boundary; cases preserve copied bytes and allocation lifetime.",
+    "lstrlenA is a scripted Windows string-length boundary.",
+    "InterlockedDecrement is a scripted Windows atomic decrement boundary.",
+    "Only the eleven registration entries are owned; callback bodies, parent registrations outside the owned set, constructors and virtual tables retain their existing owners.",
+    "Original growth failure faults in its saved-EBP diagnostic read before returning; the listed normal-return continuations are unreachable and their fault outcomes are outside ordinary comparison coverage.",
+    "The read-only registry core bridge is linked as an auxiliary source; its separately owned entries are not added to this family."
+  ],
+  "notes": "Every seed has a plain RET, no incoming stack operands or live incoming ECX, and no consumed result: cdecl0/void. Registrations reuse the existing typed registry core. The owned 0x47dc30 parent call to owned 0x474060 stays native. Other original callees remain whole code; diagnostics use the core compiler-context contracts. Callback addresses are registration data only."
+}

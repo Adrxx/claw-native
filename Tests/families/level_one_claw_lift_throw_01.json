@@ -1,0 +1,240 @@
+{
+  "schema": 1,
+  "id": "level_one_claw_lift_throw_01",
+  "title": "Level 1 Claw lift and throw states",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClawLiftThrow01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x41a850",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x41b1f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x41b280",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x41dc50",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421010",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dbd20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dc6d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      },
+      "reason": "Original conversion consumes the exact x87 operand; EAX supplies the used low integer word."
+    },
+    "0x420af0": {
+      "kind": "whole",
+      "name": "projectile value",
+      "convention": "thiscall",
+      "argc": 2,
+      "x87_exact": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    "0x420b60": {
+      "kind": "whole",
+      "name": "projectile value",
+      "convention": "thiscall",
+      "argc": 2,
+      "x87_exact": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    "0x420bd0": {
+      "kind": "whole",
+      "name": "projectile value",
+      "convention": "thiscall",
+      "argc": 2,
+      "x87_exact": {
+        "pop": 0,
+        "push": 1
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_claw_lift_throw_01.cases.py",
+    "entry": "claw_level_one_claw_lift_throw_01_entry",
+    "equivalent_mutants": [
+      {
+        "line": 254,
+        "operator": "swap-statements",
+        "source_sha256": "59068f7f50c8ea301c182fdd8130f5374ee5a2c3b70809af122923c78410e049",
+        "mutant_sha256": "68553f8215da0f890e0bfa3bfb9577190e6bb1f4e479d1b32246ea88fad14fbe",
+        "reason": "Coordinator review against v1.0 0x41a850: the adjacent statement is the state-word store or the actor+0x40 bit store; 0x4060b0 only negates and swaps actor words at +0x118..+0x140 and never reads or writes actor+0x40 or the state object, so order is unobservable."
+      },
+      {
+        "line": 272,
+        "operator": "swap-statements",
+        "source_sha256": "59068f7f50c8ea301c182fdd8130f5374ee5a2c3b70809af122923c78410e049",
+        "mutant_sha256": "4fbe63880ef838e27990c42c4d788f13835b81bd89c74f5c63a2faeaee5f57cc",
+        "reason": "Coordinator review against v1.0 0x41a850: 0x406120 only reads and writes actor+0x118 and +0x120; the adjacent actor+0x40 bit clear touches a disjoint word, so swapping them leaves memory identical."
+      },
+      {
+        "line": 564,
+        "operator": "swap-statements",
+        "source_sha256": "59068f7f50c8ea301c182fdd8130f5374ee5a2c3b70809af122923c78410e049",
+        "mutant_sha256": "482029add83887c665badfc2e1652f797207ebbce0e205ac354c942bc24e7cc3",
+        "reason": "Coordinator review against v1.0 0x41b280: 0x406120 only reads and writes actor+0x118 and +0x120; the adjacent actor+0x40 bit set touches a disjoint word, so swapping them leaves memory identical."
+      },
+      {
+        "line": 595,
+        "operator": "drop-statement",
+        "source_sha256": "59068f7f50c8ea301c182fdd8130f5374ee5a2c3b70809af122923c78410e049",
+        "mutant_sha256": "72a1b0e43b2a0c2147d72800e192a1c506ca6cbc8b2280634ecedc565eb8f094",
+        "reason": "Coordinator review against v1.0 0x41b280: the entry stores zero to actor+0x148 and +0x14c at 0x41b293/0x41b29b before any branch and no callee reached before 0x41b3d0 writes them, so the second zero store at 0x41b3d0 is redundant."
+      },
+      {
+        "line": 645,
+        "operator": "drop-statement",
+        "source_sha256": "59068f7f50c8ea301c182fdd8130f5374ee5a2c3b70809af122923c78410e049",
+        "mutant_sha256": "d023f0000e36e3e35c723153b7d5d9788bb1e3f968d753c7ccdd05c48f252675",
+        "reason": "Coordinator review against v1.0 0x41b280: the entry stores zero to actor+0x148 and +0x14c at 0x41b293/0x41b29b before any branch and no callee reached before 0x41b582 writes them, so the second zero store at 0x41b582 is redundant."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4137524740,
+      "cases": 604,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 5,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "9c0159e5911b845b23d0f4f2f16ceb58f8f3f5dcf0474d965c5ad08e31ccc85f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "paper_roll",
+  "title": "Source paper-roll transition",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PaperRollRuntime.cpp",
+    "Sources/PaperRollRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PaperRollRuntime.cpp": "eb8d5523639083d56ad4fd340fb05a211dd0619c0f325ff8a8383eb61eb8c9fe",
+    "Sources/PaperRollRuntime.h": "97da6984184dde4428fa98f1c6ca2e467bb2e0bbbce0237d640052d43a5b0e12"
+  },
+  "docs": [
+    "docs/paper-roll-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_paper_roll_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/paper_roll_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/original-disc-assets",
+      "work/paper-roll-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-paper-roll-asan.log",
+        "work/root-paper-roll-independent.log"
+      ],
+      "worker_evidence": [
+        "work/paper-roll-agent/verification.json",
+        "work/paper-roll-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_paper_roll_runtime.py": "pass"
+      },
+      "seconds": 50.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "fail",
+      "salted": "fail",
+      "salt": 1387409427,
+      "owned": 13,
+      "owned_inferred_from_tests": false,
+      "directly_called": 9,
+      "fully_executed": 6,
+      "bytes_owned": 7854,
+      "bytes_executed": 6470,
+      "coverage": 0.8238
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: menu_paper_transition (0x42a4f0, 0x48f500, 0x48f740, 0x4ecb40, 0x4ee880, 0x4ee8c0, 0x4ee8e0, 0x4ee9a0, 0x4eecc0, 0x4ef010, 0x4ef7d0, 0x4efac0); player_fade (0x4ec050). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

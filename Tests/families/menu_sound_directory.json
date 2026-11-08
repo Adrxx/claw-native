@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "id": "menu_sound_directory",
+  "title": "Menu sound directory loader",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuSoundDirectoryRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4ca440",
+      "name": "loadSoundDirectory",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a3920": {
+      "kind": "fixture",
+      "name": "sprintf",
+      "convention": "cdecl",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "cstr",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C formatting replaces the CRT varargs formatter and its locale/OS paths; cases implement the exact %s%s%s format."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string-length transport reached by the original CString key constructor."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_sound_directory.cases.py",
+    "entry": "claw_menu_sound_directory_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4110641079,
+      "cases": 33,
+      "mutants_killed": 21,
+      "mutants_tried": 28,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.955,
+      "reasons": [],
+      "build_inputs_sha256": "b024288f3f92671f7765612dc07985d1084b58564e82763c086d427c8f547cd5"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "sprintf is native C formatting; cases supply the exact three-string formatter.",
+    "lstrlenA is a Win32 string-length fixture.",
+    "The admitted loader does not establish native ownership of sound-entry creation 0x4ca3b0 or its resource binding 0x4c8850."
+  ],
+  "notes": "Reviewed 0x4ca440: thiscall with three stack arguments and u32 count; recursive directory traversal and WAV filtering. Scene sound manager is allocated as 52 bytes in original 0x4cea10 and published at scene+0x28. No game callee is replaced by a fixture."
+}

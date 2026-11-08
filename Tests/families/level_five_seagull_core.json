@@ -1,0 +1,412 @@
+{
+  "schema": 1,
+  "id": "level_five_seagull_core",
+  "title": "Level 5 seagull core",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelFiveSeagullCoreRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x443170",
+      "name": "SeagullBase::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x443200",
+      "name": "SeagullBase::scalarDelete",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x443220",
+      "name": "SeagullBase::destruct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x486f50",
+      "name": "Seagull::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x4872b0",
+      "name": "Seagull::scalarDelete",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4872d0",
+      "name": "Seagull::destruct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4873a0",
+      "name": "Seagull::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138
+      }
+    },
+    {
+      "address": "0x4877a0",
+      "name": "Seagull::hit",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4877d0",
+      "name": "Seagull::hitAndMark",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x487800",
+      "name": "Seagull::hitAndDelay",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x487830",
+      "name": "Seagull::enterIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "returnAddress",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 1473,
+        "output_mask": 1473,
+        "preserve_mask": 1088,
+        "optional": true
+      }
+    },
+    "0x4db6e0": {
+      "kind": "whole",
+      "name": "growStateArray",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x4db4d0": {
+      "kind": "whole",
+      "name": "reportStateArrayError",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x43d490": {
+      "kind": "whole",
+      "name": "baseDispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 import called twice directly by Seagull constructor"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 import reached through the original base constructor"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import reached through original string destruction; cases decrement the supplied reference count"
+    },
+    "0x4332f0": {
+      "kind": "whole",
+      "name": "baseActorConstruct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_five_seagull_core.cases.py",
+    "entry": "claw_level_five_seagull_core_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4873f5",
+        "end": "0x487423",
+        "reason": "Original-checked allocation failure cannot return here: both realloc failure branches in 0x4db6e0 set EBP to zero and call 0x4dc680, which reads [EBP+4] and faults at address 4. Independent hash-checked original probes with states -3 and 3 and bounds [-1,1] both fault before this block."
+      },
+      {
+        "start": "0x48743e",
+        "end": "0x487455",
+        "reason": "Provably unreachable in original with faithful allocator: first lookup either enters with signed min <= state <= max or calls 0x4db6e0 with zero slack. Successful lower growth stores state as minimum at 0x4db757; successful upper growth stores state as maximum at 0x4db7dc. Failure faults before return. No call or bounds write intervenes before this repeated signed check, so neither out-of-range edge can execute."
+      },
+      {
+        "start": "0x48746f",
+        "end": "0x4874a2",
+        "reason": "Original second-growth failure arm is unreachable: repeated range check cannot leave the interval after first successful lookup, and any original 0x4db6e0 realloc failure instead faults at 0x4dc680 reading address 4 with EBP zero. No game fixtures or allocator effects mutate the registry."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 191,
+        "operator": "drop-statement",
+        "source_sha256": "dda782ab23fe8dbe40e907ab483bde2aee2965a2306bbac2b73b5c1730b1a06a",
+        "mutant_sha256": "38be5c5ffe9e38cd6ac5d00decfc67eb10b1b02c4bb8a9843f9f94e57a7135e0",
+        "reason": "Original mandatory base constructor writes receiver+0x2ac=100 at 0x4335be. Original intervening lookup/rectangle code under the original object layout does not change this field; owned store0x4871dd repeats100. Original packet bytes checked against hash-verified executable."
+      },
+      {
+        "line": 202,
+        "operator": "le-to-lt",
+        "source_sha256": "dda782ab23fe8dbe40e907ab483bde2aee2965a2306bbac2b73b5c1730b1a06a",
+        "mutant_sha256": "8304a3ae2136fde98f35facfddec838f677b1249e44861bc3da4d56c873cd6f6",
+        "reason": "Original clamp at 0x487222-0x487227 changes only input99 when <= becomes <; assigning99 and retaining99 give identical value and effects."
+      },
+      {
+        "line": 219,
+        "operator": "drop-statement",
+        "source_sha256": "dda782ab23fe8dbe40e907ab483bde2aee2965a2306bbac2b73b5c1730b1a06a",
+        "mutant_sha256": "a32a60babc3ffae666d193d5038fa3f8919e0321f501530cee585d1b9799c618",
+        "reason": "Original mandatory base constructor writes receiver+0x40=0 at 0x4338fe. Original intervening construction does not change this receiver field; owned0x48728e repeats0. Adjacent high word is separate and remains translated. Original packet bytes checked against hash-verified executable."
+      },
+      {
+        "line": 337,
+        "operator": "negate",
+        "source_sha256": "dda782ab23fe8dbe40e907ab483bde2aee2965a2306bbac2b73b5c1730b1a06a",
+        "mutant_sha256": "c8f614ba8f601cb48a0ecd3545fec5e0c114c57e3fd888e8d9c6f22a7e612177",
+        "reason": "Containing second growth block is unreachable in original: first successful zero-slack growth sets requested state as min/max at 0x4db757/0x4db7dc; no intervening bounds write or call before repeated check. Failure faults at 0x4dc680 reading [EBP+4] with EBP zero, verified against hash-checked original."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2775770880,
+      "cases": 318,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 4,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8257cd0be7443fd697f9b1ecdfab759916728c65b9cd77fd2e045e249f3b9f43"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect is a stand-in (set-rect).",
+    "SetRectEmpty is a stand-in (set-rect-empty).",
+    "InterlockedDecrement is a scripted stand-in that must update the reference count.",
+    "The dispatcher uses physical source frames to preserve original return-address observations; this does not establish app integration."
+  ],
+  "notes": "Boundary checked against original corpus disassembly; see work/packets/level_five_seagull_core/NOTES.md. No game-code fixtures or coverage exemptions."
+}

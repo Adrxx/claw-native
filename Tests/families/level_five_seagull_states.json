@@ -1,0 +1,242 @@
+{
+  "schema": 1,
+  "id": "level_five_seagull_states",
+  "title": "Level 5 seagull states",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelFiveSeagullStatesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x406da0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x467ea0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 9,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4879a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x487b80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x487f20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x487f80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x488330",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x488390",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x488420",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x488550",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x488750",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4c96b0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x4c82a0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x4b45f0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_five_seagull_states.cases.py",
+    "entry": "claw_level_five_seagull_states_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4884b7",
+        "end": "0x4884d0",
+        "reason": "Original table-grow failure never returns: forcing realloc 0x4a9070 to return zero through 0x488420 -> 0x4db6e0 faults on a null read at 0x4 in 0x4dc680 before this continuation. Checked against the unchanged original with cases-check; evidence work/level_five_seagull_states-grow-fault.log."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3836827330,
+      "cases": 422,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.938,
+      "reasons": [],
+      "build_inputs_sha256": "114ee9722105c8b33cf674516a5d03ced701e145b53fccb75a62c4b497931da1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

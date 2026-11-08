@@ -1,0 +1,296 @@
+{
+  "schema": 1,
+  "id": "scene_camera",
+  "title": "Original scene input and camera runtime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SceneCameraCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42d5f0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46c860",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x486240",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x486d30",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x486d70",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0a60",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0c50",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime allocator ends in operating-system calls."
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Original camera-shake callee 0x486a00 reaches CRT thread-local state through imports."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply deterministic platform results and output writes."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply deterministic platform results and output writes."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply deterministic platform results and output writes."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply deterministic platform results and output writes."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply deterministic platform results and output writes."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply deterministic platform results and output writes."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:52"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply deterministic platform results and output writes."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x430d30": {
+      "kind": "whole",
+      "name": "InputBindings::setDefaultSourceMasks; canonical owner application_input_configuration",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void"
+    },
+    "0x430d80": {
+      "kind": "whole",
+      "name": "InputBindings::setDefaultKeys; canonical owner application_input_configuration",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void"
+    },
+    "0x430ec0": {
+      "kind": "whole",
+      "name": "InputBindings::poll; canonical owner application_input_configuration",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32"
+    },
+    "0x431300": {
+      "kind": "whole",
+      "name": "InputBindings::reset; canonical owner application_input_configuration",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32"
+    },
+    "0x4b3430": {
+      "kind": "whole",
+      "name": "InputSource::setModes; canonical owner application_input_configuration",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void"
+    },
+    "0x4b3490": {
+      "kind": "whole",
+      "name": "InputSource::poll; canonical owner application_input_configuration",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void"
+    },
+    "0x4b3ab0": {
+      "kind": "whole",
+      "name": "InputSource::reset; canonical owner application_input_configuration",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/scene_camera.cases.py",
+    "entry": "claw_scene_camera_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x48644a",
+        "end": "0x486456",
+        "reason": "Coordinator verified the hash-pinned original: entry override x != -1 changes every nonzero camera state to 0x22b8 at 0x48628d, so the state-24 path reaching 0x486440 starts with override x == -1; it has no intervening calls or writes to that global. Therefore its override-store arm is unreachable for the returning object domain. All bytes remain owned and translated."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 239,
+        "operator": "drop-statement",
+        "source_sha256": "86fc577d16c685afaeba04a8f35799655e4f8fe3760b8666dfde2464018c6925",
+        "mutant_sha256": "80b4f512eaad85476af8625d5901dd59fb79c2446287eb07607759a3da4ddc7b",
+        "reason": "Drops the zero initialization of newly allocated state+0. The same valid fresh allocation is overwritten by player x before any read of that field or outside call; no existing object aliases the new allocation."
+      },
+      {
+        "line": 241,
+        "operator": "drop-statement",
+        "source_sha256": "86fc577d16c685afaeba04a8f35799655e4f8fe3760b8666dfde2464018c6925",
+        "mutant_sha256": "b719feca61d6e252e6f0dd153c9fc63feb0142dd303f73d8db099e18d8176e38",
+        "reason": "Drops zero initialization of newly allocated state+8. targetPlayer overwrites that target-x field from player x before any read of it or outside call; no existing object aliases the fresh allocation."
+      },
+      {
+        "line": 242,
+        "operator": "shift-offset",
+        "source_sha256": "86fc577d16c685afaeba04a8f35799655e4f8fe3760b8666dfde2464018c6925",
+        "mutant_sha256": "514cd37c553f2fd88b498e732650173816ba82d176aab696e00d183af995c9c6",
+        "reason": "Moves zero initialization from fresh state+0xc to state+0x10. The next statement writes state+0x10 to zero again and targetPlayer overwrites state+0xc before any read of that field or outside call; allocation remains valid and distinct."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3560745458,
+      "cases": 407,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 3,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "189f32b2800f3d0427a2e65537c22d586a76fa54c2c0f1e7ec58391c844bd639"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new uses the shared deterministic allocation fixture.",
+    "rand is scripted at the CRT boundary while camera-shake game code executes unchanged.",
+    "GetSystemMetrics uses case-supplied platform dimensions.",
+    "GetCursorPos uses a case-supplied POINT output.",
+    "GetAsyncKeyState uses case-supplied 16-bit key-state results.",
+    "PostMessageA records the requested message without posting to Windows.",
+    "CopyRect uses case-supplied rectangle-copy behavior.",
+    "SetCursorPos records coordinates without moving a real cursor.",
+    "joyGetPosEx uses a case-supplied 52-byte joystick state."
+  ],
+  "notes": "Reviewed 14-entry scene surface: seven scene_camera roots plus seven explicit whole callees owned solely by application_input_configuration. The scene gate executes unowned input callees as original code; this does not prove native composition. The admission task must retain direct coverage of all 14 entries across the two elected owners and original/native delegation comparisons. See menu-scene-camera-owner-review ownership_review in tools/queue.json and packet NOTES.md. Both binding poll/reset return u32 success 1. Legacy SceneCameraRuntime.cpp/.h and claw_scene_camera_entry exports remain untouched; the separate canonical module uses claw_scene_camera_canonical_entry. __ftol remains original-backed with one ST(0) operand; other unlisted game callees remain original-backed."
+}

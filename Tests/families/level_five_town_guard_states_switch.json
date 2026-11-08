@@ -1,0 +1,357 @@
+{
+  "schema": 1,
+  "id": "level_five_town_guard_states_switch",
+  "title": "Level 5 town guard states and switch",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelFiveTownGuardStatesSwitchRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x453bd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483dc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1535,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x497750",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1535,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x497970",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4979b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1535,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x497a50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1535,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x497ab0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x497b00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x497c50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x497dc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4c82a0": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x4c8220": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x4dba00": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x44edd0": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x4cda10": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x48ce40": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "cdecl",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x4060b0": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x406310": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x44da20": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_five_town_guard_states_switch.cases.py",
+    "entry": "claw_level_five_town_guard_states_switch_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1551241965,
+      "cases": 578,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "e3e4bd7b80157b962c47453809cb358a9c8a228baba499a7fe7b1e9db89fac2a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,487 @@
+{
+  "schema": 1,
+  "id": "save_load",
+  "title": "Original game save-reader, startup and player-record ownership",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/SaveLoadCanonical.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x423f00",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49a5a0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49a6d0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49a8f0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49a990",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49ad50",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49adc0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b840",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b950",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b970",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b9a0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49bdb0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49be50",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49bee0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49bf30",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native allocator boundary; original game and MFC callers remain executable."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native allocator boundary; original game and MFC callers remain executable."
+    },
+    "0x546a28": {
+      "kind": "fixture",
+      "name": "GetCurrentDirectoryA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546a2c": {
+      "kind": "fixture",
+      "name": "GetDriveTypeA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546a10": {
+      "kind": "fixture",
+      "name": "GetWindowsDirectoryA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546a0c": {
+      "kind": "fixture",
+      "name": "GetVolumeInformationA",
+      "convention": "stdcall",
+      "argc": 8,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546c48": {
+      "kind": "fixture",
+      "name": "CharUpperA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546ad4": {
+      "kind": "fixture",
+      "name": "FindFirstFileA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546ad8": {
+      "kind": "fixture",
+      "name": "FindClose",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546b10": {
+      "kind": "fixture",
+      "name": "lstrcpyA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/save_load.cases.py",
+    "entry": "claw_save_load_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x49a5ec",
+        "end": "0x49a5f3",
+        "reason": "The same unchanged name has already passed signed length <32 at 0x49a5c8. No intervening write or callback changes it before the optional field check rescans it and compares against 80; this rejection epilogue is unreachable."
+      },
+      {
+        "start": "0x49a60e",
+        "end": "0x49a617",
+        "reason": "Both optional checks rescan the unchanged name already validated below32, so their >=80/negative rejections are impossible. The initial signed-negative scan requires at least 2^31 backed bytes and is outside the bounded live-object string domain. The whole original body remains owned."
+      },
+      {
+        "start": "0x49a91e",
+        "end": "0x49a920",
+        "reason": "The original initializes ESI=0, increments it by one only after all three checks, and loops only while ESI<15. The owned checksum helper preserves ESI and has no external callbacks. This index-out-of-range zero-pointer assignment is unreachable; the full owned body is retained."
+      },
+      {
+        "start": "0x49a93b",
+        "end": "0x49a93d",
+        "reason": "The original initializes ESI=0, increments it by one only after all three checks, and loops only while ESI<15. The owned checksum helper preserves ESI and has no external callbacks. This index-out-of-range zero-pointer assignment is unreachable; the full owned body is retained."
+      },
+      {
+        "start": "0x49a957",
+        "end": "0x49a959",
+        "reason": "The original initializes ESI=0, increments it by one only after all three checks, and loops only while ESI<15. The owned checksum helper preserves ESI and has no external callbacks. This index-out-of-range zero-pointer assignment is unreachable; the full owned body is retained."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4136764906,
+      "cases": 128,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.938,
+      "reasons": [],
+      "build_inputs_sha256": "6fc743e2bfb0428c01d81b28a02623b4a05bb76bb061ee29d05dc0149089523c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is supplied at the allocator or physical import boundary.",
+    "operator delete is supplied at the allocator or physical import boundary.",
+    "GetCurrentDirectoryA is supplied at the allocator or physical import boundary.",
+    "GetDriveTypeA is supplied at the allocator or physical import boundary.",
+    "GetWindowsDirectoryA is supplied at the allocator or physical import boundary.",
+    "lstrlenA is supplied at the allocator or physical import boundary.",
+    "InterlockedDecrement is supplied at the allocator or physical import boundary.",
+    "InterlockedIncrement is supplied at the allocator or physical import boundary.",
+    "GetFullPathNameA is supplied at the allocator or physical import boundary.",
+    "lstrcpynA is supplied at the allocator or physical import boundary.",
+    "GetVolumeInformationA is supplied at the allocator or physical import boundary.",
+    "CharUpperA is supplied at the allocator or physical import boundary.",
+    "FindFirstFileA is supplied at the allocator or physical import boundary.",
+    "FindClose is supplied at the allocator or physical import boundary.",
+    "lstrcpyA is supplied at the allocator or physical import boundary.",
+    "SetFilePointer is supplied at the allocator or physical import boundary.",
+    "ReadFile is supplied at the allocator or physical import boundary.",
+    "CreateFileA is supplied at the allocator or physical import boundary.",
+    "CloseHandle is supplied at the allocator or physical import boundary.",
+    "GetLastError is supplied at the allocator or physical import boundary.",
+    "SetLastError is supplied at the allocator or physical import boundary.",
+    "TlsGetValue is supplied at the allocator or physical import boundary."
+  ],
+  "notes": "Canonical migration preserves the full existing game behavior and unchanged legacy native API files. Fifteen game entries are owned here; existing canonical world_file ownership of 0x4d5330 is preserved as original-backed delegation. MFC file entries 0x4f7570, 0x4f75f5 and 0x4f774d remain unchanged original callees rather than owned platform recovery. No missing game body is a fixture. Boundary review and input obligations are in work/packets/save_load/NOTES.md."
+}

@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "id": "application_startup",
+  "title": "Original application startup composition",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ApplicationStartupRuntime.cpp",
+    "Sources/ApplicationStartupRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/ApplicationStartupRuntime.cpp": "99b00e0f3dbc8e4eef33d1763d11a1543d033183d3f7f40e849a2bebf6743b08",
+    "Sources/ApplicationStartupRuntime.h": "ff8b2f33784d07efcb5ea66fd8dd8ca3493f7b0bc1b8f4303d7f4a8951fde1b8"
+  },
+  "docs": [
+    "docs/application-startup-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_application_startup_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/application_startup_helpers.py"
+    ],
+    "extra": [
+      "Tests/application_startup_build.py",
+      "Tests/exact_sized_application_startup.cpp"
+    ],
+    "work_dirs": [
+      "work/application-startup-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-application-startup-asan.log",
+        "work/root-application-startup-independent.log"
+      ],
+      "worker_evidence": [
+        "work/application-startup-agent/source-sha256.json",
+        "work/application-startup-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_application_startup_runtime.py": "pass"
+      },
+      "seconds": 64.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3053698569,
+      "owned": 2,
+      "owned_inferred_from_tests": true,
+      "directly_called": 2,
+      "fully_executed": 1,
+      "bytes_owned": 4484,
+      "bytes_executed": 4225,
+      "coverage": 0.9422
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeApplicationStartup.swift"
+    ]
+  },
+  "limits": []
+}

@@ -1,0 +1,335 @@
+{
+  "schema": 1,
+  "id": "level_two_raux_shared",
+  "title": "Level 2 raux shared entries",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwoRauxSharedRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x404e40",
+      "name": "rauxDestroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x405060",
+      "name": "rauxStartup",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e0d0",
+      "name": "amuletConstruct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x40e190",
+      "name": "amuletDeletingDestroy",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e280",
+      "name": "amuletDispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e560",
+      "name": "amuletResetPosition",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e580",
+      "name": "amuletTick",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e660",
+      "name": "amuletUpdate",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x420590",
+      "name": "signalGlobalActor",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44e620",
+      "name": "rauxJumpBack",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x455350",
+      "name": "forwardVirtual60",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a07e0",
+      "name": "flagAndNotify",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "import reachable through original destructor or constructor; cases control observable host behavior"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "import reachable through original destructor or constructor; cases control observable host behavior"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "import reachable through original destructor or constructor; cases control observable host behavior"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x420dd0": {
+      "kind": "whole",
+      "name": "trajectorySolve",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    "0x44c000": {
+      "kind": "whole",
+      "name": "constructor initialization chain",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_two_raux_shared.cases.py",
+    "entry": "claw_level_two_raux_shared_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40e2d5",
+        "end": "0x40e303",
+        "reason": "Original table growth at 0x4db6e0 sets EBP to the realloc result; on failure it calls 0x4dc680, which reads address 4 and faults before returning zero. Both growth directions confirmed against original in work/packets/level_two_raux_shared/cases-check-4-fault-probe.log."
+      },
+      {
+        "start": "0x40e31e",
+        "end": "0x40e335",
+        "reason": "The original first lookup either establishes signed min <= event <= max or grows successfully and sets the corresponding bound to event. Before this repeated comparison there is no call or bounds write, so a second growth cannot execute."
+      },
+      {
+        "start": "0x40e34f",
+        "end": "0x40e382",
+        "reason": "Fallback of the impossible second growth: the first lookup establishes the same bounds tested again without any intervening call or bounds write; additionally original allocation failure faults before return."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 591322444,
+      "cases": 176,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.935,
+      "reasons": [],
+      "build_inputs_sha256": "8f319501af5660ea49e661c648f5de9f5964f15a5117b4df562a98edbc396f85"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRectEmpty is a declared import stand-in (set-rect-empty).",
+    "SetRect is a declared import stand-in (set-rect).",
+    "InterlockedDecrement is a declared import stand-in (scripted)."
+  ],
+  "notes": "Boundary checked against hash-indexed corpus instructions; owns exactly the twelve draft seeds. Original trajectorySolve returns an x87 value which its caller discards."
+}

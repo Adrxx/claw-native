@@ -1,0 +1,496 @@
+{
+  "schema": 1,
+  "id": "menu_paper_transition",
+  "title": "Original menu paper transition and roller fader batch",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuPaperTransitionRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42a4f0",
+      "name": "Application::rollerPalette",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f500",
+      "name": "MenuState::paperTransition",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f740",
+      "name": "MenuState::unrollScreen",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9c50",
+      "name": "Surface::copy",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c6260",
+      "name": "PaletteManager::initialize",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7360",
+      "name": "PaletteManager::loadBytes",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7730",
+      "name": "PaletteTable::readStream",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7850",
+      "name": "PaletteTable::loadBytes",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c96b0",
+      "name": "SurfaceEffect::noOp",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4100",
+      "name": "MenuImageActor_bindSurface",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecb40",
+      "name": "PaperInit::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee880",
+      "name": "PaperFader::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee8c0",
+      "name": "PaperFader::scalarDeletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee8e0",
+      "name": "PaperFader::destroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ee9a0",
+      "name": "PaperFader::initialize",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4eecc0",
+      "name": "PaperFader::render",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ef010",
+      "name": "PaperFader::renderPartialCurl",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ef7d0",
+      "name": "PaperFader::renderFullCurl",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4efac0",
+      "name": "PaperFader::extent",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The fader initialization and error strings call the Windows string-length import; cases return the actual input length."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC string destruction calls the Windows atomic decrement import; cases update the referenced word and return its new value."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC string copies may call the Windows atomic increment import; cases update the referenced word and return its new value."
+    },
+    "0x546a24": {
+      "kind": "fixture",
+      "name": "GetTickCount",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original fader timing loop calls the Windows clock; cases supply an advancing sequence."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The alternate transition delay calls the multimedia clock through EDI; cases supply an advancing sequence."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "_ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4f2400": {
+      "kind": "whole",
+      "name": "CRT acos wrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 1
+      }
+    },
+    "0x546a64": {
+      "kind": "fixture",
+      "name": "GetFileAttributesA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original palette-file fallback reaches this Windows import; cases supply controlled file and path effects."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original palette-file fallback reaches this Windows import; cases supply controlled file and path effects."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "cstr",
+        "u32",
+        "ptr:260",
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original palette-file fallback reaches this Windows import; cases supply controlled file and path effects."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:260",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original palette-file fallback reaches this Windows import; cases supply controlled file and path effects."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "cstr",
+        "u32",
+        "u32",
+        "ptr:12",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original palette-file fallback reaches this Windows import; cases supply controlled file and path effects."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "ptr:4",
+        "u32",
+        "ptr:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The original palette-file fallback reaches this Windows import; cases supply controlled file and path effects."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "The original palette-file fallback reaches this Windows import; cases supply controlled file and path effects."
+    },
+    "0x4a6740": {
+      "kind": "fixture",
+      "name": "_dosmaperr",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "CRT OS-error mapping obtains thread-local errno through Windows TLS; error mapping has no observed game effect at the palette-file probe boundary."
+    },
+    "0x546910": {
+      "kind": "fixture",
+      "name": "CreateDCA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "cstr",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Physical display-DC acquisition reached by original palette reset; the elected unavailable-DC service returns zero, and the unroll owner ignores the reset helper result."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_paper_transition.cases.py",
+    "entry": "claw_menu_paper_transition_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c73a3",
+        "end": "0x4c73a7",
+        "reason": "Source-reviewed allocation-null table arm clears its local table pointer, then unconditionally calls owned 0x4c7850/0x4c7730 with receiver zero. The loader accesses receiver+4 and original 0x4c76f0 dereferences the same unmapped low-page object. No normal-return execution exists with the reserved null page; successful table creation and real buffer-allocation failure remain required."
+      },
+      {
+        "start": "0x4c73c2",
+        "end": "0x4c73dd",
+        "reason": "Source-reviewed malformed count=-1 wrap arm resets manager list/count/capacity to zero and then unconditionally stores table at list + old_count*4 at 0x4c74d6, namely unmapped 0xfffffffc. This arm has no normal return in the bounded valid-manager domain; ordinary empty, retained-capacity and growth paths remain covered."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4065421161,
+      "cases": 574,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "c5868bd4dd4e283565abcda28a2b3271618aca42a9fc87bcebd9aaf79f68638a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "malloc is a stand-in (allocate).",
+    "lstrlenA is a stand-in (scripted).",
+    "InterlockedDecrement is a stand-in (scripted).",
+    "InterlockedIncrement is a stand-in (scripted).",
+    "GetTickCount is a stand-in (scripted).",
+    "timeGetTime is a stand-in (scripted).",
+    "Guest exception propagation and exact inherited source-frame state are outside this ordinary return contract.",
+    "GetFileAttributesA is a stand-in (scripted).",
+    "GetLastError is a stand-in (scripted).",
+    "GetFullPathNameA is a stand-in (scripted).",
+    "lstrcpynA is a stand-in (scripted).",
+    "CreateFileA is a stand-in (scripted).",
+    "ReadFile is a stand-in (scripted).",
+    "CloseHandle is a stand-in (return-one).",
+    "_dosmaperr is a stand-in (return-zero); host thread-local errno is not reproduced.",
+    "Diagnostic and uncached archive imports must remain off-path with diagnostic flags disabled and resident archive data; palette-file callbacks model controlled reads without host filesystem access.",
+    "Owned palette-shading FSIN numerical behavior must be verified against the original; the draft has no comparison or admission.",
+    "CreateDCA is a physical return-zero fixture: palette reset sees an unavailable display DC; its original failure return executes unchanged."
+  ],
+  "notes": "Boundary-reviewed eighteen-function menu paper batch from the hash-pinned original. All entries are thiscall; 0x48f740 has five stack words despite incomplete decompilation, and its 0x4ec9c0 call has three. Original 0x4ec050 remains owned by player_fade. Exact CRT x87 boundaries retain original conversion and acos; owned sine remains a numerical verification obligation. See ignored packet notes. The successful startup profile also requires reviewed thiscall1/u32 surface attachment 0x4d4100, bringing this closed positive graph to nineteen entries."
+}

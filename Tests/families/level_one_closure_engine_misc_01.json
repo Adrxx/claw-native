@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_engine_misc_01",
+  "title": "Level 1 closure: message drawing, single-frame message, timer, music and registry helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosureEngineMisc01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4226b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x491970",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x490c00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5720",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3d50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4db6a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dbd00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546d30": {
+      "kind": "fixture",
+      "name": "DrawTextA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "ptr:16",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native platform service; cases provide physical result only"
+    },
+    "0x54691c": {
+      "kind": "fixture",
+      "name": "SelectObject",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows GDI import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x4f72c9": {
+      "kind": "fixture",
+      "name": "CFile constructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f7369": {
+      "kind": "fixture",
+      "name": "CFile destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f7448": {
+      "kind": "fixture",
+      "name": "CFile Open",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f774d": {
+      "kind": "fixture",
+      "name": "CFile GetLength",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    },
+    "0x4f7570": {
+      "kind": "fixture",
+      "name": "CFile Read",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native file services, not recovered; cases supply file bytes and failure outcomes."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_engine_misc_01.cases.py",
+    "entry": "claw_level_one_closure_engine_misc_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3786674549,
+      "cases": 344,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.956,
+      "reasons": [],
+      "build_inputs_sha256": "16ddfe6f76c3531ec06b593446d970bae142b1ed9dd26c5188ab8a2b605e78f7"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "lstrlenA is a stand-in (scripted).",
+    "InterlockedDecrement is a stand-in (scripted).",
+    "InterlockedIncrement is a stand-in (scripted).",
+    "DrawTextA is a stand-in (scripted).",
+    "SelectObject is a stand-in (scripted).",
+    "CFile constructor is a stand-in (scripted).",
+    "CFile destructor is a stand-in (scripted).",
+    "CFile Open is a stand-in (scripted).",
+    "CFile GetLength is a stand-in (scripted).",
+    "CFile Read is a stand-in (scripted)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

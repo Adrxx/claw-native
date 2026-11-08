@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "id": "surface_flip",
+  "title": "Original surface Flip presentation wrapper",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SurfaceFlipCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b98b0",
+      "name": "Surface::flip",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "physical Windows diagnostic beep reached through original reporter"
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "physical Windows diagnostic dialog reached through original reporter"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/surface_flip.cases.py",
+    "entry": "claw_surface_flip_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2914539089,
+      "cases": 66,
+      "mutants_killed": 11,
+      "mutants_tried": 11,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "24bbe4cf5bec11954a14c46cadb88b28e4cfba73ea4b4529e3c3aadc1c8018f0"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Physical DirectDraw Flip is a case-supplied indirect COM dependency.",
+    "Arbitrary wrapper restore virtual targets remain explicit case-supplied dependency calls.",
+    "MessageBeep is a physical diagnostic stand-in; the game reporter runs original code.",
+    "MessageBoxA is a physical diagnostic stand-in; the game reporter and formatting run original code.",
+    "Legacy exported APIs remain available, while canonical admission covers the separate canonical module."
+  ],
+  "notes": "Reviewed 0x4b98b0 ownership; the legacy restore helper is a delegated dependency, not an additional owned entry. Diagnostic file output is disabled in the bounded comparison profile."
+}

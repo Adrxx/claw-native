@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "game_frame_services",
+  "title": "Original game-frame services",
+  "abi": "legacy",
+  "sources": [
+    "Sources/GameFrameServices.cpp",
+    "Sources/GameFrameServices.h"
+  ],
+  "source_sha256": {
+    "Sources/GameFrameServices.cpp": "403af8db17f0b71554b3b709bb969419453b0a6e36e49ad89c12ca2f7c7f6bb5",
+    "Sources/GameFrameServices.h": "c231fc025af4f9b1d634521822d42675fde856210c54f5b79fe6b2fb4b6f4be1"
+  },
+  "docs": [
+    "docs/game-frame-services.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_game_frame_services.py"
+      }
+    ],
+    "helpers": [
+      "Tests/game_frame_services_frame_helpers.py",
+      "Tests/game_frame_services_helpers.py"
+    ],
+    "work_dirs": [
+      "work/game-frame-services-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/game-frame-services-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_game_frame_services.py": "pass"
+      },
+      "seconds": 4.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1194639641,
+      "owned": 13,
+      "owned_inferred_from_tests": true,
+      "directly_called": 13,
+      "fully_executed": 11,
+      "bytes_owned": 2700,
+      "bytes_executed": 2694,
+      "coverage": 0.9978
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeFrame.swift"
+    ]
+  },
+  "limits": []
+}

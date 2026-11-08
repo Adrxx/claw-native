@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "id": "static_factory_object",
+  "title": "Original static factory object construction",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticFactoryObjectRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x440ee0",
+      "name": "StaticFactoryObject::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x440ee0",
+          "end": "0x440f05",
+          "sha256": "12589593f4f5f85dc92768f559243a4aec180c4759e537efcc07ec93ea81a13d"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc280",
+      "name": "FactoryObject::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc280",
+          "end": "0x4dc2f3",
+          "sha256": "311ba9d7e4710e6badfe98bc262652a2004d22fe2cd0c4981bf0c75079d099cf"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc200",
+      "name": "FactoryRecord::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc200",
+          "end": "0x4dc222",
+          "sha256": "a9bacaba488f5e19401d2c1580eb020c5557d66c0b137da30e95435c31b24e71"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4db620": {
+      "kind": "whole",
+      "name": "Admitted error-aware base constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_factory_object.cases.py",
+    "entry": "claw_static_factory_object_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1441152313,
+      "cases": 60,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.915,
+      "reasons": [],
+      "build_inputs_sha256": "12ff0e15bc2320ae97b2e9d9ab429e08c671f63d9c5b5ebc1d7d04eca262ab8d"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Three complete record constructors require full CPU/FS source context and the complete bounded source stack; no coverage exemptions.",
+    "The admitted error-aware base constructor 0x4db620 executes unchanged as a whole original dependency; no game helper or physical service is replaced.",
+    "Receivers have valid nonwrapping backing of at least 44 bytes for 0x440ee0 and 0x4dc280, or 16 bytes for 0x4dc200; they may be original static storage, and remain disjoint from the active stack and the dependency error-manager/global string-table words.",
+    "The factory pointer is stored as an opaque uint32 value and is never called during construction; this family does not own or establish factory execution or scene construction.",
+    "Original writable global data and the real inherited FS chain are shared with the caller; unit setup must not reset caller state at nested boundaries.",
+    "Normal construction establishes no guest exception dispatch, destructor behavior, connected startup, menu, gameplay or device acceptance."
+  ],
+  "notes": "Boundary verified against hash-pinned v1.0 original. Static entry 59 reaches 0x440ee0 at call 0x43d347 with return PC 0x43d34c, receiver 0x537668 and argument zero. Details are in local packet NOTES.md."
+}

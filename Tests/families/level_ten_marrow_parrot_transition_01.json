@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "id": "level_ten_marrow_parrot_transition_01",
+  "title": "Level 10 Marrow to Parrot transition",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTenMarrowParrotTransition01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x459830",
+      "name": "Marrow::waitForParrot",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "body_ranges": [
+        {
+          "start": "0x459830",
+          "end": "0x4599ae",
+          "sha256": "2b240ceca296fb2d17c32ae9b3cfe1d4e1625237c62f1e9743b73e4e44ae3ec9"
+        }
+      ]
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_ten_marrow_parrot_transition_01.cases.py",
+    "entry": "claw_level_ten_marrow_parrot_transition_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2270025085,
+      "cases": 250,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.932,
+      "reasons": [],
+      "build_inputs_sha256": "3b294ca1b4345aa0878c540bb8f5bd11afb5d913f5a9a7c9674b1c3f9873dc96"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Complete binary range 0x459830-0x4599ae checked through next known entry 0x4599b0; trailing two bytes are NOP alignment. Six direct callees retain their admitted owners; none is reimplemented."
+}

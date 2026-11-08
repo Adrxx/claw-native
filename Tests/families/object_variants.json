@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "id": "object_variants",
+  "title": "Numbered variants of FloorSpike, SawBlade and SteppingStone (FloorSpike2, FloorSpike3, FloorSpike4, SawBlade2, SawBlade3, SteppingStone2, SteppingStone3, SteppingStone4)",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ObjectVariantsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x461fe0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462000",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462020",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4622f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462310",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49ead0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49eaf0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49eb10",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/object_variants.cases.py",
+    "entry": "claw_object_variants_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2066645103,
+      "cases": 139,
+      "mutants_killed": 8,
+      "mutants_tried": 16,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ef12044591ddea19651a76d406f337d3844e4ab580219015d5662b71cf194a90"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py. Registered object-logic callbacks: cdecl, one argument (the object), callers discard EAX."
+}

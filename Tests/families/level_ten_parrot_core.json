@@ -1,0 +1,406 @@
+{
+  "schema": 1,
+  "id": "level_ten_parrot_core",
+  "title": "Level 10 parrot core",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTenParrotCoreRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x465640",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x465cc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x465ce0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x465db0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x4663d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x4664d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x466580",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x466730",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 rectangle service is supplied by the declared native rectangle fixture"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle service is supplied by the declared native rectangle fixture"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic reference count operation; cases decrement the pointed word and return its new value"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4dbe10": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "caller_frame": [
+        {
+          "caller": "0x465640",
+          "site": "0x465811",
+          "ebp": {
+            "base": "receiver",
+            "offset": 296
+          }
+        }
+      ]
+    },
+    "0x4dbd60": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "caller_frame": [
+        {
+          "caller": "0x465640",
+          "site": "0x465828",
+          "ebp": {
+            "base": "receiver",
+            "offset": 296
+          }
+        }
+      ]
+    },
+    "0x44bc60": {
+      "kind": "whole",
+      "name": "base enemy constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x43e420": {
+      "kind": "whole",
+      "name": "base update",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x467e30": {
+      "kind": "whole",
+      "name": "reset spawn and fly",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x467530": {
+      "kind": "whole",
+      "name": "idle combat transition",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x4c82a0": {
+      "kind": "whole",
+      "name": "animation tick",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x43d490": {
+      "kind": "whole",
+      "name": "base state dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_ten_parrot_core.cases.py",
+    "entry": "claw_level_ten_parrot_core_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x465e05",
+        "end": "0x465e33",
+        "reason": "Original realloc-null probes for states -1 and 4 fault reading 0x4 at 0x4dc680 through table grow 0x4db6e0 before it can return zero; retained original execution in work/packets/level_ten_parrot_core/cases-check-3.log."
+      },
+      {
+        "start": "0x465e4e",
+        "end": "0x465e65",
+        "reason": "Original first lookup either validates the state bounds or grows the table to include it. Before the repeated signed comparisons at 0x465e44/0x465e4c there is no call or bounds write, only the zero store to distinct 0x537c50, so a second grow is impossible."
+      },
+      {
+        "start": "0x465e7f",
+        "end": "0x465eb2",
+        "reason": "Second-grow failure arm cannot execute because its grow block is unreachable after the first successful bounds lookup; additionally original realloc failure faults at 0x4dc680 rather than returning zero, as retained original probes show."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2150209686,
+      "cases": 482,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.907,
+      "reasons": [],
+      "build_inputs_sha256": "de1c45dae16c7adbac98b9ef2e39623e5a51ead46f276d706ff3f25930a53f19"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRectEmpty and SetRect use declared rectangle service fixtures.",
+    "InterlockedDecrement is a scripted native atomic decrement stand-in."
+  ],
+  "notes": "Boundary checked against original disassembly; constructor maintains EBP at receiver plus 0x128 for the two MFC bitset callees, and ftol consumes the exact live x87 operand. All eight core entries preserve inherited x87 CW, live slots and TOP and publish final SW; constructor/base/inlined fly, state dispatch, animation/combat transition and update/reset boundaries carry the same environment."
+}

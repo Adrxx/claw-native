@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "id": "palette_fade",
+  "title": "Original palette fade and clock bodies",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PaletteFadeCanonical.cpp"
+  ],
+  "docs": [
+    "docs/palette-fade-runtime.md",
+    "docs/palette-schedule-admission-audit.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4bb8c0",
+      "name": "Palette::restoreSaved",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bbb70",
+      "name": "Palette::advanceFade",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bbd20",
+      "name": "Palette::finishFade",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bbd90",
+      "name": "Palette::fadeBlocking",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "WinMM clock import; cases control elapsed time and wraparound"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "optional Win32 beep reached through original error reporting"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/palette_fade.cases.py",
+    "entry": "claw_palette_fade_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "codex": {
+      "root_logs": [
+        "work/root-palette-fade-asan.log",
+        "work/root-palette-fade-independent.log",
+        "work/root-palette-schedule-admission-asan.log",
+        "work/root-palette-schedule-admission-final-asan.log",
+        "work/root-palette-schedule-admission-independent.log"
+      ],
+      "worker_evidence": [
+        "work/palette-fade-agent/report.json",
+        "work/palette-fade-agent/sanitizer.log",
+        "work/palette-fade-agent/source-sha256.json",
+        "work/palette-fade-setup-agent/sanitizer.log",
+        "work/palette-fade-setup-agent/source-sha256.json"
+      ],
+      "legacy_integration": {
+        "level": "elected",
+        "in_app_target": true,
+        "in_bridging_header": true,
+        "swift_references": [
+          "Sources/ClawNativePaletteResources.swift"
+        ]
+      }
+    },
+    "baseline": null,
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1006147397,
+      "cases": 89,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "94abfadad8e281717dd91ebfa80718475619570ebe2b25a3732cd7e9982d6703"
+    }
+  },
+  "integration": {
+    "level": "source-only",
+    "in_app_target": false,
+    "in_bridging_header": false,
+    "swift_references": []
+  },
+  "limits": [
+    "timeGetTime is a scripted WinMM boundary; cases supply clock schedules.",
+    "operator new uses the comparison allocator rather than the operating-system heap.",
+    "operator delete uses the comparison release fixture.",
+    "MessageBeep is a successful Win32 stand-in on original diagnostic paths.",
+    "DirectDraw palette and display callbacks are case-supplied stdcall function pointers.",
+    "Error reporting runs as original code with diagnostic formatting, logging and dialogs disabled by globals 0x54139c, 0x5413a0 and 0x5413a8.",
+    "The separate canonical module is source-only; the unchanged legacy app integration is retained as historical evidence metadata."
+  ],
+  "notes": "Canonical migration preserves exactly the four existing owners. Legacy PaletteFadeRuntime sources and app ABI remain untouched. Original-backed 0x4bb800, 0x4bb910 and 0x4bd260 are not fixtures. No owned entry or original boundary transports x87 values."
+}

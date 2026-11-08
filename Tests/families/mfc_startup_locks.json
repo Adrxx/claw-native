@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "id": "mfc_startup_locks",
+  "title": "Original MFC lock initialization acquire and release",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcStartupLocksRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x502e47",
+      "name": "MFC initialize lock subsystem",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x502e95",
+      "name": "MFC acquire numbered lock",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x502f05",
+      "name": "MFC release numbered lock",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    }
+  ],
+  "callees": {
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows version service."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows critical-section service; cases model initialization, recursive ownership, balanced release and nonreturning service failure at the original address."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows critical-section service; cases model initialization, recursive ownership, balanced release and nonreturning service failure at the original address."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows critical-section service; cases model initialization, recursive ownership, balanced release and nonreturning service failure at the original address."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_startup_locks.cases.py",
+    "entry": "claw_mfc_startup_locks_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 971619252,
+      "cases": 237,
+      "mutants_killed": 30,
+      "mutants_tried": 33,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.968,
+      "reasons": [],
+      "build_inputs_sha256": "228cc136ae880fbc803a76c00e8fb5f845392a18986139f7d5c5c8cd790a6e91"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Windows version and critical-section services are modeled physical boundaries; no actual Windows scheduling is claimed.",
+    "Normal lock initialization, acquisition and release are covered as whole functions; a nonreturning service failure stops at its physical boundary without claiming exception cleanup.",
+    "UNPUBLISHED CANDIDATE: optional source capability is proposed for all three existing owned entries, including initializer required by cold acquisition. Prior ordinary admission does not admit this expanded contract.",
+    "Source input/output select all11 CPU fields (0x7ff), preserve_mask0; actual source CPU and all128KiB stack bytes remain compared. Full outputs avoid fabricating void-return EAX or dependency EFLAGS. Guest EBP/register values grant no memory authority.",
+    "Valid mapped source frames, valid actual OS import identities, sufficiently bounded execution and synchronous physical observations are required. Index remains uint32 with original modulo32 address arithmetic; no new index<=16 check is introduced. Permitted aliases and actual read/write order must remain observable.",
+    "The owned initializer502e47 must execute natively when reached from native acquire502e95; it must not be installed as an original whole dependency or fixture. Its internal source frame/CPU and physical imports require scoped native entry handling.",
+    "Physical service Halt remains an explicit nonreturning prefix. Native guest exception dispatch/catch transport and connected singleton or app startup are separate unproven obligations."
+  ],
+  "notes": "Boundary-reviewed whole lock functions. Acquire/release have no semantic return value. Register-indirect calls resolve to the EnterCriticalSection import loaded from its original IAT slot; no game callback fixture is required. See ignored packet NOTES.md for layout, branches, physical state and exact frames. Optional full-source boundary proposal is documented in work/coordination/mfc-locks-source-boundary.md. Ordinary ABI, ownership, source path, case path and entry symbol are retained; this ignored candidate has no new admission evidence."
+}

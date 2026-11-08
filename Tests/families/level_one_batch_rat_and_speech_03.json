@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_rat_and_speech_03",
+  "title": "Level 1 enemy speech and Wolvington helper, batch 3",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchRatAndSpeech03Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x48ce40",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48ceb0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a1180",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_rat_and_speech_03.cases.py",
+    "entry": "claw_level_one_batch_rat_and_speech_03_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3881697105,
+      "cases": 406,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "056d5dd8d517d85f7d530ae4f2be820bf28004f3ef4505633e8fbf11ed5bc5db"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

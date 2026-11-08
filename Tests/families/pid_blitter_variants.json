@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "id": "pid_blitter_variants",
+  "title": "Original compressed PID blitter variants",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PidBlitterVariantsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4c0450",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c0920",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c0cc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c1190",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c25b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c3800",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c4c20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c5e80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pid_blitter_variants.cases.py",
+    "entry": "claw_pid_blitter_variants_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2589970378,
+      "cases": 662,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "2d35fbf26418bcc1f5f372fe6ff7679d8db5122398dad240bdc983ddb4c3d04d"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

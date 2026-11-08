@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "enemy_speech",
+  "title": "Original enemy and Claw dialog routing",
+  "abi": "legacy",
+  "sources": [
+    "Sources/EnemySpeechRuntime.cpp",
+    "Sources/EnemySpeechRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/EnemySpeechRuntime.cpp": "b96398719cbcb87ad40adc9a7800dc1c2cca261acd2515e967db7574f2db4fb3",
+    "Sources/EnemySpeechRuntime.h": "3105abbf1bac3339ac65cb72c629a631b69e66f752f73af7a2a193af74401f94"
+  },
+  "docs": [
+    "docs/enemy-speech-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_enemy_speech_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/enemy_speech_helpers.py"
+    ],
+    "work_dirs": [
+      "work/enemy-speech-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-enemy-speech-independent.log"
+      ],
+      "worker_evidence": [
+        "work/enemy-speech-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_enemy_speech_runtime.py": "pass"
+      },
+      "seconds": 13.5
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2995366535,
+      "owned": 9,
+      "owned_inferred_from_tests": false,
+      "directly_called": 9,
+      "fully_executed": 4,
+      "bytes_owned": 1713,
+      "bytes_executed": 1683,
+      "coverage": 0.9825
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeSpeech.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: actor_destruction (0x48cf50); audio_events (0x48c820, 0x48c8a0); level_eight_gabriel_death (0x48cf90); level_one_audio_events_01 (0x48c630, 0x48cc60); level_one_batch_enemy_callee_03 (0x420370); level_one_batch_rat_and_speech_03 (0x48ce40, 0x48ceb0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

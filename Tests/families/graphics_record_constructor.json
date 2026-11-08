@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "id": "graphics_record_constructor",
+  "title": "Original graphics manager record constructor",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GraphicsRecordConstructorRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4ce960",
+      "name": "GraphicsManager::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/graphics_record_constructor.cases.py",
+    "entry": "claw_graphics_record_constructor_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3513922212,
+      "cases": 152,
+      "mutants_killed": 29,
+      "mutants_tried": 29,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ddca8209c3bbd11cea2ced47fc19b6d19adba995a79df913d5581c4e74f89a27"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Whole 62-byte constructor without exemptions; receiver0x3c bytes is required, offset0x30 stays untouched. Global writes are included.",
+    "Constructor admission does not establish graphics initialization, source startup election or menus."
+  ],
+  "notes": "Original boundary reviewed in work/coordination/startup-pregraphics-boundary.md; EAX receiver consumed by425730 and retained despite void decompile."
+}

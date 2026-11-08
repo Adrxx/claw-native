@@ -1,0 +1,4522 @@
+{
+ "sha256": "350b8d51e1cd52037cd31a7722197a815e4206e7d3052ec632465f1354726263",
+ "symbols": {
+  "0x00401000": {
+   "name": ".text",
+   "kind": "section",
+   "source": "Original/claw10/CLAW.EXE section table",
+   "size": 1088949
+  },
+  "0x00402ca0": {
+   "name": "GlobalAmbientSound",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00402cc0": {
+   "name": "AmbientSound",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00402e00": {
+   "name": "AmbientPosSound",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00402e20": {
+   "name": "SpotAmbientSound",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00403100": {
+   "name": "AniRope",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004038d0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004041f0": {
+   "name": "Aquatis",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004051a0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00405440": {
+   "name": "LS_SCARED",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00405540": {
+   "name": "LS_SUPERFRENZY",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00405640": {
+   "name": "LS_HIGHPUNCH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004057a0": {
+   "name": "LS_LOWPUNCH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004059e0": {
+   "name": "LS_STALACTITEHIT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00405a60": {
+   "name": "LS_HITHIGH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00405df0": {
+   "name": "LS_DEADACT1",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00406400": {
+   "name": "AquatisCrack",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00406b10": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00406c40": {
+   "name": "LS_DELAY",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00406dd0": {
+   "name": "AquatisDynamite",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004073e0": {
+   "name": "AquatisStalactite",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00407cc0": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00407e40": {
+   "name": "ES_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00407f20": {
+   "name": "ES_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004089d0": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00409090": {
+   "name": "BackgroundLogic",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004096b0": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00409860": {
+   "name": "BearSailor",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0040a490": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040a690": {
+   "name": "LS_STARTHUG",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040a7f0": {
+   "name": "LS_HUG",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040aa70": {
+   "name": "LS_RELEASE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040c150": {
+   "name": "MapPieceLogic",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0040c4f0": {
+   "name": "MapProgressLogic",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0040d1a0": {
+   "name": "AmuletGemLogic",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0040e580": {
+   "name": "LS_STARTUP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040e690": {
+   "name": "BouncingGoodie",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0040f010": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040f200": {
+   "name": "LS_BOUNCE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040f400": {
+   "name": "LS_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040f7b0": {
+   "name": "BreakPlank",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0040fde0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0040fec0": {
+   "name": "Bullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0040ff80": {
+   "name": "PistolBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410040": {
+   "name": "MagicBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410100": {
+   "name": "FireBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004101c0": {
+   "name": "LightningBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410280": {
+   "name": "IceBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410340": {
+   "name": "WolvingtonBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410400": {
+   "name": "OmarBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004104c0": {
+   "name": "SirenBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410580": {
+   "name": "TridentBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410640": {
+   "name": "RedTailKnife",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410700": {
+   "name": "RedTailBullet",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00410d60": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00411310": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004117c0": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00411c70": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00412150": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00412740": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00412cb0": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00413280": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00413470": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00413960": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004145f0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004146b0": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004148b0": {
+   "name": "LS_VERTFIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00414b20": {
+   "name": "CannonBall",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00414cc0": {
+   "name": "CannonButton",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00415250": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00415350": {
+   "name": "CannonSwitch",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004159b0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00415a60": {
+   "name": "LS_SWITCH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00415df0": {
+   "name": "CaptainClaw",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0041ce80": {
+   "name": "CaptainClawHit",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00421200": {
+   "name": "Chameleon",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00421e00": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00422050": {
+   "name": "LS_PHASEOUT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004221b0": {
+   "name": "LS_PHASEIN",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00422ef0": {
+   "name": "Checkpoint",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00422ff0": {
+   "name": "CheckpointAttack",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004231a0": {
+   "name": "SuperCheckpointAttack",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004232c0": {
+   "name": "FirstSuperCheckpoint",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004232e0": {
+   "name": "SecondSuperCheckpoint",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0042a680": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0042d680": {
+   "name": "ClawMultiRacer",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0042d730": {
+   "name": "CaptainClawRemoteRacer",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0042d8c0": {
+   "name": "ChildChar",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0042d970": {
+   "name": "ChildScoreNum",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0042da80": {
+   "name": "ChildRibbon",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0042db60": {
+   "name": "ScoreRibbon",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00431320": {
+   "name": "ConveyorBelt",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00431b10": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00431b70": {
+   "name": "ES_MOVE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00431cd0": {
+   "name": "CrabBomb",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004324e0": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00432570": {
+   "name": "CrabNest",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00432c50": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00432d50": {
+   "name": "ES_HATCH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00433070": {
+   "name": "Crate",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00434170": {
+   "name": "LS_FALL",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00434180": {
+   "name": "LS_DAMAGE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00434190": {
+   "name": "CrazyHook",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00434eb0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00435130": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00435600": {
+   "name": "LS_HOLDHOOK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004379d0": {
+   "name": "CutThroat",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004385b0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004386d0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00438a90": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043a850": {
+   "name": "Dynamite",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0043b290": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043b320": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043ca60": {
+   "name": "EndLevelGem",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0043d070": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043edd0": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043f030": {
+   "name": "LS_STRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043f450": {
+   "name": "LS_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043f540": {
+   "name": "LS_PAUSE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043f6e0": {
+   "name": "LS_JUMP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043f980": {
+   "name": "LS_MOVEBACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043fc20": {
+   "name": "LS_MOVEAHEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043fd10": {
+   "name": "LS_MOVINGLEFT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043fdc0": {
+   "name": "LS_MOVINGRIGHT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0043ff60": {
+   "name": "LS_BOUNCE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00440070": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00440260": {
+   "name": "LS_THROWN",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004405b0": {
+   "name": "LS_LIFTED",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00440870": {
+   "name": "LS_FLAILING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00440a50": {
+   "name": "LS_DROPPED",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00440be0": {
+   "name": "LS_BLOCKHIGH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00440d50": {
+   "name": "LS_BLOCKLOW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004411b0": {
+   "name": "FallingDebris",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004419b0": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00441a20": {
+   "name": "ES_FALLINGDELAY",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00441ae0": {
+   "name": "ES_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00441b00": {
+   "name": "ES_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00441b90": {
+   "name": "ES_RESTART",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00441be0": {
+   "name": "Fish",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00442640": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00442b00": {
+   "name": "ES_JUMPSTRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00442d80": {
+   "name": "ES_STRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00442f70": {
+   "name": "ES_OUTOFWATER",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00443290": {
+   "name": "Gabriel",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004441b0": {
+   "name": "LS_STARTUP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004442c0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004445d0": {
+   "name": "LS_MULTIBOMBATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00444760": {
+   "name": "LS_THUGATTACK1",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00444960": {
+   "name": "LS_CANNONATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00444b70": {
+   "name": "LS_CANNONHIT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00444d00": {
+   "name": "LS_BLOCKED",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00445090": {
+   "name": "LS_DEADACT1",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004455b0": {
+   "name": "LS_DEADACT2",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00445660": {
+   "name": "LS_DEADACT3",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00445720": {
+   "name": "LS_DEADACT4",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004459d0": {
+   "name": "GabrielBomb",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004463f0": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00446490": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00446550": {
+   "name": "GabrielCannon",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00446ca0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00446eb0": {
+   "name": "LS_ROTATE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00448440": {
+   "name": "GlitterMother",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004485a0": {
+   "name": "GlitterBaby",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00448620": {
+   "name": "GooVent",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00448b50": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00448d10": {
+   "name": "GroundBlower",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004492c0": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004493c0": {
+   "name": "GroundCannon",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00449c40": {
+   "name": "HermitCrab",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0044ade0": {
+   "name": "ES_HIDE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044aef0": {
+   "name": "ES_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044afd0": {
+   "name": "ES_DEFENSE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044b300": {
+   "name": "ES_STRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044b6a0": {
+   "name": "ES_MOVINGATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044b7e0": {
+   "name": "ES_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044b960": {
+   "name": "ES_NUDGE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044bb40": {
+   "name": "ES_LAUNCH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044bc50": {
+   "name": "ES_ATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044da20": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044dd30": {
+   "name": "LS_BOUNCE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044de50": {
+   "name": "LS_THROWN",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044e510": {
+   "name": "LS_JUMPATCLAW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044ea10": {
+   "name": "LS_JUMPBACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044ea60": {
+   "name": "LS_ADVANCE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044ec80": {
+   "name": "LS_FASTADVANCE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044ef70": {
+   "name": "LS_PACING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044f290": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044f490": {
+   "name": "LS_HITLOW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044f660": {
+   "name": "LS_HITHIGH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0044f800": {
+   "name": "LS_JUMPOFFSPRINGBOARD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00453b10": {
+   "name": "JumpSwitch",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00453d30": {
+   "name": "Katherine",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00454a10": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00454c20": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00455230": {
+   "name": "LS_JUMP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004552d0": {
+   "name": "LS_FLIP3",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004553d0": {
+   "name": "Laser",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00455960": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004559e0": {
+   "name": "LavaGeyser",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004560a0": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00456120": {
+   "name": "ES_ERUPTING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004561c0": {
+   "name": "LavaHand",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00456a10": {
+   "name": "ES_THROWING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00456b00": {
+   "name": "LavaHandProjectile",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00457460": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004574e0": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00457620": {
+   "name": "LavaMouth",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00457d60": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00457de0": {
+   "name": "ES_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00457f00": {
+   "name": "Flare",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00458010": {
+   "name": "WolvingtonLFX",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00458570": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00458590": {
+   "name": "StationaryLight",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00458600": {
+   "name": "ChildLight",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00458680": {
+   "name": "Marrow",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00459440": {
+   "name": "LS_STARTUP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004596a0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004599b0": {
+   "name": "LS_WAITFORPARROT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00459b70": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0045a0b0": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0045a2e0": {
+   "name": "MarrowFloor",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0045a980": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0045aa40": {
+   "name": "ES_OPENING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0045aae0": {
+   "name": "ES_CLOSING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0045f500": {
+   "name": "MenuClaw",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0045f840": {
+   "name": "MenuSparkle",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0045ff00": {
+   "name": "Mercat",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00460c50": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00460ea0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004614c0": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00461730": {
+   "name": "DoNothing",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461750": {
+   "name": "DoNothingNormal",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461770": {
+   "name": "FrontCandy",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004617d0": {
+   "name": "BehindCandy",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461830": {
+   "name": "GooCoverup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461870": {
+   "name": "GooBubble",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004618e0": {
+   "name": "FrontAniCandy",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461970": {
+   "name": "BehindAniCandy",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461a90": {
+   "name": "HitBurst",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461bc0": {
+   "name": "Splash",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461c80": {
+   "name": "BlinkingEyes",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461d50": {
+   "name": "FloorSpike",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00461fe0": {
+   "name": "FloorSpike2",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00462000": {
+   "name": "FloorSpike3",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00462020": {
+   "name": "FloorSpike4",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00462040": {
+   "name": "SawBlade",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004622f0": {
+   "name": "SawBlade2",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00462310": {
+   "name": "SawBlade3",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00462330": {
+   "name": "SawBlade4",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00462350": {
+   "name": "Officer",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00463020": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004631e0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004633a0": {
+   "name": "Omar",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004645c0": {
+   "name": "LS_MOVETOPOSITION",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00464770": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00464930": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00464b90": {
+   "name": "LS_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00464cc0": {
+   "name": "LS_MAGICATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00464f20": {
+   "name": "OmarShield",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00465580": {
+   "name": "Parrot",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004664d0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00466790": {
+   "name": "LS_FLYABOUT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00466e40": {
+   "name": "LS_STRIKESETUP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00467280": {
+   "name": "LS_STRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00467470": {
+   "name": "LS_FLYTOIDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00467700": {
+   "name": "LS_FLYTOMARROW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004679a0": {
+   "name": "LS_CARRYMARROW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00467bf0": {
+   "name": "LS_GENERICHIT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004689b0": {
+   "name": "PegLeg",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00469570": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00469a40": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00469e20": {
+   "name": "LS_ROLLFORWARD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0046a1c0": {
+   "name": "LS_ROLLBACKWARD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0046f1e0": {
+   "name": "PowderKeg",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0046fa90": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0046fc20": {
+   "name": "LS_THROWN",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0046fd10": {
+   "name": "TreasurePowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00470100": {
+   "name": "GoldPowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00470110": {
+   "name": "PowerupGlitter",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004701b0": {
+   "name": "EndOfLevelPowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00470430": {
+   "name": "SpecialPowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00470870": {
+   "name": "BossWarp",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00470a20": {
+   "name": "CursePowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00470d00": {
+   "name": "HealthPowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00470f00": {
+   "name": "MagicPowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00471100": {
+   "name": "AmmoPowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00471330": {
+   "name": "SuperPowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00471530": {
+   "name": "CratePowerup",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00471720": {
+   "name": "FrontCrate",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00471750": {
+   "name": "BehindCrate",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00471780": {
+   "name": "FrontStatue",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004717b0": {
+   "name": "BehindStatue",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004717e0": {
+   "name": "CrateHit",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00473a70": {
+   "name": "PointsIcon",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004742f0": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00474330": {
+   "name": "PunkRat",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00474c50": {
+   "name": "LS_MOVINGLEFT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00474d00": {
+   "name": "LS_MOVINGRIGHT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00474db0": {
+   "name": "LS_STRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00474e60": {
+   "name": "LS_RECOIL",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047c850": {
+   "name": "Rat",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0047d1b0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047d470": {
+   "name": "LS_MOVINGLEFT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047d490": {
+   "name": "LS_MOVINGRIGHT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047d660": {
+   "name": "LS_THROWING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047d7d0": {
+   "name": "RatBomb",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0047dfc0": {
+   "name": "LS_EXPLODING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047e180": {
+   "name": "LS_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047e210": {
+   "name": "Raux",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0047f0c0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047f160": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047f600": {
+   "name": "LS_JUMPOVER",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047f680": {
+   "name": "LS_HITHIGH",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047f6b0": {
+   "name": "LS_HITLOW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0047f6e0": {
+   "name": "RedTail",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004806c0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00480c40": {
+   "name": "LS_KNIFEATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00480f20": {
+   "name": "LS_KICKATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00481180": {
+   "name": "LS_SLIDEATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00481400": {
+   "name": "LS_GUNATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00481720": {
+   "name": "LS_WINDATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00481c10": {
+   "name": "LS_JUMPUP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00481f70": {
+   "name": "LS_JUMPDOWN",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00482180": {
+   "name": "LS_BLOCK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00482260": {
+   "name": "LS_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00482620": {
+   "name": "LS_FASTADVANCE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00482820": {
+   "name": "RedTailPirate",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004837b0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00483dc0": {
+   "name": "LS_BLOCK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00483f30": {
+   "name": "LS_GABRIELATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004842b0": {
+   "name": "RedTailSpikes",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004847b0": {
+   "name": "RedTailWind",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00484e10": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00484ea0": {
+   "name": "ES_BLOW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00485270": {
+   "name": "RobberThief",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00485d90": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00486090": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00486240": {
+   "name": "CaptainClawScreenPosition",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00486e90": {
+   "name": "Seagull",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004879a0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00487f20": {
+   "name": "LS_STRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00488330": {
+   "name": "LS_WITHDRAW",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00488420": {
+   "name": "LS_GENERICHIT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00488750": {
+   "name": "LS_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004887b0": {
+   "name": "Shake",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00488cd0": {
+   "name": "LS_WAIT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00488e30": {
+   "name": "SinglePlank",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00489530": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00489600": {
+   "name": "LS_WAIT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00489680": {
+   "name": "LS_CRUMBLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00489730": {
+   "name": "Siren",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048a2e0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048a590": {
+   "name": "LS_SINGING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048a800": {
+   "name": "SkullCannon",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048a980": {
+   "name": "Soldier",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048b4b0": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048b730": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048ba00": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048c1e0": {
+   "name": "SoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c410": {
+   "name": "BigSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c430": {
+   "name": "SmallSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c450": {
+   "name": "HugeSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c470": {
+   "name": "TinySoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c490": {
+   "name": "TallSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c4b0": {
+   "name": "WideSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c630": {
+   "name": "ClawDialogSound",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048c8f0": {
+   "name": "ClawDialogSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048ca40": {
+   "name": "ClawDialogBigSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048ca60": {
+   "name": "ClawDialogSmallSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048ca80": {
+   "name": "ClawDialogHugeSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048caa0": {
+   "name": "ClawDialogTinySoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048cac0": {
+   "name": "ClawDialogTallSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048cae0": {
+   "name": "ClawDialogWideSoundTrigger",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048cc60": {
+   "name": "EnemyDialogSound",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048d560": {
+   "name": "FrontStackedCrates",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048d620": {
+   "name": "BackStackedCrates",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048ded0": {
+   "name": "BossStager",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048e430": {
+   "name": "BossStagerAttack",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048e4a0": {
+   "name": "Stalactite",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0048ed70": {
+   "name": "ES_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048ee10": {
+   "name": "ES_FALLINGDELAY",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048eee0": {
+   "name": "ES_FALLING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048ef90": {
+   "name": "ES_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0048f040": {
+   "name": "ES_RESTART",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004908b0": {
+   "name": "ScoreFrame",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00490c50": {
+   "name": "HealthFrame",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00490f80": {
+   "name": "WeaponFrame",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004912a0": {
+   "name": "LivesFrame",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00491540": {
+   "name": "TimerFrame",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004918b0": {
+   "name": "AniCycle",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00491910": {
+   "name": "Message",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00491970": {
+   "name": "SingleFrameMessage",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004919f0": {
+   "name": "StatusNumberDigit",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00491b30": {
+   "name": "CheckpointTimer",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00491ed0": {
+   "name": "MultiStats",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00491fa0": {
+   "name": "BossHealthMeter",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004922c0": {
+   "name": "Tentacle",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00492ec0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00493030": {
+   "name": "LS_STRIKE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00493200": {
+   "name": "LS_SUPERFRENZY",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00493550": {
+   "name": "LS_DEAD",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00493680": {
+   "name": "LS_RESPAWN",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00493890": {
+   "name": "LS_STARTGRAB",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004939a0": {
+   "name": "LS_SQUEEZE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00493eb0": {
+   "name": "TigerGuard",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00494d40": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00495280": {
+   "name": "LS_LUNGEATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004954f0": {
+   "name": "LS_KNIFEATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00495710": {
+   "name": "LS_FRONTFLIP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00495940": {
+   "name": "LS_BACKFLIP",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00495ba0": {
+   "name": "LS_BLOCK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00495d40": {
+   "name": "TowerCannonLeft",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00495e00": {
+   "name": "TowerCannonRight",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00496050": {
+   "name": "TownGuard1",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004968d0": {
+   "name": "TownGuard2",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00497750": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004979b0": {
+   "name": "LS_IDLE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00497a50": {
+   "name": "LS_IDLE2",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00497eb0": {
+   "name": "TProjectile",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004985f0": {
+   "name": "LS_FIRING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004988f0": {
+   "name": "LS_WAIT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x00498930": {
+   "name": "TreasureCounter",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00498f40": {
+   "name": "SimpleAnimation",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x00498f90": {
+   "name": "TreasureLogic",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049c9b0": {
+   "name": "StandardElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049d330": {
+   "name": "SlidingElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049d620": {
+   "name": "CrumblingPegNoRespawn",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049d860": {
+   "name": "CrumblingPeg",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049daf0": {
+   "name": "StartElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049db10": {
+   "name": "TriggerElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049db30": {
+   "name": "OneWayStartElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049db50": {
+   "name": "OneWayTriggerElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049db70": {
+   "name": "StopElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049db90": {
+   "name": "SpringBoard",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049de10": {
+   "name": "WaterRock",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049e2a0": {
+   "name": "Elevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049e4e0": {
+   "name": "TogglePeg",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049e7b0": {
+   "name": "TogglePeg2",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049e7d0": {
+   "name": "TogglePeg3",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049e7f0": {
+   "name": "TogglePeg4",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049e810": {
+   "name": "SteppingStone",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049ead0": {
+   "name": "SteppingStone2",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049eaf0": {
+   "name": "SteppingStone3",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049eb10": {
+   "name": "SteppingStone4",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049eb30": {
+   "name": "StartSteppingStone",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049ee20": {
+   "name": "OneTimeStartSteppingStone",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049ee30": {
+   "name": "PathElevator",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049f0a0": {
+   "name": "WindDebris",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0049f7e0": {
+   "name": "ES_MOVING",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x0049fb30": {
+   "name": "Wolvington",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004a0960": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004a0ae0": {
+   "name": "LS_SGATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004a0cf0": {
+   "name": "LS_GATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004a0f40": {
+   "name": "LS_SUPPERCUT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004a1020": {
+   "name": "LS_SWORDATTACK",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004a10f0": {
+   "name": "LS_RUNUPPERCUT",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004a1250": {
+   "name": "LS_ADVANCE",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004bb030": {
+   "name": "LS_HOME",
+   "kind": "state-callback",
+   "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+  },
+  "0x004dc830": {
+   "name": "LogicHit",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x004dc850": {
+   "name": "LogicAttack",
+   "kind": "logic-callback",
+   "source": "Sources/LogicRegistry.cpp entries[]"
+  },
+  "0x0050b000": {
+   "name": ".rdata",
+   "kind": "section",
+   "source": "Original/claw10/CLAW.EXE section table",
+   "size": 92192
+  },
+  "0x00522000": {
+   "name": ".data",
+   "kind": "section",
+   "source": "Original/claw10/CLAW.EXE section table",
+   "size": 147420
+  },
+  "0x00546000": {
+   "name": ".idata",
+   "kind": "section",
+   "source": "Original/claw10/CLAW.EXE section table",
+   "size": 10576
+  },
+  "0x0054681c": {
+   "name": "ADVAPI32.dll!RegQueryValueA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546820": {
+   "name": "ADVAPI32.dll!RegDeleteValueA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546824": {
+   "name": "ADVAPI32.dll!RegSetValueExA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546828": {
+   "name": "ADVAPI32.dll!RegOpenKeyExA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054682c": {
+   "name": "ADVAPI32.dll!RegQueryValueExA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546830": {
+   "name": "ADVAPI32.dll!RegCloseKey",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546834": {
+   "name": "ADVAPI32.dll!RegCreateKeyExA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054683c": {
+   "name": "COMCTL32.dll!#17",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546840": {
+   "name": "COMCTL32.dll!ImageList_Destroy",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546844": {
+   "name": "COMCTL32.dll!ImageList_ReplaceIcon",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546848": {
+   "name": "COMCTL32.dll!ImageList_Create",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546850": {
+   "name": "DDRAW.dll!DirectDrawCreate",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546858": {
+   "name": "DPLAYX.dll!#1",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054685c": {
+   "name": "DPLAYX.dll!#2",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546864": {
+   "name": "DSOUND.dll!DirectSoundCreate",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054686c": {
+   "name": "GDI32.dll!DeleteObject",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546870": {
+   "name": "GDI32.dll!BitBlt",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546874": {
+   "name": "GDI32.dll!StretchBlt",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546878": {
+   "name": "GDI32.dll!GetTextExtentPointA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054687c": {
+   "name": "GDI32.dll!CreateCompatibleDC",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546880": {
+   "name": "GDI32.dll!SetTextColor",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546884": {
+   "name": "GDI32.dll!SelectClipRgn",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546888": {
+   "name": "GDI32.dll!SetBkMode",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054688c": {
+   "name": "GDI32.dll!CreateRectRgn",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546890": {
+   "name": "GDI32.dll!TextOutA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546894": {
+   "name": "GDI32.dll!GetDeviceCaps",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546898": {
+   "name": "GDI32.dll!CreateBitmap",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054689c": {
+   "name": "GDI32.dll!PatBlt",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468a0": {
+   "name": "GDI32.dll!ExtTextOutA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468a4": {
+   "name": "GDI32.dll!SetBkColor",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468a8": {
+   "name": "GDI32.dll!CreateFontIndirectA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468ac": {
+   "name": "GDI32.dll!DPtoLP",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468b0": {
+   "name": "GDI32.dll!DeleteDC",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468b4": {
+   "name": "GDI32.dll!SaveDC",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468b8": {
+   "name": "GDI32.dll!RestoreDC",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468bc": {
+   "name": "GDI32.dll!GetStockObject",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468c0": {
+   "name": "GDI32.dll!SetStretchBltMode",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468c4": {
+   "name": "GDI32.dll!SetMapMode",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468c8": {
+   "name": "GDI32.dll!SetViewportOrgEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468cc": {
+   "name": "GDI32.dll!OffsetViewportOrgEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468d0": {
+   "name": "GDI32.dll!SetViewportExtEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468d4": {
+   "name": "GDI32.dll!ScaleViewportExtEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468d8": {
+   "name": "GDI32.dll!SetWindowExtEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468dc": {
+   "name": "GDI32.dll!ScaleWindowExtEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468e0": {
+   "name": "GDI32.dll!GetClipBox",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468e4": {
+   "name": "GDI32.dll!MoveToEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468e8": {
+   "name": "GDI32.dll!LineTo",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468ec": {
+   "name": "GDI32.dll!CreatePen",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468f0": {
+   "name": "GDI32.dll!CreateSolidBrush",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468f4": {
+   "name": "GDI32.dll!PtVisible",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468f8": {
+   "name": "GDI32.dll!RectVisible",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005468fc": {
+   "name": "GDI32.dll!GetObjectA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546900": {
+   "name": "GDI32.dll!GetTextMetricsA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546904": {
+   "name": "GDI32.dll!Escape",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546908": {
+   "name": "GDI32.dll!Rectangle",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054690c": {
+   "name": "GDI32.dll!CreateCompatibleBitmap",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546910": {
+   "name": "GDI32.dll!CreateDCA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546914": {
+   "name": "GDI32.dll!GetSystemPaletteEntries",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546918": {
+   "name": "GDI32.dll!CreateFontA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054691c": {
+   "name": "GDI32.dll!SelectObject",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546924": {
+   "name": "KERNEL32.dll!LCMapStringW",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546928": {
+   "name": "KERNEL32.dll!HeapReAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054692c": {
+   "name": "KERNEL32.dll!HeapSize",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546930": {
+   "name": "KERNEL32.dll!CreateThread",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546934": {
+   "name": "KERNEL32.dll!ExitThread",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546938": {
+   "name": "KERNEL32.dll!SetStdHandle",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054693c": {
+   "name": "KERNEL32.dll!GetFileType",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546940": {
+   "name": "KERNEL32.dll!FatalAppExitA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546944": {
+   "name": "KERNEL32.dll!GetACP",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546948": {
+   "name": "KERNEL32.dll!GetOEMCP",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054694c": {
+   "name": "KERNEL32.dll!HeapDestroy",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546950": {
+   "name": "KERNEL32.dll!HeapCreate",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546954": {
+   "name": "KERNEL32.dll!VirtualFree",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546958": {
+   "name": "KERNEL32.dll!RaiseException",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054695c": {
+   "name": "KERNEL32.dll!GetCPInfo",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546960": {
+   "name": "KERNEL32.dll!HeapAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546964": {
+   "name": "KERNEL32.dll!HeapFree",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546968": {
+   "name": "KERNEL32.dll!GetEnvironmentStrings",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054696c": {
+   "name": "KERNEL32.dll!LCMapStringA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546970": {
+   "name": "KERNEL32.dll!TerminateProcess",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546974": {
+   "name": "KERNEL32.dll!GetStdHandle",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546978": {
+   "name": "KERNEL32.dll!GetStringTypeA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054697c": {
+   "name": "KERNEL32.dll!GetStringTypeW",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546980": {
+   "name": "KERNEL32.dll!SetUnhandledExceptionFilter",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546984": {
+   "name": "KERNEL32.dll!IsBadWritePtr",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546988": {
+   "name": "KERNEL32.dll!IsBadCodePtr",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054698c": {
+   "name": "KERNEL32.dll!GetLocaleInfoA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546990": {
+   "name": "KERNEL32.dll!VirtualAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546994": {
+   "name": "KERNEL32.dll!UnhandledExceptionFilter",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546998": {
+   "name": "KERNEL32.dll!ExitProcess",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x0054699c": {
+   "name": "KERNEL32.dll!SuspendThread",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469a0": {
+   "name": "KERNEL32.dll!SetEnvironmentVariableA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469a4": {
+   "name": "KERNEL32.dll!GetCommandLineA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469a8": {
+   "name": "KERNEL32.dll!GetStartupInfoA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469ac": {
+   "name": "KERNEL32.dll!FreeEnvironmentStringsW",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469b0": {
+   "name": "KERNEL32.dll!FreeEnvironmentStringsA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469b4": {
+   "name": "KERNEL32.dll!GetSystemTime",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469b8": {
+   "name": "KERNEL32.dll!lstrcmpiA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469bc": {
+   "name": "KERNEL32.dll!GetCurrentThread",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469c0": {
+   "name": "KERNEL32.dll!GetCurrentThreadId",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469c4": {
+   "name": "KERNEL32.dll!GlobalLock",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469c8": {
+   "name": "KERNEL32.dll!GlobalUnlock",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469cc": {
+   "name": "KERNEL32.dll!lstrcpynA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469d0": {
+   "name": "KERNEL32.dll!MulDiv",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469d4": {
+   "name": "KERNEL32.dll!FormatMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469d8": {
+   "name": "KERNEL32.dll!LocalFree",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469dc": {
+   "name": "KERNEL32.dll!MultiByteToWideChar",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469e0": {
+   "name": "KERNEL32.dll!WideCharToMultiByte",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469e4": {
+   "name": "KERNEL32.dll!lstrlenA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469e8": {
+   "name": "KERNEL32.dll!InterlockedDecrement",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469ec": {
+   "name": "KERNEL32.dll!InterlockedIncrement",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469f0": {
+   "name": "KERNEL32.dll!WaitForSingleObject",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469f4": {
+   "name": "KERNEL32.dll!GetModuleFileNameA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469f8": {
+   "name": "KERNEL32.dll!WinExec",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x005469fc": {
+   "name": "KERNEL32.dll!GetModuleHandleA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a00": {
+   "name": "KERNEL32.dll!OpenProcess",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a04": {
+   "name": "KERNEL32.dll!CloseHandle",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a08": {
+   "name": "KERNEL32.dll!OutputDebugStringA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a0c": {
+   "name": "KERNEL32.dll!GetVolumeInformationA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a10": {
+   "name": "KERNEL32.dll!GetWindowsDirectoryA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a14": {
+   "name": "KERNEL32.dll!LoadLibraryA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a18": {
+   "name": "KERNEL32.dll!GetProcAddress",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a1c": {
+   "name": "KERNEL32.dll!FreeLibrary",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a20": {
+   "name": "KERNEL32.dll!CreateProcessA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a24": {
+   "name": "KERNEL32.dll!GetTickCount",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a28": {
+   "name": "KERNEL32.dll!GetCurrentDirectoryA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a2c": {
+   "name": "KERNEL32.dll!GetDriveTypeA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a30": {
+   "name": "KERNEL32.dll!OpenFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a34": {
+   "name": "KERNEL32.dll!GetLocalTime",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a38": {
+   "name": "KERNEL32.dll!RtlUnwind",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a3c": {
+   "name": "KERNEL32.dll!GetTimeZoneInformation",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a40": {
+   "name": "KERNEL32.dll!IsBadReadPtr",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a44": {
+   "name": "KERNEL32.dll!GlobalGetAtomNameA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a48": {
+   "name": "KERNEL32.dll!GetVersionExA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a4c": {
+   "name": "KERNEL32.dll!GlobalAddAtomA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a50": {
+   "name": "KERNEL32.dll!FindNextFileA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a54": {
+   "name": "KERNEL32.dll!SizeofResource",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a58": {
+   "name": "KERNEL32.dll!GetFileTime",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a5c": {
+   "name": "KERNEL32.dll!WritePrivateProfileStringA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a60": {
+   "name": "KERNEL32.dll!GetFileSize",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a64": {
+   "name": "KERNEL32.dll!GetFileAttributesA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a68": {
+   "name": "KERNEL32.dll!CreateEventA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a6c": {
+   "name": "KERNEL32.dll!GetLocaleInfoW",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a70": {
+   "name": "KERNEL32.dll!SetThreadPriority",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a74": {
+   "name": "KERNEL32.dll!ResumeThread",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a78": {
+   "name": "KERNEL32.dll!SetEvent",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a7c": {
+   "name": "KERNEL32.dll!TlsGetValue",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a80": {
+   "name": "KERNEL32.dll!LocalReAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a84": {
+   "name": "KERNEL32.dll!TlsSetValue",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a88": {
+   "name": "KERNEL32.dll!GlobalReAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a8c": {
+   "name": "KERNEL32.dll!GlobalHandle",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a90": {
+   "name": "KERNEL32.dll!TlsAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a94": {
+   "name": "KERNEL32.dll!GetProcessVersion",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a98": {
+   "name": "KERNEL32.dll!GlobalFlags",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546a9c": {
+   "name": "KERNEL32.dll!LeaveCriticalSection",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546aa0": {
+   "name": "KERNEL32.dll!DeleteCriticalSection",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546aa4": {
+   "name": "KERNEL32.dll!InitializeCriticalSection",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546aa8": {
+   "name": "KERNEL32.dll!LocalAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546aac": {
+   "name": "KERNEL32.dll!EnterCriticalSection",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ab0": {
+   "name": "KERNEL32.dll!FileTimeToLocalFileTime",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ab4": {
+   "name": "KERNEL32.dll!FileTimeToSystemTime",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ab8": {
+   "name": "KERNEL32.dll!SetLastError",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546abc": {
+   "name": "KERNEL32.dll!GetVersion",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ac0": {
+   "name": "KERNEL32.dll!GlobalFree",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ac4": {
+   "name": "KERNEL32.dll!LockResource",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ac8": {
+   "name": "KERNEL32.dll!FindResourceA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546acc": {
+   "name": "KERNEL32.dll!LoadResource",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ad0": {
+   "name": "KERNEL32.dll!GetFullPathNameA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ad4": {
+   "name": "KERNEL32.dll!FindFirstFileA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ad8": {
+   "name": "KERNEL32.dll!FindClose",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546adc": {
+   "name": "KERNEL32.dll!DeleteFileA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ae0": {
+   "name": "KERNEL32.dll!MoveFileA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ae4": {
+   "name": "KERNEL32.dll!SetEndOfFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ae8": {
+   "name": "KERNEL32.dll!UnlockFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546aec": {
+   "name": "KERNEL32.dll!LockFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546af0": {
+   "name": "KERNEL32.dll!FlushFileBuffers",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546af4": {
+   "name": "KERNEL32.dll!SetFilePointer",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546af8": {
+   "name": "KERNEL32.dll!WriteFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546afc": {
+   "name": "KERNEL32.dll!ReadFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b00": {
+   "name": "KERNEL32.dll!CreateFileA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b04": {
+   "name": "KERNEL32.dll!GetCurrentProcess",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b08": {
+   "name": "KERNEL32.dll!DuplicateHandle",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b0c": {
+   "name": "KERNEL32.dll!GetLastError",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b10": {
+   "name": "KERNEL32.dll!lstrcpyA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b14": {
+   "name": "KERNEL32.dll!lstrcatA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b18": {
+   "name": "KERNEL32.dll!SetErrorMode",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b1c": {
+   "name": "KERNEL32.dll!GlobalAlloc",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b20": {
+   "name": "KERNEL32.dll!GlobalDeleteAtom",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b24": {
+   "name": "KERNEL32.dll!lstrcmpA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b28": {
+   "name": "KERNEL32.dll!CompareStringA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b2c": {
+   "name": "KERNEL32.dll!CompareStringW",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b30": {
+   "name": "KERNEL32.dll!GetEnvironmentStringsW",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b34": {
+   "name": "KERNEL32.dll!SetHandleCount",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b38": {
+   "name": "KERNEL32.dll!SetCurrentDirectoryA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b3c": {
+   "name": "KERNEL32.dll!Sleep",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b44": {
+   "name": "SHELL32.dll!DragQueryFileA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b48": {
+   "name": "SHELL32.dll!DragFinish",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b50": {
+   "name": "USER32.dll!IsDialogMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b54": {
+   "name": "USER32.dll!ShowWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b58": {
+   "name": "USER32.dll!GetDesktopWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b5c": {
+   "name": "USER32.dll!GetClassNameA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b60": {
+   "name": "USER32.dll!LoadCursorA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b64": {
+   "name": "USER32.dll!GetSysColorBrush",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b68": {
+   "name": "USER32.dll!GetMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b6c": {
+   "name": "USER32.dll!ShowOwnedPopups",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b70": {
+   "name": "USER32.dll!ClientToScreen",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b74": {
+   "name": "USER32.dll!DestroyMenu",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b78": {
+   "name": "USER32.dll!FillRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b7c": {
+   "name": "USER32.dll!OffsetRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b80": {
+   "name": "USER32.dll!LoadAcceleratorsA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b84": {
+   "name": "USER32.dll!TranslateAcceleratorA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b88": {
+   "name": "USER32.dll!ReleaseCapture",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b8c": {
+   "name": "USER32.dll!LoadMenuA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b90": {
+   "name": "USER32.dll!SetMenu",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b94": {
+   "name": "USER32.dll!ReuseDDElParam",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b98": {
+   "name": "USER32.dll!UnpackDDElParam",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546b9c": {
+   "name": "USER32.dll!BringWindowToTop",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ba0": {
+   "name": "USER32.dll!IsWindowVisible",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ba4": {
+   "name": "USER32.dll!ScreenToClient",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ba8": {
+   "name": "USER32.dll!ScrollWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bac": {
+   "name": "USER32.dll!SetScrollInfo",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bb0": {
+   "name": "USER32.dll!ShowScrollBar",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bb4": {
+   "name": "USER32.dll!SetScrollRange",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bb8": {
+   "name": "USER32.dll!GetScrollPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bbc": {
+   "name": "USER32.dll!SetScrollPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bc0": {
+   "name": "USER32.dll!GetTopWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bc4": {
+   "name": "USER32.dll!IsChild",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bc8": {
+   "name": "USER32.dll!GetCapture",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bcc": {
+   "name": "USER32.dll!WinHelpA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bd0": {
+   "name": "USER32.dll!GetClassInfoA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bd4": {
+   "name": "USER32.dll!RegisterClassA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bd8": {
+   "name": "USER32.dll!GetMenuItemCount",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bdc": {
+   "name": "USER32.dll!GetSubMenu",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546be0": {
+   "name": "USER32.dll!GetMenuItemID",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546be4": {
+   "name": "USER32.dll!GetMenu",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546be8": {
+   "name": "USER32.dll!GetWindowTextA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bec": {
+   "name": "USER32.dll!GetDlgCtrlID",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bf0": {
+   "name": "USER32.dll!GetKeyState",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bf4": {
+   "name": "USER32.dll!DefWindowProcA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bf8": {
+   "name": "USER32.dll!CreateWindowExA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546bfc": {
+   "name": "USER32.dll!SetWindowsHookExA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c00": {
+   "name": "USER32.dll!CallNextHookEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c04": {
+   "name": "USER32.dll!SetPropA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c08": {
+   "name": "USER32.dll!GetLastActivePopup",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c0c": {
+   "name": "USER32.dll!GetForegroundWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c10": {
+   "name": "USER32.dll!MapWindowPoints",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c14": {
+   "name": "USER32.dll!CallWindowProcA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c18": {
+   "name": "USER32.dll!RemovePropA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c1c": {
+   "name": "USER32.dll!GetMessageTime",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c20": {
+   "name": "USER32.dll!GetMessagePos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c24": {
+   "name": "USER32.dll!GetWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c28": {
+   "name": "USER32.dll!SetWindowPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c2c": {
+   "name": "USER32.dll!RegisterWindowMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c30": {
+   "name": "USER32.dll!BeginDeferWindowPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c34": {
+   "name": "USER32.dll!EqualRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c38": {
+   "name": "USER32.dll!AdjustWindowRectEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c3c": {
+   "name": "USER32.dll!DestroyWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c40": {
+   "name": "USER32.dll!IsWindowEnabled",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c44": {
+   "name": "USER32.dll!GetSystemMetrics",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c48": {
+   "name": "USER32.dll!CharUpperA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c4c": {
+   "name": "USER32.dll!PostQuitMessage",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c50": {
+   "name": "USER32.dll!GrayStringA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c54": {
+   "name": "USER32.dll!TabbedTextOutA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c58": {
+   "name": "USER32.dll!LoadBitmapA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c5c": {
+   "name": "USER32.dll!GetMenuState",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c60": {
+   "name": "USER32.dll!ModifyMenuA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c64": {
+   "name": "USER32.dll!SetMenuItemBitmaps",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c68": {
+   "name": "USER32.dll!CheckMenuItem",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c6c": {
+   "name": "USER32.dll!EnableMenuItem",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c70": {
+   "name": "USER32.dll!GetFocus",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c74": {
+   "name": "USER32.dll!GetParent",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c78": {
+   "name": "USER32.dll!GetNextDlgTabItem",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c7c": {
+   "name": "USER32.dll!GetDC",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c80": {
+   "name": "USER32.dll!ReleaseDC",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c84": {
+   "name": "USER32.dll!SetWindowTextA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c88": {
+   "name": "USER32.dll!FindWindowA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c8c": {
+   "name": "USER32.dll!GetWindowLongA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c90": {
+   "name": "USER32.dll!SetWindowLongA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c94": {
+   "name": "USER32.dll!SetFocus",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c98": {
+   "name": "USER32.dll!KillTimer",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546c9c": {
+   "name": "USER32.dll!SetTimer",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ca0": {
+   "name": "USER32.dll!LoadIconA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ca4": {
+   "name": "USER32.dll!MessageBeep",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ca8": {
+   "name": "USER32.dll!TranslateMessage",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cac": {
+   "name": "USER32.dll!PeekMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cb0": {
+   "name": "USER32.dll!DispatchMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cb4": {
+   "name": "USER32.dll!BeginPaint",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cb8": {
+   "name": "USER32.dll!EndPaint",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cbc": {
+   "name": "USER32.dll!GetActiveWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cc0": {
+   "name": "USER32.dll!GetWindowRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cc4": {
+   "name": "USER32.dll!InvalidateRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cc8": {
+   "name": "USER32.dll!MoveWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ccc": {
+   "name": "USER32.dll!UpdateWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cd0": {
+   "name": "USER32.dll!GetCursorPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cd4": {
+   "name": "USER32.dll!PtInRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cd8": {
+   "name": "USER32.dll!SetCursor",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cdc": {
+   "name": "USER32.dll!SetRectEmpty",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ce0": {
+   "name": "USER32.dll!IntersectRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ce4": {
+   "name": "USER32.dll!GetAsyncKeyState",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ce8": {
+   "name": "USER32.dll!CheckDlgButton",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cec": {
+   "name": "USER32.dll!EnableWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cf0": {
+   "name": "USER32.dll!GetClientRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cf4": {
+   "name": "USER32.dll!ValidateRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cf8": {
+   "name": "USER32.dll!IsIconic",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546cfc": {
+   "name": "USER32.dll!wsprintfA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d00": {
+   "name": "USER32.dll!SendDlgItemMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d04": {
+   "name": "USER32.dll!SystemParametersInfoA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d08": {
+   "name": "USER32.dll!SetForegroundWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d0c": {
+   "name": "USER32.dll!GetPropA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d10": {
+   "name": "USER32.dll!CreateDialogIndirectParamA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d14": {
+   "name": "USER32.dll!GetDlgItemInt",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d18": {
+   "name": "USER32.dll!IsDlgButtonChecked",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d1c": {
+   "name": "USER32.dll!SetDlgItemInt",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d20": {
+   "name": "USER32.dll!GetSysColor",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d24": {
+   "name": "USER32.dll!InflateRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d28": {
+   "name": "USER32.dll!LoadStringA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d2c": {
+   "name": "USER32.dll!DialogBoxParamA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d30": {
+   "name": "USER32.dll!DrawTextA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d34": {
+   "name": "USER32.dll!EndDialog",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d38": {
+   "name": "USER32.dll!GetDlgItemTextA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d3c": {
+   "name": "USER32.dll!SetDlgItemTextA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d40": {
+   "name": "USER32.dll!GetDlgItem",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d44": {
+   "name": "USER32.dll!SendMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d48": {
+   "name": "USER32.dll!MessageBoxA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d4c": {
+   "name": "USER32.dll!IsRectEmpty",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d50": {
+   "name": "USER32.dll!PostMessageA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d54": {
+   "name": "USER32.dll!ShowCursor",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d58": {
+   "name": "USER32.dll!CopyRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d5c": {
+   "name": "USER32.dll!SetRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d60": {
+   "name": "USER32.dll!SetActiveWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d64": {
+   "name": "USER32.dll!EndDeferWindowPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d68": {
+   "name": "USER32.dll!IsWindow",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d6c": {
+   "name": "USER32.dll!GetMenuCheckMarkDimensions",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d70": {
+   "name": "USER32.dll!UnhookWindowsHookEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d74": {
+   "name": "USER32.dll!DeferWindowPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d78": {
+   "name": "USER32.dll!DestroyCursor",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d7c": {
+   "name": "USER32.dll!DrawFocusRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d80": {
+   "name": "USER32.dll!FrameRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d84": {
+   "name": "USER32.dll!DrawIcon",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d88": {
+   "name": "USER32.dll!DestroyIcon",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d8c": {
+   "name": "USER32.dll!DrawEdge",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d90": {
+   "name": "USER32.dll!DrawFrameControl",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d94": {
+   "name": "USER32.dll!UnionRect",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d98": {
+   "name": "USER32.dll!DestroyAcceleratorTable",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546d9c": {
+   "name": "USER32.dll!SetCursorPos",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546da4": {
+   "name": "VERSION.dll!GetFileVersionInfoSizeA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546da8": {
+   "name": "VERSION.dll!GetFileVersionInfoA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dac": {
+   "name": "VERSION.dll!VerQueryValueA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546db4": {
+   "name": "WININET.dll!InternetSetFilePointer",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546db8": {
+   "name": "WININET.dll!InternetGetLastResponseInfoA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dbc": {
+   "name": "WININET.dll!InternetQueryDataAvailable",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dc0": {
+   "name": "WININET.dll!InternetReadFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dc4": {
+   "name": "WININET.dll!InternetWriteFile",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dc8": {
+   "name": "WININET.dll!InternetSetStatusCallback",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dcc": {
+   "name": "WININET.dll!InternetCrackUrlA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dd0": {
+   "name": "WININET.dll!InternetCanonicalizeUrlA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dd4": {
+   "name": "WININET.dll!InternetQueryOptionA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dd8": {
+   "name": "WININET.dll!InternetOpenA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ddc": {
+   "name": "WININET.dll!InternetCloseHandle",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546de0": {
+   "name": "WININET.dll!InternetOpenUrlA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546de8": {
+   "name": "WINMM.dll!joyGetPosEx",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546dec": {
+   "name": "WINMM.dll!mciSendCommandA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546df0": {
+   "name": "WINMM.dll!timeGetTime",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546df4": {
+   "name": "WINMM.dll!joyGetDevCapsA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546df8": {
+   "name": "WINMM.dll!joyGetNumDevs",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e00": {
+   "name": "WINSPOOL.DRV!ClosePrinter",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e04": {
+   "name": "WINSPOOL.DRV!DocumentPropertiesA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e08": {
+   "name": "WINSPOOL.DRV!OpenPrinterA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e10": {
+   "name": "WSOCK32.dll!#16",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e14": {
+   "name": "WSOCK32.dll!#52",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e18": {
+   "name": "WSOCK32.dll!#19",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e1c": {
+   "name": "WSOCK32.dll!#3",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e20": {
+   "name": "WSOCK32.dll!#8",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e24": {
+   "name": "WSOCK32.dll!#23",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e28": {
+   "name": "WSOCK32.dll!#57",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e2c": {
+   "name": "WSOCK32.dll!#17",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e30": {
+   "name": "WSOCK32.dll!#12",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e34": {
+   "name": "WSOCK32.dll!#101",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e38": {
+   "name": "WSOCK32.dll!#1",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e3c": {
+   "name": "WSOCK32.dll!#11",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e40": {
+   "name": "WSOCK32.dll!#111",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e44": {
+   "name": "WSOCK32.dll!#112",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e48": {
+   "name": "WSOCK32.dll!#4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e4c": {
+   "name": "WSOCK32.dll!#10",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e50": {
+   "name": "WSOCK32.dll!#20",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e54": {
+   "name": "WSOCK32.dll!#9",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e58": {
+   "name": "WSOCK32.dll!#2",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e60": {
+   "name": "comdlg32.dll!GetFileTitleA",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e68": {
+   "name": "mss32.dll!_AIL_shutdown@0",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e6c": {
+   "name": "mss32.dll!_AIL_set_XMIDI_master_volume@8",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e70": {
+   "name": "mss32.dll!_AIL_startup@0",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e74": {
+   "name": "mss32.dll!_AIL_midiOutOpen@12",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e78": {
+   "name": "mss32.dll!_AIL_end_sequence@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e7c": {
+   "name": "mss32.dll!_AIL_sequence_status@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e80": {
+   "name": "mss32.dll!_AIL_resume_sequence@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e84": {
+   "name": "mss32.dll!_AIL_stop_sequence@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e88": {
+   "name": "mss32.dll!_AIL_set_sequence_loop_count@8",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e8c": {
+   "name": "mss32.dll!_AIL_XMIDI_master_volume@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e90": {
+   "name": "mss32.dll!_AIL_start_sequence@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e94": {
+   "name": "mss32.dll!_AIL_release_sequence_handle@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e98": {
+   "name": "mss32.dll!_AIL_init_sequence@12",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546e9c": {
+   "name": "mss32.dll!_AIL_allocate_sequence_handle@4",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ea4": {
+   "name": "smackw32.DLL!#14",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ea8": {
+   "name": "smackw32.DLL!#32",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546eac": {
+   "name": "smackw32.DLL!#27",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546eb0": {
+   "name": "smackw32.DLL!#17",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546eb4": {
+   "name": "smackw32.DLL!#18",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546eb8": {
+   "name": "smackw32.DLL!#21",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ebc": {
+   "name": "smackw32.DLL!#38",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ec0": {
+   "name": "smackw32.DLL!#28",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ec4": {
+   "name": "smackw32.DLL!#23",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00546ec8": {
+   "name": "smackw32.DLL!#19",
+   "kind": "import",
+   "source": "Original/claw10/CLAW.EXE import directory"
+  },
+  "0x00549000": {
+   "name": ".rsrc",
+   "kind": "section",
+   "source": "Original/claw10/CLAW.EXE section table",
+   "size": 38024
+  }
+ },
+ "conflicts": [
+  {
+   "address": "0x00470100",
+   "kept": {
+    "name": "GoldPowerup",
+    "kind": "logic-callback",
+    "source": "Sources/LogicRegistry.cpp entries[]"
+   },
+   "dropped": {
+    "name": "CoinPowerup",
+    "kind": "logic-callback",
+    "source": "Sources/LogicRegistry.cpp entries[]"
+   }
+  },
+  {
+   "address": "0x00470100",
+   "kept": {
+    "name": "GoldPowerup",
+    "kind": "logic-callback",
+    "source": "Sources/LogicRegistry.cpp entries[]"
+   },
+   "dropped": {
+    "name": "GlitterlessPowerup",
+    "kind": "logic-callback",
+    "source": "Sources/LogicRegistry.cpp entries[]"
+   }
+  },
+  {
+   "address": "0x004918b0",
+   "kept": {
+    "name": "AniCycle",
+    "kind": "logic-callback",
+    "source": "Sources/LogicRegistry.cpp entries[]"
+   },
+   "dropped": {
+    "name": "AniCycleNormal",
+    "kind": "logic-callback",
+    "source": "Sources/LogicRegistry.cpp entries[]"
+   }
+  },
+  {
+   "address": "0x004bb030",
+   "kept": {
+    "name": "LS_HOME",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   },
+   "dropped": {
+    "name": "LS_IDLE",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   }
+  },
+  {
+   "address": "0x0046fc20",
+   "kept": {
+    "name": "LS_THROWN",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   },
+   "dropped": {
+    "name": "LS_DROPPED",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   }
+  },
+  {
+   "address": "0x0042a680",
+   "kept": {
+    "name": "LS_HOME",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   },
+   "dropped": {
+    "name": "LS_WAIT",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   }
+  },
+  {
+   "address": "0x0042a680",
+   "kept": {
+    "name": "LS_HOME",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   },
+   "dropped": {
+    "name": "LS_IDLE",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   }
+  },
+  {
+   "address": "0x00405a60",
+   "kept": {
+    "name": "LS_HITHIGH",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   },
+   "dropped": {
+    "name": "LS_HITLOW",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   }
+  },
+  {
+   "address": "0x0042a680",
+   "kept": {
+    "name": "LS_HOME",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   },
+   "dropped": {
+    "name": "ES_WAITING",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   }
+  },
+  {
+   "address": "0x0042a680",
+   "kept": {
+    "name": "LS_HOME",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   },
+   "dropped": {
+    "name": "ES_IDLE",
+    "kind": "state-callback",
+    "source": "Sources/LogicStateRegistry.cpp bootstrap[]"
+   }
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "wolvington",
+  "title": "Original Level6 Wolvington",
+  "abi": "legacy",
+  "sources": [
+    "Sources/WolvingtonRuntime.cpp",
+    "Sources/WolvingtonRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/WolvingtonRuntime.cpp": "01c6b18bb6362b645ae609fdc0d91bdc2358dd17b50ac121866185adcd3e256e",
+    "Sources/WolvingtonRuntime.h": "235de7b4501de4123a72e4a1a5d943c332f4ebc1ca0de0ab3a5eff3b722fa303"
+  },
+  "docs": [
+    "docs/wolvington-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_wolvington_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/wolvington_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/wolvington-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-wolvington-independent.log"
+      ],
+      "worker_evidence": [
+        "work/wolvington-agent/sanitizer.log",
+        "work/wolvington-agent/verification.json",
+        "work/wolvington-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_wolvington_runtime.py": "pass"
+      },
+      "seconds": 53.5
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3044306573,
+      "owned": 26,
+      "owned_inferred_from_tests": false,
+      "directly_called": 26,
+      "fully_executed": 19,
+      "bytes_owned": 6270,
+      "bytes_executed": 5875,
+      "coverage": 0.937
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_batch_rat_and_speech_03 (0x4a1180); level_one_closure_enemies_01 (0x44f1b0); level_six_wolvington_core_01 (0x49fb30, 0x49fbf0, 0x4a0140, 0x4a0160, 0x4a0230, 0x4a0740, 0x4a0800); level_six_wolvington_projectile_01 (0x410340, 0x411cf0, 0x411e70, 0x412150); level_six_wolvington_states_01 (0x4a0960, 0x4a0a90, 0x4a0ae0, 0x4a0b30, 0x4a0c10, 0x4a0cf0, 0x4a0ec0, 0x4a0f40, 0x4a0fd0, 0x4a1020, 0x4a10b0, 0x4a10f0, 0x4a1250). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

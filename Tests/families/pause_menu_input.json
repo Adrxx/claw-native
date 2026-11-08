@@ -1,0 +1,257 @@
+{
+  "schema": 1,
+  "id": "pause_menu_input",
+  "title": "Pause menu key, pointer and command handlers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PauseMenuInputRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x450460",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x450850",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x450cf0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x450c50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x451e10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452050",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452080",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 import; cases control the operating-system result."
+    },
+    "0x546a24": {
+      "kind": "fixture",
+      "name": "GetTickCount",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import: cases supply its effects while original code runs unchanged."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows API; cases supply bounded external input and result values."
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system import; cases explicitly supply its result and memory effects."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "physical platform service supplied by cases"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service: write left, top, right, bottom in argument order and return nonzero."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic operation reached by the original MFC string release boundary 0x4f6584."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic service: add one modulo 2^32 to the pointed word, store it, and return the new word."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pause_menu_input.cases.py",
+    "entry": "claw_pause_menu_input_entry",
+    "equivalent_mutants": [
+      {
+        "line": 266,
+        "operator": "drop-statement",
+        "mutant_sha256": "802f5f767abcc225b133bca445bd1b72eb13157de8d5c58434885176f383bbe9",
+        "source_sha256": "a38cd795f1c60f32a708b8f23825a706181fe1f03eba1d568763228e3ba9f868",
+        "reason": "0x4f6286 writes its out argument whenever it returns found (it stores node+0xc into it); when not found the slot is never read because the result is masked by -(found != 0), so the initial zero of the stack-local slot cannot reach any output, and the harness does not compare the dead stack slot."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2213154618,
+      "cases": 457,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 1,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "76f683f60f61d9bdcc5dc40174f7fb2923618d6786272a0ca27593ae2b66eacd"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

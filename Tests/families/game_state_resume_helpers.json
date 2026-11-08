@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "game_state_resume_helpers",
+  "title": "Game state resume helper and in-game menu helper",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GameStateResumeHelpersRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x46ddc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46df20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/game_state_resume_helpers.cases.py",
+    "entry": "claw_game_state_resume_helpers_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2565400071,
+      "cases": 371,
+      "mutants_killed": 20,
+      "mutants_tried": 29,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "79c4634882e2833949c0278d003836240a5d83202b5d9b1897e2463cefe8027a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

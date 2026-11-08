@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "id": "audio_pcm_transfer",
+  "title": "Original PCM loading, file acquisition and resource cleanup",
+  "abi": "canonical",
+  "sources": [
+    "Sources/AudioPCMTransferCanonical.cpp",
+    "Sources/AudioPCMTransfer.cpp",
+    "Sources/AudioPCMTransfer.h"
+  ],
+  "canonical_sources": [
+    "Sources/AudioPCMTransferCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b44f0",
+      "name": "AudioPool::transferPCM",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4a20",
+      "name": "AudioManager::loadPCM",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4ae0",
+      "name": "AudioManager::destroyResource",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8850",
+      "name": "Sound::load",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c88b0",
+      "name": "Sound::unload",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4a7840": {
+      "kind": "fixture",
+      "name": "fseek",
+      "convention": "cdecl",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT FILE locking reaches Win32 critical-section imports and file seeking reaches operating-system handles; native stream cases supply the platform result."
+    },
+    "0x4a7260": {
+      "kind": "fixture",
+      "name": "fread",
+      "convention": "cdecl",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT FILE locking reaches Win32 critical-section imports and buffered reads reach operating-system handles; native stream cases supply bytes and count."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "Reporter import 0x546ca4",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The original reporter can call this Win32 import when its diagnostic flag is enabled."
+    },
+    "0x546a08": {
+      "kind": "fixture",
+      "name": "Reporter import 0x546a08",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The original reporter can call this Win32 output import when debug output is enabled."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "Reporter import 0x546d48",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "The original reporter can call this Win32 dialog import when dialogs are enabled."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/audio_pcm_transfer.cases.py",
+    "entry": "claw_audio_pcm_transfer_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4b4b16",
+        "end": "0x4b4b18",
+        "reason": "Unreachable for valid-backed pools: the unchanged ESI pool is dereferenced at 0x4b4afd and written at 0x4b4b08 before the null-only arm; no instruction or callback can change this preserved register to zero."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 319939887,
+      "cases": 63,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.933,
+      "reasons": [],
+      "build_inputs_sha256": "b1b334c08bb691cf333e14ba55c5d5bbb6885823ae75740b4f9a887bc41b9ba8"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new and operator delete use the comparison heap.",
+    "CRT fseek and fread are scripted platform boundaries reached through unchanged original resource-data helpers.",
+    "Reporter import 0x546ca4 is a stand-in.",
+    "Reporter import 0x546a08 is a stand-in.",
+    "Reporter import 0x546d48 is a stand-in.",
+    "Cases disable reporter output flags so its nested CRT formatting and UI paths stay outside this comparison.",
+    "DirectSound methods and stream retry methods are supplied by case vtables."
+  ],
+  "notes": "The canonical module preserves original token ABI alongside the existing portable legacy source. Historical legacy measurement reported nine inferred entries; acquisition 0x4b61c0, release 0x4b6230 and stream 0x4b7ab0 already belong to canonical resource_data and execute as unchanged original dependencies. Only the five reviewed PCM/sound entry addresses are owned here. CRT/platform code stays outside recovery. Creator/parser and concrete destruction delegates execute as unchanged original code rather than fixtures. Canonical source-only status does not replace the legacy app integration claim."
+}

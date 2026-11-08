@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "in_game_options_page_refresh",
+  "title": "In-game Options Display and Audio page refresh",
+  "abi": "canonical",
+  "sources": [
+    "Sources/InGameOptionsPageRefreshRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x452800",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452870",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/in_game_options_page_refresh.cases.py",
+    "entry": "claw_in_game_options_page_refresh_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2146186618,
+      "cases": 182,
+      "mutants_killed": 29,
+      "mutants_tried": 38,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.906,
+      "reasons": [],
+      "build_inputs_sha256": "f272c13f968cf07895654a83fa1c8f8b583b84639963d7d83d7ba092e067f3ed"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

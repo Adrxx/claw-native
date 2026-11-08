@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "logic_state_registry",
+  "title": "Original v1.0 logic-state registry",
+  "abi": "legacy",
+  "sources": [
+    "Sources/LogicStateRegistry.cpp",
+    "Sources/LogicStateRegistry.h"
+  ],
+  "source_sha256": {
+    "Sources/LogicStateRegistry.cpp": "71a081abb69f2fd296e27eef3c1ad79e5b0c2fc92a4ff6dea3c53799e9b773db",
+    "Sources/LogicStateRegistry.h": "45e496001002763efa3faec94f6b185f9a380b9d7d34cc806bcb1a96ebf4b509"
+  },
+  "docs": [
+    "docs/logic-state-registry.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_logic_state_registry.py"
+      }
+    ],
+    "extra": [
+      "Tests/logic_state_registry_profile.json",
+      "Tests/logic_state_registry_test_helpers.cpp"
+    ],
+    "work_dirs": [
+      "work/state-registry-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_logic_state_registry.py": "pass"
+      },
+      "seconds": 15.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1837876863,
+      "owned": 92,
+      "owned_inferred_from_tests": true,
+      "directly_called": 92,
+      "fully_executed": 88,
+      "bytes_owned": 7244,
+      "bytes_executed": 6605,
+      "coverage": 0.9118
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawCapturedEnemyStates.swift",
+      "Sources/ClawNativeBreakables.swift",
+      "Sources/ClawNativeFlare.swift",
+      "Sources/ClawNativeProjectiles.swift"
+    ]
+  },
+  "limits": []
+}

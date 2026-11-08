@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "id": "cheat_debug_overlays",
+  "title": "Cheat debug overlay toggles and resource closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CheatDebugOverlaysRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42c2d0",
+      "name": "toggleMonolithOverlay",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c460",
+      "name": "replaceTreasureWithDevHeads",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c5c0",
+      "name": "replaceTreasureImage",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c6f0",
+      "name": "toggleSpookyEffect",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c7d0",
+      "name": "toggleShadowEffect",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c8e0",
+      "name": "toggleHauntedEffects",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb880",
+      "name": "createOverlayLayer",
+      "convention": "thiscall",
+      "argc": 7,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cbb00",
+      "name": "findOverlayLayerByName",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce800",
+      "name": "setResourceEffectColor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2710",
+      "name": "copyResourceSurface",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic reference-count operation used by original CString map enumeration; cases update the pointed count and return its new value"
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic reference-count operation used by original CString map enumeration; cases update the pointed count and return its new value"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle copy reached by the unchanged original overlay initializer; cases copy the sixteen source bytes to destination and return success"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string-length import reached by original CString assignment while queuing cheat messages; cases return the byte length before the terminator"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/cheat_debug_overlays.cases.py",
+    "entry": "claw_cheat_debug_overlays_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4cb8cc",
+        "end": "0x4cb8ce",
+        "reason": "A null first allocation takes this arm but unconditionally dereferences null at 0x4cb8da before any return; the original-only null probe confirms the fault and no returning comparison can traverse it."
+      },
+      {
+        "start": "0x4cb908",
+        "end": "0x4cb92a",
+        "reason": "The constructor fixes the game vtable to 0x513d40; its initializer 0x4d0800 has a single returning epilogue setting EAX=1 at 0x4d09eb, so the zero-initializer-result cleanup arm cannot execute without replacing game behavior."
+      },
+      {
+        "start": "0x4cbb23",
+        "end": "0x4cbb25",
+        "reason": "Index starts at zero after a positive count test. Every next iteration is entered only when the incremented signed index is less than the freshly loaded count, which remains in EAX through the bounds checks. Index cannot wrap before the loop exits at INT_MAX."
+      },
+      {
+        "start": "0x42c393",
+        "end": "0x42c39b",
+        "reason": "The unchanged 0x4cb880 returns its nonnull constructed object when fixed original initializer 0x4d0800 returns; that initializer only returns one. A null object allocation faults at 0x4cb8da before returning, so the caller cannot receive a null layer without replacing game behavior."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1486171755,
+      "cases": 205,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.935,
+      "reasons": [],
+      "build_inputs_sha256": "5b2a11ff33bdb91ed7f6af0cc53f7d98ec58eacb1e0a73b8e4e8f9d9d9bf997b"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "InterlockedDecrement is a scripted Win32 boundary; cases update the referenced 32-bit count and return the new count.",
+    "InterlockedIncrement is a scripted Win32 boundary; cases update the referenced 32-bit count and return the new count.",
+    "CopyRect is a scripted Win32 boundary that copies sixteen bytes; original overlay initialization and destruction are not replaced.",
+    "lstrlenA is a scripted Win32 boundary returning the actual byte length of its input string; original message and CString list code executes unchanged."
+  ],
+  "notes": "Boundary reviewed against all ten original disassemblies; no existing manifest owns these addresses. Original game callees and constructor-installed game virtual methods execute unchanged. The two SEH-bearing entries are ordinary thiscall functions on returning paths; allocation-null creation dereferences null in the original and requires explicit original-fault evidence rather than a fabricated success path."
+}

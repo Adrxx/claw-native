@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "id": "level_two_cannon_objects_01",
+  "title": "Level 2 cannon objects",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwoCannonObjects01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4145b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4145f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x414640",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x414660",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4146b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x414860",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4148b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x414a60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4493c0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449480",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449590",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_two_cannon_objects_01.cases.py",
+    "entry": "claw_level_two_cannon_objects_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x449419",
+        "end": "0x44941b",
+        "reason": "Original operator-new failure clears EDI at 0x449419 and immediately faults reading [EDI] at 0x44941b; verified original null-new probe in work/packets/level_two_cannon_objects_01/cases-check-5-fault-probes.log."
+      },
+      {
+        "start": "0x4495e5",
+        "end": "0x449613",
+        "reason": "Original first table-grow failure cannot return: 0x4db6e0 sets EBP to null realloc result then calls 0x4dc680, whose [EBP+4] read faults. Verified original first-failed-resize probe in work/packets/level_two_cannon_objects_01/cases-check-5-fault-probes.log."
+      },
+      {
+        "start": "0x44965f",
+        "end": "0x449692",
+        "reason": "Original second table-grow failure cannot return: 0x4db6e0 sets EBP to null realloc result then calls 0x4dc680, whose [EBP+4] read faults. Verified original second-failed-resize probe in work/packets/level_two_cannon_objects_01/cases-check-5-fault-probes.log."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 786865202,
+      "cases": 213,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.905,
+      "reasons": [],
+      "build_inputs_sha256": "9b451b78422afb6d671ec130dc9160f448728e5c289eb20db2c7bb6a41acdd74"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Boundary checked against every owned disassembly; receiver methods use ECX and the two one-argument methods return with RET 4."
+}

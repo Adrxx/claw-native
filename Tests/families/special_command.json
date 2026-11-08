@@ -1,0 +1,456 @@
+{
+  "schema": 1,
+  "id": "special_command",
+  "title": "Original application commands, single-player travel, results and fade wrappers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SpecialCommandCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x40ac20",
+      "name": "BootyState::initialize",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b120",
+      "name": "BootyState::activateChild",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415d90",
+      "name": "savePlayerTravelState",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42abf0",
+      "name": "Application::resetFrameTiming",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46b7b0",
+      "name": "SinglePlayerState::teardownLevel",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46bbc0",
+      "name": "SinglePlayerState::persistLayout",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46c630",
+      "name": "SinglePlayerState::warp",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46c7b0",
+      "name": "SinglePlayerState::recordLevelResult",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46c900",
+      "name": "SinglePlayerState::finishLevel",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48fda0",
+      "name": "GameState::fadeIn",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48feb0",
+      "name": "GameState::fadeOut",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ecc00",
+      "name": "MapFadeInit::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "ShowCursor is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "PostMessageA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546d44": {
+      "kind": "fixture",
+      "name": "SendMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "SendMessageA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "timeGetTime is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "SetRect is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "PeekMessageA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetAsyncKeyState is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "SetCursorPos is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetSystemMetrics is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546a20": {
+      "kind": "fixture",
+      "name": "CreateProcessA",
+      "convention": "stdcall",
+      "argc": 10,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CreateProcessA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x54681c": {
+      "kind": "fixture",
+      "name": "RegQueryValueA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "RegQueryValueA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546dec": {
+      "kind": "fixture",
+      "name": "mciSendCommandA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "mciSendCommandA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546824": {
+      "kind": "fixture",
+      "name": "RegSetValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "RegSetValueExA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546a24": {
+      "kind": "fixture",
+      "name": "GetTickCount",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetTickCount is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Physical runtime allocation/lifetime or thread-local random service cannot execute as a native OS service in comparison."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Physical runtime allocation/lifetime or thread-local random service cannot execute as a native OS service in comparison."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Physical runtime allocation/lifetime or thread-local random service cannot execute as a native OS service in comparison."
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical runtime allocation/lifetime or thread-local random service cannot execute as a native OS service in comparison."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Hash-verified KERNEL32 lstrlenA import; original CString constructor 0x4f66cc pushes one nonnull byte-string pointer at 0x4f66dc and consumes the returned length at 0x4f66e4. The physical service remains a fixture while CString and fader diagnostic code run unchanged."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical import reached by unchanged CString destructor 0x4f6584; decrement the pointed reference count and return the new word."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/cases/special_command.py",
+    "entry": "claw_special_command_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40ae46",
+        "end": "0x40ae58",
+        "reason": "Coordinator source review: failed 0x184-byte allocation writes child NULL then unconditionally dereferences it at 0x40aeb9; this exclusive failure block has no normal-return execution."
+      },
+      {
+        "start": "0x40aea4",
+        "end": "0x40aea6",
+        "reason": "Coordinator source review: failed 0x158-byte allocation produces child NULL then unconditionally dereferences it at 0x40aeb9; these exclusive failure bytes have no normal-return execution."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 100,
+        "operator": "drop-statement",
+        "mutant_sha256": "3699cebeb81ea5cd21653cf0694b9814b6ed356fd7baefa9a528e1350c347213",
+        "source_sha256": "f878d88a7bd346633911db2b37d7cf6541ab18e377328ef9359243500f722ab3",
+        "reason": "Exact drop of child+0x04 initialization. Both fixed original child vtables select 0x40b6a0 or 0x40d470, which unconditionally call original 0x48f0d0 before any other child operation. Its 0x48f0da writes child+0x04 from the application argument before any read, call, branch or return. Between this constructor store and that overwrite, only the large-child CString default constructor 0x4f6439 can run; 0x4f6433 returns constant 0x52e1cc and 0x4f6443 writes only child+0x180, with no fixture or child+0x04 read. Allocator produces fresh nonoverlapping storage; null allocations never reach the removed store. Therefore no permitted returning input can observe its omission."
+      },
+      {
+        "line": 102,
+        "operator": "shift-offset",
+        "mutant_sha256": "c6349a60d1dbb41202c53dddb129b8815a2cd87fe5563be6c9733f25eb19a523",
+        "source_sha256": "f878d88a7bd346633911db2b37d7cf6541ab18e377328ef9359243500f722ab3",
+        "reason": "Exact shift changes child+0x0c zero store to child+0x10. Both fixed original child initializers unconditionally enter 0x48f0d0, which writes child+0x0c at 0x48f0ea and child+0x10 at 0x48f0f4 before either field is read or any call, branch or return. The only intervening large-child CString default constructor 0x4f6439/0x4f6433 reads static data and writes child+0x180, without fixtures or reads of either changed field. Both affected words are overwritten on every supported child-initialization path, including base failure; fresh nonoverlapping allocation prevents aliases."
+      },
+      {
+        "line": 112,
+        "operator": "shift-offset",
+        "mutant_sha256": "4b282e9e6a85687206610dbc16ca05fe1b6cef73177a3eb578c8bdcb5313024c",
+        "source_sha256": "f878d88a7bd346633911db2b37d7cf6541ab18e377328ef9359243500f722ab3",
+        "reason": "Exact shift changes child+0x18 zero store to child+0x1c. child+0x1c was already zeroed by the unchanged constructor store (native line 103; original 0x40addd or 0x40ae72) with no intervening read or side effect. Original 0x48f0d0 unconditionally replaces child+0x18 at 0x48f0fd before any read, call, branch or return. Both fixed child initializers call that base initializer first. The intervening large-child CString constructor only reads static data and writes child+0x180, with no fixtures. Thus the extra identical +0x1c store and omitted pre-overwrite +0x18 store cannot affect permitted inputs."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3528125100,
+      "cases": 194,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 3,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "e44791195a10034a6357c79e2b19ea6ac201ba4c630e11934007f4de247a3f14"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "ShowCursor is a comparison fixture; no real operating-system service is performed.",
+    "PostMessageA is a comparison fixture; no real operating-system service is performed.",
+    "SendMessageA is a comparison fixture; no real operating-system service is performed.",
+    "timeGetTime is a comparison fixture; no real operating-system service is performed.",
+    "SetRect is a comparison fixture; no real operating-system service is performed.",
+    "PeekMessageA is a comparison fixture; no real operating-system service is performed.",
+    "GetAsyncKeyState is a comparison fixture; no real operating-system service is performed.",
+    "SetCursorPos is a comparison fixture; no real operating-system service is performed.",
+    "GetSystemMetrics is a comparison fixture; no real operating-system service is performed.",
+    "CreateProcessA is a comparison fixture; no real operating-system service is performed.",
+    "RegQueryValueA is a comparison fixture; no real operating-system service is performed.",
+    "mciSendCommandA is a comparison fixture; no real operating-system service is performed.",
+    "RegSetValueExA is a comparison fixture; no real operating-system service is performed.",
+    "GetTickCount is a comparison fixture; no real operating-system service is performed.",
+    "operator new is a comparison fixture; no real operating-system service is performed.",
+    "operator delete is a comparison fixture; no real operating-system service is performed.",
+    "malloc is a comparison fixture; no real operating-system service is performed.",
+    "rand is a comparison fixture; no real operating-system service is performed.",
+    "lstrlenA is a physical byte-string length fixture; cases return the count before the first NUL and leave memory unchanged.",
+    "InterlockedDecrement at 0x5469e8 is a physical fixture that mutates the actual pointed reference count; original CString cleanup and deletion remain original-backed."
+  ],
+  "notes": "Canonical migration retains all twelve uniquely owned original bodies from seventeen legacy declarations. Coordinator reviewed and approved delegation of 0x426e30 to the complete menu_game_launch owner, 0x428c40 to final-reviewed-batches.json elected application_state_factory, and 0x42d420/0x42d440/0x4ec600 to canonical player_fade. These game callees execute unchanged original code in comparisons; no command domain or surviving owned body is restricted. Legacy SpecialCommandRuntime.cpp/.h and app ABI remain unchanged. Local packet NOTES.md records the original seventeen-entry review, physical prerequisites and original nonreturning allocation branches."
+}

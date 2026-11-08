@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "id": "application_state_factory",
+  "title": "Original application state owner construction and transition",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationStateFactoryRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x428c40",
+      "name": "ApplicationStateOwner::transition",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service: write left, top, right, bottom in argument order and return nonzero."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "WinMM clock service: return the case-controlled unsigned millisecond tick without changing game objects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string service: return the byte count before NUL (zero for a null pointer), without modifying the string."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic service: subtract one modulo 2^32 from the pointed word, store it, and return the new word."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic service: add one modulo 2^32 to the pointed word, store it, and return the new word."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor service: increment or decrement a case-controlled display counter according to the Boolean argument and return its signed new value; hide loops must eventually receive a negative count."
+    },
+    "0x546cd8": {
+      "kind": "fixture",
+      "name": "SetCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor service: set the case-controlled cursor handle and return the previous handle."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 keyboard service: return the case-controlled key-state SHORT in EAX, preserving down and pressed-since-last-query bits."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 display service: return the case-controlled signed metric for the requested index; reset paths query screen width and height."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor service: record the signed screen coordinates in service state and return the case-controlled success Boolean."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_state_factory.cases.py",
+    "entry": "claw_application_state_factory_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4265120843,
+      "cases": 96,
+      "mutants_killed": 46,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.958,
+      "reasons": [],
+      "build_inputs_sha256": "69ecd0a9c2e99725f2b98efb079832a0f000d6c392cf5212c5c7687956570201"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "operator new and operator delete use synthetic allocation and release; allocation success and failure are controlled by cases.",
+    "SetRect is an exact memory-writing service stand-in; no host rectangle API is invoked.",
+    "lstrlenA and InterlockedIncrement/InterlockedDecrement use their string-length and pointed-word semantics; CString and other game/CRT callees continue to execute original instructions.",
+    "timeGetTime uses a controlled millisecond clock; timing prefixes stopped at this service establish construction coverage only.",
+    "ShowCursor and SetCursor use controlled cursor state, and input reset uses controlled GetAsyncKeyState, GetSystemMetrics and SetCursorPos services.",
+    "Cases must supply valid retained-state, resource-directory and owner-service records; construction-prefix coverage and missing-resource failures do not establish playable startup, menu, level loading or results."
+  ],
+  "notes": "Full application-state transition boundary, including all concrete switch types, retention and cleanup, allocation failures, initialization outcome, activation and input reset. The return is a Boolean consumed by original callers. No game callee is replaced and no switch arm is excluded."
+}

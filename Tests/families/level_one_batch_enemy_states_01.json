@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_enemy_states_01",
+  "title": "Level 1 shared enemy state callbacks, batch 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchEnemyStates01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x43edd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43fd10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43fdc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43f030",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43f450",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43f540",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43f6e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43f720",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_enemy_states_01.cases.py",
+    "entry": "claw_level_one_batch_enemy_states_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x43f5ba",
+        "end": "0x43f5e3",
+        "reason": "array-growth failure block, reached only when the growth helper 0x4db6e0 gets NULL from realloc; the original then keeps the NULL in EBP and 0x4dc680 reads [ebp+4], so it faults on a null read at address 4 before control returns here. No normal-return input executes it; the native body must keep the original read and fault, not add a guard."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1465540811,
+      "cases": 462,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "0dfab278831ca5bdbeda6fd04c8c41b76ff0798c273da083613fba4239dd9053"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly. ABI correction 2026-10-21 (level-one-state-handler-abi-01): 0x43edd0, 0x43fd10, 0x43fdc0, 0x43f030, 0x43f450, 0x43f540 and 0x43f6e0 are state-table handlers (kind 0x1 rows of Sources/LogicStateRegistry.cpp) that the original enemy state dispatcher 0x43d490 calls with the actor in ECX and no stack arguments; 0x43f720 is the per-frame callback that the original 0x43f640 stores at word 6 (offset 0x18) of the logic object and that is called the same way. Each original reads the actor from ECX, never reads a stack argument and ends in a plain ret, so all eight are thiscall with no arguments, not cdecl with one."
+}

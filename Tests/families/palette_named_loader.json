@@ -1,0 +1,303 @@
+{
+  "schema": 1,
+  "id": "palette_named_loader",
+  "title": "Palette filename and embedded-resource loader chain",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PaletteNamedLoaderRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4d6560",
+      "name": "PaletteResource::loadNamed",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bca40",
+      "name": "PaletteManager::createNamed",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb180",
+      "name": "Palette::loadByExtension",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb740",
+      "name": "Palette::loadEmbedded",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb2f0",
+      "name": "Palette::loadBMP",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb470",
+      "name": "Palette::loadPCX",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb620",
+      "name": "Palette::loadPAL",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native allocation boundary replaces the C runtime heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native allocation boundary replaces the C runtime heap."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    },
+    "0x546910": {
+      "kind": "fixture",
+      "name": "GDI32.dll!CreateDCA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Physical operating-system import; game and MFC callees execute unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/palette_named_loader.cases.py",
+    "entry": "claw_palette_named_loader_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1145538816,
+      "cases": 51,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.952,
+      "reasons": [],
+      "build_inputs_sha256": "0af410507eea7d8d3e8c60a2b37ed03a496831a6fd4bedc44cb1b8d100d16856"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is replaced by its allocate fixture.",
+    "operator delete is replaced by its release fixture.",
+    "KERNEL32.dll!FindResourceA is replaced by its scripted fixture.",
+    "KERNEL32.dll!LoadResource is replaced by its scripted fixture.",
+    "KERNEL32.dll!LockResource is replaced by its scripted fixture.",
+    "KERNEL32.dll!GetFullPathNameA is replaced by its return-zero fixture.",
+    "KERNEL32.dll!lstrcpynA is replaced by its scripted fixture.",
+    "KERNEL32.dll!lstrlenA is replaced by its scripted fixture.",
+    "KERNEL32.dll!InterlockedDecrement is replaced by its scripted fixture.",
+    "KERNEL32.dll!CreateFileA is replaced by its scripted fixture.",
+    "KERNEL32.dll!ReadFile is replaced by its scripted fixture.",
+    "KERNEL32.dll!SetFilePointer is replaced by its scripted fixture.",
+    "KERNEL32.dll!CloseHandle is replaced by its return-one fixture.",
+    "GDI32.dll!CreateDCA is replaced by its return-zero fixture.",
+    "DirectDraw CreatePalette is a case-supplied virtual method; no real display palette is created.",
+    "Cases use ASCII extension comparison, disabled diagnostic UI, failed full-path canonicalization with faithful bounded string copy, and non-throwing file operations.",
+    "System-palette reservation reaches original code with CreateDCA failing; successful GDI palette capture is outside these cases."
+  ]
+}

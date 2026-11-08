@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "id": "game_image_flips",
+  "title": "Flipped game image actor drawing helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GameImageFlipsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4d3790",
+      "name": "Image::drawSoftwareFlipX",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3550",
+      "name": "Image::drawSoftwareFlipXY",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3a00",
+      "name": "Image::drawSoftwareFlipY",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2bb0",
+      "name": "Image::drawSurfaceFlipXY",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2e10",
+      "name": "Image::drawSurfaceFlipX",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3080",
+      "name": "Image::drawSurfaceFlipY",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "USER32 import; cases copy the four RECT words from source to destination and return success."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/game_image_flips.cases.py",
+    "entry": "claw_game_image_flips_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1861393782,
+      "cases": 318,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.913,
+      "reasons": [],
+      "build_inputs_sha256": "ecc892699a664d7fbe110a597113bd9c833b98f974042647f06ab43567ec1f28"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "CopyRect is a scripted 16-byte rectangle copy; no USER32 code executes.",
+    "DirectDraw COM calls are case-supplied function pointers; successful Lock and Blt avoid original diagnostic import paths."
+  ],
+  "notes": "Boundary reviewed against all six corpus disassemblies; original transform and drawing callees execute unchanged, and each software or surface flip retains its own clipping arithmetic."
+}

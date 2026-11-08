@@ -1,0 +1,15 @@
+--- a/dist/domain/dosMz.js
++++ b/dist/domain/dosMz.js
+@@ -9,6 +9,12 @@
+ export const mzWindowsHeaderOffset = (bytes) => {
+     if (bytes.length < 64)
+         return null;
++    // Local compatibility fix: this Claw PE has a short legacy DOS header.
++    // Prefer an in-bounds, explicit PE signature over the DOS size heuristic.
++    const declaredPE = bytes.readUInt32LE(60);
++    if (declaredPE >= 64 && declaredPE <= bytes.length - 24 &&
++        bytes.toString("binary", declaredPE, declaredPE + 4) === "PE\u0000\u0000")
++        return declaredPE;
+     const headerBytes = bytes.readUInt16LE(8) * 16;
+     if (headerBytes !== 0 && headerBytes < 64)
+         return null;

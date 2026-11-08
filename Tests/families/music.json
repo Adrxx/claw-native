@@ -1,0 +1,614 @@
+{
+  "schema": 1,
+  "id": "music",
+  "title": "Original XMIDI music manager and resource runtime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MusicCanonicalRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b52a0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5300",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5340",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b53f0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5470",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b54a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b54f0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5550",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5570",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b55a0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b55b0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b55d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b55e0",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5650",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b56a0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b56b0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b56d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b58a0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b59c0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5a40",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5a80",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5ad0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5b00",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5b40",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5b90",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5bd0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546a54": {
+      "kind": "fixture",
+      "name": "SizeofResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e68": {
+      "kind": "fixture",
+      "name": "AIL_shutdown",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e6c": {
+      "kind": "fixture",
+      "name": "AIL_set_XMIDI_master_volume",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e70": {
+      "kind": "fixture",
+      "name": "AIL_startup",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e74": {
+      "kind": "fixture",
+      "name": "AIL_midiOutOpen",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e78": {
+      "kind": "fixture",
+      "name": "AIL_end_sequence",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e7c": {
+      "kind": "fixture",
+      "name": "AIL_sequence_status",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e80": {
+      "kind": "fixture",
+      "name": "AIL_resume_sequence",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e84": {
+      "kind": "fixture",
+      "name": "AIL_stop_sequence",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e88": {
+      "kind": "fixture",
+      "name": "AIL_set_sequence_loop_count",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e8c": {
+      "kind": "fixture",
+      "name": "AIL_XMIDI_master_volume",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e90": {
+      "kind": "fixture",
+      "name": "AIL_start_sequence",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e94": {
+      "kind": "fixture",
+      "name": "AIL_release_sequence_handle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e98": {
+      "kind": "fixture",
+      "name": "AIL_init_sequence",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e9c": {
+      "kind": "fixture",
+      "name": "AIL_allocate_sequence_handle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime allocator ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime allocator ends in operating-system calls."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/music.cases.py",
+    "entry": "claw_music_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4b542c",
+        "end": "0x4b542e",
+        "reason": "The original allocator-null branch sets ESI to zero and unconditionally dereferences [ESI] at 0x4b5436 before any return or fixture. Null is outside live object memory; the ordinary comparison cannot complete this invalid-memory path. Ownership is retained; only these two null-branch-only bytes are exempt from successful-path coverage."
+      },
+      {
+        "start": "0x4b530f",
+        "end": "0x4b5314",
+        "reason": "Owned 0x4b5300 calls owned 0x4b5340 first. Every normal return from 0x4b5340 unconditionally clears receiver+0x1c at 0x4b53d1, after its last outside call at 0x4b53c8. Thus the immediately following null test at 0x4b530d always skips these five bytes under the declared ABI. Ownership and translation are retained."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "codex": {
+      "historical_legacy": {
+        "sources": [
+          "Sources/MusicRuntime.cpp",
+          "Sources/MusicRuntime.h"
+        ],
+        "source_sha256": {
+          "Sources/MusicRuntime.cpp": "b73a95f9afa38cc0cfaeaf789e193453fa355aaf61f1d5c95c13cb2de530a0bc",
+          "Sources/MusicRuntime.h": "52dd7012bd2ed288633f3fb8732d471ffdf6b3ee63d6d86146a0789fc8cfe78a"
+        },
+        "oracle": {
+          "kind": "legacy",
+          "commands": [
+            {
+              "script": "Tests/compare_music_runtime.py"
+            }
+          ],
+          "helpers": [
+            "Tests/music_runtime_helpers.py",
+            "Tests/music_runtime_joined_helpers.py"
+          ],
+          "work_dirs": [
+            "work/music-agent",
+            "work/original-disc-assets"
+          ]
+        },
+        "evidence": {
+          "level": "legacy-frozen",
+          "codex": {
+            "root_logs": [
+              "work/root-music-independent.log"
+            ],
+            "worker_evidence": [
+              "work/music-agent/smoke.log",
+              "work/music-agent/verification.json",
+              "work/music-agent/verification.log"
+            ]
+          },
+          "baseline": {
+            "date": "2026-10-12",
+            "status": "pass",
+            "scripts": {
+              "Tests/compare_music_runtime.py": "pass"
+            },
+            "seconds": 9.9
+          },
+          "gate": {
+            "kind": "legacy-measurement",
+            "date": "2026-10-12",
+            "plain": "pass",
+            "salted": "pass",
+            "salt": 1556592099,
+            "owned": 26,
+            "owned_inferred_from_tests": false,
+            "directly_called": 25,
+            "fully_executed": 23,
+            "bytes_owned": 1841,
+            "bytes_executed": 1813,
+            "coverage": 0.9848
+          }
+        },
+        "integration": {
+          "level": "compiled",
+          "in_app_target": true,
+          "in_bridging_header": true,
+          "swift_references": []
+        }
+      }
+    },
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2739382209,
+      "cases": 179,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.957,
+      "reasons": [],
+      "build_inputs_sha256": "7aaeca2969a39d7996f027158bf091ed1a57c7fbaad885f40e250dba35574c71"
+    }
+  },
+  "integration": {
+    "level": "source-only",
+    "in_app_target": false,
+    "in_bridging_header": false,
+    "swift_references": []
+  },
+  "limits": [
+    "lstrlenA at 0x5469e4 is a case-controlled platform fixture.",
+    "InterlockedDecrement at 0x5469e8 is a case-controlled platform fixture.",
+    "InterlockedIncrement at 0x5469ec is a case-controlled platform fixture.",
+    "SizeofResource at 0x546a54 is a case-controlled platform fixture.",
+    "LockResource at 0x546ac4 is a case-controlled platform fixture.",
+    "FindResourceA at 0x546ac8 is a case-controlled platform fixture.",
+    "LoadResource at 0x546acc is a case-controlled platform fixture.",
+    "AIL_shutdown at 0x546e68 is a case-controlled platform fixture.",
+    "AIL_set_XMIDI_master_volume at 0x546e6c is a case-controlled platform fixture.",
+    "AIL_startup at 0x546e70 is a case-controlled platform fixture.",
+    "AIL_midiOutOpen at 0x546e74 is a case-controlled platform fixture.",
+    "AIL_end_sequence at 0x546e78 is a case-controlled platform fixture.",
+    "AIL_sequence_status at 0x546e7c is a case-controlled platform fixture.",
+    "AIL_resume_sequence at 0x546e80 is a case-controlled platform fixture.",
+    "AIL_stop_sequence at 0x546e84 is a case-controlled platform fixture.",
+    "AIL_set_sequence_loop_count at 0x546e88 is a case-controlled platform fixture.",
+    "AIL_XMIDI_master_volume at 0x546e8c is a case-controlled platform fixture.",
+    "AIL_start_sequence at 0x546e90 is a case-controlled platform fixture.",
+    "AIL_release_sequence_handle at 0x546e94 is a case-controlled platform fixture.",
+    "AIL_init_sequence at 0x546e98 is a case-controlled platform fixture.",
+    "AIL_allocate_sequence_handle at 0x546e9c is a case-controlled platform fixture.",
+    "operator new at 0x4f63ec uses the harness allocator.",
+    "operator delete at 0x4f6428 releases harness allocations.",
+    "Virtual calls use case-supplied callbacks or original function pointers.",
+    "MFC map/string routines and the default-name sprintf remain unchanged original callees.",
+    "This canonical source is not integrated into the app; the existing legacy MusicRuntime files remain untouched.",
+    "Original 0x4b53f0 allocation failure dereferences null before returning; ordinary returning-path parity excludes this invalid-memory execution, with only its two unique instruction bytes exempted from coverage."
+  ],
+  "notes": "All 26 original owned seeds retained. Prior legacy source hashes, baseline and measurement are historical under evidence.codex.historical_legacy, not evidence for this canonical source."
+}

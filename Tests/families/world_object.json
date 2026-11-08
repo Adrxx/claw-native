@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "id": "world_object",
+  "title": "Original WWD actor loading and actor initialization services",
+  "abi": "canonical",
+  "sources": [
+    "Sources/WorldObjectCanonicalRuntime.cpp",
+    "Sources/WorldObjectRuntime.cpp",
+    "Sources/WorldObjectRuntime.h"
+  ],
+  "docs": [
+    "docs/world-object-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4d17e0",
+      "name": "Plane::loadWWDActor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c98c0",
+      "name": "Actor::construct",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7df0",
+      "name": "Actor::initialize",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8160",
+      "name": "Logic::initialize",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c81f0",
+      "name": "Animation::initialize",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9690",
+      "name": "ActorSentinels::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c96c0",
+      "name": "ActorLink::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9780",
+      "name": "BaseActor::construct",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9830",
+      "name": "Logic::construct",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9ba0",
+      "name": "Animation::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9d40",
+      "name": "GenericActor::initialize",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5800",
+      "name": "Actor::initializePosition",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with operator new, including original CString and actor destructors."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached by original CString constructor 0x4f65f2 at 0x4f6628; cases return the actual terminated byte length."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached by original CString destructor 0x4f6584 at 0x4f6595; cases decrement the pointed reference count and return it."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/world_object.cases.py",
+    "entry": "claw_world_object_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4d1b38",
+        "end": "0x4d1b8f",
+        "reason": "The loader installs original actor vtable 0x5137f0 and uses its concrete 0x4c9d40 -> 0x4c7df0 -> 0x4c8160 initializer. Success has already dereferenced the distinct allocated logic object and reloaded actor+0x6c; none of these functions changes that pointer and no user callback executes. Therefore successful initialization followed immediately by a null actor+0x6c is unreachable in this ordinary synchronous allocation domain. Keep the defensive cleanup body translated; do not replace the pinned game initializer with a fixture to reach it."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2502731972,
+      "cases": 94,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.978,
+      "reasons": [],
+      "build_inputs_sha256": "3820aa8a5161889a80c42a2a54dff6d4037b1c9926d80a6449a52d1dc61cb61d"
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeObjectLoader.swift",
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": [
+    "operator new is a deterministic allocator fixture, including the actor, logic and CString blocks.",
+    "operator delete is a release fixture; original game and CString destructors still execute.",
+    "lstrlenA is a Windows fixture returning the actual byte length of its argument.",
+    "InterlockedDecrement is a Windows fixture updating and returning the pointed reference count.",
+    "The declared integration metadata describes the preserved legacy WorldObjectRuntime API; the canonical entry is not yet wired into the native app.",
+    "Cases use ordinary high-address CString buffers and single-byte CRT comparison mode; string-resource loading, multibyte locale locks and guest exception unwinding are outside this canonical entry domain."
+  ],
+  "notes": "Full legacy loader and actor constructor surface plus ten reviewed actor services. Sources/WorldObjectRuntime.cpp and .h remain for existing app callers. The new first source is the independent canonical module. Original CString, CMap, resource selection, concrete actor destructors and collection helpers remain original-backed; no game callee fixtures are declared."
+}

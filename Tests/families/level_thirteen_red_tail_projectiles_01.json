@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "id": "level_thirteen_red_tail_projectiles_01",
+  "title": "Level 13 red tail projectiles",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelThirteenRedTailProjectiles01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x410640",
+      "name": "RedTailKnife::logic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x410700",
+      "name": "RedTailBullet::logic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4134e0",
+      "name": "RedTailKnife::constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x413660",
+      "name": "RedTailKnife::dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x413940",
+      "name": "RedTailKnife::enter",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x413960",
+      "name": "RedTailKnife::update",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4139c0",
+      "name": "RedTailBullet::constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x413b80",
+      "name": "RedTailBullet::dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x413f80",
+      "name": "RedTailBullet::explode",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_thirteen_red_tail_projectiles_01.cases.py",
+    "entry": "claw_level_thirteen_red_tail_projectiles_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x41069c",
+        "end": "0x41069e",
+        "reason": "Original allocation failure immediately dereferences null at 0x41069e; original-only allocate(fail=True) probe confirmed fault, not a normal return."
+      },
+      {
+        "start": "0x41075c",
+        "end": "0x41075e",
+        "reason": "Original allocation failure immediately dereferences null at 0x41075e; original-only allocate(fail=True) probe confirmed fault, not a normal return."
+      },
+      {
+        "start": "0x4136b5",
+        "end": "0x4136e3",
+        "reason": "Original table allocation failure cannot return: original-only checks of both dispatchers confirmed a read of address 4 in the error helper at 0x4dc680 after 0x4db6e0 set EBP to zero."
+      },
+      {
+        "start": "0x413bd5",
+        "end": "0x413c03",
+        "reason": "Original table allocation failure cannot return: original-only checks of both dispatchers confirmed a read of address 4 in the error helper at 0x4dc680 after 0x4db6e0 set EBP to zero."
+      },
+      {
+        "start": "0x4136fe",
+        "end": "0x413715",
+        "reason": "The original first lookup either contains the index or grows its bounds to include it. Allocation failure cannot return. There is no intervening call or change of bounds or index before the duplicate check; its second growth path is unreachable."
+      },
+      {
+        "start": "0x41372f",
+        "end": "0x413762",
+        "reason": "The original first lookup either contains the index or grows its bounds to include it. Allocation failure cannot return. There is no intervening call or change of bounds or index before the duplicate check; its second growth path is unreachable."
+      },
+      {
+        "start": "0x413c1e",
+        "end": "0x413c35",
+        "reason": "The original first lookup either contains the index or grows its bounds to include it. Allocation failure cannot return. There is no intervening call or change of bounds or index before the duplicate check; its second growth path is unreachable."
+      },
+      {
+        "start": "0x413c4f",
+        "end": "0x413c82",
+        "reason": "The original first lookup either contains the index or grows its bounds to include it. Allocation failure cannot return. There is no intervening call or change of bounds or index before the duplicate check; its second growth path is unreachable."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 134,
+        "operator": "shift-offset",
+        "source_sha256": "62c48bcea704ad39b69c1ab7d7d436c5896030d57702ef99ba289aab66fa9a5a",
+        "mutant_sha256": "80d53367abfcb064c120732f6a71ee9662d95540797aab170eb8d3497b3ffc7a",
+        "reason": "Only alters first allocation-error fallback, which original failure checks cannot reach: realloc failure leaves EBP zero, and the original error helper reads address 4 before returning."
+      },
+      {
+        "line": 144,
+        "operator": "ne-to-eq",
+        "source_sha256": "62c48bcea704ad39b69c1ab7d7d436c5896030d57702ef99ba289aab66fa9a5a",
+        "mutant_sha256": "88f1a46ada3f534d6a69c2b62b4e69e1b4fadbf96357e51c0799c63c2c82e983",
+        "reason": "Only alters the duplicate growth result. The original first lookup establishes containing bounds. No intervening call or bound/index change precedes the duplicate check, so its growth block cannot execute."
+      },
+      {
+        "line": 150,
+        "operator": "swap-statements",
+        "source_sha256": "62c48bcea704ad39b69c1ab7d7d436c5896030d57702ef99ba289aab66fa9a5a",
+        "mutant_sha256": "ff96be942ca5cceee025e8f4ef238c9973dfaf3f2f1f59329813a3b3863d452c",
+        "reason": "Only reorders two statements within the duplicate growth error block, unreachable because the original first lookup establishes containing bounds before an unchanged duplicate check."
+      },
+      {
+        "line": 151,
+        "operator": "shift-offset",
+        "source_sha256": "62c48bcea704ad39b69c1ab7d7d436c5896030d57702ef99ba289aab66fa9a5a",
+        "mutant_sha256": "3f51c732770c5da8e5d493dd2c69e638bdd5c9a4bc166582d9cad03579085718",
+        "reason": "Only alters a receiver in the duplicate growth error block, unreachable because the original first lookup establishes containing bounds before an unchanged duplicate check."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2364998634,
+      "cases": 126,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 4,
+      "mutation_score": 0.925,
+      "reasons": [],
+      "build_inputs_sha256": "80cbf31fc99d3898cb683840ac0ec2358a22e89dc81cbe021fb1cd7e42b531ee"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Boundary reviewed against the original v1.0 corpus. Factory callbacks take one cdecl stack argument; all game callees execute original instructions. See the local packet NOTES.md for object layouts, branches and coordinator-reviewed exemption candidates."
+}

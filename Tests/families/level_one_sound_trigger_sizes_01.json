@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "id": "level_one_sound_trigger_sizes_01",
+  "title": "Level 1 sound trigger size variants",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneSoundTriggerSizes01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x48c450",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c470",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c490",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c4b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48ca80",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48caa0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48cac0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48cae0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4b45f0": {
+      "kind": "fixture",
+      "name": "playAudio",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical audio voice acquisition and DirectSound playback cannot run without the native audio device provider."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_sound_trigger_sizes_01.cases.py",
+    "entry": "claw_level_one_sound_trigger_sizes_01_entry",
+    "equivalent_mutants": [
+      {
+        "line": 71,
+        "operator": "swap-statements",
+        "mutant_sha256": "34bbe62582a1e212b229ef9b48c3fefe7bcc1c773d2d3ceb069578ef1f7efe83",
+        "source_sha256": "257a12bea1781a7eff93e35834f15c08fa399474751f9272a93c5e656e843fea",
+        "reason": "The mutant stores the dialog size code after instead of before the call to 0x48c8f0. That callee and its callees 0x48c820 and 0x48cb00 contain no call instruction that could observe the global and never read 0x53c9b4; the wrapper's store is the only access, so the final memory is identical."
+      },
+      {
+        "line": 79,
+        "operator": "swap-statements",
+        "mutant_sha256": "c07d7b25ce56a61831e6b9bc618dbe7e4fd898ba4562edd262f4c0fb19d2de04",
+        "source_sha256": "257a12bea1781a7eff93e35834f15c08fa399474751f9272a93c5e656e843fea",
+        "reason": "The mutant stores the dialog size code after instead of before the call to 0x48c8f0. That callee and its callees 0x48c820 and 0x48cb00 contain no call instruction that could observe the global and never read 0x53c9b4; the wrapper's store is the only access, so the final memory is identical."
+      },
+      {
+        "line": 87,
+        "operator": "swap-statements",
+        "mutant_sha256": "71dc1380a461d21d21cb6555f820c32717bdf3193c2e4fc301f88c2645d76222",
+        "source_sha256": "257a12bea1781a7eff93e35834f15c08fa399474751f9272a93c5e656e843fea",
+        "reason": "The mutant stores the dialog size code after instead of before the call to 0x48c8f0. That callee and its callees 0x48c820 and 0x48cb00 contain no call instruction that could observe the global and never read 0x53c9b4; the wrapper's store is the only access, so the final memory is identical."
+      },
+      {
+        "line": 95,
+        "operator": "swap-statements",
+        "mutant_sha256": "28b5182e71c48d50668e320b3f53f02e3e1e24657766206334f6c3f612921d4a",
+        "source_sha256": "257a12bea1781a7eff93e35834f15c08fa399474751f9272a93c5e656e843fea",
+        "reason": "The mutant stores the dialog size code after instead of before the call to 0x48c8f0. That callee and its callees 0x48c820 and 0x48cb00 contain no call instruction that could observe the global and never read 0x53c9b4; the wrapper's store is the only access, so the final memory is identical."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4148776573,
+      "cases": 104,
+      "mutants_killed": 12,
+      "mutants_tried": 24,
+      "mutants_equivalent": 4,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ae59fcbd2f3e569a1409d6e175d11ad7283d66dc00b0c08c14318f64b5411431"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a stand-in (allocate).",
+    "playAudio is a stand-in (scripted): Physical audio voice acquisition and DirectSound playback cannot run without the native audio device provider."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

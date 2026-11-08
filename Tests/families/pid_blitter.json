@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "id": "pid_blitter",
+  "title": "Original compressed eight-bit pixel blitters",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PIDBlitter.cpp",
+    "Sources/PIDBlitter.h"
+  ],
+  "docs": [
+    "docs/pid-blitter.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4c00b0",
+      "name": "rawUnflipped8",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pid_blitter.cases.py",
+    "entry": "claw_pid_blitter_entry",
+    "equivalent_mutants": [
+      {
+        "line": 40,
+        "operator": "minus-one",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "3e9c7f6745c9c1d88795f4e9b4446708886424b84dee61f9c0ecb60ed98994e5",
+        "reason": "Canonical raw entry constructs flipX=false and flipY=false and every reachable Writer.copy passes reverse=false. This exact mutant changes only the reverse true operand count-1 to count-2, which is never evaluated in the admitted raw domain. Legacy flip behavior is outside this admission and has its separate unchanged original comparison."
+      },
+      {
+        "line": 110,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "41d02cae6be3ae35bd0fe0b58ac240f613e4bb697bb91667fab2b7ef8d5f278e",
+        "reason": "For valid positive row runs with nonzero source.left strictly below width, consuming the next run in the left-skip arm when x equals left is equivalent to consuming it in the following main arm: a literal is copied wholly at destination offset zero, a transparent run writes nothing, and both advance to the same cursor/x. Remaining runs and row transitions produce the same ordered bytes before the sole unlock callback. No callbacks occur within the loop and nonaliasing excludes metadata changes. Original 0x4c021f-0x4c0328 confirms the same clipping and exclusive-bottom policy; equality changes grouping only."
+      },
+      {
+        "line": 115,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "6fed2d6515243df027c172c8483463d0aefe5a5f8607050203513050d7bbf9d1",
+        "reason": "For valid positive row runs with nonzero source.left strictly below width, consuming the next run in the left-skip arm when x equals left is equivalent to consuming it in the following main arm: a literal is copied wholly at destination offset zero, a transparent run writes nothing, and both advance to the same cursor/x. Remaining runs and row transitions produce the same ordered bytes before the sole unlock callback. No callbacks occur within the loop and nonaliasing excludes metadata changes. Original 0x4c021f-0x4c0328 confirms the same clipping and exclusive-bottom policy; equality changes grouping only."
+      },
+      {
+        "line": 135,
+        "operator": "ne-to-eq",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "cbff3a049635d8f04823d318cce1ccd959e019651fa7e41279b3a9530eae91a8",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 138,
+        "operator": "le-to-lt",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "ec9a4efce3798ef5b947ccf62c55407fe058e6c9384e1bcd64192b75788662d0",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 139,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "7008d97944522d60604d9950dbe37a223601d01f8506358d7cc84eb9092731b9",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 143,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "5b273bc07454899d92960c7aba8b9cc7decd724061e7913f9490aa582830cd01",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 147,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "affd54907e9a1184501f5736cee4bc20d301dd0d36df906ff8d7cb0990a82a45",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 153,
+        "operator": "eq-to-ne",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "c85740c19f8bd89105941c9db7d2ab73b9d2e7c34f47a0f8bbe7bab423e42207",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 153,
+        "operator": "minus-one",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "2f5d73ce7ee242c8f62e51b910cd92dce01b1975ce588e257946499da2473328",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 154,
+        "operator": "le-to-lt",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "4a2daa8e21539c96ffbef6107063f84d81c1246a05109f950db83d685142f79c",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 155,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "74ccd8055121221c6c26068dac53403f5efa1166664c65eee569dd437d11c165",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 160,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "abb62fdcce3ae2bf11b6f25921105e2200fe73409776dd8bb9e3026b43ee3cd6",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 173,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "e150937c486ef5982b4682044a9d0076ff7161313a45f4873fa0878b71f2cc85",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 175,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "db7286fbb149821cddb7a10e86fa8c90a4703a0d80ca215ea8e6e4d575fc7aba",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 178,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "5fd58e4e045208b8079786597457c1121c27612df27505f6ebfe9d46858282a2",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 182,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "1356677985712aec36d0669054028cd36a36e12aa6271505f26f1d964046a81a",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 188,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "b87342c4d2f23cb0b64da94983b2b7c02a2c850c6cf21dfad69368bdd3b0a900",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 195,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "075f52985811b1c04fd0aae3fa69e20f84d9b7bb2f719f8a731b60820358e07c",
+        "reason": "This exact site lies wholly inside blit flipX=true branches. The only admitted entry 0x4c00b0 constructs a zero-initialized command and never changes flipX or flipY, so all raw calls execute the unflipped branch and cannot reach this site. Legacy flipped export is retained and regression-tested separately, not admitted here."
+      },
+      {
+        "line": 210,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "edadc178552ca24a419a90904618dac1c3f00f3085f13519732a77e53e5c07c6",
+        "reason": "This exact site is inside the legacy claw_pid_blit8 full-PID export, which is not called by canonical raw entry 0x4c00b0. rawBlit invokes shared validStream and blit directly with payload start zero. Therefore the mutation has no effect for any input to the admitted entry. Full-PID behavior remains subject to its separate legacy regression."
+      },
+      {
+        "line": 210,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "6cea8cddc133b7542eb7d4d5cb9d713892ab8d679982ae1507735c454f50727f",
+        "reason": "This exact site is inside the legacy claw_pid_blit8 full-PID export, which is not called by canonical raw entry 0x4c00b0. rawBlit invokes shared validStream and blit directly with payload start zero. Therefore the mutation has no effect for any input to the admitted entry. Full-PID behavior remains subject to its separate legacy regression."
+      },
+      {
+        "line": 213,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "2d4936d1be36fb71e34709f6c5b16c2ac4d453498c38d3e129413343013f3e02",
+        "reason": "This exact site is inside the legacy claw_pid_blit8 full-PID export, which is not called by canonical raw entry 0x4c00b0. rawBlit invokes shared validStream and blit directly with payload start zero. Therefore the mutation has no effect for any input to the admitted entry. Full-PID behavior remains subject to its separate legacy regression."
+      },
+      {
+        "line": 219,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "9b99f4d8e4673e8d30bab3ba53e658a15b849994f3b266339f4139d7bfb8aab3",
+        "reason": "This exact site is inside the legacy claw_pid_blit8 full-PID export, which is not called by canonical raw entry 0x4c00b0. rawBlit invokes shared validStream and blit directly with payload start zero. Therefore the mutation has no effect for any input to the admitted entry. Full-PID behavior remains subject to its separate legacy regression."
+      },
+      {
+        "line": 219,
+        "operator": "minus-one",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "d11f243470218fffc9153019c7218354af73dda811ab512f2388765cfb6ee720",
+        "reason": "This exact site is inside the legacy claw_pid_blit8 full-PID export, which is not called by canonical raw entry 0x4c00b0. rawBlit invokes shared validStream and blit directly with payload start zero. Therefore the mutation has no effect for any input to the admitted entry. Full-PID behavior remains subject to its separate legacy regression."
+      },
+      {
+        "line": 223,
+        "operator": "lt-to-le",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "a2c7cb33d2fc03c7eb08366bdad6989736be595e7df33d17a822eb0ee344ceec",
+        "reason": "This exact site is inside the legacy claw_pid_blit8 full-PID export, which is not called by canonical raw entry 0x4c00b0. rawBlit invokes shared validStream and blit directly with payload start zero. Therefore the mutation has no effect for any input to the admitted entry. Full-PID behavior remains subject to its separate legacy regression."
+      },
+      {
+        "line": 227,
+        "operator": "negate",
+        "source_sha256": "f019bd63038c7e53a0a2acb32409cdc0aaa22c09367083bc6ef89b47884b44bb",
+        "mutant_sha256": "d1ebdaf6e045b1e36994c51c356a35f38a9c43f3f425e80c5af936dc162984e4",
+        "reason": "This exact site is inside the legacy claw_pid_blit8 full-PID export, which is not called by canonical raw entry 0x4c00b0. rawBlit invokes shared validStream and blit directly with payload start zero. Therefore the mutation has no effect for any input to the admitted entry. Full-PID behavior remains subject to its separate legacy regression."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2028243824,
+      "cases": 878,
+      "mutants_killed": 22,
+      "mutants_tried": 48,
+      "mutants_equivalent": 26,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "1902471347c88a397372463a56ba8fca9aa64b58ba841f0f7308d3a088a8a908"
+    },
+    "codex": {
+      "root_logs": [
+        "work/root-pid-blitter-independent.log"
+      ],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_pid_blitter.py": "pass"
+      },
+      "seconds": 98.2
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true
+  },
+  "limits": [
+    "Raw entry admission covers only valid nonaliasing eight-bit compressed streams, bounded dimensions up to 4096 and safely backed buffers; unsupported depth, malformed streams, aliasing and unsafe addresses are native faults, not original rejection or partial-write parity.",
+    "Physical DirectDraw Lock and Unlock are case-supplied services; 0x4b9730 executes as original code on both sides. Unlock HRESULT is ignored by this semantic-void entry.",
+    "Legacy full-PID and flipped exports are preserved and regression-tested separately; canonical admission owns only 0x4c00b0."
+  ]
+}

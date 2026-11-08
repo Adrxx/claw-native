@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "player_death_commands",
+  "title": "Original player death command handling",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerDeathCommands.cpp",
+    "Sources/PlayerDeathCommands.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerDeathCommands.cpp": "aab0283dc67299d781f319749a587763ea9ad187215f04e734e5812ee3145e7e",
+    "Sources/PlayerDeathCommands.h": "4bdaf46c0d043672b8c5c5ea890ada62c303e16749e1469cf0b9e98891ba13d3"
+  },
+  "docs": [
+    "docs/player-death-commands.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_death_commands.py"
+      }
+    ],
+    "extra": [
+      "Tests/death_command_original.py"
+    ],
+    "work_dirs": [
+      "work/death-command-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/death-command-agent/comparison.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_death_commands.py": "pass"
+      },
+      "seconds": 20.0
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 346777567,
+      "owned": 8,
+      "owned_inferred_from_tests": true,
+      "directly_called": 8,
+      "fully_executed": 4,
+      "bytes_owned": 10277,
+      "bytes_executed": 2090,
+      "coverage": 0.2034
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeRespawn.swift"
+    ]
+  },
+  "limits": []
+}

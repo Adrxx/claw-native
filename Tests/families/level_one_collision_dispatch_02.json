@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "id": "level_one_collision_dispatch_02",
+  "title": "Level 1 tile collision movement resolvers",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneCollisionDispatch02Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4cbff0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cc1b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cc420",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cc570",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cc6c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cc9a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ccc50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ccef0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cd1c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cd800",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_collision_dispatch_02.cases.py",
+    "entry": "claw_level_one_collision_dispatch_02_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3545375519,
+      "cases": 564,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.93,
+      "reasons": [],
+      "build_inputs_sha256": "2ffa9bc105d5db3f24cd444d690fa5a149cf7a3fdbb23606c21446bb0c5f4666"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,266 @@
+{
+  "schema": 1,
+  "id": "game_image",
+  "title": "Original v1.0 raw game image runtime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GameImageCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b9180",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9380",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9730",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9990",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb0e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc490",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc520",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bf310",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bf9c0",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bfbf0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bfc50",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c6130",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce3d0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d22f0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2410",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d25e0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2890",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "C runtime heap allocation ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with the replaced C runtime allocator"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported Win32 rectangle copy is supplied by cases"
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported Win32 resource service reached by original game resource-image loader"
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported Win32 resource service reached by original game resource-image loader"
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported Win32 resource service reached by original game resource-image loader"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/game_image.cases.py",
+    "entry": "claw_game_image_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4bf47d",
+        "end": "0x4bf492",
+        "reason": "Unreachable for valid ordinary image and allocator inputs: 0x4bf45e/0x4bf460 require the allocated destination EDI nonzero before original 0x4bef50 is called at 0x4bf474; ESI is the valid input image address plus 0x20. Original 0x4bef50 returns zero only for a null destination (0x4bef59) or null source (0x4bef66), performs no outside calls, and otherwise returns one at 0x4bf05e. A valid image header cannot reside at 0xffffffe0 to wrap its payload to zero. Fixture mutations of heap fields cannot change these register-held pointer arguments; null allocation returns earlier at 0x4bf462. Owned body is retained."
+      },
+      {
+        "start": "0x4bf528",
+        "end": "0x4bf53c",
+        "reason": "Unreachable ordinary control flow: 0x4bf397 loads display format into EAX, 0x4bf39d/0x4bf3a0 set the local conversion flag to one exactly when that same EAX differs from eight. On the non-embedded-palette route 0x4bf4f7/0x4bf4fd require that flag nonzero to proceed. No call or EAX write intervenes before 0x4bf51f/0x4bf522, which must jump back because EAX differs from eight. Thus 0x4bf528 and its following return cannot execute; heap aliasing or fixture mutation cannot intervene in this call-free sequence. Owned body is retained."
+      },
+      {
+        "start": "0x4bc580",
+        "end": "0x4bc582",
+        "reason": "Unsupported terminal access-fault outcome, not unreachable code: the operator-new fixture can return zero and this instruction sets ESI=0. The original then unconditionally dereferences address zero at 0x4bc58a, before any service/callback can repair the pointer. Ordinary Case return/physical-halt outcomes cannot represent terminal memory-fault equivalence; an emulator access fault is a harness failure and a native access fault is native-fault. Exempt only this allocation-null instruction from required coverage, retain the entire owned body and translated null path, and do not claim allocation-null fault equivalence."
+      },
+      {
+        "start": "0x4ce424",
+        "end": "0x4ce426",
+        "reason": "Unsupported terminal access-fault outcome, not unreachable code: the operator-new fixture can return zero and this instruction sets EBX=0. The original then unconditionally dereferences address zero at 0x4ce42e, before any service/callback can repair the pointer. Ordinary Case return/physical-halt outcomes cannot represent terminal memory-fault equivalence; an emulator access fault is a harness failure and a native access fault is native-fault. Exempt only this allocation-null instruction from required coverage, retain the entire owned body and translated null path, and do not claim allocation-null fault equivalence."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3967853995,
+      "cases": 321,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.957,
+      "reasons": [],
+      "build_inputs_sha256": "ee7affcf08c111da28e48fa7865394b9f231913eccc2c3b324adde9137e91919"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new uses the comparison allocator, not the original C runtime heap.",
+    "Operator delete uses the comparison release fixture, not the original C runtime heap.",
+    "CopyRect is a scripted Win32 import; cases provide its rectangle-copy effects.",
+    "DirectDraw and supplied virtual methods are case-controlled physical services; missing services fault.",
+    "0x4bb0e0 is semantic void for the reviewed menu caller domain; nonzero physical Unlock HRESULT is ignored and missing service remains a fault.",
+    "Original diagnostics remain executable with output-control globals disabled; OS dialogs and logging are not claimed.",
+    "Legacy GameImageRuntime.cpp and GameImageRuntime.h remain unchanged as the existing app API; this canonical module is source-only.",
+    "FindResourceA is a scripted physical Win32 resource service for original resource-image loading.",
+    "LoadResource is a scripted physical Win32 resource service for original resource-image loading.",
+    "LockResource is a scripted physical Win32 resource service for original resource-image loading.",
+    "Allocation-null terminal memory-fault equivalence is unverified for 0x4bc520 and 0x4ce3d0; their original null paths remain owned and must remain in translation, with narrow coverage exemptions for the unsupported fault outcome."
+  ]
+}

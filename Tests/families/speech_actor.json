@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "speech_actor",
+  "title": "Original ClawDialogSound servicing",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SpeechActor.cpp",
+    "Sources/SpeechActor.h"
+  ],
+  "source_sha256": {
+    "Sources/SpeechActor.cpp": "d57987b974da68873852afd280f62f7aae0613b99ed585fefc1fdd1099f1d656",
+    "Sources/SpeechActor.h": "42aacaba2c0ae496c80ef205f4d688105902f8e994759a5fb206f66b584cd51a"
+  },
+  "docs": [
+    "docs/speech-actor.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_speech_actor.py"
+      }
+    ],
+    "work_dirs": [
+      "work/speech-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/speech-agent/test-results.txt"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_speech_actor.py": "pass"
+      },
+      "seconds": 4.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1554157503,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 3,
+      "bytes_owned": 671,
+      "bytes_executed": 659,
+      "coverage": 0.9821
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": []
+}

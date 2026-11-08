@@ -1,0 +1,270 @@
+{
+  "schema": 1,
+  "id": "help_state",
+  "title": "Help screen state (F1 and in-game Help)",
+  "abi": "canonical",
+  "sources": [
+    "Sources/HelpStateRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x449870",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449930",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449940",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4499d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449a60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449b30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449b70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449bd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449c10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546cd8": {
+      "kind": "fixture",
+      "name": "SetCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor service called directly by 0x449870, 0x449a60 and 0x449b30 (through ESI); cases observe the handle argument and supply the previous cursor handle."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 message post called directly by 0x449a60, 0x449bd0 and 0x449c10; cases observe window, message 0x111, command 0x8036 and lParam 0, and supply the result."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 display-count service called through ESI by 0x449940 and 0x449b70 in a loop until the count goes negative; cases supply the count sequence."
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 message queue import reached through original 0x4b8910 on the 0x449870 success path; cases supply the result that ends the drain loop."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "WINMM clock reached through original palette fades 0x4bb990 (0x4499d0), 0x4bbb70 (0x449a60) and 0x4bbd90 (0x449b70 via 0x48f470); cases supply the time sequence."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 key-state service reached through original input poll 0x4b3490 from 0x449a60; cases supply key states to reach the PostMessageA branch."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/help_state.cases.py",
+    "entry": "claw_help_state_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3076302934,
+      "cases": 295,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.974,
+      "reasons": [],
+      "build_inputs_sha256": "810e9842f7033e36c86449e9913508860418870995e882f1520fea14fe42bcdc"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetCursor is a stand-in (scripted): cases supply the previous cursor handle.",
+    "PostMessageA is a stand-in (scripted): cases observe its arguments and supply the result; no message is delivered.",
+    "ShowCursor is a stand-in (scripted): cases supply the display-count sequence.",
+    "PeekMessageA is a stand-in (scripted): no real message queue is drained.",
+    "timeGetTime is a stand-in (scripted): cases supply the clock sequence.",
+    "GetAsyncKeyState is a stand-in (scripted): cases supply key states."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly; boundary reviewed: direct imports SetCursor, PostMessageA and ShowCursor (register-indirect) declared, plus PeekMessageA, timeGetTime and GetAsyncKeyState reached through original callees on paths cases must cover. See work/packets/help_state/NOTES.md."
+}

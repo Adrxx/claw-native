@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_path_elevator_01",
+  "title": "Level 1 closure: Path elevator helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosurePathElevator01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x468170",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4681c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4682c0",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4683a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x468540",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x468840",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x468890",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4688f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49f020",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49f040",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_path_elevator_01.cases.py",
+    "entry": "claw_level_one_closure_path_elevator_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x468780",
+        "end": "0x468824",
+        "reason": "Taken only when the source object's +0x6c word is zero; it then reads absolute addresses 0xf0 to 0x10c (null page, never mapped on Windows). Reproduced under the harness: null pointer access at 0xf4 from 0x468780. The calls to 0x468840 inside it are covered by direct calls."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4145082792,
+      "cases": 578,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.938,
+      "reasons": [],
+      "build_inputs_sha256": "b1c0faec5d62a91a76dc1513b90dc823d7f515967140adb49cb8e40869a625e9"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

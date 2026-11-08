@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "id": "player_startup",
+  "title": "Original saved-player startup and message queue",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PlayerStartupCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x415ce0",
+      "name": "resetPlayerGlobals",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46c790",
+      "name": "clearSavedPlayerFields",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46d8e0",
+      "name": "restoreSavedPlayer",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49af30",
+      "name": "savedCheckpointAvailable",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49af90",
+      "name": "savedCheckpointRecord",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4222a0",
+      "name": "initializeMessageDisplay",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x422370",
+      "name": "queueStatusMessage",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42af70",
+      "name": "replaceStatusMessage",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Original list and CString allocation requires a deterministic shared heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Original list and CString release pairs with the shared heap allocator."
+    },
+    "0x546918": {
+      "kind": "fixture",
+      "name": "CreateFontA",
+      "convention": "stdcall",
+      "argc": 14,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The Windows font service cannot execute under emulation."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The Windows string service cannot execute under emulation."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The Windows atomic service cannot execute under emulation."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/player_startup.cases.py",
+    "entry": "claw_player_startup_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4115475440,
+      "cases": 282,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.932,
+      "reasons": [],
+      "build_inputs_sha256": "35150130ae82b9c920d1cf4f9a6297ba0dab834f5e5d15a682a07e93ab350480"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Original list and CString allocation requires a deterministic shared heap.",
+    "Original list and CString release pairs with the shared heap allocator.",
+    "The Windows font service cannot execute under emulation.",
+    "The Windows string service cannot execute under emulation.",
+    "The Windows atomic service cannot execute under emulation."
+  ],
+  "notes": "Canonical raw-memory game surface. Legacy PlayerStartupRuntime remains unchanged for native host composition. CString list helpers, checkpoint lookup and camera update remain original-backed external dependencies; no platform code is recovered or recertified."
+}

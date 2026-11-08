@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "id": "pause_menu_panels",
+  "title": "Pause menu panel build and draw",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PauseMenuPanelsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x451680",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4520f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452290",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service: write left, top, right, bottom in argument order and return nonzero."
+    },
+    "0x546a24": {
+      "kind": "fixture",
+      "name": "GetTickCount",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import: cases supply its effects while original code runs unchanged."
+    },
+    "0x546e8c": {
+      "kind": "fixture",
+      "name": "AIL_XMIDI_master_volume",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    },
+    "0x546e6c": {
+      "kind": "fixture",
+      "name": "AIL_set_XMIDI_master_volume",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform import; cases supply deterministic API behavior."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pause_menu_panels.cases.py",
+    "entry": "claw_pause_menu_panels_entry",
+    "equivalent_mutants": [
+      {
+        "line": 58,
+        "operator": "lt-to-le",
+        "mutant_sha256": "e88f1080ebbd3a3145d1da89324993caf1120c2f23577323b38c8c4b4354ce18",
+        "source_sha256": "eb166dd35ad09d2369ab087e9e16d4e6dded419bff9fd905ee75049899c3a47f",
+        "reason": "The mutant changes the lower bound test only for the exact value -2^63. That value converts through the 64-bit store to INT64_MIN whose low word is 0, and the out-of-range branch also returns 0 (integer indefinite has low word 0), so both return 0 for every input."
+      },
+      {
+        "line": 162,
+        "operator": "lt-to-le",
+        "mutant_sha256": "c5cb01455033aeb8238df54716d1839e76697dca4e27189e09c0d343c577802a",
+        "source_sha256": "eb166dd35ad09d2369ab087e9e16d4e6dded419bff9fd905ee75049899c3a47f",
+        "reason": "The mutant differs only when level == 1, where the branch assigns 1 to a level that already equals 1; the following else-if is not reachable for either value, so state and result are identical for every input."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2098717523,
+      "cases": 501,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "0f29a96f7ab619b66eb9aa225f05b8f4ff9cb53f2a55fe79ca467c2612c192ec"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

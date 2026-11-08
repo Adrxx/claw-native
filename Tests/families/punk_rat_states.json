@@ -1,0 +1,316 @@
+{
+  "schema": 1,
+  "id": "punk_rat_states",
+  "title": "Retail PunkRat Level 2 states",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PunkRatStatesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x474330",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4743f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4746f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474710",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4747e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474bc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474c50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474d00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474db0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474e10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474e60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x474ec0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1,
+      "reason": "Consumes the constructor live ST(0) operand and returns the truncated integer in EDX:EAX; original code runs on both sides."
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "The original base constructor invokes this USER32 import six times to clear embedded rectangles."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Original string destructor decrements the referenced four-byte shared-buffer reference count through this KERNEL32 import; cases apply the decrement and return its new value."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/punk_rat_states.cases.py",
+    "entry": "claw_punk_rat_states_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x47438c",
+        "end": "0x47438e",
+        "reason": "The allocation-null branch sets EDI to zero and immediately dereferences [EDI] at 0x47438e; no normal returning original execution reaches it under the allocator fixture."
+      },
+      {
+        "start": "0x47463e",
+        "end": "0x474647",
+        "reason": "Original base constructor 0x4332f0 unconditionally sets bit 9 at 0x4336a9-0x4336d0: count <=9 calls 0x4dbd20(9), whose successful resize rounds count to 32, otherwise count is already >=10. No intervening constructor callee mutates the bitset count. Failed resize faults in 0x4dc680 before returning. Therefore the owned count <=1 branch cannot occur in a valid returning construction."
+      },
+      {
+        "start": "0x474835",
+        "end": "0x474863",
+        "reason": "This branch requires 0x4db6e0 to return zero after failed realloc. Both original paths assign its zero result to EBP at 0x4db70b or 0x4db77f, then call 0x4dc680 at 0x4db788; that helper reads [EBP+4] and faults at address 4 before returning. The failure is reproduced by the original cases check."
+      },
+      {
+        "start": "0x47487e",
+        "end": "0x474895",
+        "reason": "A successful first lookup either starts with the index in the signed bounds or resizes 0x4db6e0 to include it. No call or bound store intervenes between the selected-entry check and the second bound check. Thus the second lookup cannot require growth on a valid returning path; the first growth failure faults before returning."
+      },
+      {
+        "start": "0x4748af",
+        "end": "0x4748e2",
+        "reason": "The second growth call is unreachable after a successful first lookup, and a failed 0x4db6e0 realloc would fault in 0x4dc680 reading address 4 before returning zero. This second owned error branch therefore has no valid normal returning original execution."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 209,
+        "operator": "swap-statements",
+        "mutant_sha256": "51c29686c789f9c815c3e736721bb324bd11a8be441a8da2965d86d823d3ee6a",
+        "source_sha256": "90592bebf6e6da21a8857b668eec87dbe2928e12be143407d084833f8008c2ea",
+        "reason": "Only swaps stores/call inside stateSlot growth-failure handling. Original 0x4db6e0 sets EBP to zero on realloc failure then calls 0x4dc680, which faults reading address 4 before returning zero. Both callers have these exact error ranges exempted with original proof; no permitted normal-returning execution enters this block."
+      },
+      {
+        "line": 224,
+        "operator": "drop-statement",
+        "mutant_sha256": "d7864d8466281e9d9771a7d9d5ff418c9bcc51443912afb41b197ef2f253fd7f",
+        "source_sha256": "90592bebf6e6da21a8857b668eec87dbe2928e12be143407d084833f8008c2ea",
+        "reason": "Original 0x4747f1 first clears 0x538478. Without growth no call intervenes before second clear at 0x47486a. With successful growth 0x4db6e0 zero-fills each newly added cell (0x4db73a-0x4db755 or 0x4db7ab-0x4db7da), including the selected index; zero callback then takes 0x474866 to base dispatch and bypasses the second clear. Thus reaching the second clear implies the scratch is already zero. Failed growth faults before returning."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4200380686,
+      "cases": 228,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 2,
+      "mutation_score": 0.925,
+      "reasons": [],
+      "build_inputs_sha256": "fca2c247579eff1d01308326670aad0c5ca364491cabbd807facf00a7ebbb8a6"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRectEmpty is a stand-in that clears the supplied rectangle.",
+    "InterlockedDecrement is scripted; cases decrement the supplied reference count and return its new value."
+  ],
+  "notes": "Boundary reviewed against all twelve original disassemblies; dispatcher has one cdecl stack argument and constructor __ftol consumes one live x87 operand."
+}

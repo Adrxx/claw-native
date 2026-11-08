@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "player_initialization",
+  "title": "Original player initialization and respawn",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerInitialization.cpp",
+    "Sources/PlayerInitialization.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerInitialization.cpp": "cc8219a825fa742d17bfe88a9f5805ab57944ce94d5206527895f9211d25228c",
+    "Sources/PlayerInitialization.h": "f35547d717dbea3f5eb6edacef229e1a81b912e7ba99552ad21468c0122d6f57"
+  },
+  "docs": [
+    "docs/player-initialization.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_initialization.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_initialization_helpers.py"
+    ],
+    "work_dirs": [
+      "work/player-init-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/player-init-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_initialization.py": "pass"
+      },
+      "seconds": 9.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 471013829,
+      "owned": 3,
+      "owned_inferred_from_tests": true,
+      "directly_called": 3,
+      "fully_executed": 2,
+      "bytes_owned": 4817,
+      "bytes_executed": 1756,
+      "coverage": 0.3645
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": []
+}

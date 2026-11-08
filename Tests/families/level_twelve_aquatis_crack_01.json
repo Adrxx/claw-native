@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "id": "level_twelve_aquatis_crack_01",
+  "title": "Level 12 Aquatis crack closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwelveAquatisCrack01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x406520",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4068f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406af0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406b10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406b50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406c40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x406cb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows memory-readability query reached by original RTTI lookup 0x4a36f0 at 0x4a3760; the catalogue checks backed guest memory."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_twelve_aquatis_crack_01.cases.py",
+    "entry": "claw_level_twelve_aquatis_crack_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x406575",
+        "end": "0x4065a3",
+        "reason": "Original table growth failure cannot return here: 0x4db6e0 stores null realloc result in EBP then 0x4dc680 dereferences [EBP+4] at 0x4dc680 before returning zero."
+      },
+      {
+        "start": "0x4065be",
+        "end": "0x4065d5",
+        "reason": "Original first lookup either had the index within bounds or successfully grew bounds to include it; no intervening external call or bounds write occurs before the identical second bounds test, so a second growth cannot execute."
+      },
+      {
+        "start": "0x4065ef",
+        "end": "0x406622",
+        "reason": "Original second table growth is unreachable after the first successful bounds lookup, and an allocation failure in 0x4db6e0 faults in 0x4dc680 before returning."
+      },
+      {
+        "start": "0x406d12",
+        "end": "0x406d3b",
+        "reason": "Original table growth failure cannot return here: 0x4db6e0 stores null realloc result in EBP then 0x4dc680 dereferences [EBP+4] before returning zero."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2379815995,
+      "cases": 312,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.975,
+      "reasons": [],
+      "build_inputs_sha256": "5d13fe4746ba6204c6428372b5f3ea4eab2234045a95ae209f5f2c8dd4450ccb"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "IsBadReadPtr is a stand-in (is-bad-read-ptr)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

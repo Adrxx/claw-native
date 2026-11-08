@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "id": "simple_animation",
+  "title": "Simple Animation",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SimpleAnimationCanonical.cpp"
+  ],
+  "docs": [],
+  "owned": [
+    {
+      "address": "0x498f40",
+      "name": "SimpleAnimation::logic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/simple_animation.cases.py",
+    "entry": "claw_simple_animation_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1551255743,
+      "cases": 45,
+      "mutants_killed": 13,
+      "mutants_tried": 13,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "48fedb7a08b9dc24436f03b2b67507b6db4ed55807dbd182931604e5ac00439a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The animation update at 0x4c82a0 remains original code on both sides."
+  ],
+  "notes": "Canonical migration owns only 0x498f40; the legacy Sources/SimpleAnimation.cpp remains unchanged and is not the comparison module."
+}

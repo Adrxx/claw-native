@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "id": "player_menu_management",
+  "title": "Player menu management",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerMenuManagementRuntime.cpp",
+    "Sources/PlayerMenuManagementRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerMenuManagementRuntime.cpp": "93b0044a16ce61184648a2261e18fb5ec7fb607562616f6a35783f566f918a78",
+    "Sources/PlayerMenuManagementRuntime.h": "161fa4e265773266dfacfec8252552cda9cbf0e72af2ec803fb5f0085ae0dd19"
+  },
+  "docs": [
+    "docs/player-menu-management-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x49aed0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49afd0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b160",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b3a0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b470",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b630",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_menu_assignment_tail.py"
+      },
+      {
+        "script": "Tests/compare_player_menu_management.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_menu_management_helpers.py"
+    ],
+    "extra": [
+      "Tests/capture_player_menu_assignment_tail.py",
+      "Tests/capture_player_menu_management.py",
+      "Tests/player_menu_management_abi.c",
+      "Tests/player_menu_management_abi.swift",
+      "Tests/player_menu_management_assignment_probe.cpp",
+      "Tests/player_menu_management_exact_replay.cpp"
+    ],
+    "work_dirs": [
+      "work/player-menu-management-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-player-menu-assignment-tail-asan.log",
+        "work/root-player-menu-assignment-tail-independent.log",
+        "work/root-player-menu-management-asan.log",
+        "work/root-player-menu-management-final-asan.log",
+        "work/root-player-menu-management-final-independent.log",
+        "work/root-player-menu-management-independent.log"
+      ],
+      "worker_evidence": [
+        "work/player-menu-management-agent/comparison.log",
+        "work/player-menu-management-agent/sanitizer.log",
+        "work/player-menu-management-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_menu_assignment_tail.py": "pass",
+        "Tests/compare_player_menu_management.py": "pass"
+      },
+      "seconds": 24.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2372063271,
+      "owned": 8,
+      "owned_inferred_from_tests": false,
+      "directly_called": 7,
+      "fully_executed": 3,
+      "bytes_owned": 8607,
+      "bytes_executed": 1859,
+      "coverage": 0.216
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "compare_player_menu_assignment_tail.py assigned by content: compiles PlayerMenuManagementRuntime.cpp\n\nLegacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: level_one_closure_commands_01 (0x49c860); menu_game_launch (0x426e30). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

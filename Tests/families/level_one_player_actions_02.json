@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "id": "level_one_player_actions_02",
+  "title": "Observed Level 1 player actions batch 2",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOnePlayerActions02Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x40f780",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40fe90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415df0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4171d0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x417380",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x417590",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x417930",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x418120",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4183e0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x418b40",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x419030",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_player_actions_02.cases.py",
+    "entry": "claw_level_one_player_actions_02_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x417851",
+        "end": "0x4178a5",
+        "reason": "Absolute-value branch of the aim computation in 0x417590: taken only when (x*x + z*z + 5062500) * 0.25 lies within 0.1 of zero. The sum is at least 1.26 million for every finite input, and NaN and infinity take the other branch at the preceding compare, so no input reaches it."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3117052653,
+      "cases": 574,
+      "mutants_killed": 47,
+      "mutants_tried": 54,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.959,
+      "reasons": [],
+      "build_inputs_sha256": "575212a69e9f636342d307f07bbe1ca0a734b93dad62d9ec4ad639636f1e70fa"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

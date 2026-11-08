@@ -1,0 +1,244 @@
+{
+  "schema": 1,
+  "id": "v13_raw_children",
+  "title": "v1.3 raw enemy child serializers and numeric field traversal",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/V13RawChildrenRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4df6f0",
+      "interval_end": "0x4df8cc",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df240",
+      "interval_end": "0x4df41c",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd9e0",
+      "interval_end": "0x4ddc0f",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ddc10",
+      "interval_end": "0x4ddd99",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f9463": {
+      "kind": "fixture",
+      "name": "native output strstream construction",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f9398": {
+      "kind": "fixture",
+      "name": "native input strstream construction",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f9425": {
+      "kind": "fixture",
+      "name": "native input strstream destruction",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f9511": {
+      "kind": "fixture",
+      "name": "native output strstream destruction",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f959e": {
+      "kind": "fixture",
+      "name": "native stream buffer destruction",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f90c7": {
+      "kind": "fixture",
+      "name": "native strstream buffer extraction",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4fa4f0": {
+      "kind": "fixture",
+      "name": "native bitset stream insertion",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4fa5a0": {
+      "kind": "fixture",
+      "name": "native bitset stream extraction",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f8d00": {
+      "kind": "fixture",
+      "name": "native signed integer stream insertion",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f8db1": {
+      "kind": "fixture",
+      "name": "native double stream insertion from two stack words",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f8ed3": {
+      "kind": "fixture",
+      "name": "native signed integer stream extraction",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4f8f70": {
+      "kind": "fixture",
+      "name": "native double stream extraction",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C++ standard stream or standard bitset platform service; original CRT stream ownership depends on the Windows runtime. Cases supply the platform state and compare every requested operand; formatting semantics require a separate original-backed native service check."
+    },
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocation service."
+    },
+    "0x4fcb13": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native heap allocation service."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_raw_children.cases.py",
+    "entry": "claw_v13_raw_children_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3630282228,
+      "cases": 208,
+      "mutants_killed": 45,
+      "mutants_tried": 49,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "c5fe4197438527a638a80791bd76aa39644a1000801bc5d03ec59ec35d162505"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Standard stream and bitset formatting services are physical fixtures; family admission proves game field/order behavior, not the replacement formatter.",
+    "The twelve installed enemy child roots share 0x4df6f0; other installed serializers are not covered."
+  ]
+}

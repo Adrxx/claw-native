@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "cheat_overlay_layer_init",
+  "title": "Debug overlay layer initializer 0x4d0800 (MPLITH/MPLOGO/MPMONOLITH/NOLITH)",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CheatOverlayLayerInitRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4d0800",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 8,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import USER32 CopyRect(destination, source): cases provide the four-word copy and the nonzero result while the original initializer runs unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/cheat_overlay_layer_init.cases.py",
+    "entry": "claw_cheat_overlay_layer_init_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1001173954,
+      "cases": 304,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "0f9b5ffd187e8803bf9fe44e6eac46d6fb2dba4a7636bd4431c8cbe24bf91af4"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a stand-in (allocate).",
+    "CopyRect is a stand-in (scripted rectangle copy)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

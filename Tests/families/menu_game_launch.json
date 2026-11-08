@@ -1,0 +1,327 @@
+{
+  "schema": 1,
+  "id": "menu_game_launch",
+  "title": "Original application command dispatcher, progress queries and saved-game launch metadata",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuGameLaunchCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x426e30",
+      "name": "Application::dispatchMenuCommand",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42ba10",
+      "name": "Application::isLevelUnlocked",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42ba70",
+      "name": "Application::isCheckpointUnlocked",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42bab0",
+      "name": "Application::hasMultipleProfiles",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42bad0",
+      "name": "Application::hasNamedProfile",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x436e60",
+      "name": "readSavedGameLevel",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cd530",
+      "name": "readSavedGameDescription",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Paired physical heap release"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "C runtime heap ends in operating-system calls"
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "C runtime random generator accesses thread-local storage through imports"
+    },
+    "0x546d44": {
+      "kind": "fixture",
+      "name": "USER32.dll!SendMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "USER32.dll!PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "USER32.dll!ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply deterministic result and required memory effects"
+    },
+    "0x54681c": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegQueryValueA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Original browser-launch helper42a840 invokes this physical registry import at42a863 after four argument pushes"
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "WINMM.dll!timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Original time-reset helper42abf0 invokes this physical millisecond-clock import at42abff with no stack arguments"
+    },
+    "0x546e90": {
+      "kind": "fixture",
+      "name": "mss32.dll!_AIL_start_sequence@4",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence service reached through unchanged original music vtable; decorated import and original callsite establish argument count."
+    },
+    "0x546e88": {
+      "kind": "fixture",
+      "name": "mss32.dll!_AIL_set_sequence_loop_count@8",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence service reached through unchanged original music vtable; decorated import and original callsite establish argument count."
+    },
+    "0x546e7c": {
+      "kind": "fixture",
+      "name": "mss32.dll!_AIL_sequence_status@4",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence service reached through unchanged original music vtable; decorated import and original callsite establish argument count."
+    },
+    "0x546e84": {
+      "kind": "fixture",
+      "name": "mss32.dll!_AIL_stop_sequence@4",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence service reached through unchanged original music vtable; decorated import and original callsite establish argument count."
+    },
+    "0x546e78": {
+      "kind": "fixture",
+      "name": "mss32.dll!_AIL_end_sequence@4",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence service reached through unchanged original music vtable; decorated import and original callsite establish argument count."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/cases/menu_game_launch.py",
+    "entry": "claw_menu_game_launch_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x42ba31",
+        "end": "0x42ba42",
+        "reason": "Coordinator-reviewed structural unreachability: level1 returns at42ba22 before this decrement; remaining accepted levels2..14 decrement to1..13, never zero."
+      },
+      {
+        "start": "0x42ba4e",
+        "end": "0x42ba5a",
+        "reason": "Coordinator-reviewed structural unreachability with unchanged49ae60: checkpoint3 and accepted previous-level1..13 always compute profile+0x1774+176*level, nonzero for a valid backed profile; no null-return fixture substitutes for this body."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 536054582,
+      "cases": 542,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.902,
+      "reasons": [],
+      "build_inputs_sha256": "5fd81eff7bc504a7064359493715c8400c282a7a164c82905850f5274ab376aa"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new at 0x4f63ec is a allocate physical fixture; its actual platform implementation is not exercised.",
+    "operator delete at 0x4f6428 is a release physical fixture; its actual platform implementation is not exercised.",
+    "malloc at 0x4a48e0 is a allocate physical fixture; its actual platform implementation is not exercised.",
+    "rand at 0x4a3050 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "USER32.dll!SendMessageA at 0x546d44 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "USER32.dll!PostMessageA at 0x546d50 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "USER32.dll!ShowCursor at 0x546d54 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!GetFullPathNameA at 0x546ad0 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!lstrcpynA at 0x5469cc is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!CreateFileA at 0x546b00 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!ReadFile at 0x546afc is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!CloseHandle at 0x546a04 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!lstrlenA at 0x5469e4 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!InterlockedDecrement at 0x5469e8 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "KERNEL32.dll!InterlockedIncrement at 0x5469ec is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "ADVAPI32.dll!RegQueryValueA at 0x54681c is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "WINMM.dll!timeGetTime at 0x546df0 is a scripted physical fixture; its actual platform implementation is not exercised.",
+    "mss32.dll!_AIL_start_sequence@4 at 0x546e90 is a physical audio fixture; original music lookup, policy and vtable methods remain original-backed.",
+    "mss32.dll!_AIL_set_sequence_loop_count@8 at 0x546e88 is a physical audio fixture; original music lookup, policy and vtable methods remain original-backed.",
+    "mss32.dll!_AIL_sequence_status@4 at 0x546e7c is a physical audio fixture; original music lookup, policy and vtable methods remain original-backed.",
+    "mss32.dll!_AIL_stop_sequence@4 at 0x546e84 is a physical audio fixture; original music lookup, policy and vtable methods remain original-backed.",
+    "mss32.dll!_AIL_end_sequence@4 at 0x546e78 is a physical audio fixture; original music lookup, policy and vtable methods remain original-backed."
+  ],
+  "notes": "Boundary draft retains all seven existing owners and their full original bodies. Legacy MenuGameLaunchRuntime.cpp/.h and its app ABI remain untouched. No canonical admission or app integration is claimed. All undeclared internal callees execute original code. See work/packets/menu_game_launch/NOTES.md for exact stacks, original branch map, and unresolved full-surface physical prerequisites."
+}

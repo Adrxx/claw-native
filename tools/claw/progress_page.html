@@ -1,0 +1,352 @@
+<title>Claw Recovery Map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column. Summary figures first, then four views of what is missing, each a full-width band. */
+:root {
+  --bg: #f3f5f8; --surface: #ffffff; --ink: #141b2b; --muted: #5a6476; --rule: #d7dce5;
+  --wired: #537ca9; --reference: #8e71a6; --draft: #b47c77; --live: #1c8a6e; --done: #c98a12; --missing: #c44a32; --gap: #aab3c2; --lib: #dfe3ea; --accent: #23408f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1420; --surface: #161e2e; --ink: #e7eaf1; --muted: #9aa5b8; --rule: #27324a;
+  --wired: #80a8d6; --reference: #b9a0d1; --draft: #ce9994; --live: #3fc29f; --done: #e3ad3c; --missing: #ee7b62; --gap: #46536b; --lib: #1f293b; --accent: #9db2f5; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0e1420; --surface: #161e2e; --ink: #e7eaf1; --muted: #9aa5b8; --rule: #27324a;
+  --wired: #80a8d6; --reference: #b9a0d1; --draft: #ce9994; --live: #3fc29f; --done: #e3ad3c; --missing: #ee7b62; --gap: #46536b; --lib: #1f293b; --accent: #9db2f5; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; padding-inline: 20px; padding-block: 28px 56px }
+main { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 5vw, 44px); line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -0.01em }
+h2 { font-family: var(--display); font-weight: 600; font-size: 22px; line-height: 1.2; margin: 0; text-wrap: balance }
+p { margin: 0; max-width: 68ch }
+.lede { color: var(--muted); font-size: 16px }
+.stamp { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.02em }
+header { display: flex; flex-direction: column; gap: 10px }
+section { display: flex; flex-direction: column; gap: 14px; min-width: 0 }
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden }
+.figure { background: var(--surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; min-width: 0 }
+.figure b { font-family: var(--display); font-size: 34px; line-height: 1; font-weight: 700; font-variant-numeric: tabular-nums }
+.figure b small { font-size: 16px; font-weight: 600; color: var(--muted) }
+.figure span { color: var(--muted); font-size: 13px }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted) }
+.key { display: inline-flex; align-items: center; gap: 6px }
+.dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex: none }
+.c-wired { background: var(--wired) } .c-reference { background: var(--reference) } .c-draft { background: var(--draft) } .c-live { background: var(--live) } .c-done { background: var(--done) } .c-missing { background: var(--missing) } .c-gap { background: var(--gap) } .c-lib { background: var(--lib); outline: 1px solid var(--rule) }
+.flow { display: flex; flex-direction: column; border-top: 1px solid var(--rule) }
+.step { display: grid; grid-template-columns: 190px 1fr auto; gap: 8px 16px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--rule) }
+.step .name { font-weight: 600 }
+.step .count { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 3px }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0 }
+.chip { font-family: var(--mono); font-size: 12px; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--rule); background: var(--surface); display: inline-flex; align-items: center; gap: 6px }
+@media (max-width: 640px) { .step { grid-template-columns: 1fr auto } .step .chips { grid-column: 1 / -1 } }
+.levels { display: flex; flex-direction: column; gap: 5px }
+.level { display: grid; grid-template-columns: 62px 1fr 150px; gap: 10px; align-items: center; font-size: 13px }
+.level .bar { display: flex; height: 14px; border-radius: 2px; overflow: hidden; background: var(--lib) }
+.level .bar i { display: block; height: 100% }
+.level .note { font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: right; white-space: nowrap }
+@media (max-width: 520px) { .level { grid-template-columns: 54px 1fr } .level .note { display: none } }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+button.filter { font: inherit; font-size: 13px; padding: 5px 11px; border-radius: 4px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); cursor: pointer }
+button.filter[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink) }
+button.filter:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+input[type="search"], select { font: inherit; font-size: 13px; padding: 6px 10px; border-radius: 4px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); min-width: 0 }
+.scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); max-height: 560px; overflow-y: auto }
+table { border-collapse: collapse; width: 100%; font-size: 13px }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--rule); white-space: nowrap }
+th { position: sticky; top: 0; background: var(--surface); font-weight: 600; color: var(--muted); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; z-index: 1 }
+td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums }
+td.zero { color: var(--rule) }
+td.wrap { white-space: normal; min-width: 220px }
+td code, .mono { font-family: var(--mono); font-size: 12px }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px }
+.mapwrap { position: relative; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); padding: 12px }
+canvas { display: block; width: 100%; touch-action: pan-y }
+#tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-family: var(--mono); font-size: 12px; padding: 5px 8px; border-radius: 4px; max-width: 280px; white-space: normal; z-index: 2 }
+.outside { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px 28px }
+.outside div { border-top: 2px solid var(--missing); padding-top: 8px; display: flex; flex-direction: column; gap: 4px }
+.outside b { font-weight: 600 }
+.outside span, .small { color: var(--muted); font-size: 13px }
+footer { border-top: 1px solid var(--rule); padding-top: 16px; display: flex; flex-direction: column; gap: 6px }
+</style>
+<main>
+  <header>
+    <span class="stamp" id="stamp"></span>
+    <h1>Captain Claw recovery map</h1>
+    <p class="lede">What has been recovered from the original game, what has recorded app-trace evidence, and what is still missing. The complete game is not playable yet. The Mac app opens on the original main menu, shows the original loading screen after New Game, and runs Level 1 at 60 fps through recovered code; finishing Level 1 cleanly and moving to Level 2 is the work in progress.</p>
+  </header>
+
+  <div class="figures" id="figures"></div>
+
+  <section>
+    <h2>From launch to a finished level</h2>
+    <p>Each step of the original program's path and its families. Host election and recorded app traces are separate. Comparison evidence includes provisional and legacy work; only admitted families passed the full gate.</p>
+    <div class="legend">
+      <span class="key"><i class="dot c-live"></i>recorded app trace</span>
+      <span class="key"><i class="dot c-wired"></i>host wired, app trace pending</span>
+      <span class="key"><i class="dot c-done"></i>comparison evidence, not host elected</span>
+      <span class="key"><i class="dot c-draft"></i>draft / implementation unproven</span>
+    </div>
+    <div class="flow" id="flow"></div>
+  </section>
+
+  <section>
+    <h2>The cast of every level</h2>
+    <p>The 14 level files place tens of thousands of objects. Each object names the class of code that runs it: a rat, a crumbling peg, a boss. Having code for every class is necessary but does not establish that a level is playable. The bars show the share of each level's placed objects by the state of their class.</p>
+    <div class="legend">
+      <span class="key"><i class="dot c-live"></i>recorded app trace</span>
+      <span class="key"><i class="dot c-wired"></i>host wired, app trace pending</span>
+      <span class="key"><i class="dot c-reference"></i>source reference, app trace pending</span>
+      <span class="key"><i class="dot c-draft"></i>draft / implementation unproven</span>
+      <span class="key"><i class="dot c-done"></i>comparison evidence, not host elected</span>
+      <span class="key"><i class="dot c-missing"></i>no recovered ownership known</span>
+      <span class="key"><i class="dot c-gap"></i>class name not in the registry</span>
+    </div>
+    <div class="levels" id="levels"></div>
+    <div class="tools" id="classFilters"></div>
+    <div class="scroll"><table id="classes"></table></div>
+  </section>
+
+  <section>
+    <h2>Map of the original program</h2>
+    <p>The program's code laid out by address, left to right and top to bottom. Each mark is one function. Point at a mark to see what it is.</p>
+    <div class="legend">
+      <span class="key"><i class="dot c-live"></i>recorded app trace</span>
+      <span class="key"><i class="dot c-wired"></i>host wired, app trace pending</span>
+      <span class="key"><i class="dot c-draft"></i>draft / implementation unproven</span>
+      <span class="key"><i class="dot c-done"></i>comparison evidence, not host elected</span>
+      <span class="key"><i class="dot c-gap"></i>not recovered</span>
+      <span class="key"><i class="dot c-lib"></i>C runtime and library code, replaced by native code</span>
+    </div>
+    <div class="mapwrap"><canvas id="map" height="200"></canvas><div id="tip" hidden></div></div>
+    <p class="small">The library ranges are approximate. Recovered totals count ownership with comparison evidence, including provisional and legacy work, not just admitted families. Drafts without comparison evidence are excluded. Older ownership lists are incomplete and case-label fallback is heuristic, so this is an estimated lower bound, not a playability percentage. Swift address literals indicate source references only; even host wiring needs a recorded original-call-graph app trace to count as live.</p>
+  </section>
+
+  <section>
+    <h2>All families</h2>
+    <p>A family groups original functions into a native module or draft. Evidence and integration are independent.</p>
+    <div class="tools">
+      <input type="search" id="familySearch" placeholder="Search families" aria-label="Search families">
+      <select id="familyFilter" aria-label="Filter by state in the app">
+        <option value="">Every state</option>
+        <option value="live">Recorded app trace</option>
+        <option value="elected">Host wired, app trace pending</option>
+        <option value="compiled">Compiled, host election unrecorded</option>
+        <option value="source-only">Not compiled</option>
+      </select>
+      <span class="small" id="familyCount"></span>
+    </div>
+    <div class="scroll"><table id="families"></table></div>
+  </section>
+
+  <section>
+    <h2>Outside the recovered code</h2>
+    <p>Work that recovering functions does not finish. Each needs a decision or a native replacement.</p>
+    <div class="outside" id="outside"></div>
+  </section>
+
+  <footer>
+    <span class="small" id="method"></span>
+    <span class="small">Generated by <span class="mono">python -m tools.claw.progress_page</span> from the family manifests, the function index, the level inventory and the sources. Nothing here is typed by hand.</span>
+  </footer>
+</main>
+<script>
+const D = /*DATA*/null;
+const $ = id => document.getElementById(id);
+function el(tag, attrs, ...kids) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs || {})) {
+    if (key === 'class') node.className = value; else if (key === 'text') node.textContent = value; else node.setAttribute(key, value);
+  }
+  for (const kid of kids) node.append(kid);
+  return node;
+}
+const pct = (part, whole) => whole ? Math.round(100 * part / whole) : 0;
+const hex = n => '0x' + n.toString(16);
+const families = D.families, classes = D.classes;
+const stateColor = { live: 'c-live', wired: 'c-wired', referenced: 'c-reference', recovered: 'c-done', draft: 'c-draft', missing: 'c-missing', unknown: 'c-gap' };
+const states = Object.keys(stateColor);
+const stateText = { live: 'recorded app trace', wired: 'host wired, app trace pending', referenced: 'source reference, app trace pending', recovered: 'comparison evidence, not host elected', draft: 'draft / implementation unproven', missing: 'no recovered ownership known', unknown: 'name not in registry' };
+const integrationText = { elected: 'host wired, app trace pending', live: 'recorded app trace', compiled: 'compiled, host election unrecorded', 'source-only': 'not compiled' };
+const hasEvidence = f => f.evidence !== 'none';
+const isWired = f => hasEvidence(f) && (f.integration === 'elected' || f.integration === 'live');
+const familyColor = f => !hasEvidence(f) ? 'c-draft' : f.integration === 'live' ? 'c-live' : f.integration === 'elected' ? 'c-wired' : 'c-done';
+
+$('stamp').textContent = 'Generated ' + D.generated;
+
+// Summary figures
+(function () {
+  const wired = families.filter(isWired).length;
+  const withCode = classes.filter(c => c.recovered).length;
+  const live = classes.filter(c => c.status === 'live').length;
+  const admitted = D.pilot.filter(p => p.status === 'admitted').length;
+  const t = D.totals;
+  const items = [
+    [wired, ' of ' + families.length, 'families host wired with comparison evidence; ' + families.filter(f => hasEvidence(f) && f.integration === 'live').length + ' have recorded app traces'],
+    [live, ' of ' + classes.length, 'object classes with recorded app traces; ' + withCode + ' have comparison-backed ownership'],
+    [pct(t.recovered_bytes, t.game_bytes) + '%', '', 'of game code has comparison-backed ownership; ' + pct(t.wired_bytes, t.game_bytes) + '% host wired, ' + pct(t.live_bytes, t.game_bytes) + '% app traced. Estimated lower bound.'],
+    [admitted, ' of ' + D.pilot.length, 'pilot families through the new pipeline that passed the full admission gate'],
+  ];
+  for (const [big, small, label] of items) {
+    const b = el('b', { text: String(big) }); if (small) b.append(el('small', { text: small }));
+    $('figures').append(el('div', { class: 'figure' }, b, el('span', { text: label })));
+  }
+})();
+
+// Path from launch to a finished level
+for (const step of D.flow) {
+  const wired = step.families.filter(isWired).length;
+  const chips = el('div', { class: 'chips' });
+  for (const f of step.families) {
+    const cls = familyColor(f);
+    chips.append(el('span', { class: 'chip', title: integrationText[f.integration] + '; evidence: ' + f.evidence }, el('i', { class: 'dot ' + cls }), f.id));
+  }
+  $('flow').append(el('div', { class: 'step' }, el('div', { class: 'name', text: step.step }), chips,
+    el('div', { class: 'count', text: wired + ' of ' + step.families.length + ' host wired' })));
+}
+
+// Levels
+D.levels.forEach((level, i) => {
+  const sum = Object.fromEntries(states.map(state => [state, 0]));
+  for (const c of classes) sum[c.status] += c.counts[i];
+  const total = Object.values(sum).reduce((a, b) => a + b, 0);
+  const bar = el('div', { class: 'bar', role: 'img', 'aria-label': 'Level ' + level + ': ' + pct(sum.live, total) + '% of placed objects have recorded app traces, ' + pct(sum.wired, total) + '% host wired, ' + pct(sum.referenced, total) + '% source referenced, ' + pct(sum.draft + sum.missing, total) + '% draft or missing' });
+  for (const key of states) {
+    const part = el('i', { class: stateColor[key], title: stateText[key] + ': ' + sum[key].toLocaleString() + ' objects' });
+    part.style.width = (total ? 100 * sum[key] / total : 0) + '%';
+    bar.append(part);
+  }
+  $('levels').append(el('div', { class: 'level' }, el('b', { text: 'Level ' + level }), bar,
+    el('span', { class: 'note', text: pct(sum.live, total) + '% traced, ' + pct(sum.draft + sum.missing, total) + '% pending' })));
+});
+
+// Classes table
+(function () {
+  const order = { missing: 0, draft: 1, unknown: 2, recovered: 3, referenced: 4, wired: 5, live: 6 };
+  const rows = classes.slice().sort((a, b) => order[a.status] - order[b.status] || b.total - a.total);
+  const head = el('tr', {}, el('th', { text: 'State' }), el('th', { text: 'Class' }), el('th', { class: 'n', text: 'Placed' }));
+  D.levels.forEach(level => head.append(el('th', { class: 'n', text: 'L' + level })));
+  head.append(el('th', { text: 'Family / draft' }));
+  const body = el('tbody');
+  for (const c of rows) {
+    const row = el('tr', { 'data-state': c.status },
+      el('td', {}, el('span', { class: 'pill' }, el('i', { class: 'dot ' + stateColor[c.status] }), stateText[c.status])),
+      el('td', {}, el('code', { text: c.name })), el('td', { class: 'n', text: c.total.toLocaleString() }));
+    c.counts.forEach(n => row.append(el('td', { class: 'n' + (n ? '' : ' zero'), text: n ? String(n) : '·' })));
+    row.append(el('td', {}, el('code', { text: c.family || '' })));
+    body.append(row);
+  }
+  $('classes').append(el('thead', {}, head), body);
+  const counts = { '': rows.length };
+  for (const c of rows) counts[c.status] = (counts[c.status] || 0) + 1;
+  const labels = [['', 'All'], ...['missing', 'draft', 'recovered', 'referenced', 'wired', 'live', 'unknown'].map(state => [state, stateText[state]])];
+  for (const [state, label] of labels) {
+    const button = el('button', { class: 'filter', type: 'button', 'aria-pressed': state === '' ? 'true' : 'false', text: label + ' (' + (counts[state] || 0) + ')' });
+    button.addEventListener('click', () => {
+      for (const other of $('classFilters').children) other.setAttribute('aria-pressed', 'false');
+      button.setAttribute('aria-pressed', 'true');
+      for (const row of body.children) row.hidden = !!state && row.dataset.state !== state;
+    });
+    $('classFilters').append(button);
+  }
+
+})();
+
+// Families table
+(function () {
+  const head = el('tr', {}, ...['Family', 'What it is', 'Evidence', 'In the app', 'Plain re-run', 'Unseen seeds', 'Own code run by tests'].map(t => el('th', { text: t })));
+  const body = el('tbody');
+  for (const f of families) {
+    body.append(el('tr', { 'data-state': f.integration, 'data-text': (f.id + ' ' + f.title).toLowerCase() },
+      el('td', {}, el('code', { text: f.id })), el('td', { class: 'wrap', text: f.title }),
+      el('td', { text: f.evidence === 'none' ? 'none: draft / implementation unproven' : f.evidence }),
+      el('td', {}, el('span', { class: 'pill' }, el('i', { class: 'dot ' + familyColor(f) }), integrationText[f.integration])),
+      el('td', { text: f.rerun || '' }), el('td', { text: f.unseen || '' }),
+      el('td', { class: 'n', text: f.coverage == null ? '' : Math.round(100 * f.coverage) + '%' })));
+  }
+  $('families').append(el('thead', {}, head), body);
+  function apply() {
+    const text = $('familySearch').value.trim().toLowerCase(), state = $('familyFilter').value;
+    let shown = 0;
+    for (const row of body.children) {
+      const show = (!text || row.dataset.text.includes(text)) && (!state || row.dataset.state === state);
+      row.hidden = !show; if (show) shown++;
+    }
+    $('familyCount').textContent = shown + ' of ' + families.length;
+  }
+  $('familySearch').addEventListener('input', apply);
+  $('familyFilter').addEventListener('change', apply);
+  apply();
+})();
+
+// Outside the code
+for (const [name, text] of D.outside) $('outside').append(el('div', {}, el('b', { text: name }), el('span', { text: text })));
+
+$('method').textContent = 'Legacy comparisons last re-run ' + (D.baseline_date || 'never') + '. Families measured with unseen seeds so far: ' + D.regate_measured + ' of ' + families.length + '.';
+
+// Map of the program
+(function () {
+  const canvas = $('map'), tip = $('tip'), start = D.text[0], end = D.text[1], total = end - start;
+  let layout = null;
+  function draw() {
+    const css = getComputedStyle(document.documentElement);
+    const color = name => css.getPropertyValue(name).trim();
+    const colors = [color('--gap'), color('--done'), color('--wired'), color('--lib'), color('--live'), color('--draft')];
+    const width = canvas.clientWidth, rows = width < 560 ? 16 : 9, labelH = 13, barH = 20, gap = 7;
+    const rowBytes = Math.ceil(total / rows), rowH = labelH + barH + gap, height = rows * rowH;
+    const scale = window.devicePixelRatio || 1;
+    canvas.width = Math.round(width * scale); canvas.height = Math.round(height * scale); canvas.style.height = height + 'px';
+    const g = canvas.getContext('2d'); g.setTransform(scale, 0, 0, scale, 0, 0); g.clearRect(0, 0, width, height);
+    g.font = '11px "IBM Plex Mono", ui-monospace, monospace'; g.textBaseline = 'top';
+    for (let r = 0; r < rows; r++) {
+      const y = r * rowH;
+      g.fillStyle = color('--muted'); g.fillText(hex(start + r * rowBytes), 0, y);
+      g.fillStyle = color('--bg'); g.fillRect(0, y + labelH, width, barH);
+    }
+    const span = (a, b, fill) => {
+      for (let at = a; at < b;) {
+        const r = Math.floor((at - start) / rowBytes), rowEnd = start + (r + 1) * rowBytes, stop = Math.min(b, rowEnd);
+        const x = (at - start - r * rowBytes) / rowBytes * width, w = Math.max((stop - at) / rowBytes * width, 1);
+        g.fillStyle = fill; g.fillRect(x, r * rowH + labelH, w, barH); at = stop;
+      }
+    };
+    for (const [a, b] of D.library) span(Math.max(a, start), Math.min(b, end), color('--lib'));
+    for (const order of [3, 0, 5, 1, 2, 4]) for (const f of D.program) if (f[2] === order) span(f[0], Math.min(f[0] + f[1], end), colors[order]);
+    layout = { width, rows, rowBytes, rowH, labelH, barH };
+  }
+  function find(address) {
+    let low = 0, high = D.program.length - 1;
+    while (low <= high) {
+      const mid = (low + high) >> 1, f = D.program[mid];
+      if (address < f[0]) high = mid - 1; else if (address >= f[0] + f[1]) low = mid + 1; else return f;
+    }
+    return null;
+  }
+  function point(event) {
+    if (!layout) return;
+    const box = canvas.getBoundingClientRect(), x = event.clientX - box.left, y = event.clientY - box.top;
+    const r = Math.floor(y / layout.rowH), inBar = y - r * layout.rowH >= layout.labelH && y - r * layout.rowH <= layout.labelH + layout.barH;
+    if (r < 0 || r >= layout.rows || !inBar) { tip.hidden = true; return; }
+    const address = Math.floor(start + r * layout.rowBytes + x / layout.width * layout.rowBytes), f = find(address);
+    if (!f) { tip.hidden = true; return; }
+    const labels = ['not recovered', 'comparison-backed ownership', 'host wired, app trace pending', 'library code', 'recorded app trace', 'draft / implementation unproven'];
+    const what = (f[3] >= 0 ? families[f[3]].id + ' · ' : '') + labels[f[2]];
+    tip.textContent = hex(f[0]) + ' · ' + f[1] + ' bytes · ' + what;
+    tip.hidden = false;
+    const wrap = canvas.parentElement.getBoundingClientRect();
+    tip.style.left = Math.max(4, Math.min(event.clientX - wrap.left + 12, wrap.width - 240)) + 'px';
+    tip.style.top = (event.clientY - wrap.top + 14) + 'px';
+  }
+  canvas.addEventListener('pointermove', point);
+  canvas.addEventListener('pointerdown', point);
+  canvas.addEventListener('pointerleave', () => { tip.hidden = true; });
+  let pending = 0;
+  const redraw = () => { cancelAnimationFrame(pending); pending = requestAnimationFrame(draw); };
+  window.addEventListener('resize', redraw);
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', redraw);
+  new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
+  draw();
+})();
+</script>

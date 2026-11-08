@@ -1,0 +1,84 @@
+# Original application level progression and Credits
+
+This additive module recovers the elected `426e30` branches for full command words `8021`, `8036`, and `8075`, plus their application history/level-selection helpers and the type-8 Credits owner. It composes the existing common `428c40` transition implementation in PlayerDeathCommands; it does not increment a native level or skip Story/Results. This is a bounded source recovery. Paper-roll fader controllers, physical movie playback, loading transports, and a complete native cross-level playthrough remain separate work.
+
+The immutable oracle is retail `Original/claw10/CLAW.EXE`, SHA256 `350b8d51e1cd52037cd31a7722197a815e4206e7d3052ec632465f1354726263`. The disc EXE is identical. Disc REZ SHA256 is `b09802735970de6ee6115259a15af384d09abaed9e80b4107f9e69b7573f4596`. All entries were checked against actual instructions and true function boundaries in a private Ghidra project. A proposed `42bfb0` label was rejected because it is inside `42bf90`; there is no exported invented `42bfb0` body.
+
+## Application command contracts
+
+`426e30` is a thiscall method with three stack words `(handlerWord, fullCommandWord, dataWord)`, RET12. Neither auxiliary word is silently used as the command. The command is compared as a full 32-bit value; upper bits are not discarded. Only the three documented command branches are admitted by this entry API.
+
+| Command | Verified behavior |
+|---|---|
+| `8021` | Repeated fresh owner `app+2c` mode probes must yield 2, 5, or 10. It requests `428c40(app,8,1,0,0)`. Failure requests type5 with the same other words. Two failures report `429e10(app,8005,3f9)`. Command returns1 even when gated out. Type8 is Credits. |
+| `8036` | Calls `429ac0(app)` to restore the last retained owner. Failure reports `8005/3f8`. Command returns1. |
+| `8075` | Calls `429be0(app)` to try the next available single-player level in the existing mode3 owner. Failure reports `8007/6a7`. Command returns1. |
+
+`429ac0` first calls application readiness (`VT+c`). It rejects missing history, or a history token equal to the current owner. It queries the outgoing mode, captures the outgoing virtual table, queries the prior mode, and invokes the captured departure method on the freshly loaded current owner. It then conditionally deletes the current owner, publishes the prior owner, and pops the final history slot. Enter failure tries the freshly loaded owner's recovery method. Success publishes app frame-controller `+244=1`, then resets source clocks/player invulnerability through `42abf0`. Callback changes to `app+2c` are retained.
+
+`42bfd0` reads the last token only if signed history count `app+e4` is positive. `42c010(app,token)` rejects token0 or nonpositive count; otherwise it always removes the final history element and returns whether that element matched. It does not search for the requested token. Its complete `4f55e9` RemoveAt performs the exact tail memmove and then reloads/decrements size.
+
+`429be0` requires current mode3, clears the application save CString at `+c0`, then captures the freshly loaded owner and its level at `+14`. It tries wrapping `old+1`, with signed values above14 replaced by1. It departs and calls exact `46aeb0(owner,next,1)` on the saved owner. Loading failure continues; successful loading queries and enters the saved owner, ignoring enter's return. Reaching the old level posts `WM_COMMAND8006` and returns0. The bounded source retry loop makes at most14 load calls; legitimate levels1..14 make at most13 failed attempts before revisiting the old level. Exhaustion reports `8007/401`, after which the outer8075 reports `8007/6a7` too. This helper does not manufacture a successful load. The frozen Booty40b330 results-mode2 branch publishes8036 then8075 when the retained mode3 owner has+258=0 and+25c=0; +25c nonzero instead publishes8021 after clearing537360. This module does not derive that flag from a level number or infer game completion from a direct8075 call.
+
+`429b70(app,level)` creates a type3 owner when current mode is not3. Otherwise it departs the existing owner, calls `46aeb0(owner,level,1)`, and enters on success. The actual stack level argument is used; Ghidra's inferred return-address variable was discarded after assembly verification.
+
+## Constructor and owner inventory
+
+The entry API also admits `428c40(type,param,retain,extra)` with `composeTransitions=1`. It delegates the common outgoing lifecycle, history, `app+a0` bypass, allocation-failure footer, reset, init, enter, keyboard/mouse reset, and final reset to the frozen generic transition helper. The additive constructor callback handles only types3/8, while frozen type5/12 construction remains in the shared module. The standalone constructor API exposes the same inlined source construction for host routing; it does not imply startup succeeded.
+
+Type3 allocates exactly `0x778` bytes /478 words and invokes the frozen SinglePlayer owner constructor. Its source VT is `50c264`. Type8 allocates exactly `0x1b8` bytes /110 words. It calls base `40b5c0`, constructs the embedded region at `+188`, overrides its VT to `50c1cc`, constructs the CString at `+190`, and preserves all other unassigned allocation bytes. The source rectangles `+168/+178` begin `(0,0,640,480)`; `+1ac=1`; scroll/cache/movie fields are zeroed in source order. VT `50c174` has exactly20 method slots; following RTTI is not a method. Embedded region VT `50c1cc` has four slots.
+
+| Credits source entry | Scope |
+|---|---|
+| `429710/429740/429720` | Region construction/destruction/deleting wrapper; actual MFC region attach/delete services |
+| `4295b0/4295e0/4295c0` | Mode8, complete Credits destruction, deleting wrapper |
+| `435840/4359f0` | Complete resource/music/text/movie initialization and cleanup |
+| `435a50/435af0` | Complete enter/depart elections, cursor-count loop and palette fade gates; paper roll remains a service |
+| `435b80` | Complete frame orchestration, surface-loss restore, palette/audio, mouse publication, movie/scroll, actor/render/blit and music gates |
+| `435d10/435d50` | Restore/recovery and source fade election |
+| `435da0/435de0` | Two-word key callback and three-word mouse callback; posts8023, top-left100×100 click toggles Credits mode |
+| `435e60` | Complete bitmap/background binding elections, surface copies, palette clears and movie DD attachment |
+| `435f30/4361c0` | Complete unsigned clocks, double scroll, wrap reset, text file transfer, region/DC/text layout and draw |
+| `436340/436560/436590` | Exact optional movie path copy, allocation/constructor/open packets, frame/reload/blit lifecycle |
+| `436630/4366c0` | Three ordered shared RNG draws for colour and source music/toggle timers |
+| `42b520` | Complete movie destructor order, composing frozen `42d4c0` when supplied |
+
+The movie object allocation is exactly `0x8698` bytes. `4f0000` receives **31 words**: HWND, DirectDraw interface, surface interface, 27 copied surface-description words, and the fresh scene optional-device word. `4f02e0` receives **six** words `(path,index,0,bool(app+120),0,0)`. No three-word or four-word decompiler signature is used. Allocation/initialization failures leave the source publication and retained object exactly as observed. Cleanup calls the source close twice where the outer cleanup and destructor each elect it.
+
+Credits text is retail `STATES/CREDITS/CREDITS.TXT` (8022 bytes). The transfer allocates length+1, copies the exact bytes, appends NUL, copies to the CString through the real named service, releases the resource and temporary buffer, then creates/attaches the region. Text transport must supply the entire declared byte span; no extra final word read is performed. The explicit CString adapter copies the complete payload into its declared allocation and increments/releases the retained reference counters. It does not establish every MFC branch or native allocator identity.
+
+Source constants are `50c908=0.025`, `50c910=480.0`, `50c918=0.001`, `50c920=1000.0`. Startup computes interval19200 and rate25 from these operations, without hard-coding either. Scroll uses unsigned stage delta `53720c`, separate unsigned colour/message countdowns, and the source double operation/store order under the recovered CRT53-bit precision. It updates the current rectangle then resets when signed bottom becomes negative. GDI callbacks can mutate the live rectangle. Clip enabling is the live `53735c` option. Three RNG reads occur only when the colour timer is zero and special mode is enabled. `537360` chooses movie index11 versus12. The source key/mouse path publishes8023; that command remains in frozen SpecialCommand, not a new synthetic Credits exit.
+
+## Native integration recipe and live aliases
+
+Use the same raw token heap as the current application, scene, player and state controllers. Keep the source application allocation77 words, full scene60 bytes, holder and DirectDraw surface/interface identities valid. Call this API after a posted message is dequeued. Compose the existing807c Booty handler first for that command; it preserves Story→Results and publishes these later commands. Do not route an ordinary draw callback as a command or execute a posted command recursively within pickup/result callbacks.
+
+Set `scene` to a borrowed synchronous raw host, `application` to the existing `ClawPlayerDeathCommandGlobals`, and `composeTransitions=1`. This module synchronizes that globals struct with the 13 live raw words **in order**:
+
+`537e88 player`, `532c10 volume`, `537204 keyboard`, `537200 mouse`, `541328/32c/330/334/338 clock`, `537208/20c stage`, `5430c8/c4 animation`.
+
+Before admission the raw heap must reflect current native player/input/clock state. The generic transition is imported from raw aliases before running. Each shared helper callback exports the globals to raw aliases before the callback and imports them after it; each physical clock read does likewise. The source42abf0 elected by a composed restore is itself routed through frozen SpecialCommand, borrowing the same live application clock/player aliases; callbacks observe its intermediate clock stores. On return, commit the returned application globals to the scene/player host. Do not maintain a second default clock or seed. A callback changing the live player token must also publish its valid primary/private pointers, because `42abf0` accesses player `+6c→primary+14→private+120`.
+
+Borrow `singlePlayer` with its valid live `globals` and `camera` for type3 construction and optional `composeSinglePlayer=1`. Its globals are separate selected aliases; source shared player token, input mapping, accumulated tick, startup/boss flags, reset flags and forced coordinates must agree with the corresponding root contexts. The module does not invent defaults for omitted SinglePlayer globals. With full composition enabled, its actual46aeb0 path elects resource level lookup, saved-player decoding, level statistics/cleanup, clock/input reset, palette/display, world loading and actual actor creation through the frozen source API. The host must route those exact dependencies to recovered modules, including WorldFile, actor registry/factory, object loader, source save/config identities, HUD/startup, SceneDisplay and renderer; source failure remains failure. Existing lab-only parent/holder or resource namespaces are insufficient.
+
+Borrow `progression`, `results`, `story` and enable `composeBooty` to compose their existing entries (including shared48ffa0/48f470 and Story surface bodies). Borrow `lifecycle` and enable `composeLifecycle` for actual scene/controller teardown; its display/graphics/audio/palette/world/image views must share the same live identities. Borrow `arrays` if CArray memmove/collection leaf composition is desired. These borrowed context scalar globals retain their declared synchronization contracts: this module does not overwrite their clocks/options/player caches with guessed values. For an addressed dependency not closed here, dispatch through the root's existing raw source graph before considering a physical transport. Set `context.fault` for an unavailable meaningful dependency; returning a dummy success would hide an unfinished source subtree.
+
+Required Credits namespaces include `STATES_CREDITS`, `CLAW`, `GAME`, Credits sounds, `STATES/CREDITS/MUSIC/PLAY.XMI`, optional `GAME/MUSIC/MONOLITH.XMI`, `CREDITS.TXT`, `STATES/CREDITS/SCREENS/CREDITS.PCX`, and `STATES/ROLLER/SCREENS/PAPER.PCX`. The current native LEVEL1/GAME-only namespace needs the actual state resources before Credits startup can be claimed. Optional movie path is the live application CString `+100`, not an inferred REZ filename.
+
+Rich callbacks normalize synchronous stack pointers to token0: mask bit i marks an automatic argument, bit8 an automatic receiver. Buffers carry the full live value. GetDC uses bit1/4-byte output; PtInRect uses bit0/16-byte RECT; local DrawText RECT uses bit3/16 bytes; CString locals use bit8/4-byte cells. Physical calls use exact IAT slots, not host addresses cast to32 bits: SetCursor546cd8, ShowCursor546d54, PostMessage546d50, CreateRectRgn54688c, SetBkMode546888, SelectClipRgn546884, SetTextColor546880, DrawText546d30 and SetRect546d5c. Credits source text/RECT/flags can feed native drawing, but physical GDI font/raster/clip parity is not established. Every name/resource token must remain a borrowed live heap identity for the duration of the callback.
+
+## Explicit remaining boundaries
+
+- `48f500` and `48f740` paper-roll wrappers elect a **type0** `4ec050` object through a 52-byte descriptor (`4ecb40`). The frozen SceneFade module supports type2 and must not be substituted. These meaningful source bodies are traced in private closure analysis but not exported here. Completing this fader family is the next independent recovery needed for Credits visual enter transitions.
+- Movie codec `4f0000/4f02e0/4f0610/4f06e0/4f0120`, DirectDraw COM methods and frame presentation remain exact physical/media services. Movie setup/ownership packets and lifecycle order are recovered; original decode/presentation equivalence is not claimed.
+- Music lookup/status/pause/stop/play is explicit. XMI playback and GDI/OS transports require a native implementation with the source outcomes.
+- MFC CString/region leaves and source loader/resource/save services are exact addressed dependencies unless a frozen composition has been supplied. Failure prefixes are preserved, not converted into gameplay success.
+- Tests use explicit source-compatible virtual/resource/level-loading outcomes. All14 legitimate arguments are compared, but those outcomes are not a proof that14 entire levels were loaded/played natively. Existing Story/Results/scene modules retain their own independent evidence. Full end-of-level→new native world joining remains root integration work.
+
+## Verification and reproducibility
+
+Run `work/test-env/bin/python Tests/compare_application_level_progression.py`. It executes original unmodified instruction bodies under explicit transport adapters; each call compares the complete1048576-byte heap plus196608-byte mutable original-global region (1245184 bytes), ordered full-state event hashes, copied/local output packets, created/freed tokens, meaningful EAX and the original callee stack pop. Whole-call matrices cover gates,14 levels, retry/wrapping/signed extremes, fresh alias mutations, exact types3/8 admission, type5 fallback, allocation/initialization failures, retained owner→Credits frames→resume, movie and draw paths, real retail text bytes and unsafe null prefixes.
+
+The suite exports a private binary corpus and an independent `work/application-level-progression-agent/exact-sized-replay.cpp` harness. Exact object allocations (including440-byte Credits,1912-byte SinglePlayer,34456-byte movie and length+1 text) are replayed under ASAN/UBSAN with the same full-event and heap expectations. C11 header and Swift imports are compiled independently. Final measured totals and hashes are in `work/application-level-progression-agent/verification.json`; original mapped text coverage401000..50adb5 is reported separately from total instrumentation, which also contains IAT/platform and explicit fixture callback addresses. A mapped service entry is counted when its hook is visited; these counts are not instruction-coverage percentages or a claim that the adapted callee body executed.
+
+Final source evidence: **1551 whole original calls,17959 ordered full1245184-byte snapshots,2089 original mapped-text addresses,2115 total instrumented addresses,4 matched unsafe prefixes**. Independent exact-size ASAN/UBSAN: **98 replays/1592 full snapshots**, with dead-token lookup denial after recorded allocator/deleting events. C11, strictC++17 and Swift header import pass. These totals are bounded caller/oracle evidence, not a whole-game parity claim.

@@ -1,0 +1,314 @@
+{
+  "schema": 1,
+  "id": "level_ten_marrow_core",
+  "title": "Level 10 marrow core",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTenMarrowCoreRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4587a0",
+      "name": "Marrow::dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x458d40",
+      "name": "Marrow::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4593d0",
+      "name": "Marrow::deletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4593f0",
+      "name": "Marrow::startup",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x459440",
+      "name": "Marrow::startupTick",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x459470",
+      "name": "Marrow::evaluate",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x459660",
+      "name": "Marrow::home",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4596a0",
+      "name": "Marrow::homeTick",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4599b0",
+      "name": "Marrow::waitForParrotTick",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x459ad0",
+      "name": "Marrow::idle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "C runtime allocation ends in operating-system heap calls"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle write through imported slot, including cached EBX calls"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 rectangle write reached through original base constructor"
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 point test reached through original enemy evaluation; cases supply outcomes"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 reference decrement reached through original CString destruction; cases model the decrement"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_ten_marrow_core.cases.py",
+    "entry": "claw_level_ten_marrow_core_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4587f5",
+        "end": "0x458823",
+        "reason": "Original allocation failure cannot return from 0x4db6e0: both realloc-zero paths set EBP to zero at 0x4db70b or 0x4db77f, then 0x4db788 calls 0x4dc680 which reads [EBP+4] and faults at 0x4. Confirmed by original cases-check failure and corpus review."
+      },
+      {
+        "start": "0x45883e",
+        "end": "0x458855",
+        "reason": "Original successful first table lookup or expansion leaves the requested index within the bounds; no intervening callback changes them before the second bounds check. This second expansion requires the first expansion to fail, but original 0x4db6e0 realloc-zero faults in 0x4dc680 before returning."
+      },
+      {
+        "start": "0x45886f",
+        "end": "0x4588a2",
+        "reason": "Original second-lookup failure arm cannot execute: reaching its expansion requires original first expansion failure, which faults through 0x4db6e0 -> 0x4dc680 after EBP is zeroed; independent second expansion failure has the same original null read."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 303,
+        "operator": "swap-statements",
+        "source_sha256": "72f482eae3e9f770a3c51f6e7d10434b9f100592ef4d8d2db77eeb8a8d386e41",
+        "mutant_sha256": "c2707592c786db5ee06486186a1c630a43c640c056290b0b6d9f78ccfc4e9ff8",
+        "reason": "Checked against original homeTick calls at 0x4596f3 and 0x4596fa and complete original callees 0x406150-0x406173 and 0x406180-0x4061a3: 0x406150 conditionally negates and exchanges only sprite fields +0x128/+0x130; 0x406180 independently does the same only to +0x138/+0x140. Both take the same unchanged receiver, return no consumed value, and contain no calls or accesses outside their respective disjoint field pairs. Their conditions read only their own pair, so exchanging these adjacent calls preserves all memory and observable events for every completing input."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 546247274,
+      "cases": 562,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 1,
+      "mutation_score": 0.907,
+      "reasons": [],
+      "build_inputs_sha256": "055a70eedde6e1659c0a5ad6ad91a895b687db4d58635165cdd60916491d39a3"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator delete is a stand-in (release).",
+    "operator new is a stand-in (allocate).",
+    "SetRect is a stand-in (set-rect).",
+    "SetRectEmpty is a stand-in (set-rect-empty).",
+    "PtInRect is a stand-in (scripted).",
+    "InterlockedDecrement is a stand-in (scripted)."
+  ],
+  "notes": "Boundary reviewed against original corpus only; ten thiscall entries, four with one stack argument. Original __ftol consumes one x87 value. See ignored packet NOTES.md for object layout, branches and path constraints."
+}

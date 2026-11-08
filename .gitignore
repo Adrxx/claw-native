@@ -1,0 +1,22 @@
+Original/
+App/GameData/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.analysis/
+.DS_Store
+work/
+research/node_modules/
+*.pyc
+__pycache__/
+
+# Local game-derived icon artwork, regenerated before every build.
+App/GeneratedIcons.xcassets/
+
+# Local signing and application identifiers.
+/Local.xcconfig
+*.p12
+*.p8
+*.mobileprovision
+.env
+.env.*

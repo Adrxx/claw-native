@@ -1,0 +1,290 @@
+{
+  "schema": 1,
+  "id": "level_one_loot_breakables_01",
+  "title": "Level 1 loot and breakables, batch 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneLootBreakables01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4170b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42df90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x433070",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x433130",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4339e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x433a00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x433ad0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x433ed0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x433f70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x434050",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "_ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1,
+      "returns": "u32"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "C runtime realloc reached through original 0x4db6e0 table growth; with a live block it ends in HeapReAlloc and small-block-heap internals, so cases supply the resize"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic decrement reached by the original MFC string release 0x4f6584 and 0x4f64ec when a string is not the shared empty string"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import called through a register by the original base constructor 0x4332f0; cases write the empty rectangle"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import called through a register (call ebx) by 0x433130; cases write left, top, right, bottom in argument order and return nonzero"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_loot_breakables_01.cases.py",
+    "entry": "claw_level_one_loot_breakables_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x433b25",
+        "end": "0x433b53",
+        "reason": "First-grow failure continuation: Grow realloc failure has EBP=0; diagnostic helper 0x4dc680 reads unmapped address 4 before returning to the owned continuation."
+      },
+      {
+        "start": "0x433b9f",
+        "end": "0x433bd2",
+        "reason": "Second-grow failure continuation: Grow realloc failure has EBP=0; diagnostic helper 0x4dc680 reads unmapped address 4 before returning to the owned continuation."
+      },
+      {
+        "start": "0x4330cc",
+        "end": "0x4330ce",
+        "reason": "Operator new returned zero: the only effect is xor edi,edi, and the original then reads address 0 at 0x4330ce and faults, so it never returns with this result."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1979427207,
+      "cases": 459,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.925,
+      "reasons": [],
+      "build_inputs_sha256": "6944988ea1e5ddc4addecacd2091da293d7af59257c1a0ebbe8c35791d4a3d2e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "realloc is a scripted stand-in; cases preserve copied bytes and allocation lifetime.",
+    "InterlockedDecrement is a scripted stand-in for the Windows atomic decrement.",
+    "SetRectEmpty is a scripted Win32 stand-in that writes an empty rectangle.",
+    "SetRect is a scripted Win32 stand-in that writes the requested rectangle."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly; boundary review added the register-called imports SetRect and SetRectEmpty, realloc, InterlockedDecrement and the x87 operand of _ftol."
+}

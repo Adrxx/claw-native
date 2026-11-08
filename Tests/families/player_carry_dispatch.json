@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "player_carry_dispatch",
+  "title": "CaptainClaw initial carry/throw dispatch",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerCarryDispatchRuntime.cpp",
+    "Sources/PlayerCarryDispatchRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerCarryDispatchRuntime.cpp": "77fbcecd01aa25985d15a5f3f113736de74787cf00f0920a6cc2a501c18f1e7b",
+    "Sources/PlayerCarryDispatchRuntime.h": "66954d87bee7a087d8d486acdd2d8f3ba78958f3784b8e76ba072d097dd1a814"
+  },
+  "docs": [
+    "docs/player-carry-dispatch-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_carry_dispatch_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_carry_dispatch_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/player-carry-dispatch-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-carry-dispatch-independent.log"
+      ],
+      "worker_evidence": [
+        "work/player-carry-dispatch-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_carry_dispatch_runtime.py": "pass"
+      },
+      "seconds": 36.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1983003127,
+      "owned": 1,
+      "owned_inferred_from_tests": false,
+      "directly_called": 1,
+      "fully_executed": 0,
+      "bytes_owned": 4637,
+      "bytes_executed": 567,
+      "coverage": 0.1223
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeCarry.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_player_actions_02 (0x415df0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

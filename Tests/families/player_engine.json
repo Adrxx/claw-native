@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "player_engine",
+  "title": "Player Engine",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerEngine.cpp",
+    "Sources/PlayerEngine.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerEngine.cpp": "61a91b283729b7c77e28edc322c99e3be4d16fa5c08771b19351ea2a77d3984c",
+    "Sources/PlayerEngine.h": "4bf7c5d011bb91b6175d32a5c781145c02921551da5e895b1d16b4a03f2bb8d9"
+  },
+  "docs": [],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_direction.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/libPlayerEngine.dylib"
+        ],
+        "prerequisites": [
+          "xcrun clang++ -std=c++17 -dynamiclib Sources/PlayerEngine.cpp -o work/libPlayerEngine.dylib"
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_direction.py": "pass"
+      },
+      "seconds": 0.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1286001005,
+      "owned": 2,
+      "owned_inferred_from_tests": true,
+      "directly_called": 2,
+      "fully_executed": 2,
+      "bytes_owned": 306,
+      "bytes_executed": 306,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "compare_player_direction.py assigned by content: calls claw_player_face_left/right declared in PlayerEngine.h"
+}

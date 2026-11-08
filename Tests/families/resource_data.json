@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "id": "resource_data",
+  "title": "Original resource byte lifetime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ResourceDataCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b5ff0",
+      "name": "ResourceData::construct",
+      "convention": "thiscall",
+      "argc": 10,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6120",
+      "name": "ResourceData::destroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b61b0",
+      "name": "ResourceData::typeWord",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b61c0",
+      "name": "ResourceData::bytes",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6230",
+      "name": "ResourceData::releaseBytes",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7ab0",
+      "name": "ResourceStream::readAt",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The native allocator replaces the C runtime heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The native deallocator pairs with operator new."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Windows locking is supplied at the import boundary of original CRT stream and descriptor helpers."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Windows unlocking is supplied at the import boundary of original CRT stream and descriptor helpers."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Cases supply Windows seek outcomes while original fseek and descriptor helpers execute unchanged."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Cases supply Windows file bytes and read counts while original fread and descriptor helpers execute unchanged."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Cases supply Windows error codes used by original file and thread-local error helpers."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Cases supply existing CRT thread storage when original error helpers query Windows TLS."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Windows last-error restoration is supplied for original CRT thread storage lookup."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/resource_data.cases.py",
+    "entry": "claw_resource_data_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1213724765,
+      "cases": 74,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "7d417676604e542cc56a16a12f19a6eb89bc2d6650185b6c50eeab25c0ba885c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The native allocator replaces the C runtime heap.",
+    "The native deallocator pairs with operator new.",
+    "Windows locking is supplied at the import boundary of original CRT stream and descriptor helpers.",
+    "Windows unlocking is supplied at the import boundary of original CRT stream and descriptor helpers.",
+    "Cases supply Windows seek outcomes while original fseek and descriptor helpers execute unchanged.",
+    "Cases supply Windows file bytes and read counts while original fread and descriptor helpers execute unchanged.",
+    "Cases supply Windows error codes used by original file and thread-local error helpers.",
+    "Cases supply existing CRT thread storage when original error helpers query Windows TLS.",
+    "Windows last-error restoration is supplied for original CRT thread storage lookup."
+  ],
+  "notes": "Reviewed from the original corpus. CRT fseek 0x4a7840 and fread 0x4a7260 remain original-backed. Cases provide heap FILE objects, initialized binary descriptors and existing TLS; no CRT function is newly recovered. Existing legacy source and comparison files are not selected or modified."
+}

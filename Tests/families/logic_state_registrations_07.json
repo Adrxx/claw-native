@@ -1,0 +1,304 @@
+{
+  "schema": 1,
+  "id": "logic_state_registrations_07",
+  "title": "Level 1 logic state registrations group 7",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LogicStateRegistrations07Runtime.cpp"
+  ],
+  "shared_sources": [
+    {
+      "family": "logic_state_registry_core",
+      "sources": [
+        "Sources/LogicStateRegistryCoreRuntime.cpp",
+        "Sources/LogicStateRegistryCoreRuntime.h"
+      ]
+    }
+  ],
+  "owned": [
+    {
+      "address": "0x488b00",
+      "name": "registerWait488b00",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x489210",
+      "name": "registerIdleCrumbleWait",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x489960",
+      "name": "registerSiren",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48b1d0",
+      "name": "registerSoldier",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48e6e0",
+      "name": "registerFallingStates",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4924f0",
+      "name": "registerTentacle",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4940e0",
+      "name": "registerTigerGuard",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x497240",
+      "name": "registerTownGuard",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4982e0",
+      "name": "registerFiringWaitIdle",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49f2e0",
+      "name": "registerMoving49f2e0",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0340",
+      "name": "registerWolvington",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the native CRT realloc boundary replaces Windows heap allocation, copying, and release while preserving guest allocation lifetime"
+    },
+    "0x4dc680": {
+      "kind": "whole",
+      "name": "diagnostic saved EBP word",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "diagnostic source return PC",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/logic_state_registrations_07.cases.py",
+    "entry": "claw_logic_state_registrations_07_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x488b90",
+        "end": "0x488bb9",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x488c59",
+        "end": "0x488c8d",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x4893ae",
+        "end": "0x4893d7",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x489477",
+        "end": "0x4894ab",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x489a21",
+        "end": "0x489a39",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x489ac4",
+        "end": "0x489add",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x489b5b",
+        "end": "0x489b84",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x489c24",
+        "end": "0x489c48",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x48b3ae",
+        "end": "0x48b3d7",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x48b477",
+        "end": "0x48b4ab",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x4974a5",
+        "end": "0x4974be",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x49847e",
+        "end": "0x4984a7",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x498547",
+        "end": "0x49857b",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x49f370",
+        "end": "0x49f399",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      },
+      {
+        "start": "0x49f439",
+        "end": "0x49f46d",
+        "reason": "Indexed-table growth-failure continuation requires a normal zero return from 0x4db6e0; realloc failure instead sets EBP to zero and original diagnostic 0x4dc680 reads unmapped address 4 before returning."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1186398887,
+      "cases": 174,
+      "mutants_killed": 14,
+      "mutants_tried": 14,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "1b6858db3f45495316c94b27c575eb89108b199f449eb20cbd738c1528e3c910"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a native heap allocation stand-in.",
+    "operator delete is a native heap release stand-in.",
+    "realloc is a scripted native CRT allocation boundary; cases preserve copied bytes and allocation lifetime.",
+    "lstrlenA is a scripted Windows string-length boundary.",
+    "InterlockedDecrement is a scripted Windows atomic decrement boundary.",
+    "Original realloc failure faults inside the saved-EBP diagnostic read at address 4; the ordinary comparison does not certify that fault outcome or unreachable normal-return continuations.",
+    "Only the 11 listed registration entries are owned; parent registrations and callback bodies remain unchanged original dependencies, and callback addresses are stored as data.",
+    "The read-only logic_state_registry_core bridge is linked through shared_sources without transferring ownership of its functions."
+  ],
+  "notes": "Boundary-reviewed against all 11 original disassemblies and bootstrap call sites: cdecl, no arguments, void. Shared core platform fixtures and diagnostic compiler contexts are retained unchanged; no game fixture is declared."
+}

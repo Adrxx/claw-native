@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "ground_cannon",
+  "title": "GroundCannon source runtime",
+  "abi": "legacy",
+  "sources": [
+    "Sources/GroundCannonRuntime.cpp",
+    "Sources/GroundCannonRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/GroundCannonRuntime.cpp": "7c0d2b44d712304876512b5b056eac44a07c9a2f0212bda0924c3b3b52d9d2ae",
+    "Sources/GroundCannonRuntime.h": "b6c03a170290cc73bf2ebe3a7a0182d191af2cff317ec7f03b3ee2034d760a64"
+  },
+  "docs": [
+    "docs/ground-cannon-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_ground_cannon_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/ground_cannon_helpers.py"
+    ],
+    "work_dirs": [
+      "work/ground-cannon-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-ground-cannon-independent.log"
+      ],
+      "worker_evidence": [
+        "work/ground-cannon-agent/sanitizer.log",
+        "work/ground-cannon-agent/verification.json",
+        "work/ground-cannon-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_ground_cannon_runtime.py": "pass"
+      },
+      "seconds": 89.8
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 233609145,
+      "owned": 17,
+      "owned_inferred_from_tests": true,
+      "directly_called": 17,
+      "fully_executed": 9,
+      "bytes_owned": 4253,
+      "bytes_executed": 2898,
+      "coverage": 0.6814
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": []
+}

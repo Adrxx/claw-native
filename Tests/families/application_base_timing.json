@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "id": "application_base_timing",
+  "title": "Application base record and timing helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationBaseTimingRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b8240",
+      "name": "ApplicationBaseRecordConstructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4b8240",
+          "end": "0x4b8275",
+          "sha256": "8caf7d592000f1b75e4001d06326ab5e1cb520c107385bf2d848755f2afc27a5"
+        }
+      ]
+    },
+    {
+      "address": "0x4b8280",
+      "name": "ApplicationBaseWindowBind",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4b8280",
+          "end": "0x4b82d4",
+          "sha256": "d941e8b7d14f509cdf5a8cc884208aeaff5c07f26e84ce7c3f39f654a1f660c1"
+        }
+      ]
+    },
+    {
+      "address": "0x4b83a0",
+      "name": "ApplicationBaseResetTime",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4b83a0",
+          "end": "0x4b83c6",
+          "sha256": "e73d364da48bd815978b2a129f6bab5eb26a502394ce11f2fc4a1584852be184"
+        }
+      ]
+    },
+    {
+      "address": "0x4b83d0",
+      "name": "ApplicationBaseResetClockGlobals",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4b83d0",
+          "end": "0x4b83e8",
+          "sha256": "166bf772ca8baed3803c8334a85cf610c876ed48768e65736ed278b3a9c95dab"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical millisecond clock at original CALL4b83aa/RPC4b83b0 and CALL4b83d0/RPC4b83d6. Supply a coherent per-environment 32-bit timeline; original instructions alone write receiver timing fields and image clock globals. No source helper, game state or global-write fixture."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_base_timing.cases.py",
+    "entry": "claw_application_base_timing_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 897777217,
+      "cases": 65,
+      "mutants_killed": 38,
+      "mutants_tried": 40,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "562754b5ffb06daae912bb0cde83e02d987ea80e92d85641fa9a2c74041f798e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Own all four complete ordinary bodies, 199 bytes total, with source context7ff/7ff/preserve0 and no coverage exemptions. Compare all represented CPU, flags, FS and actual bounded stack state.",
+    "4b8240 requires a live writable base record of at least0x28 bytes. Original constructor installs vtable50bf04, initializes its declared fields, and calls both owned timing helpers; untouched bytes remain untouched.",
+    "4b8280 is thiscall2/u32. Null window argument or zero window+4 returns0. A successful call reads window+8, binds receiver+4/+8 and initializes timing. Its second stack argument is transported but unused; RET8 remains exact. The joined application profile uses an actual constructed window/outer owner.",
+    "4b83a0 is thiscall1/u32, not void: after its physical clock call EAX becomes the exact reset argument. Zero preserves receiver+18; nonzero writesffffffff. Its RET4 and all source side effects remain observable.",
+    "4b83d0 uses the declared thiscall0 source ABI of its actual constructor/bind consumers even though it does not read ECX. It writes original clock globals and returnsEAX0; do not infer a cdecl-only source interface from the unused receiver.",
+    "Only timeGetTime546df0 is a fixture, stdcall0/u32. Effects provide physical time values or honest before-effect halts, never receiver/global/cache/menu outcomes. All source writes and four-root call edges execute unchanged source semantics.",
+    "No allocator, exception handler, source callback or x87 instruction occurs in these owned bodies. No claim is made for the external application constructor4254a0, whole initializer425730, Windows CRT, window lifecycle, menu/gameplay or native product election.",
+    "The family remains unadmitted and outside the selected frozen144 closure. Existing admitted constructors and other canonical owners are not duplicated. Static ordinary-path coverage viability is not dynamic coverage evidence."
+  ],
+  "notes": "Boundary instructions: Tests/families/application_base_timing.notes.md. Original-only evidence: work/coordination/application-init-boundary.{json,md}. Actual original callers require the declared full source context; no native implementation or case body was inspected."
+}

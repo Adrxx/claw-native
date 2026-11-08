@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "id": "level_twelve_aquatis_dynamite_01",
+  "title": "Level 12 Aquatis dynamite",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwelveAquatisDynamite01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x406ef0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4071a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4072f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407310",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407360",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows pointer readability probe reached by original RTTI lookup."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "C runtime deallocation ends in operating-system heap calls; pairs with operator new."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_twelve_aquatis_dynamite_01.cases.py",
+    "entry": "claw_level_twelve_aquatis_dynamite_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x406f45",
+        "end": "0x406f73",
+        "reason": "Original 0x4db6e0 can return zero only after realloc failure; 0x4db70b/0x4db77f copies zero into EBP and 0x4db788 calls 0x4dc680, whose first instruction reads [EBP+4]. The unchanged original faults before returning to this recovery block."
+      },
+      {
+        "start": "0x406f8e",
+        "end": "0x406fa5",
+        "reason": "The original first lookup either begins inside signed table bounds or successful 0x4db6e0 updates lower/upper bounds at 0x4db757/0x4db7dc to include the unchanged index. No intervening call or bounds write occurs before the second lookup; its out-of-range path cannot execute."
+      },
+      {
+        "start": "0x406fbf",
+        "end": "0x406ff2",
+        "reason": "The second lookup cannot be out of range after the first successful lookup: original 0x4db6e0 expands bounds to include the same index, and no intervening call or bounds write occurs. Its failure recovery is therefore unreachable; additionally realloc failure faults in 0x4dc680 before return."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 51,
+        "operator": "swap-statements",
+        "source_sha256": "646edcf1eda8d37cff205dc03899f9d79cc6613184b411da099be1ea406df71b",
+        "mutant_sha256": "ebe4422c180d89010127fad45570a5ecc10a1c6923a715af36fc1054efb1e382",
+        "reason": "The swapped store/call are wholly inside the first table-growth failure recovery block (original 0x406f45..0x406f73). Original 0x4db6e0 reaches a zero return only following failed realloc: 0x4db70b or 0x4db77f sets EBP=0, then 0x4db788 calls 0x4dc680, whose first instruction reads [EBP+4] and faults. Thus the unchanged original cannot return into this block on any valid ordinary entry; neither ordering executes. Checked against original disassembly 0x4db6e0 and 0x4dc680, not inferred from surviving tests."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3138679543,
+      "cases": 234,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 1,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "9bca3c92ee2847602ad4e96624cee41ded9cd257265d428fdd87ef39c62559a0"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "IsBadReadPtr uses the declared memory-readability stand-in.",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Original-reviewed game-owned Aquatis dynamite dispatch, construction, timed update and spawn logic."
+}

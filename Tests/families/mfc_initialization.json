@@ -1,0 +1,379 @@
+{
+  "schema": 1,
+  "id": "mfc_initialization",
+  "title": "Original MFC application initialization coordinator",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcInitializationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x5028ec",
+      "name": "MfcApplication::initialize",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock acquisition tracks section identity, owner and recursion."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock release balances the current owner and section."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle unlock decrements its lock count; zero can be a successful final unlock."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global reallocation preserves the prefix and preserves old ownership on failure."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle lock returns its data pointer; the cached IAT target remains this same physical import."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:1",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical compatibility-version service used by original singleton-lock initialization; MFC constructors remain original."
+    },
+    "0x546b18": {
+      "kind": "fixture",
+      "name": "SetErrorMode",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical process error mode returns the complete previous DWORD and stores the requested new DWORD; original caches this import target across both calls."
+    },
+    "0x5469f4": {
+      "kind": "fixture",
+      "name": "GetModuleFileNameA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "ptr:260",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical module path lookup writes a bounded NUL-terminated path with a dot for the valid original filename domain; original basename and extension handling remain executed."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:1",
+        "ptr:1",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical bounded ANSI string copy preserves original destination, source and capacity and returns the destination pointer."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical logical-thread identity; no native scheduling is inferred."
+    },
+    "0x546bfc": {
+      "kind": "fixture",
+      "name": "SetWindowsHookExA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical hook registration observes exact hook kind, original callback identity, module and thread; returns an opaque hook handle or zero without invoking the callback."
+    },
+    "0x546b10": {
+      "kind": "fixture",
+      "name": "lstrcpyA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "ptr:1",
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical ANSI string copy writes the source including NUL and returns destination; used only when original help-name setup runs."
+    },
+    "0x546b14": {
+      "kind": "fixture",
+      "name": "lstrcatA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "ptr:1",
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical ANSI string concatenation appends source including NUL and returns destination; used only when original INI-name setup runs."
+    },
+    "0x546d28": {
+      "kind": "fixture",
+      "name": "LoadStringA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "ptr:1",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical resource-string service writes within capacity and returns copied length or zero; original resource helper and fallback run unchanged."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Known CRT allocation boundary for original strdup; allocate exact requested live bytes or return zero. No MFC or name helper becomes a fixture."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_initialization.cases.py",
+    "entry": "claw_mfc_initialization_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 398987221,
+      "cases": 36,
+      "mutants_killed": 16,
+      "mutants_tried": 21,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.941,
+      "reasons": [],
+      "build_inputs_sha256": "c51fd7d90bc95085445890d611c085d45b814df7519d2abe2bc50ca32b9f72c4"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "TlsAlloc is a modeled boundary: Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion.",
+    "TlsGetValue is a modeled boundary: Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null.",
+    "TlsSetValue is a modeled boundary: Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged.",
+    "InitializeCriticalSection is a modeled boundary: Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions.",
+    "EnterCriticalSection is a modeled boundary: Physical lock acquisition tracks section identity, owner and recursion.",
+    "LeaveCriticalSection is a modeled boundary: Physical lock release balances the current owner and section.",
+    "GlobalAlloc is a modeled boundary: Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null.",
+    "GlobalHandle is a modeled boundary: Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure.",
+    "GlobalUnlock is a modeled boundary: Physical handle unlock decrements its lock count; zero can be a successful final unlock.",
+    "GlobalReAlloc is a modeled boundary: Physical movable global reallocation preserves the prefix and preserves old ownership on failure.",
+    "GlobalLock is a modeled boundary: Physical handle lock returns its data pointer; the cached IAT target remains this same physical import.",
+    "LocalAlloc is a modeled boundary: Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents.",
+    "LocalReAlloc is a modeled boundary: Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure.",
+    "RaiseException is a modeled boundary: Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated.",
+    "GetVersion is a modeled boundary: Physical compatibility-version service used by original singleton-lock initialization; MFC constructors remain original.",
+    "SetErrorMode is a modeled boundary: Physical process error mode returns the complete previous DWORD and stores the requested new DWORD; original caches this import target across both calls.",
+    "GetModuleFileNameA is a modeled boundary: Physical module path lookup writes a bounded NUL-terminated path with a dot for the valid original filename domain; original basename and extension handling remain executed.",
+    "lstrcpynA is a modeled boundary: Physical bounded ANSI string copy preserves original destination, source and capacity and returns the destination pointer.",
+    "GetCurrentThreadId is a modeled boundary: Physical logical-thread identity; no native scheduling is inferred.",
+    "SetWindowsHookExA is a modeled boundary: Physical hook registration observes exact hook kind, original callback identity, module and thread; returns an opaque hook handle or zero without invoking the callback.",
+    "lstrcpyA is a modeled boundary: Physical ANSI string copy writes the source including NUL and returns destination; used only when original help-name setup runs.",
+    "lstrcatA is a modeled boundary: Physical ANSI string concatenation appends source including NUL and returns destination; used only when original INI-name setup runs.",
+    "LoadStringA is a modeled boundary: Physical resource-string service writes within capacity and returns copied length or zero; original resource helper and fallback run unchanged.",
+    "malloc is a modeled boundary: Known CRT allocation boundary for original strdup; allocate exact requested live bytes or return zero. No MFC or name helper becomes a fixture.",
+    "Owns the complete99-byte initialization coordinator; no coverage exemptions. Every MFC/module/TLS/factory/lock/name/hook helper remains original on the comparison side. No typed exception dispatch or unwind is claimed by a genuine noncontinuable physical RaiseException halt.",
+    "Ordinary stdcall4/u32 intentionally matches the current prepared legacy startup adapter boundary. This specification does not grant full-source CPU transport; source-aware TLS/factory composition requires its own admitted contracts and elected native edges.",
+    "Explicit unit states may contain an existing module/application and prepopulated application name/help/INI pointers to exercise both owned branches. They are not evidence that real CWinApp/static startup produced that state; connected startup and menu acceptance remain separate.",
+    "Case input domain uses valid live module/application spans, stable import identities, original code and sufficient stack/budget. A filename without any dot is outside the valid returning name-setup path because original code dereferences the missing strrchr result."
+  ],
+  "notes": "Boundary independently verified against hash-pinned original in work/packets/mfc_initialization/NOTES.md. All99bytes were observed in fresh original-only execution across cold/warm/second-thread and an explicitly populated application with hook-enabled module state. This is feasibility evidence, not canonical admission or native integration."
+}

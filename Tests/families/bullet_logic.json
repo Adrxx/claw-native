@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "bullet_logic",
+  "title": "Original ordinary Bullet logic",
+  "abi": "legacy",
+  "sources": [
+    "Sources/BulletLogic.cpp",
+    "Sources/BulletLogic.h"
+  ],
+  "source_sha256": {
+    "Sources/BulletLogic.cpp": "67fad643c8fefae0bfcc23cab180f75fc313c7742f3eab8b8958b355ad06f87a",
+    "Sources/BulletLogic.h": "9c6723985365b435f7cc0e98a558c10b9f752220e8e169d57aaed08e5aa805c2"
+  },
+  "docs": [
+    "docs/bullet-logic.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_bullet_logic.py"
+      }
+    ],
+    "helpers": [
+      "Tests/bullet_helpers.py",
+      "Tests/bullet_player_hit_helpers.py"
+    ],
+    "work_dirs": [
+      "work/bullet-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/bullet-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_bullet_logic.py": "pass"
+      },
+      "seconds": 25.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3674435173,
+      "owned": 103,
+      "owned_inferred_from_tests": true,
+      "directly_called": 103,
+      "fully_executed": 96,
+      "bytes_owned": 10730,
+      "bytes_executed": 9015,
+      "coverage": 0.8402
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBullet.swift",
+      "Sources/ClawNativeProjectiles.swift"
+    ]
+  },
+  "limits": []
+}

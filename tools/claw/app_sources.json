@@ -1,0 +1,374 @@
+[
+  {
+    "path": "Sources/ClawNativeApplication.swift",
+    "reason": "Native application owner and canonical runtime host"
+  },
+  {
+    "path": "Sources/ClawNativeCanonicalHost.swift",
+    "reason": "Strict shared-heap host for admitted canonical entries"
+  },
+  {
+    "path": "Sources/ClawNativeMoviePlayback.swift",
+    "reason": "Native asynchronous movie playback with AVPlayer"
+  },
+  {
+    "path": "Sources/ClawNativeMovieView.swift",
+    "reason": "Native movie surface preserving encoded presentation aspect"
+  },
+  {
+    "path": "Sources/ClawNativeMovieCatalog.swift",
+    "reason": "Prepared assets keyed by original numeric movie ID"
+  },
+  {
+    "path": "Sources/ClawNativeApplicationStartup.swift",
+    "reason": "Strict source startup prefix and synchronous rich service boundary"
+  },
+  {
+    "path": "Sources/ClawNativeApplicationMetadata.swift",
+    "reason": "Prepared bounded original startup strings and global initials"
+  },
+  {
+    "path": "Sources/ClawNativeExecutionLane.swift",
+    "reason": "Fixed native runtime thread and bounded copied UI service mailbox"
+  },
+  {
+    "path": "Sources/ClawNativeMfcLocks.swift",
+    "reason": "Native physical lock ownership and exact original MFC lock call frames"
+  },
+  {
+    "path": "Sources/ClawNativeMfcMemory.swift",
+    "reason": "Native TLS movable/local storage and dynamic critical-section ownership"
+  },
+  {
+    "path": "Sources/ApplicationStateFactoryRuntime.h",
+    "reason": "Native entry into the existing mode-5 menu constructor without an application state transition"
+  },
+  {
+    "path": "Sources/ClawNativeDiagnostics.swift",
+    "reason": "Shared native physical effects for the admitted audio and display diagnostic policy"
+  },
+  {
+    "path": "Sources/MenuDiagnosticPolicyRuntime.h",
+    "reason": "Native diagnostic policy entry ABI"
+  },
+  {
+    "path": "Sources/ClawNativeWindowInputQueue.swift",
+    "reason": "Shared native pending window input and bounded selective message removal"
+  },
+  {
+    "path": "Sources/ClawNativeMovieStateServices.swift",
+    "reason": "Per-movie native file and array services for the admitted cleanup owner"
+  },
+  {
+    "path": "Sources/MovieStateCleanupRuntime.h",
+    "reason": "Movie state cleanup native entry ABI"
+  },
+  {
+    "path": "Sources/MovieStateCleanupBridge.h",
+    "reason": "Progression callers delegate to the canonical movie cleanup owner"
+  },
+  {
+    "path": "Sources/ClawNativeMenuResources.swift",
+    "reason": "Shared native menu archive, IFC and image-display composition"
+  },
+  {
+    "path": "Sources/ClawNativeMenuResources.h",
+    "reason": "Shared native menu archive, IFC and image-display composition"
+  },
+  {
+    "path": "Sources/ClawNativeMenuInterface.swift",
+    "reason": "Shared native menu archive, IFC and image-display composition"
+  },
+  {
+    "path": "Sources/ClawNativeMenuInterface.h",
+    "reason": "Shared native menu archive, IFC and image-display composition"
+  },
+  {
+    "path": "Sources/ClawNativeMenuMusic.swift",
+    "reason": "Native parsed paused XMIDI ownership for shared menu initialization"
+  },
+  {
+    "path": "Sources/ClawNativeBreakPlank.swift",
+    "reason": "Native scene BreakPlank adapter referenced by ClawNativeScene."
+  },
+  {
+    "path": "Sources/ClawNativeTownGuard1.swift",
+    "reason": "Native scene TownGuard1 adapter required by ClawNativeScene destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeTownGuard2.swift",
+    "reason": "Native scene TownGuard2 adapter referenced by ClawNativeScene."
+  },
+  {
+    "path": "Sources/ClawNativeRedTailSpikes.swift",
+    "reason": "Native scene RedTailSpikes adapter required by scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeRedTail.swift",
+    "reason": "Native scene RedTail adapter required by ClawNativeScene actor and logic destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeRedTailPirate.swift",
+    "reason": "Native scene ClawNativeRedTailPirate adapter referenced by ClawNativeScene."
+  },
+  {
+    "path": "Sources/ClawNativeCrazyHook.swift",
+    "reason": "Native scene CrazyHook adapter required by ClawNativeScene actor and logic destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeSkullCannon.swift",
+    "reason": "Native scene SkullCannon adapter required by ClawNativeScene helper destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativePegLeg.swift",
+    "reason": "Native scene PegLeg adapter owns scene resource and registry transport and is required by ClawNativeScene actor and logic destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeSeagull.swift",
+    "reason": "Native scene Seagull adapter required by ClawNativeScene actor and logic destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeGooVent.swift",
+    "reason": "Native scene GooVent adapter required by ClawNativeScene actor, logic and helper destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeBearSailor.swift",
+    "reason": "Native scene BearSailor adapter owns resource and registry transport and is required by actor and primary-logic destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeHermitCrab.swift",
+    "reason": "Native scene HermitCrab adapter owns resource and registry transport and actor and primary-logic helper retirement."
+  },
+  {
+    "path": "Sources/ClawNativeParrot.swift",
+    "reason": "Native scene Parrot adapter required by ClawNativeScene actor and logic destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeMercat.swift",
+    "reason": "Native scene Mercat adapter required by ClawNativeScene actor and primary-logic helper retirement."
+  },
+  {
+    "path": "Sources/ClawNativeSiren.swift",
+    "reason": "Native scene Siren adapter required by ClawNativeScene actor and primary-logic helper retirement."
+  },
+  {
+    "path": "Sources/ClawNativeAquatisCrack.swift",
+    "reason": "Native scene AquatisCrack adapter required by scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeAquatisDynamite.swift",
+    "reason": "Native scene AquatisDynamite adapter required by scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeAquatisStalactite.swift",
+    "reason": "Native scene AquatisStalactite adapter required by scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeShake.swift",
+    "reason": "Native scene Shake adapter required by scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeStalactite.swift",
+    "reason": "Native scene Stalactite adapter required by scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeTentacle.swift",
+    "reason": "Native scene Tentacle adapter required by scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeChameleon.swift",
+    "reason": "Native scene Chameleon adapter required by scene gameplay and helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeRedTailWind.swift",
+    "reason": "Native scene RedTailWind adapter required by scene gameplay and helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawSnapshot.swift",
+    "reason": "Owner snapshot storage, build compatibility, integrity and complete native-owner decoding"
+  },
+  {
+    "path": "Sources/ClawNativeScreenDump.swift",
+    "reason": "Native eight-bit BMP file encoding for the recovered screen dump command"
+  },
+  {
+    "path": "Sources/ClawNativeLavaGeyser.swift",
+    "reason": "Native scene LavaGeyser adapter required by existing scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeLavaHand.swift",
+    "reason": "Native scene LavaHand adapter required by existing scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeLavaMouth.swift",
+    "reason": "Native scene LavaMouth adapter required by existing scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeTigerGuard.swift",
+    "reason": "Native scene TigerGuard adapter required by existing scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeOmar.swift",
+    "reason": "Native scene Omar adapter required by existing scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeRaux.swift",
+    "reason": "Native scene Raux adapter and canonical boss allocation services"
+  },
+  {
+    "path": "Sources/ClawNativePunkRat.swift",
+    "reason": "Native scene PunkRat adapter required by existing scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeBossStager.swift",
+    "reason": "Native scene BossStager adapter required by existing scene gameplay and destruction routing."
+  },
+  {
+    "path": "Sources/ClawNativeTProjectile.swift",
+    "reason": "Scene-owned TProjectile adapter using real canonical construction and lifecycle with shared heap allocation"
+  },
+  {
+    "path": "Sources/ClawNativeMarrow.swift",
+    "reason": "Native scene Marrow adapter required by existing actor and logic destruction routing"
+  },
+  {
+    "path": "Sources/ClawNativeRobberThief.swift",
+    "reason": "Native scene RobberThief adapter required by existing scene helper destruction dispatch."
+  },
+  {
+    "path": "Sources/ClawNativeCutThroat.swift",
+    "reason": "Native scene CutThroat adapter required by existing ClawNativeScene typed destruction routing."
+  },
+  {
+    "path": "Sources/ClawCustomCheckpoint.swift",
+    "reason": "Native checkpoint respawn state storage used by the app host"
+  },
+  {
+    "path": "Sources/ClawCustomAssets.swift",
+    "reason": "Bounded per-level asset package import and native format adapters"
+  },
+  {
+    "path": "Sources/ClawLua51_lapi.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lauxlib.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lbaselib.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lcode.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_ldblib.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_ldebug.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_ldo.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_ldump.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lfunc.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lgc.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_llex.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lmathlib.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lmem.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lobject.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lopcodes.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lparser.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lstate.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lstring.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lstrlib.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_ltable.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_ltablib.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_ltm.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lundump.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lvm.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLua51_lzio.cpp",
+    "reason": "Embedded portable Lua 5.1 interpreter; upstream MIT license in Sources/Lua51/COPYRIGHT"
+  },
+  {
+    "path": "Sources/ClawLuaHost.h",
+    "reason": "Isolated Lua host with finite typed game service callbacks"
+  },
+  {
+    "path": "Sources/ClawLuaHost.cpp",
+    "reason": "Isolated Lua host with finite typed game service callbacks"
+  },
+  {
+    "path": "Sources/ClawCustomLua.swift",
+    "reason": "Per-level Lua lifecycle, stable object handles and native built-in dispatch"
+  },
+  {
+    "path": "Sources/ClawCustomPalette.swift",
+    "reason": "Level-scoped CrazyHook palette values and validated RGB/CLT resources"
+  },
+  {
+    "path": "Sources/ClawCustomBlob.swift",
+    "reason": "Bounded indexed packed-word CrazyHook Blob rendering"
+  },
+  {
+    "path": "Sources/ClawNativeBackgroundLogic.swift",
+    "reason": "Scene-owned BackgroundLogic animation and bounded parallax used by custom presentation levels"
+  }
+]

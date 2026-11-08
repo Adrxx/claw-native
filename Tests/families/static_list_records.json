@@ -1,0 +1,583 @@
+{
+  "schema": 1,
+  "id": "static_list_records",
+  "title": "Static class list records and named message publication",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticListRecordsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4f709b",
+      "name": "MfcRuntimeClassList::registerRecord",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f709b",
+          "end": "0x4f70c7",
+          "sha256": "559c548286b4855117bd9f54e2c43c1ebeb118b9a9071215533090b8f8c4a1ee"
+        }
+      ]
+    },
+    {
+      "address": "0x4a13f4",
+      "name": "Static typed scalar record 0x4a13f4",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a13f4",
+          "end": "0x4a141e",
+          "sha256": "b6b2b3258f8a08db81d76e8dae1cce1c7e9edb17c3cf23635ba42b8d2400eece"
+        }
+      ]
+    },
+    {
+      "address": "0x4a141e",
+      "name": "Static typed scalar record 0x4a141e",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a141e",
+          "end": "0x4a1448",
+          "sha256": "780f78247fdd4683b1fb7b36deb66164408bbdbd702f439ef8a7f2e03c196a11"
+        }
+      ]
+    },
+    {
+      "address": "0x4fb15d",
+      "name": "MfcScalarBase::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x4fb15d",
+          "end": "0x4fb16f",
+          "sha256": "bf0b32caf319039af97966208fd08346ce79bb9e4dc31fb418a787c171577cec"
+        }
+      ]
+    },
+    {
+      "address": "0x4f8371",
+      "name": "MfcStaticBufferRecord::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f8371",
+          "end": "0x4f83a5",
+          "sha256": "d6439c20b43ed39b009c4e1fa1b30f58dfc78c06f0dc6fcbf0745cc534c4fb96"
+        }
+      ]
+    },
+    {
+      "address": "0x4a2e53",
+      "name": "Static typed scalar record 0x4a2e53",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a2e53",
+          "end": "0x4a2e7d",
+          "sha256": "bd30c21a6cdf5c2d0b0de096e72e624a666133b979cb00a4ec551254153da47e"
+        }
+      ]
+    },
+    {
+      "address": "0x4a2e7d",
+      "name": "Static typed scalar record 0x4a2e7d",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a2e7d",
+          "end": "0x4a2ea7",
+          "sha256": "af4bcbfc274553f161ca95cc080ed5fbb5b7c34ffa9aca14dc139e43ed0bbddd"
+        }
+      ]
+    },
+    {
+      "address": "0x4f8222",
+      "name": "Static drag-list message publication",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f8222",
+          "end": "0x4f8233",
+          "sha256": "6f9053cb2f230e3e5d3ba4006b2123bd0dce8fc9cdfb9633c225ff7ed93b3c1b"
+        }
+      ]
+    },
+    {
+      "address": "0x50254b",
+      "name": "Static runtime-class list caller thunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x50254b",
+          "end": "0x50255b",
+          "sha256": "2a3b6e4209c85b99a140f7191c8f517ee87c9bcd79113000520920f65dcb25d3"
+        }
+      ]
+    },
+    {
+      "address": "0x5028dc",
+      "name": "Static runtime-class list caller thunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x5028dc",
+          "end": "0x5028ec",
+          "sha256": "a5d309c8d65994a87804a4459b2a1882ef27172727d3b8ecea8ef0ae56fe2d69"
+        }
+      ]
+    },
+    {
+      "address": "0x502b05",
+      "name": "Static runtime-class list caller thunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502b05",
+          "end": "0x502b15",
+          "sha256": "4ba3e2a787a51301d0353c6ff873a785cb48a1aa15eca405023fb9cde8b1d1a4"
+        }
+      ]
+    },
+    {
+      "address": "0x502b52",
+      "name": "Static runtime-class list caller thunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502b52",
+          "end": "0x502b62",
+          "sha256": "b66c58c97fddf6a726e173ee50bd0822056111a661f1b8d98e00a648e48d4865"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x50228f": {
+      "kind": "whole",
+      "name": "MfcModuleState::get",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024,
+        "optional": true
+      }
+    },
+    "0x502e95": {
+      "kind": "whole",
+      "name": "MFC acquire numbered lock",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    },
+    "0x502f05": {
+      "kind": "whole",
+      "name": "MFC release numbered lock",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    },
+    "0x502f26": {
+      "kind": "whole",
+      "name": "MfcList::prepend",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x4f6a9a": {
+      "kind": "whole",
+      "name": "MfcThreadObject::baseConstruct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x4a4a20": {
+      "kind": "whole",
+      "name": "CRT memset",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1106,
+        "optional": true
+      }
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock acquisition tracks section identity, owner and recursion."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock release balances the current owner and section."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle unlock decrements its lock count; zero can be a successful final unlock."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global reallocation preserves the prefix and preserves old ownership on failure."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle lock returns its data pointer; the cached IAT target remains this same physical import."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:1",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical compatibility-version service used by original singleton-lock initialization; MFC constructors remain original."
+    },
+    "0x546c2c": {
+      "kind": "fixture",
+      "name": "USER32.dll!RegisterWindowMessageA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_list_records.cases.py",
+    "entry": "claw_static_list_records_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1572671837,
+      "cases": 171,
+      "mutants_killed": 28,
+      "mutants_tried": 35,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.903,
+      "reasons": [],
+      "build_inputs_sha256": "2a33a63c245d9e74cd093a1908615aa25b6042b0101e915b3e1e7f2d6897868c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Twelve complete original bodies total363bytes, including17byte entry127 message publisher and four16byte caller thunks for entries123..126; no coverage exemptions.",
+    "All entries retain ordinary signatures with full source7ff input/output; existing callers semanticvoid/preserve0 contracts are retained, while only the new pure18byte shared base offers optional source context with preserve472.",
+    "Four record twins require152byte receiver backing, common base8bytes and buffer record60bytes; live nonwrapping backing is disjoint from source control/restoration memory.",
+    "Class-list registration returns but never dereferences its opaque receiver; module state and node plus live link offset must be backed, with the original module class-list offset20 requiring24byte static nodes.",
+    "Owned shared base executes natively when entered by an owned record twin; admitted module, lock, list, thread base and byte-fill dependencies remain whole original source calls.",
+    "CRT byte-fill actual source preservation is0x452, module getter0x400 and lock services0; never replace full CPU outputs with guessed preservation.",
+    "Class records are linked and factory pointers remain data; actual runtime-class factory execution and registered cleanup callbacks are outside this source boundary.",
+    "Message publication calls actual RegisterWindowMessageA with original name pointer0x511170 and stores its returnedDWORD, including0, at0x5406fc; this proves no message delivery or GUI behavior.",
+    "Genuine cold MFC failures may end at physical noncontinuable RaiseException; no game-helper fixture, fabricated null return, unwind or successful root return is permitted.",
+    "Static first133 same-owner composition, new frozen original evidence, native edge election and next platform-data root0x502dac remain separate obligations.",
+    "TlsAlloc is a physical fixture: Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion.",
+    "TlsGetValue is a physical fixture: Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null.",
+    "TlsSetValue is a physical fixture: Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged.",
+    "InitializeCriticalSection is a physical fixture: Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions.",
+    "EnterCriticalSection is a physical fixture: Physical lock acquisition tracks section identity, owner and recursion.",
+    "LeaveCriticalSection is a physical fixture: Physical lock release balances the current owner and section.",
+    "GlobalAlloc is a physical fixture: Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null.",
+    "GlobalHandle is a physical fixture: Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure.",
+    "GlobalUnlock is a physical fixture: Physical handle unlock decrements its lock count; zero can be a successful final unlock.",
+    "GlobalReAlloc is a physical fixture: Physical movable global reallocation preserves the prefix and preserves old ownership on failure.",
+    "GlobalLock is a physical fixture: Physical handle lock returns its data pointer; the cached IAT target remains this same physical import.",
+    "LocalAlloc is a physical fixture: Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents.",
+    "LocalReAlloc is a physical fixture: Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure.",
+    "RaiseException is a physical fixture: Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated.",
+    "GetVersion is a physical fixture: Physical compatibility-version service used by original singleton-lock initialization; MFC constructors remain original.",
+    "USER32.dll!RegisterWindowMessageA is a physical fixture: Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly.",
+    "The four caller thunks invoke owned4f709b natively with their exact physical frames, receivers, node arguments and real return PCs; they must not bridge the owned body to original code or reinitialize shared MFC state."
+  ],
+  "notes": "Ignored draft recommendation only; no tracked file was created. Hash-checked full bodies and source frames, ABI compatibility, physical policies and coverage obligations are in work/coordination/static-list-records-boundary.md."
+}

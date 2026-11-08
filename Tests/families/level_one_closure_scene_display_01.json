@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_scene_display_01",
+  "title": "Level 1 closure: Scene display helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosureSceneDisplay01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b9b00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9bd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc960",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bdad0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bdc40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4be050",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bea60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bf540",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bfa70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546b10": {
+      "kind": "fixture",
+      "name": "lstrcpyA",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546a0c": {
+      "kind": "fixture",
+      "name": "GetVolumeInformationA",
+      "convention": "stdcall",
+      "argc": 8,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546ad4": {
+      "kind": "fixture",
+      "name": "FindFirstFileA",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546ad8": {
+      "kind": "fixture",
+      "name": "FindClose",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546c48": {
+      "kind": "fixture",
+      "name": "CharUpperA",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_scene_display_01.cases.py",
+    "entry": "claw_level_one_closure_scene_display_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4bdbc4",
+        "end": "0x4bdbc6",
+        "reason": "Unreachable: 0x4bdbc4 needs the destination colour depth to be 8 with the converting flag set and the palette-present word at [this+0x878] equal to zero. The same three values (unchanged since entry, with nothing writing them in between) already return zero at 0x4bdb3c through 0x4bdb45, so no input reaches 0x4bdbc4. Checked against the disassembly of 0x4bdad0."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3568868338,
+      "cases": 350,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.9,
+      "reasons": [],
+      "build_inputs_sha256": "7d54a2e9126426b59ae741d090ce29fcb1fa9b469df6332a27d4dcc46e79929a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "LockResource is a stand-in (scripted).",
+    "FindResourceA is a stand-in (scripted).",
+    "LoadResource is a stand-in (scripted).",
+    "CreateFileA is a stand-in (scripted).",
+    "ReadFile is a stand-in (scripted).",
+    "CloseHandle is a stand-in (scripted).",
+    "GetLastError is a stand-in (scripted).",
+    "lstrlenA is a stand-in (scripted).",
+    "lstrcpyA is a stand-in (scripted).",
+    "lstrcpynA is a stand-in (scripted).",
+    "GetFullPathNameA is a stand-in (scripted).",
+    "GetVolumeInformationA is a stand-in (scripted).",
+    "FindFirstFileA is a stand-in (scripted).",
+    "FindClose is a stand-in (scripted).",
+    "CharUpperA is a stand-in (scripted).",
+    "InterlockedDecrement is a stand-in (scripted).",
+    "RaiseException is a stand-in (scripted).",
+    "SetFilePointer is a stand-in (scripted)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

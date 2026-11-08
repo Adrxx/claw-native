@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "id": "sound_trigger_logic",
+  "title": "Original sound-trigger and ambient actors",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SoundTriggerLogicCanonicalRuntime.cpp",
+    "Sources/SoundTriggerLogicRuntime.cpp",
+    "Sources/SoundTriggerLogicRuntime.h"
+  ],
+  "canonical_sources": [
+    "Sources/SoundTriggerLogicCanonicalRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x402240",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402270",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4022a0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4022d0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4022f0",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402370",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4023f0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402400",
+      "convention": "thiscall",
+      "argc": 9,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4024e0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402520",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402570",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4025c0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402610",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4026a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402720",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402840",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4028c0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402a60",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402ac0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x402f10",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c4d0",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48cb00",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "C runtime allocator ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "C runtime deallocator pairs with operator new"
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "C runtime random generator reads thread-local storage through imports"
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system clock import reached through original controller update and fade creation"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "x87 integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1,
+      "reason": "Original CRT conversion consumes the owned spatial square-root intermediate; this is a runtime boundary, not CRT recovery"
+    },
+    "0x4f5133": {
+      "kind": "whole",
+      "name": "CPtrList constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "reason": "Platform MFC constructor is explicitly outside the 22 game-owned entries and remains original-backed; historical legacy ownership is not recertified"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/sound_trigger_logic.cases.py",
+    "entry": "claw_sound_trigger_logic_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x402b36",
+        "end": "0x402b3d",
+        "reason": "At 0x402afc/0x402b07 each accepted signed wrapped absolute coordinate is 0..640 or INT_MIN; INT_MIN squared wraps to zero. The squared sum is therefore 0..819200, sqrt/ftol is 0..905, and 100-trunc(distance/12) is 25..100. Neither percentage clamp can execute."
+      },
+      {
+        "start": "0x402b41",
+        "end": "0x402b43",
+        "reason": "At 0x402afc/0x402b07 each accepted signed wrapped absolute coordinate is 0..640 or INT_MIN; INT_MIN squared wraps to zero. The squared sum is therefore 0..819200, sqrt/ftol is 0..905, and 100-trunc(distance/12) is 25..100. Neither percentage clamp can execute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2789832672,
+      "cases": 486,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.907,
+      "reasons": [],
+      "build_inputs_sha256": "1c47dbb30433d22287ba8d4a74613f852cf380612e9efc711011950226ac9b41"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Allocation and release fixtures replace only platform heap effects.",
+    "The scripted rand fixture controls random draws without replacing game interval selection.",
+    "The scripted timeGetTime import controls the platform clock in unchanged backend callees.",
+    "The MFC constructor 0x4f5133 and list helpers remain original-backed outside canonical ownership; the separate portable API implementation is preserved without claiming new platform certification.",
+    "COM audio calls are supplied by cases; this establishes game policy parity without physical playback."
+  ],
+  "notes": "Canonical ownership migrates 20 existing game entries and adds the reviewed master-volume pair; Sources/SoundTriggerLogicRuntime.cpp and .h retain the existing portable API unchanged."
+}

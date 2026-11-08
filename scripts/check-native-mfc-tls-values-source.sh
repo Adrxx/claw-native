@@ -1,0 +1,157 @@
+#!/bin/zsh
+set -euo pipefail
+cd "${0:A:h:h}"
+exec work/test-env/bin/python - "$@" <<'PY'
+import fcntl, hashlib, json, os, re, shutil, subprocess, sys, tempfile
+from pathlib import Path
+from tools.claw import gen_project
+from Tests.clawparity.program import claw
+root = Path.cwd()
+def sha(b): return hashlib.sha256(b).hexdigest()
+def capture(args): return subprocess.check_output(args, text=True).strip()
+assert not os.environ.get('CLAW_NATIVE_CXXFLAGS', '').strip(), 'use fixed ASAN/OPTIMIZE modes'
+addresses = {0x50335e,0x503167,0x502fb6,0x502ff8,0x4a4a20,0x502335,0x502369,0x502f84,0x502f26,0x4a48c0,0x501f01,0x501fde}
+manifest_bytes = {p:p.read_bytes() for p in gen_project.FAMILIES.glob('*.json')}
+exclusions = gen_project.EXCLUDE_FILE.read_bytes()
+rows = gen_project.canonical_inventory([json.loads(v) for v in manifest_bytes.values()], json.loads(exclusions))[2]
+rows = [r for r in rows if r['address'] in addresses]
+assert {r['address'] for r in rows} == addresses, 'manager and byte fill must be admitted'
+registry = gen_project.canonical_dispatch_text(rows).encode()
+families = {r['family'] for r in rows}
+selected = {p:v for p,v in manifest_bytes.items() if json.loads(v).get('id') in families}
+cpp_sources = sorted({s for v in selected.values() for s in json.loads(v)['sources']})
+swift_sources = ['Sources/ClawTokenHeap.swift','Sources/ClawNativeCanonicalHost.swift','Sources/ClawNativeMfcLocks.swift','Sources/ClawNativeMfcMemory.swift','Tests/NativeMfcTlsValuesSource/main.swift']
+paths = cpp_sources + swift_sources + ['Tests/NativeMfcTlsValuesSource/Bridge.h','scripts/check-native-mfc-tls-values-source.sh','tools/claw/gen_project.py','Tests/NativeMfcTlsValuesSource/reference.py','Tests/NativeSourceEdges/validate_edges.py']
+paths += [str(p.relative_to(root)) for p in root.joinpath('Sources').rglob('*') if p.suffix in ('.h','.hpp') and p != gen_project.DISPATCH_HEADER]
+inputs = {str(p.relative_to(root)):v for p,v in selected.items()}
+inputs[str(gen_project.EXCLUDE_FILE.relative_to(root))] = exclusions
+inputs.update({p:Path(p).read_bytes() for p in paths})
+# Check the reviewed new finite CALL metadata against the hash-checked original.
+# This validates original bytes; it never generates expected native observations.
+p = claw()
+host = inputs['Sources/ClawNativeCanonicalHost.swift'].decode()
+table = host.split('private static let managerEdges: [ManagerEdge] = [',1)[1].split('\n    ]',1)[0]
+pattern = r'\.init\(root: (0x[0-9a-f]+), callPC: (0x[0-9a-f]+), continuation: (0x[0-9a-f]+), target: (0x[0-9a-f]+), delta: (\d+), operation: \.(\w+)\)'
+edges = re.findall(pattern, table)
+assert len(edges) == 15 and len({(r,c) for r,_,c,_,_,_ in edges}) == 15
+from capstone import Cs, CS_ARCH_X86, CS_MODE_32
+from capstone.x86 import X86_OP_IMM, X86_OP_MEM, X86_OP_REG, X86_REG_EBX, X86_REG_ESP
+md = Cs(CS_ARCH_X86,CS_MODE_32); md.detail = True
+def validate_edges(edges):
+    assert len(edges) == 15 and len({(r,c) for r,_,c,_,_,_ in edges}) == 15
+    for r,pc,cont,target,delta,op in edges:
+        r,pc,cont,target = (int(v,16) for v in (r,pc,cont,target))
+        assert r in (0x502fb6,0x502ff8)
+        section = next(s for s in p.sections if s.address <= r < s.address+len(s.data))
+        instructions = list(md.disasm(section.data[r-section.address:cont-section.address],r))
+        instruction = next((i for i in instructions if i.address == pc),None)
+        assert instruction and instruction.mnemonic == 'call' and pc+instruction.size == cont, (hex(pc),'CALL/continuation')
+        operand = instruction.operands[0]
+        if op in ('lock','failedLock'):
+            assert target == 0x5469c4 and operand.type == X86_OP_REG and operand.reg == X86_REG_EBX
+        elif op in ('fill','missingThrow'):
+            assert operand.type == X86_OP_IMM and operand.imm == target
+        else:
+            assert operand.type == X86_OP_MEM and operand.mem.base == operand.mem.index == 0 and operand.mem.disp == target
+validate_edges(edges)
+for field,value in [(0,'0x502ff8'),(1,'0x502fd9'),(2,'0x502fdf'),(3,'0x546a91')]:
+    modified=[list(e) for e in edges]; modified[0][field]=value
+    try: validate_edges(modified)
+    except (AssertionError,StopIteration): pass
+    else: raise AssertionError('invalid original edge accepted')
+tls_table=host.split('private static let tlsEdges: [TLSEdge] = [',1)[1].split('\n    ]',1)[0]
+tls_edges=re.findall(r'\.init\(caller: (0x[0-9a-f]+), callPC: (0x[0-9a-f]+), continuation: (0x[0-9a-f]+), target: (0x[0-9a-f]+|0), delta: (\d+), count: (\d+)\)',tls_table)
+assert len(tls_edges)==16
+for caller,pc,cont,target,delta,count in tls_edges:
+    caller,pc,cont,target=(int(v,16) for v in (caller,pc,cont,target))
+    section=next(s for s in p.sections if s.address<=caller<s.address+len(s.data))
+    instruction=next(i for i in md.disasm(section.data[caller-section.address:cont-section.address],caller) if i.address==pc)
+    assert instruction.mnemonic=='call' and instruction.address+instruction.size==cont
+    operand=instruction.operands[0]
+    if target==0:
+        assert caller==0x50335e and pc==0x5033ba and operand.type==X86_OP_MEM and operand.mem.base==X86_REG_ESP and operand.mem.index==0 and operand.mem.disp==12
+    elif target in (0x502fb6,0x502ff8,0x502f84,0x502f26,0x4f50fd,0x4a4a20):
+        assert operand.type==X86_OP_IMM and operand.imm==target
+    else:
+        assert operand.type==X86_OP_MEM and operand.mem.base==operand.mem.index==0 and operand.mem.disp==target
+namespace={'__file__':str(root/'Tests/NativeSourceEdges/validate_edges.py'),'__name__':'snapshot_validator'}
+exec(compile(inputs['Tests/NativeSourceEdges/validate_edges.py'],'frozen-edge-validator','exec'),namespace)
+factory_edges=[r for r in namespace['contracts'](host) if r['root'] in (0x502335,0x502369)]
+assert len(factory_edges)==8
+namespace['check'](factory_edges,p,{r['address']:r for r in rows})
+compiler_edges=[]
+for caller,pc,cont in [(0x502335,0x50233a,0x50233f),(0x502369,0x50236e,0x502373)]:
+    section=next(s for s in p.sections if s.address<=caller<s.address+len(s.data))
+    instruction=next(i for i in md.disasm(section.data[caller-section.address:cont-section.address],caller) if i.address==pc)
+    assert instruction.mnemonic=='call' and instruction.address+instruction.size==cont
+    assert instruction.operands[0].type==X86_OP_IMM and instruction.operands[0].imm==0x4a48c0
+    compiler_edges.append(dict(caller=caller,call=pc,continuation=cont,target=0x4a48c0))
+# The root capability names are continuations of the original getter's CALLs.
+root_sites=[]
+for name,pc,function in [('managerInitialize',0x50337c,0x502fb6),('managerAllocate',0x50338d,0x502ff8),('tlsGet',0x502299,0x50335e),('tlsSet',0x5033c9,0x503167)]:
+    continuation=int(re.search(r'case '+name+r' = (0x[0-9a-f]+)',host).group(1),16)
+    actual_function=int(re.search(r'case \.'+name+r': return (0x[0-9a-f]+)',host).group(1),16)
+    start=0x50228f if name=='tlsGet' else 0x50335e
+    section=next(s for s in p.sections if s.address <= start < s.address+len(s.data))
+    instructions=list(md.disasm(section.data[start-section.address:continuation-section.address],start))
+    call=next(i for i in instructions if i.address==pc)
+    assert call.mnemonic=='call' and call.address+call.size==continuation
+    assert call.operands[0].type==X86_OP_IMM and call.operands[0].imm==actual_function==function
+    root_sites.append(dict(site=name,call=pc,continuation=continuation,function=function))
+asan = os.environ.get('CLAW_NATIVE_ASAN','1') == '1'
+opt = os.environ.get('CLAW_NATIVE_OPTIMIZE','0') == '1'
+identity = {k:capture(v) for k,v in {'clang':['xcrun','--find','clang++'],'swift':['xcrun','--find','swiftc'],'sdk':['xcrun','--show-sdk-path']}.items()}
+identity['clang_version'] = capture([identity['clang'],'--version'])
+identity['swift_version'] = capture([identity['swift'],'--version'])
+cpp = ['-std=c++17','-ffp-contract=off','-isysroot',identity['sdk']]
+swift = ['-sdk',identity['sdk']]
+if asan: cpp += ['-fsanitize=address,undefined','-fno-omit-frame-pointer']; swift += ['-sanitize=address']
+if opt: cpp += ['-O2']; swift += ['-O']
+certificate = dict(schema=1,command='native-mfc-tls-values-source',sanitized=asan,optimized=opt,inputs={k:sha(v) for k,v in inputs.items()},registry=sha(registry),toolchain=identity,cpp=cpp,swift=swift,original=p.sha256,edges=edges,tls_edges=tls_edges,factory_edges=factory_edges,compiler_edges=compiler_edges,root_sites=root_sites)
+key = sha(json.dumps(certificate,sort_keys=True).encode())
+cache = root/'work/native-mfc-tls-values-source-cache'; cache.mkdir(parents=True,exist_ok=True)
+destination = cache/key
+with (cache/(key+'.lock')).open('a') as lock:
+    fcntl.flock(lock,fcntl.LOCK_EX)
+    if not destination.exists():
+        temporary = Path(tempfile.mkdtemp(prefix=key+'.',dir=cache))
+        try:
+            for name,data in inputs.items():
+                path=temporary/'snapshot'/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data);path.chmod(0o444)
+            (temporary/'ClawCanonicalDispatch.h').write_bytes(registry)
+            (temporary/'Bridge.h').write_bytes(inputs['Tests/NativeMfcTlsValuesSource/Bridge.h'])
+            env=dict(os.environ)
+            for name in ('CPATH','C_INCLUDE_PATH','CPLUS_INCLUDE_PATH','OBJC_INCLUDE_PATH','LIBRARY_PATH','SDKROOT'): env.pop(name,None)
+            include=str(temporary/'snapshot/Sources')
+            objects=[]
+            # Exactly one compiler child at a time; no shared writable objects.
+            for source in cpp_sources:
+                obj=temporary/(Path(source).stem+'.o')
+                subprocess.run([identity['clang'],*cpp,'-I',include,'-c',str(temporary/'snapshot'/source),'-o',str(obj)],check=True,env=env)
+                objects.append(str(obj))
+            subprocess.run([identity['swift'],*swift,'-import-objc-header',str(temporary/'Bridge.h'),'-I',include,*[str(temporary/'snapshot'/s) for s in swift_sources],*objects,'-lc++','-o',str(temporary/'check')],check=True,env=env)
+            (temporary/'certificate.json').write_text(json.dumps(dict(certificate=certificate,binary=sha((temporary/'check').read_bytes())),indent=2))
+            os.rename(temporary,destination)
+        finally:
+            if temporary.exists(): shutil.rmtree(temporary)
+    saved=json.loads((destination/'certificate.json').read_text())
+    assert saved['certificate'] == json.loads(json.dumps(certificate)) and saved['binary'] == sha((destination/'check').read_bytes())
+reference=root/'work/native-mfc-tls-values-source-check/reference.json'
+assert reference.exists(), 'run the independent original-only reference first'
+reference_hash=sha(reference.read_bytes())
+assert reference_hash == '664e5d6aaafe0552968cd473a4e4ce4626294aba69e683e60bd7e3e061a1222e', 'independently frozen reference bytes changed'
+output=subprocess.check_output([str(destination/'check'),str(reference)],text=True,env=dict(os.environ,UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1'))
+assert sha(reference.read_bytes()) == reference_hash, 'reference changed during replay'
+replay=json.loads(output.strip().splitlines()[-1])
+assert replay['status'] == 'pass' and (replay['profiles'],replay['roots'],replay['physical_events'],replay['reference_entries']) == (11,55,399,410)
+assert replay['assertions'] >= 29371 and replay['native_controls'] >= 144
+assert (replay['observed_entries'],replay['reference_only_entries']) == (366,44)
+assert len(replay['unobserved_sites']) == replay['reference_only_entries']
+assert all(s['function']==0x503167 and s['return_pc']==0x5033ce for s in replay['unobserved_sites'])
+assert len({(s['profile'],s['root_step'],s['frame']) for s in replay['unobserved_sites']})==44
+report=dict(schema=1,command='native-mfc-tls-values-source',status='pass',sanitized=asan,optimized=opt,cache_key=key,reference_sha256=reference_hash,replay=replay,certificate=str(destination/'certificate.json'),certificate_sha256=sha((destination/'certificate.json').read_bytes()))
+report_path=root/'work/native-mfc-tls-values-source-check'/('sanitized-report.json' if asan else 'optimized-report.json' if opt else 'debug-report.json')
+report_path.write_text(json.dumps(report,indent=2)+'\n')
+print(output.strip())
+print(json.dumps(report))
+PY

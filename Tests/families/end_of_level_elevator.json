@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "id": "end_of_level_elevator",
+  "title": "End-of-level elevator entries",
+  "abi": "canonical",
+  "sources": [
+    "Sources/EndOfLevelElevatorRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x49e060",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49e1c0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49e2a0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/end_of_level_elevator.cases.py",
+    "entry": "claw_end_of_level_elevator_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1775384632,
+      "cases": 572,
+      "mutants_killed": 46,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.958,
+      "reasons": [],
+      "build_inputs_sha256": "78726bd44931c2c110d568e0a29be0648a6da45c8ae291cd09ad662affa518b4"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

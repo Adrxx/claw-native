@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "id": "cheat_video_mulder",
+  "title": "Cheat display steps and Mulder command",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CheatVideoMulderRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42a260",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42a350",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bce30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bce80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bcf00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429cb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle service supplied by the native platform"
+    },
+    "0x4a3040": {
+      "kind": "fixture",
+      "name": "srand",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime per-thread random seed initialization is provided by the native platform; the stand-in records the seed argument"
+    },
+    "0x46aeb0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x429e10": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x429eb0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x42a060": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x4b97c0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4b98b0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4f650f": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32"
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical millisecond clock reached by original fade 4bb990 and dimension-reset timing 4b83d0."
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT random generator reads TLS through OS imports"
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor display counter"
+    },
+    "0x546ccc": {
+      "kind": "fixture",
+      "name": "UpdateWindow",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "Win32 window update"
+    },
+    "0x546864": {
+      "kind": "fixture",
+      "name": "DirectSoundCreate",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "DirectSound platform creation through original thunk 0x4f4480"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic operation used by original-backed CString copy/release at 4f6449/4f6584"
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic operation used by original-backed CString copy/release at 4f6449/4f6584"
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "cstr",
+        "u32",
+        "u32",
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical pathname service at original 4f77a2; custom-world file parsing remains original."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical bounded pathname copy at original 4f77b1 after path normalization failure."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "cstr",
+        "u32",
+        "u32",
+        "ptr:12",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical read-only custom-world file open at original 4f752e."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "out:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical byte transport at original 4f758c; 4cd530 validates header and 436e60 parses the level."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file close at original 4f767d; original MFC lifetime and CString release execute unchanged."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical string-length import at original CString assignment 4f66dd; original CString allocation, copy, and lifetime remain unchanged."
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:28",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window-message queue read at original 4b893a, reached by successful level startup through 4b8910; original queue-drain loop remains unchanged."
+    },
+    "0x546e9c": {
+      "kind": "fixture",
+      "name": "AIL_allocate_sequence_handle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence backend imported from mss32.dll by original music constructor 4b58a0; original track selection, byte copy, registration and lifetime execute unchanged."
+    },
+    "0x546e98": {
+      "kind": "fixture",
+      "name": "AIL_init_sequence",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence backend imported from mss32.dll by original music constructor 4b58a0; original track selection, byte copy, registration and lifetime execute unchanged."
+    },
+    "0x546e94": {
+      "kind": "fixture",
+      "name": "AIL_release_sequence_handle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence backend imported from mss32.dll by original music constructor 4b58a0; original track selection, byte copy, registration and lifetime execute unchanged."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical custom-world file position and size transport through original CFile 4f774d -> 4f75f5 -> SetFilePointer at 4f7603; original file parsing remains unchanged."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical RECT copy import at original selected-world-plane initializer 4d0689; world parsing and viewport selection remain original."
+    },
+    "0x546888": {
+      "kind": "fixture",
+      "name": "SetBkMode",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical GDI text service reached by original custom-world loading label 46f040; game label formatting, position and call ordering remain original."
+    },
+    "0x546880": {
+      "kind": "fixture",
+      "name": "SetTextColor",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical GDI text service reached by original custom-world loading label 46f040; game label formatting, position and call ordering remain original."
+    },
+    "0x546d30": {
+      "kind": "fixture",
+      "name": "DrawTextA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "ptr:16",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical text draw at original custom-world loading label 46f16e; game label formatting, rectangle and call ordering remain original."
+    },
+    "0x4a3920": {
+      "kind": "whole",
+      "name": "sprintf integer profile",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "C runtime reallocation uses the native heap service"
+    },
+    "0x54692c": {
+      "kind": "fixture",
+      "name": "HeapSize",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 heap size query reached by CRT _msize; cases must report actual live allocation size or invalid-pointer failure"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/cheat_video_mulder.cases.py",
+    "entry": "claw_cheat_video_mulder_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2895768587,
+      "cases": 174,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.902,
+      "reasons": [],
+      "build_inputs_sha256": "db1ad65ca6c16ec1bc039532e5ec7a3feb4136e43aee793975ac1ca61ef4eed2"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

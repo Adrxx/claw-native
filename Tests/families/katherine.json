@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "katherine",
+  "title": "Original Katherine boss runtime",
+  "abi": "legacy",
+  "sources": [
+    "Sources/KatherineRuntime.cpp",
+    "Sources/KatherineRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/KatherineRuntime.cpp": "fb6c54318708079ddae11e6537496583d265e0712c3f0c00d18ededc44ba4dc6",
+    "Sources/KatherineRuntime.h": "5e7c40a253707f83d0f431634e5675d27684661e613ee8d44a37e983f54b16b3"
+  },
+  "docs": [
+    "docs/katherine-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_katherine_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/katherine_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/katherine-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-katherine-independent.log"
+      ],
+      "worker_evidence": [
+        "work/katherine-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_katherine_runtime.py": "pass"
+      },
+      "seconds": 45.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3999945305,
+      "owned": 15,
+      "owned_inferred_from_tests": false,
+      "directly_called": 10,
+      "fully_executed": 9,
+      "bytes_owned": 3447,
+      "bytes_executed": 2793,
+      "coverage": 0.8103
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_four_katherine_core_springboard_01 (0x453d30, 0x453df0, 0x4542f0, 0x4543e0, 0x4547c0, 0x4548c0); level_four_katherine_states_01 (0x455360, 0x4553a0); level_one_player_actions_02 (0x40f780); level_one_player_actions_04 (0x4208b0, 0x4dc870); level_two_raux_shared (0x40e0d0, 0x40e280, 0x40e660, 0x4a07e0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

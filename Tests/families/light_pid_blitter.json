@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "id": "light_pid_blitter",
+  "title": "Original compressed eight-bit lighting dispatch",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LightPIDBlitterRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4bffa0",
+      "name": "LightPID::blit",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/light_pid_blitter.cases.py",
+    "entry": "claw_light_pid_blitter_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2501926511,
+      "cases": 83,
+      "mutants_killed": 21,
+      "mutants_tried": 25,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.955,
+      "reasons": [],
+      "build_inputs_sha256": "4bbb68ed1ae85d41c164320eebaa7d3fdc0925ad612181c8384b7c37a9890213"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "DirectDraw Lock and Unlock are case-supplied indirect callbacks; all eight raster routines and their game helpers execute unchanged original code.",
+    "The canonical dispatcher is separate from the existing LightPIDBlitter app API and is not app-integrated."
+  ],
+  "notes": "Every return path explicitly defines EAX as zero or one. Indexed game callers overwrite it, but the coordinator elects the stronger u32 parity contract to retain the existing value-returning blitter surface."
+}

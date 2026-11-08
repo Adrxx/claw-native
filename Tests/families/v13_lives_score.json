@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "id": "v13_lives_score",
+  "title": "v1.3 New Game inventory, saved inventory and score extra lives",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13LivesScoreRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x416dd0",
+      "interval_end": "0x416e74",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46f840",
+      "interval_end": "0x46fa8d",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x493e90",
+      "interval_end": "0x4941c7",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x49e960": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x49e9b0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x4d1870": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32"
+    },
+    "0x421cd0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x493b90": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 8,
+      "returns": "u32"
+    },
+    "0x493d50": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 7,
+      "returns": "u32"
+    },
+    "0x4941d0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32"
+    },
+    "0x494210": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32"
+    },
+    "0x4a5b6e": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32"
+    },
+    "0x4b3da0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32"
+    },
+    "0x4c6dd0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4c6e40": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x4c8550": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap/resource dictionary boundary."
+    },
+    "0x4fc6b4": {
+      "kind": "fixture",
+      "name": "MFC map lookup",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native heap/resource dictionary boundary."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_lives_score.cases.py",
+    "entry": "claw_v13_lives_score_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x46f8b7",
+        "end": "0x46f8c1",
+        "reason": "Original 49e960 and 49e9b0 invoke unchanged deterministic 49e890 with identical level/kind/cache. The first requires a nonnull record with bit 1 set; no callback or write changes lookup operands before the second. Checked all lookup bounds and kind routes against pinned v1.3 instructions."
+      },
+      {
+        "start": "0x49416f",
+        "end": "0x494171",
+        "reason": "Null operator new path subsequently calls 493d50 with null this; original execution faults reading address 0xc at instruction 493d6a. Original allocation-failure witness retained in work/packets/v13_lives_score/allocation-null-witness.jsonl."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3137546083,
+      "cases": 404,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.933,
+      "reasons": [],
+      "build_inputs_sha256": "87d2aebaef26427e5f369466f72931374004d7a257414ce8866beafd3a05ae24"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

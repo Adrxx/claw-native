@@ -1,0 +1,599 @@
+{
+  "schema": 1,
+  "id": "interface_file",
+  "title": "Original interface-file and menu-widget runtime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/InterfaceFileCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4bc110",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dcc40",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dccb0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dcd10",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dcdf0",
+      "convention": "thiscall",
+      "argc": 7,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dce90",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dceb0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dcf00",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dcf10",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd020",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd030",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd0c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd0d0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd0e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd180",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd1c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd240",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd270",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd2c0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd420",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd450",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd480",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd490",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd520",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dd800",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dda50",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ddac0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ddb40",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ddbc0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ddc30",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ddce0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dde80",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ddf70",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4de0e0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4de450",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4de4d0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4de790",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4deb50",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dec60",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dece0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ded00",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ded20",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ded40",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4def70",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df040",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df0e0",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df180",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df200",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df260",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df270",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df2b0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df460",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df480",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df490",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df620",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df630",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e5b50",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed050",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native allocation boundary; original heap reaches operating-system state."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native allocation boundary; original heap reaches operating-system state."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native allocation boundary; original heap reaches operating-system state."
+    },
+    "0x546a24": {
+      "kind": "fixture",
+      "name": "GetTickCount",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system import; cases explicitly supply its result and memory effects."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system import; cases explicitly supply its result and memory effects."
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system import; cases explicitly supply its result and memory effects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system import; cases explicitly supply its result and memory effects."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system import; cases explicitly supply its result and memory effects."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Operating-system import; cases explicitly supply its result and memory effects."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical KERNEL32 import reached by original CMemFile name handling; original call sites push count, source and destination, and the platform performs bounded ANSI copy."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/interface_file.cases.py",
+    "entry": "claw_interface_file_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4dd2f0",
+        "end": "0x4dd30b",
+        "reason": "Source-reviewed intrinsic fault domain: old count -1 enters reset, clears storage, then 0x4dd401 unconditionally stores at cleared storage plus saved index -1 (0xfffffffc); no successful live-object append can return on this path. Predicate and all returning append paths remain covered."
+      },
+      {
+        "start": "0x4df329",
+        "end": "0x4df344",
+        "reason": "Source-reviewed intrinsic fault domain: old child count -1 enters reset, clears storage, then 0x4df43a unconditionally stores at cleared storage plus saved index -1 (0xfffffffc); no successful live-object child creation can return on this path. Shared creation and append code remains owned."
+      },
+      {
+        "start": "0x4df302",
+        "end": "0x4df306",
+        "reason": "Source-reviewed intrinsic fault domain: zero child allocation stores child zero; after parent-array append 0x4df43d calls owned 0x4df620, whose store at 0x4df624 writes null child plus 0x10. There is no normal return or physical-service halt outcome. Only this exclusive four-byte null store is exempt; allocation, constructor, shared append and setter remain owned/tested."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4109928034,
+      "cases": 555,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.913,
+      "reasons": [],
+      "build_inputs_sha256": "eb38d3326972efe34bb62d6206a8580a045f34de21e23a124d87518a48c4a31c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "0x4f63ec operator new is a allocate fixture; allocation and release are supplied by the comparison heap.",
+    "0x4f6428 operator delete is a release fixture; allocation and release are supplied by the comparison heap.",
+    "0x4a48e0 malloc is a allocate fixture; allocation and release are supplied by the comparison heap.",
+    "0x546a24 GetTickCount is a scripted fixture; cases supply the operating-system result and side effects.",
+    "0x546cd0 GetCursorPos is a scripted fixture; cases supply the operating-system result and side effects.",
+    "0x546cd4 PtInRect is a scripted fixture; cases supply the operating-system result and side effects.",
+    "0x5469e4 lstrlenA is a scripted fixture; cases supply the operating-system result and side effects.",
+    "0x5469e8 InterlockedDecrement is a scripted fixture; cases supply the operating-system result and side effects.",
+    "0x5469ec InterlockedIncrement is a scripted fixture; cases supply the operating-system result and side effects.",
+    "Legacy CMemFile platform owners 0x4ff79f, 0x4ff822 and 0x4ff8a8 are excluded from game ownership and remain unchanged original callees when reached.",
+    "MFC, CRT and exception helpers are not recovered or recertified; every unlisted game and platform callee executes unchanged original code.",
+    "Legacy Sources/InterfaceFileRuntime.cpp and .h retain their app ABI; this canonical module uses a distinct entry symbol.",
+    "0x4df2b0 nonzero kind returns the unchanged word at entry ESP-0x10; translation and cases must preserve this original stack-dependent result.",
+    "0x5469cc lstrcpynA is a scripted stdcall3 import fixture; cases copy at most count-1 source bytes, terminate when count is positive, and return destination.",
+    "Three minimal exclusive ranges for invalid count -1 resets and null child allocation are source-reviewed intrinsic memory-fault domains, not successful returns or physical-service halts; no game owner or returning path is removed."
+  ],
+  "notes": "Canonical migration retains all 57 legacy game owners and adds raw append 0x4dd2c0; boundary evidence is in ignored work/packets/interface_file/NOTES.md."
+}

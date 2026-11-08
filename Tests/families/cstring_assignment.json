@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "id": "cstring_assignment",
+  "title": "Original ordinary CString assignment",
+  "abi": "legacy",
+  "sources": [
+    "Sources/CStringAssignmentRuntime.cpp",
+    "Sources/CStringAssignmentRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/CStringAssignmentRuntime.cpp": "2ffd5167b788ae8eef33c3d6e47b0983eecf3d70e003ea4a14824753dd926170",
+    "Sources/CStringAssignmentRuntime.h": "e0a1bbc72d17eabfefaf765791adac082b2c02af3fcf54a5069d392df5f88dec"
+  },
+  "docs": [
+    "docs/cstring-assignment-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4f655b",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f6650",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f66cc",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_cstring_assignment_runtime.py"
+      },
+      {
+        "script": "Tests/compare_cstring_image_cache_join.py"
+      }
+    ],
+    "helpers": [
+      "Tests/cstring_assignment_helpers.py",
+      "Tests/cstring_image_cache_join_helpers.py"
+    ],
+    "work_dirs": [
+      "work/cstring-assignment-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-cstring-assignment-asan.log",
+        "work/root-cstring-assignment-independent.log",
+        "work/root-cstring-cache-join-independent.log"
+      ],
+      "worker_evidence": [
+        "work/cstring-assignment-agent/verification.json",
+        "work/cstring-assignment-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_cstring_assignment_runtime.py": "pass",
+        "Tests/compare_cstring_image_cache_join.py": "pass"
+      },
+      "seconds": 39.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 512869047,
+      "owned": 3,
+      "owned_inferred_from_tests": false,
+      "directly_called": 3,
+      "fully_executed": 3,
+      "bytes_owned": 125,
+      "bytes_executed": 125,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "compare_cstring_image_cache_join.py assigned by content: joins the cstring helper chain to the image cache"
+}

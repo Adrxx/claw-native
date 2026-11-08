@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_claw_powerups_01",
+  "title": "Level 1 Claw powerup timers and flare",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneBatchClawPowerups01Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x41f990",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x420070",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x448400",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce7b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546e7c": {
+      "kind": "fixture",
+      "name": "AIL_sequence_status",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform audio import reached through unchanged original 0x4b5bd0; cases supply the sequence status."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_claw_powerups_01.cases.py",
+    "entry": "claw_level_one_batch_claw_powerups_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3941166559,
+      "cases": 604,
+      "mutants_killed": 66,
+      "mutants_tried": 79,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.985,
+      "reasons": [],
+      "build_inputs_sha256": "2b8c511c0fb4e9c562d1a78da0a46be71911bae42c382b3b045d8fb30f51dc1a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

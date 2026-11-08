@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "crt_string_search",
+  "title": "Original CRT byte string search",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CrtStringSearchRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a3990",
+      "name": "strstr",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a3a20",
+      "name": "strchr",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/crt_string_search.cases.py",
+    "entry": "claw_crt_string_search_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2463335322,
+      "cases": 2268,
+      "mutants_killed": 21,
+      "mutants_tried": 21,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "5c2a589f5b5147ec445e491159f1968e9d32e466bd0c75ab9f169a7b0cf51ead"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Two complete whole functions,321 bytes, without exemptions; the genuine shared tail stays within this jointly owned code.",
+    "No fixtures, imports or global state. One-character searches require readable aligned-word backing through the first stop.",
+    "Canonical recovery and pointer comparisons do not establish source startup or gameplay acceptance."
+  ],
+  "notes": "Whole strstr and strchr reviewed together against hash-checked original instructions. Native internal shared helper preserves incoming frame, including low-byte char input; no invented descending external call or private EAX ABI. See ignored NOTES.md."
+}

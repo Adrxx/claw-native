@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "id": "startup_state_two",
+  "title": "Original startup state 2 lifecycle",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StartupStateTwoRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x408b30",
+      "name": "StartupState2::initialize",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408bf0",
+      "name": "StartupState2::cleanup",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408c20",
+      "name": "StartupState2::enter",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408d30",
+      "name": "StartupState2::leave",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408e20",
+      "name": "StartupState2::update",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408f50",
+      "name": "StartupState2::restoreTitle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408fa0",
+      "name": "StartupState2::present",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4293f0",
+      "name": "StartupState2::scalarDeletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429410",
+      "name": "StartupState2::destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "USER32.dll!ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "ShowCursor display count changes by one per call; return signed count and preserve state across both hide loops."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "USER32.dll!PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "PostMessageA enqueues the supplied window message and returns BOOL; do not dispatch a game transition inside this fixture."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetAsyncKeyState returns a SHORT key state with high down and low pressed bits; original input polling and edge filtering run unchanged."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetCursorPos writes a POINT in screen coordinates and returns BOOL."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "USER32.dll!SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "SetCursorPos changes the synthetic cursor position and returns BOOL."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "WINMM.dll!joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "out:52"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "joyGetPosEx writes JOYINFOEX fields according to requested flags and returns a multimedia result code."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "WINMM.dll!timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "timeGetTime returns a deterministic modulo-32-bit millisecond clock; time must advance to finish original fade loops."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "InterlockedDecrement atomically subtracts one from the pointed LONG and returns the new value; CString destruction remains original."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "InterlockedIncrement atomically adds one to the pointed LONG and returns the new value; CString operations remain original."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/startup_state_two.cases.py",
+    "entry": "claw_startup_state_two_entry"
+  },
+  "evidence": {
+    "level": "none"
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a host stand-in (allocate): the C runtime heap ends in operating-system calls.",
+    "_lock is a host stand-in (return-zero): C runtime lock: enters an operating-system critical section; the game is single-threaded here.",
+    "_unlock is a host stand-in (return-zero): C runtime unlock: leaves an operating-system critical section.",
+    "operator new is a host stand-in (allocate): the C runtime heap ends in operating-system calls.",
+    "operator delete is a host stand-in (release): pairs with operator new.",
+    "USER32.dll!ShowCursor is a host stand-in (scripted): ShowCursor display count changes by one per call; return signed count and preserve state across both hide loops..",
+    "USER32.dll!PostMessageA is a host stand-in (scripted): PostMessageA enqueues the supplied window message and returns BOOL; do not dispatch a game transition inside this fixture..",
+    "USER32.dll!GetAsyncKeyState is a host stand-in (scripted): GetAsyncKeyState returns a SHORT key state with high down and low pressed bits; original input polling and edge filtering run unchanged..",
+    "USER32.dll!GetCursorPos is a host stand-in (scripted): GetCursorPos writes a POINT in screen coordinates and returns BOOL..",
+    "USER32.dll!SetCursorPos is a host stand-in (scripted): SetCursorPos changes the synthetic cursor position and returns BOOL..",
+    "WINMM.dll!joyGetPosEx is a host stand-in (scripted): joyGetPosEx writes JOYINFOEX fields according to requested flags and returns a multimedia result code..",
+    "WINMM.dll!timeGetTime is a host stand-in (scripted): timeGetTime returns a deterministic modulo-32-bit millisecond clock; time must advance to finish original fade loops..",
+    "KERNEL32.dll!InterlockedDecrement is a host stand-in (scripted): InterlockedDecrement atomically subtracts one from the pointed LONG and returns the new value; CString destruction remains original..",
+    "KERNEL32.dll!InterlockedIncrement is a host stand-in (scripted): InterlockedIncrement atomically adds one to the pointed LONG and returns the new value; CString operations remain original..",
+    "All nine original callbacks are owned in full; no coverage exclusions or inline truncation are declared.",
+    "Synthetic OS and COM interfaces do not establish real display, audio, cursor, joystick, or posted-message delivery.",
+    "Resource lookup, CString, input polling, sound lifecycle, fades, and title rendering execute as original game code; successful end-to-end title rendering still needs concrete renderer and resource service closure."
+  ],
+  "notes": "Boundary reviewed against hash-checked v1.0 instructions and concrete state-2 vtable. In particular 0x408f50 returns u32: 0x408e48 calls vtable slot 0x18 and 0x408e4b tests EAX. Original-derived layouts, branches, faithful import contracts and service-closure limits are in ignored work/packets/startup_state_two/NOTES.md."
+}

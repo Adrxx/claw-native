@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "id": "player_profile_confirmation",
+  "title": "Source player profile confirmation",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerProfileConfirmationRuntime.cpp",
+    "Sources/PlayerProfileConfirmationRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerProfileConfirmationRuntime.cpp": "25ab585c6520fbc032b5a257dec5bae9a214c94a3ff90fab9550ab631aa91787",
+    "Sources/PlayerProfileConfirmationRuntime.h": "cc20f457a7984a636562e2dee419ced8221f50588c73d01ce0517e388c16fd9a"
+  },
+  "docs": [
+    "docs/player-profile-confirmation-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4299a0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x485160",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_profile_confirmation.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_profile_confirmation_helpers.py"
+    ],
+    "work_dirs": [
+      "work/player-profile-confirmation-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/player-profile-confirmation-agent/comparison.log",
+        "work/player-profile-confirmation-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_profile_confirmation.py": "pass"
+      },
+      "seconds": 36.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3001335687,
+      "owned": 9,
+      "owned_inferred_from_tests": false,
+      "directly_called": 6,
+      "fully_executed": 5,
+      "bytes_owned": 2276,
+      "bytes_executed": 2065,
+      "coverage": 0.9073
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: menu_controls_close (0x4247c0, 0x4247e0, 0x424800); menu_popup_construction (0x438c40, 0x4399d0); menu_popup_surface (0x439480, 0x43a760). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

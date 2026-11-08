@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "id": "logic_registry",
+  "title": "Original v1.0 logic registry bindings",
+  "abi": "legacy",
+  "sources": [
+    "Sources/LogicRegistry.cpp",
+    "Sources/LogicRegistry.h"
+  ],
+  "source_sha256": {
+    "Sources/LogicRegistry.cpp": "b53988bd1ecfa3f20d0acb79ab0cdb507874937aa6a7fd5acafdf5c75196f66c",
+    "Sources/LogicRegistry.h": "a776816afcb8059aaa933a0114658e2d8c5edf36229fce7675fefd24fb8f74ca"
+  },
+  "docs": [
+    "docs/logic-registry.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_logic_registry.py"
+      }
+    ],
+    "helpers": [
+      "Tests/logic_registry_helpers.py"
+    ],
+    "work_dirs": [
+      "work/registry-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_logic_registry.py": "pass"
+      },
+      "seconds": 2.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3547982743,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 3,
+      "bytes_owned": 4848,
+      "bytes_executed": 4846,
+      "coverage": 0.9996
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeEnemy.swift",
+      "Sources/ClawNativeFlare.swift",
+      "Sources/ClawNativeHUD.swift",
+      "Sources/ClawNativeHumanoid.swift",
+      "Sources/ClawNativeLoot.swift",
+      "Sources/ClawNativeObjectLoader.swift",
+      "Sources/ClawNativePlayer.swift",
+      "Sources/ClawNativeProjectiles.swift",
+      "Sources/ClawNativeScene.swift"
+    ]
+  },
+  "limits": []
+}

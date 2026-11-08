@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "id": "level_one_frame_resources_01",
+  "title": "Level 1 frame and resource entries batch 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneFrameResources01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4d2140",
+      "name": "convertIndexedColorTo16Bit",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3c40",
+      "name": "clearAttachedObjectsAndInitialize",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4870",
+      "name": "insertMemberActorIntoScene",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4c70",
+      "name": "moveFlaggedGridActorsToScene",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d51f0",
+      "name": "visitThreeGrids",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5240",
+      "name": "visitGrid",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_frame_resources_01.cases.py",
+    "entry": "claw_level_one_frame_resources_01_entry",
+    "equivalent_mutants": [
+      {
+        "line": 86,
+        "operator": "drop-statement",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "08ad26612101c885d8ed619c506c5c69c9c0fbb4392f8e3f6d4b6406f639bd63",
+        "reason": "The private iterator vtable at +0 is never read by either owned traversal or original begin/advance. Shifting this store to +4 is immediately overwritten by the next initializer and then by 0x4f48b9. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 86,
+        "operator": "shift-offset",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "7b1dc9b384d57d5f5d18bf0f1ff5ef08e571c6327cdfcd294722823d8e200029",
+        "reason": "The private iterator vtable at +0 is never read by either owned traversal or original begin/advance. Shifting this store to +4 is immediately overwritten by the next initializer and then by 0x4f48b9. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 87,
+        "operator": "drop-statement",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "1f4ff58fc912a75809c4c507bf66eb9ec646b4efc7b49dfe8d912b4bd0204767",
+        "reason": "Original begin overwrites iterator+4 at 0x4f48b9 unconditionally before every early exit or use. Shifting the zero store to +8 duplicates the next initializer; advance also overwrites +8 at 0x4f49c9 before reading it. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 87,
+        "operator": "shift-offset",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "7b21d21f8e1b6b616e1d21462786117bb997316f5e3fc62b0d322c933e06ef04",
+        "reason": "Original begin overwrites iterator+4 at 0x4f48b9 unconditionally before every early exit or use. Shifting the zero store to +8 duplicates the next initializer; advance also overwrites +8 at 0x4f49c9 before reading it. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 88,
+        "operator": "drop-statement",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "13e3a56939fdedf2080940abcdd105c517d0a25e2160fdfd6ac4ebfb0b4573a2",
+        "reason": "Advance overwrites iterator+8 at 0x4f49c9 before its first read. A shift to +0xc is overwritten by begin at 0x4f49a0 before advance reads it. Early rectangle rejections return zero without reading either field or invoking a callback. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 88,
+        "operator": "shift-offset",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "f424e6f5e0a4be850a26354b559ebb440423e7b82604cdc1e37a33ee86bf2a7f",
+        "reason": "Advance overwrites iterator+8 at 0x4f49c9 before its first read. A shift to +0xc is overwritten by begin at 0x4f49a0 before advance reads it. Early rectangle rejections return zero without reading either field or invoking a callback. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 107,
+        "operator": "drop-statement",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "c40d24621b6362e5067b64f1a4739f95605100c114701cbf4e1a1b4b30cba94c",
+        "reason": "The private iterator vtable at +0 is never read by either owned traversal or original begin/advance. Shifting this store to +4 is immediately overwritten by the next initializer and then by 0x4f48b9. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 107,
+        "operator": "shift-offset",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "c7f7253ae5714e45b48d6da09bfd48a5946a56b44bebd8e8a00fb4a1421e9b99",
+        "reason": "The private iterator vtable at +0 is never read by either owned traversal or original begin/advance. Shifting this store to +4 is immediately overwritten by the next initializer and then by 0x4f48b9. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 108,
+        "operator": "drop-statement",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "e0382c8bc4cd46cac8d2fc1bde5ee353e624f72628aecdb1424b2a68a6f8766a",
+        "reason": "Original begin overwrites iterator+4 at 0x4f48b9 unconditionally before every early exit or use. Shifting the zero store to +8 duplicates the next initializer; advance also overwrites +8 at 0x4f49c9 before reading it. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 108,
+        "operator": "shift-offset",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "822a1a2f385c74ea1008388ca90ffded740335e9621c4095eac71f6435092c0c",
+        "reason": "Original begin overwrites iterator+4 at 0x4f48b9 unconditionally before every early exit or use. Shifting the zero store to +8 duplicates the next initializer; advance also overwrites +8 at 0x4f49c9 before reading it. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 109,
+        "operator": "drop-statement",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "36d8c1f0be1c9af0dedb7144ad80430c50f2a9078c8ec5f4ad31dfe1aecadb0f",
+        "reason": "Advance overwrites iterator+8 at 0x4f49c9 before its first read. A shift to +0xc is overwritten by begin at 0x4f49a0 before advance reads it. Early rectangle rejections return zero without reading either field or invoking a callback. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      },
+      {
+        "line": 109,
+        "operator": "shift-offset",
+        "source_sha256": "3a886121bf6e63f37eab417a57fcbb982c9a8d5aa41e33046c888e040c362c40",
+        "mutant_sha256": "8a872cabd84d27b685b7223ad624ceafc4e38eb71f552cc07bc9e59617559209",
+        "reason": "Advance overwrites iterator+8 at 0x4f49c9 before its first read. A shift to +0xc is overwritten by begin at 0x4f49a0 before advance reads it. Early rectangle rejections return zero without reading either field or invoking a callback. This ordinary family exposes heap/global effects and callback operands, not the private iterator stack frame; final private-stack residue is outside that comparison contract. Checked against 0x4f4860, 0x4f48a0 and 0x4f49c0 instructions and the exact mutant hash."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2086027769,
+      "cases": 179,
+      "mutants_killed": 31,
+      "mutants_tried": 48,
+      "mutants_equivalent": 12,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "171cb9e8b223853a86ef188b882980a23384c7f33dab3575657ee9cad0cbd128"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Boundary reviewed against the six original disassemblies; ownership is exactly the assigned seeds. Iterator and scene/list helpers execute as original code; indirect targets are supplied by cases."
+}

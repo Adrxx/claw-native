@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "id": "mfc_compiler_scope",
+  "title": "Original MFC compiler scope registration prologue",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcCompilerScopeRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a48c0",
+      "name": "MfcCompilerScope::register",
+      "confidence": "declared",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      }
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_compiler_scope.cases.py",
+    "entry": "claw_mfc_compiler_scope_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4230823770,
+      "cases": 416,
+      "mutants_killed": 8,
+      "mutants_tried": 10,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "9b0d00b488a4d50a77b2dc4c240bbfa3f494478fb1acaf080b43ff82bdc0dd03"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Explicit compiler-context ABI only, all input/output registers selected. ESP and prior FS chain are bounded stack tokens; EBP is opaque uint32 data and source dereferences remain checked. Arithmetic flags only. Valid returning helper input has16bytes stack headroom and real return word matching continuation. Complete31ownedbytes, no exemptions.",
+    "This helper publishes scope records and returns through genuine continuation; no Windows typed exception dispatch, singleton catch/unwind or live app election is claimed."
+  ],
+  "notes": "Boundary reviewed against pinned unchanged original helper and six readiness scenarios in ignored mfc-compiler-scopes-boundary.md and compiler-context-handoff.md. Ownership[4a48c0,4a48df) full31bytes, EAX handler and oldEBP/priorFS/real return word are explicit inputs; no ordinary cdecl fixture. Fresh original factory/context boundary probes establish arbitrary oldEBP values are saved/restored rather than dereferenced; generic register validation corrected accordingly. Independent expanded cases required before refreshed admission evidence."
+}

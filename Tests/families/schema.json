@@ -1,0 +1,776 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Captain Claw family manifest",
+  "description": "One file per family. A family is a group of original functions recovered together as one native module. The manifest is the single record of what the family owns, how it is tested, how strong its evidence is and how far it is integrated into the app.",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "title",
+    "abi",
+    "sources",
+    "owned",
+    "oracle",
+    "evidence",
+    "integration"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Snake case, unique, equal to the file name without .json."
+    },
+    "title": {
+      "type": "string",
+      "description": "Short plain-English name of what the family does."
+    },
+    "abi": {
+      "enum": [
+        "legacy",
+        "canonical"
+      ],
+      "description": "legacy: a Codex-era module with its own context structs. canonical: built on Sources/ClawRuntime.h."
+    },
+    "program": {
+      "type": "string",
+      "description": "Pinned executable profile: claw-v1.0 (default) or claw-v1.3. V1.3 uses its own addresses/layouts and explicit owned interval_end; it never uses the v1.0 corpus. Synthetic names are reserved for harness selftests."
+    },
+    "mutation": {
+      "enum": ["named-layout"],
+      "description": "Opt in to named field, constant and behavior-call mutations; omission preserves the literal mutation mode."
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(Sources|Tests|work/pilot)/"
+      },
+      "description": "Source files this family owns. Every Sources/*.cpp belongs to exactly one family. work/pilot/ is for throwaway measurement runs only."
+    },
+    "canonical_sources": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(Sources|Tests|work/pilot)/.*\\.cpp$"
+      },
+      "description": "Optional ordered canonical comparison translation units, each an existing owned source. First is the primary module replaced by mutation testing; remaining inputs are preserved. Defaults to every owned .cpp in sources order. Does not change source ownership or native app linkage. Requires fresh admission when changed."
+    },
+    "shared_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "family",
+          "sources"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "family": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^(Sources|Tests|work/pilot)/"
+            }
+          }
+        }
+      },
+      "description": "Canonical comparison inputs borrowed from a named admitted canonical owner; never source ownership. App links them through that owner. Borrowed .cpp files append after owned canonical inputs; headers and owner contract participate in freshness. Owners cannot themselves borrow sources."
+    },
+    "source_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "docs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^docs/"
+      }
+    },
+    "owned": {
+      "type": "array",
+      "description": "Original functions this family implements natively.",
+      "items": {
+        "type": "object",
+        "required": [
+          "address"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{6,8}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "convention": {
+            "enum": [
+              "thiscall",
+              "stdcall",
+              "cdecl",
+              "fastcall",
+              "unknown",
+              "compiler-context"
+            ]
+          },
+          "argc": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "returns": {
+            "enum": [
+              "u32",
+              "void",
+              "f64",
+              "unknown",
+              "context"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "declared",
+              "inferred"
+            ],
+            "description": "declared: stated by the module's own ownership table. inferred: recovered from comments or test calls."
+          },
+          "interval_end": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{6,8}$",
+            "description": "Present only when the family owns an inline span rather than a whole function."
+          },
+          "compiler_context": {
+            "type": "object",
+            "required": [
+              "input_mask",
+              "output_mask"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "input_mask": {
+                "type": "integer"
+              },
+              "output_mask": {
+                "type": "integer"
+              }
+            },
+            "description": "Explicit version-1 compiler entry masks; requires compiler-context convention, argc 0, returns context."
+          },
+          "source_context": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "input_mask",
+              "output_mask",
+              "preserve_mask"
+            ],
+            "properties": {
+              "input_mask": {
+                "type": "integer"
+              },
+              "output_mask": {
+                "type": "integer"
+              },
+              "preserve_mask": {
+                "type": "integer"
+              },
+              "optional": {
+                "type": "boolean"
+              }
+            },
+            "description": "Explicit ordinary source-state capability; conventional arguments and return pop remain unchanged."
+          },
+          "body_ranges": {
+            "type": "array",
+            "description": "Complete original body ownership, including attached code omitted by corpus function boundaries. Pinned byte hashes, instruction boundaries and overlap constraints are validated before execution. Mutually exclusive with interval_end.",
+            "items": {
+              "type": "object",
+              "required": [
+                "start",
+                "end",
+                "sha256"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "end": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            }
+          },
+          "attached_entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "address",
+                "handler",
+                "func_info",
+                "handler_table",
+                "call_site",
+                "return_pc",
+                "kind",
+                "native_entry",
+                "frame_delta_ebp",
+                "cpu",
+                "normal_return"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "handler": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "func_info": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "handler_table": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "call_site": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "return_pc": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{6,8}$"
+                },
+                "kind": {
+                  "const": "eh-funclet"
+                },
+                "native_entry": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+                },
+                "frame_delta_ebp": {
+                  "const": 12
+                },
+                "cpu": {
+                  "type": "object",
+                  "required": [
+                    "input_mask",
+                    "output_mask"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "input_mask": {
+                      "const": 2047
+                    },
+                    "output_mask": {
+                      "const": 2047
+                    }
+                  }
+                },
+                "normal_return": {
+                  "const": false
+                }
+              }
+            }
+          },
+          "x87_environment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "pop",
+              "push"
+            ],
+            "properties": {
+              "pop": {
+                "const": 0,
+                "type": "integer"
+              },
+              "push": {
+                "const": 0,
+                "type": "integer"
+              }
+            },
+            "description": "Checked inherited x87 environment for ordinary u32/void owners; preserves live stack and CW, compares final SW."
+          }
+        }
+      }
+    },
+    "callees": {
+      "type": "object",
+      "description": "Canonical families only. Every function the owned code calls that it does not own, keyed by address. Anything not listed runs as original code on both sides.",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "kind"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "whole",
+              "fixture",
+              "guest-service"
+            ],
+            "description": "whole: execute the original instructions on both sides. fixture: replace with the named stand-in on both sides."
+          },
+          "x87_args": {
+            "type": "integer",
+            "enum": [
+              1
+            ],
+            "description": "One ST(0) operand on a whole original callee. Requires convention and argc. Native passes a binary64-representable value with run.call_x87; the exact extended bits are compared at entry."
+          },
+          "name": {
+            "type": "string"
+          },
+          "convention": {
+            "enum": [
+              "thiscall",
+              "stdcall",
+              "cdecl",
+              "fastcall",
+              "compiler-context"
+            ]
+          },
+          "argc": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(u32|cstr|ptr:[0-9]+|out:[0-9]+)$"
+            }
+          },
+          "returns": {
+            "enum": [
+              "u32",
+              "void",
+              "context"
+            ]
+          },
+          "fixture": {
+            "type": "string",
+            "description": "Name in the fixture catalogue, or 'scripted' when each test case supplies the behavior."
+          },
+          "reason": {
+            "type": "string"
+          },
+          "source_context": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "input_mask",
+              "output_mask",
+              "preserve_mask"
+            ],
+            "properties": {
+              "input_mask": {
+                "type": "integer"
+              },
+              "output_mask": {
+                "type": "integer"
+              },
+              "preserve_mask": {
+                "type": "integer"
+              },
+              "optional": {
+                "type": "boolean"
+              }
+            },
+            "description": "Explicit ordinary source-state capability; conventional arguments and return pop remain unchanged."
+          },
+          "compiler_context": {
+            "type": "object",
+            "required": [
+              "input_mask",
+              "output_mask"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "input_mask": {
+                "type": "integer"
+              },
+              "output_mask": {
+                "type": "integer"
+              }
+            },
+            "description": "Explicit version-1 compiler entry masks; requires compiler-context convention, argc 0, returns context."
+          },
+          "x87_exact": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "pop",
+              "push"
+            ],
+            "properties": {
+              "pop": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8
+              },
+              "push": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "anyOf": [
+              {
+                "properties": {
+                  "pop": {
+                    "minimum": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "push": {
+                    "const": 1
+                  }
+                }
+              }
+            ],
+            "description": "Exact extended live stack on an original whole callee. Zero pops requires one result; ordinary stack arguments are independent. Result depth must not exceed eight; lower live slots and CW must survive."
+          },
+          "caller_frame": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Comparison-only caller register context for an original whole ordinary callee that reads the caller's EBP. Each entry names an owned caller, its direct CALL site and EBP as base plus offset of the caller's entry state; the original side checks it at every declared site.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "caller",
+                "site",
+                "ebp"
+              ],
+              "properties": {
+                "caller": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]+$"
+                },
+                "site": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]+$"
+                },
+                "ebp": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "base",
+                    "offset"
+                  ],
+                  "properties": {
+                    "base": {
+                      "type": "string",
+                      "pattern": "^(receiver|entry_esp|argument:[0-9]+)$"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "oracle": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "legacy",
+            "clawparity",
+            "none"
+          ]
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "script"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "script": {
+                "type": "string",
+                "pattern": "^Tests/"
+              },
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "prerequisites": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "helpers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^Tests/"
+          }
+        },
+        "extra": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^Tests/"
+          },
+          "description": "Capture, build and sanitizer scripts that belong to this family."
+        },
+        "work_dirs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^work/"
+          }
+        },
+        "cases": {
+          "type": "string",
+          "pattern": "^(Tests|work/pilot)/",
+          "description": "Canonical families: the Python file that yields the test cases."
+        },
+        "heap_bytes": {
+          "type": "integer"
+        },
+        "coverage_exempt": {
+          "type": "array",
+          "description": "Instruction ranges of owned functions that no test case is required to execute, each with the reason (for example an allocation-failure path that no fixture can reach).",
+          "items": {
+            "type": "object",
+            "required": [
+              "start",
+              "end",
+              "reason"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{6,8}$"
+              },
+              "end": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{6,8}$"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "entry": {
+          "type": "string",
+          "pattern": "^claw_[a-z0-9_]+_entry$",
+          "description": "Canonical families: the exported entry symbol."
+        },
+        "equivalent_mutants": {
+          "type": "array",
+          "description": "Coordinator-reviewed mutants proven behaviorally equivalent. Exact source and mutant hashes invalidate stale reviews. Surviving tests alone is not a proof.",
+          "items": {
+            "type": "object",
+            "required": [
+              "line",
+              "operator",
+              "source_sha256",
+              "mutant_sha256",
+              "reason"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "operator": {
+                "type": "string"
+              },
+              "source_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "mutant_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "reason": {
+                "type": "string",
+                "description": "Proof valid for all permitted inputs, checked against the original instructions."
+              }
+            }
+          }
+        },
+        "guest_graph": {
+          "type": "object",
+          "required": [
+            "version",
+            "allowed_handlers",
+            "factory_call_site",
+            "allowed_factories",
+            "required_outcomes",
+            "require_native_attached_entries"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "version": {
+              "const": 1
+            },
+            "allowed_handlers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{6,8}$"
+              }
+            },
+            "factory_call_site": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{6,8}$"
+            },
+            "allowed_factories": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{6,8}$"
+              }
+            },
+            "required_outcomes": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "returned",
+                  "unhandled"
+                ]
+              }
+            },
+            "require_native_attached_entries": {
+              "const": true
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "level"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "none",
+            "provisional",
+            "legacy-frozen",
+            "admitted"
+          ],
+          "description": "none: no comparison exists. provisional: a worker's comparison passed and nothing more. legacy-frozen: Codex's coordinator re-ran the worker's comparison. admitted: passed the new admission gate."
+        },
+        "codex": {
+          "type": "object",
+          "description": "What Codex recorded: root log paths and the counts it claimed. Historical, not re-verified."
+        },
+        "baseline": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Result of the most recent plain re-run of the comparison scripts."
+        },
+        "gate": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Result of the most recent admission gate run."
+        }
+      }
+    },
+    "integration": {
+      "type": "object",
+      "required": [
+        "level"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "source-only",
+            "compiled",
+            "elected",
+            "live"
+          ],
+          "description": "source-only: not in the app target. compiled: in the app target, never called. elected: called from a Swift host in the app. live: reached through the original call graph in a recorded app trace."
+        },
+        "in_app_target": {
+          "type": "boolean"
+        },
+        "in_bridging_header": {
+          "type": "boolean"
+        },
+        "swift_references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(Sources|App|Tests)/"
+          }
+        }
+      }
+    },
+    "limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Declared boundaries of the evidence, one short sentence each."
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "super_powerup",
+  "title": "Original SuperPowerup callback",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SuperPowerupRuntime.cpp",
+    "Sources/SuperPowerupRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/SuperPowerupRuntime.cpp": "1f9965a84ea05db9f7d3db34d58e93fcc9a32f42c908281446bb8f8254fd6a03",
+    "Sources/SuperPowerupRuntime.h": "ec6273640de7d88009166c35591066485f17c19cea3201f96d95f445c568ec80"
+  },
+  "docs": [
+    "docs/super-powerup-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_super_powerup_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/super_powerup_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/super-powerup-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-super-powerup-independent.log"
+      ],
+      "worker_evidence": [
+        "work/super-powerup-agent/sanitizer.log",
+        "work/super-powerup-agent/verification.json",
+        "work/super-powerup-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_super_powerup_runtime.py": "pass"
+      },
+      "seconds": 34.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2384753377,
+      "owned": 3,
+      "owned_inferred_from_tests": true,
+      "directly_called": 3,
+      "fully_executed": 2,
+      "bytes_owned": 2598,
+      "bytes_executed": 677,
+      "coverage": 0.2606
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": []
+}

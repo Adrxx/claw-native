@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "id": "v13_raw_lifecycle",
+  "title": "v1.3 raw-object serialization lifecycle event producer",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/V13RawLifecycleRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "canonical_sources": [
+    "Sources/V13RawLifecycleRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4c7930",
+      "interval_end": "0x4c7a8b",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6590",
+      "interval_end": "0x4d6663",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce9b0",
+      "interval_end": "0x4ce9b1",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4c7ab0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4c7f10": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4fc9aa": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x4d6680": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4d6aa0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocator."
+    },
+    "0x4fcb13": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native heap allocator."
+    },
+    "0x4a6b1f": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocator."
+    },
+    "0x50c318": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string length import."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_raw_lifecycle.cases.py",
+    "entry": "claw_v13_raw_lifecycle_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c79ae",
+        "end": "0x4c79b5",
+        "reason": "Checked pinned original 4c7ab0: exactly two RET sites. Null-file guard returns zero at 4c7acf; every nonnull-file normal return sets EAX=1 at 4c7ef5 before RET4 at 4c7f01, after the last callback. Outer 4c7930 rejects null files before dispatch, so this failure tail provably cannot execute."
+      },
+      {
+        "start": "0x4d65ea",
+        "end": "0x4d65f0",
+        "reason": "Checked pinned original 4d6680: exactly two RET sites. Null-file guard returns zero at 4d6690; every nonnull-file normal return sets EAX=1 at 4d6a91 before RET4 at 4d6a97, after the last callback. Outer 4d6590 rejects null files before dispatch, so this failure tail provably cannot execute."
+      },
+      {
+        "start": "0x4d65fc",
+        "end": "0x4d6602",
+        "reason": "Checked pinned original 4d6aa0: exactly two RET sites. Null-file guard returns zero at 4d6ab0; every nonnull-file normal return sets EAX=1 at 4d6eb8 before RET4 at 4d6ebe, after the last callback. Outer 4d6590 rejects null files before dispatch, so this failure tail provably cannot execute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3649299432,
+      "cases": 84,
+      "mutants_killed": 43,
+      "mutants_tried": 63,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.956,
+      "reasons": [],
+      "build_inputs_sha256": "4fdbf230db9e845bee3214dd97162f9c0c42d07761883bf9d06c52e584e06372"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

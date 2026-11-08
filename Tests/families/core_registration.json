@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "id": "core_registration",
+  "title": "Original core handlers and bitset lifecycle",
+  "abi": "legacy",
+  "sources": [
+    "Sources/CoreRegistration.cpp",
+    "Sources/CoreRegistration.h"
+  ],
+  "source_sha256": {
+    "Sources/CoreRegistration.cpp": "f3426495a21bd18c88666e3483eba0d3b0d2b0f09d007e29b4ea009c6b500ef0",
+    "Sources/CoreRegistration.h": "1fca7686896eb1217dcc2ed6022c6c000c68fc6ee95f2d477ae00952ed6c5385"
+  },
+  "docs": [
+    "docs/core-registration.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4a49b0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f6428",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_core_registration.py"
+      }
+    ],
+    "helpers": [
+      "Tests/core_registration_helpers.py"
+    ],
+    "extra": [
+      "Tests/core_registration_enemy_probe.py"
+    ],
+    "work_dirs": [
+      "work/core-registration-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/core-registration-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_core_registration.py": "pass"
+      },
+      "seconds": 10.0
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2105074251,
+      "owned": 20,
+      "owned_inferred_from_tests": false,
+      "directly_called": 15,
+      "fully_executed": 18,
+      "bytes_owned": 1813,
+      "bytes_executed": 1184,
+      "coverage": 0.6531
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeScene.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: level_one_collision_dispatch_04 (0x4dc3d0); level_one_state_registry_01 (0x4db6c0, 0x4dbe10, 0x4dc180, 0x4dc560, 0x4dc7b0); static_final_records (0x4db610, 0x4dbb80, 0x4dc170, 0x4dc270, 0x4dc390, 0x4dc3a0); static_initializer_wrappers (0x4db600, 0x4dbb70, 0x4dc160, 0x4dc260, 0x4dc380); static_range_constructors (0x4db620). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

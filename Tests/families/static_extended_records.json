@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "id": "static_extended_records",
+  "title": "Original extended static records and string range construction",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticExtendedRecordsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x440f30",
+      "name": "StaticStringRange::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x440f30",
+          "end": "0x440fad",
+          "sha256": "5037879a52162769c3280d83ea3ebffb2828b7488d8f5da839b2b430e738f4bd"
+        }
+      ]
+    },
+    {
+      "address": "0x453cc0",
+      "name": "Static inline coordinate record 0x453cc0",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x453cc0",
+          "end": "0x453ce9",
+          "sha256": "e628ddbd974c257554c2236552dec44697de5f80fd5b700fb2a6b39cdb497a46"
+        }
+      ]
+    },
+    {
+      "address": "0x453d00",
+      "name": "Static inline coordinate record 0x453d00",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x453d00",
+          "end": "0x453d29",
+          "sha256": "3fe1ffc693aefab3637bdbe3c3221370e2efc5aa16bf92f87421681c149185c2"
+        }
+      ]
+    },
+    {
+      "address": "0x45acb0",
+      "name": "Static inline coordinate record 0x45acb0",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x45acb0",
+          "end": "0x45acd9",
+          "sha256": "ec38dd323b4c4ee5eb38ef010bbb53ab0cbb5f6bea9dcd6487e8571b33ca9e83"
+        }
+      ]
+    },
+    {
+      "address": "0x4f54ea",
+      "name": "StaticZeroRecord::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f54ea",
+          "end": "0x4f5501",
+          "sha256": "8d84e0cf7fe4b6152666d4d2f966a83f4ee8b412a6269533796b50c4ef35791b"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4dbb10": {
+      "kind": "whole",
+      "name": "Admitted range-array constructor",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4f6439": {
+      "kind": "whole",
+      "name": "Admitted empty CString constructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls; physical allocation returns exact-size fresh storage or null."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_extended_records.cases.py",
+    "entry": "claw_static_extended_records_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1552689599,
+      "cases": 104,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.956,
+      "reasons": [],
+      "build_inputs_sha256": "a218444392e66337b3dcc3dea199c302a1c084d10ef135cd99d2c154cd676ba1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Five complete original bodies total 271 bytes, including the full three-byte RET8 of the 125-byte string-range constructor; no coverage exemptions.",
+    "The string-range constructor requires full CPU/FS source context and complete bounded source stack; the other four roots retain ordinary entry and optional full 0x7ff input/output source context.",
+    "The admitted range-array and empty CString constructors execute unchanged as whole dependencies; no game helper or per-string allocation is replaced.",
+    "Transitive malloc is the sole physical fixture and returns exact-size fresh allocation or null; physical services preserve saved stack, EBP and FS and do not mutate receiver fields.",
+    "Valid nonwrapping receiver backing covers 36 bytes for the string-range constructor and 20 bytes for the zero record, disjoint from source stack, allocation outputs and dependency manager storage; successful range storage must cover the original uint32 count and size arithmetic with DF clear.",
+    "Error paths execute original caller-frame diagnostic and original error manager unchanged; EBP+4 must be readable and returning manager modes are explicit unit inputs, not proof of actual startup error policy or unwind.",
+    "The original static arguments 2000 and 2010 request one 44-byte array containing eleven four-byte empty-string records; each record shares the current empty-string pointer and has no separate allocation.",
+    "The three inline roots perform only four absolute DWORD stores and RET, preserve incoming arithmetic flags and registers, and inherit their driver return frames through separately owned direct-JMP wrappers.",
+    "Source-only boundary preparation establishes no admission, native edge election, complete static startup, menu, gameplay or device acceptance."
+  ],
+  "notes": "Hash-pinned original verification corrects the earlier 123-byte truncated range to 125 bytes. Source contracts preserve EBX/ESI/EDI/EBP/FS (0x472); all integer outputs and arithmetic flags remain observable. Detailed original frames, globals, branches and error-policy scope are in the ignored packet NOTES.md."
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "static_frame_continuation",
+  "title": "Original caller-frame continuation leaf",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticFrameContinuationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4dc680",
+      "name": "Caller frame continuation leaf",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc680",
+          "end": "0x4dc684",
+          "sha256": "b9562540873b0cd419c1852c66d029994ab91773493518fa497054757fc2b58a"
+        }
+      ]
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_frame_continuation.cases.py",
+    "entry": "claw_static_frame_continuation_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2608239196,
+      "cases": 41,
+      "mutants_killed": 2,
+      "mutants_tried": 2,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "31ee76257e505899f2aa8b17415d1267e19a37ff9924e1db1ef910edc33dd2a2"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Ordinary entry without the required full-register source context is unsupported and rejects with an ABI fault.",
+    "Memory authority is supplied by the checked host mapping and is not granted by any source register value.",
+    "Source-family admission does not establish native connection of original callers, static initialization, app startup, or device acceptance."
+  ],
+  "notes": "Boundary reviewed against the pinned original corpus; detailed caller-state obligations remain in the ignored worker packet."
+}

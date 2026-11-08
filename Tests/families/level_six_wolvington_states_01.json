@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "id": "level_six_wolvington_states_01",
+  "title": "Level 6 Wolvington states",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelSixWolvingtonStates01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a0960",
+      "name": "Wolvington::chooseState",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0a90",
+      "name": "Wolvington::beginRepeatedMagic",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0ae0",
+      "name": "Wolvington::advanceMagicAttack",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0b30",
+      "name": "Wolvington::beginLowMagic",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0c10",
+      "name": "Wolvington::beginHighMagic",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0cf0",
+      "name": "Wolvington::updateMagic",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0ec0",
+      "name": "Wolvington::beginUppercut",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0f40",
+      "name": "Wolvington::updateUppercut",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a0fd0",
+      "name": "Wolvington::beginSwordAttack",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a1020",
+      "name": "Wolvington::updateSwordAttack",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a10b0",
+      "name": "Wolvington::beginRunningUppercut",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a10f0",
+      "name": "Wolvington::updateRunningUppercut",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a1250",
+      "name": "Wolvington::updateAdvance",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "USER32.dll!SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 import writes the four signed 32-bit RECT coordinates and returns success"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_six_wolvington_states_01.cases.py",
+    "entry": "claw_level_six_wolvington_states_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1992759846,
+      "cases": 464,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.932,
+      "reasons": [],
+      "build_inputs_sha256": "39d42efa8452b6b02aa31cfcf554a81e57e128f56cc55baf703ff41e11486733"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is scripted; cases supply its signed 32-bit result sequence.",
+    "_lock is a return-zero stand-in for the operating-system critical-section entry used by multibyte string comparison.",
+    "_unlock is a return-zero stand-in for the paired operating-system critical-section exit.",
+    "operator new uses the allocate fixture instead of the operating-system heap.",
+    "SetRect uses the set-rect fixture to write its 16-byte output rectangle; no USER32 code runs.",
+    "Sound playback cases may enter original 0x4b45f0 with its backend disabled; operating-system audio and error-reporting paths are outside this evidence."
+  ],
+  "notes": "Boundary reviewed against all 13 seed disassemblies. Every owned entry is thiscall with no stack arguments and returns the explicit integer zero on every normal exit. Names are descriptive. All undeclared program callees execute unchanged original instructions; no game-code fixtures or coverage exemptions. Detailed object layouts, branch decisions and transitive-path setup are in the family packet NOTES.md."
+}

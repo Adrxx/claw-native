@@ -1,0 +1,322 @@
+{
+  "schema": 1,
+  "id": "crt_exit_registry",
+  "title": "Original CRT cleanup callback registry",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CrtExitRegistryRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a3610",
+      "name": "ExitRegistry::initialize",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a3610",
+          "end": "0x4a3646",
+          "sha256": "2087216ff303bc274cacb4a1ecaa548b94528030efa047384cfbd2a633900a5f"
+        }
+      ]
+    },
+    {
+      "address": "0x4a3560",
+      "name": "ExitRegistry::append",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a3560",
+          "end": "0x4a35ef",
+          "sha256": "8b3a62ca6672c94adc06ec3197bdb98d8a110f5c144891415d4bcf1728e80e98"
+        }
+      ]
+    },
+    {
+      "address": "0x4a35f0",
+      "name": "atexit",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a35f0",
+          "end": "0x4a3605",
+          "sha256": "f37af44a90aaf5139f44016f219d17b40f85244babd48f5da479d9fbd1456b83"
+        }
+      ]
+    },
+    {
+      "address": "0x4a5860",
+      "name": "ExitRegistry::lock",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a5860",
+          "end": "0x4a586b",
+          "sha256": "e85f1b33454ef69b9b22ebdc39295b3ebe91d80ba7bdf6c8527c1e5e450d4c39"
+        }
+      ]
+    },
+    {
+      "address": "0x4a5870",
+      "name": "ExitRegistry::unlock",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a5870",
+          "end": "0x4a587b",
+          "sha256": "c25cd29fb07c6ad7d09059a71cbd153aea45bd8a52bfb0c9819686dd757b8aeb"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "whole",
+      "name": "Original CRT lock acquisition",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a7c40": {
+      "kind": "whole",
+      "name": "Original CRT lock release",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a4860": {
+      "kind": "whole",
+      "name": "Original nonreturning fatal runtime exit",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a6560": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 usable capacity",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Explicit coherent native CRT memory-service domain v1, peer of knownmalloc; same live allocation/capacity owner. Source CRT heap internals are not executed or claimed."
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 resize",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Explicit coherent native CRT memory-service domain v1, peer of knownmalloc; same live allocation/capacity owner. Source CRT heap internals are not executed or claimed."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x5469f4": {
+      "kind": "fixture",
+      "name": "GetModuleFileNameA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "ptr:1",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546a14": {
+      "kind": "fixture",
+      "name": "LoadLibraryA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    },
+    "0x546980": {
+      "kind": "fixture",
+      "name": "SetUnhandledExceptionFilter",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical filter registration/restoration returns previous opaque filter identity; source terminator restores the original saved filter. No Windows exception dispatch claimed."
+    },
+    "0x546998": {
+      "kind": "fixture",
+      "name": "ExitProcess",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical native platform service; original CRT locks/fatal diagnostic and termination code execute unchanged. ExitProcess must Halt nonreturning; LoadLibraryA-null is a legitimate finite diagnostic outcome."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/crt_exit_registry.cases.py",
+    "entry": "claw_crt_exit_registry_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4a362d",
+        "end": "0x4a3635",
+        "reason": "Eight owned continuation bytes after fatal runtime exit4a4860 can execute only if original ExitProcess returns. Under immutable original fatal dispatch and genuine nonreturning physical termination there is no returning predecessor; normal allocation success branches directly to4a3635. No arbitrary entry or returning termination is permitted. Full54byte initializer remains owned; original allocationfailure/fatal path must execute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4281647969,
+      "cases": 342,
+      "mutants_killed": 16,
+      "mutants_tried": 17,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "da282bf3fca5360500ef14e490c6ebb9dbc5f8427328ba161e4a45301e8f2e7e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Whole five-function cleanup registry240bytes,8owned nonreturning-fatal continuation bytes exempt; required fullsource7ff/7ff/preserve472 and bounded fullstack.",
+    "Versioned coherent CRT memory-service v1 supplies knownmalloc/free/capacity/realloc sharing exact live base ownership, requestedsize/capacity and prefix/failure semantics. Source locks and registry operations remain original. No source CRT heap or Windowsprocess startup claim.",
+    "Pinned newMode0 bounded startup domain. Live table base/next, callback words and capacity must coherent, callbacks codeidentity may be zero; source returns failure for null append result including a zero callback.",
+    "Fatal runtime original code executes; ExitProcess is a nonreturning physical halt, not source EH. Default original GUI diagnostic may see a legitimate failed LoadLibraryA service. Original terminator table remains unchanged.",
+    "CRT lock table initialization/prior allocations are explicit unit inputs or original-created priorstate, not full native cold startup proof. Independent composed >32registrations and native lockowner closure remain required."
+  ],
+  "notes": "Pinned original boundary and nonreturning coverage exemptions independently reviewed atwork/coordination/atexit-source-boundary.md; whole source CRTlocks and fatal helpers remain original until native admission."
+}

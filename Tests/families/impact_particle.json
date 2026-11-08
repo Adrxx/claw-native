@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "id": "impact_particle",
+  "title": "Original impact particle creation and controllers",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ImpactParticleRuntime.cpp",
+    "Sources/ImpactParticleRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/ImpactParticleRuntime.cpp": "416c90ef149da9e38f4c5e232901585eddca637936fe1d1f484ad75a45d7bd3f",
+    "Sources/ImpactParticleRuntime.h": "ad9aff5cd44c2877307dd3fd03b549aff5adc03f5d3a4a1645d271d1acdbc3fb"
+  },
+  "docs": [
+    "docs/impact-particle-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_impact_particle_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/impact_particle_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/impact-particle-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-impact-particle-independent.log"
+      ],
+      "worker_evidence": [
+        "work/impact-particle-agent/smoke.log",
+        "work/impact-particle-agent/verification.json",
+        "work/impact-particle-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_impact_particle_runtime.py": "pass"
+      },
+      "seconds": 5.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 59992261,
+      "owned": 4,
+      "owned_inferred_from_tests": false,
+      "directly_called": 4,
+      "fully_executed": 4,
+      "bytes_owned": 613,
+      "bytes_executed": 613,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeEffects.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_effects_impact_01 (0x461a00, 0x461a90, 0x461bc0, 0x461c40). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

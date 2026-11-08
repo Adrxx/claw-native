@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "id": "native_indexed_presentation",
+  "title": "Native indexed presentation",
+  "abi": "legacy",
+  "sources": [
+    "Sources/NativeIndexedPresentation.cpp",
+    "Sources/NativeIndexedPresentation.h"
+  ],
+  "source_sha256": {
+    "Sources/NativeIndexedPresentation.cpp": "cbb2f0dcda4fc7f8736690790f6c9a7f7d723cb9fced6dfda7d5705519fa2b77",
+    "Sources/NativeIndexedPresentation.h": "a0beea6411d0529fa98f2dd6e3db5527c303448556ffd2c889d4c13d95176b82"
+  },
+  "docs": [
+    "docs/native-indexed-presentation.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_indexed_bottom_edge.py"
+      },
+      {
+        "script": "Tests/compare_native_indexed_composite.py"
+      }
+    ],
+    "helpers": [
+      "Tests/indexed_bottom_edge_helpers.py"
+    ],
+    "extra": [
+      "Tests/NativeIndexedPresentation/main.swift",
+      "Tests/check_indexed_bottom_edge_asan.py",
+      "Tests/indexed_bottom_edge_exact_replay.cpp"
+    ],
+    "work_dirs": [
+      "work/indexed-bottom-edge-agent",
+      "work/native-indexed-composite",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-fast-presentation-independent.log",
+        "work/root-indexed-bottom-edge-asan.log",
+        "work/root-indexed-bottom-edge-independent.log"
+      ],
+      "worker_evidence": [
+        "work/indexed-bottom-edge-agent/report.json",
+        "work/indexed-bottom-edge-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_indexed_bottom_edge.py": "pass",
+        "Tests/compare_native_indexed_composite.py": "pass"
+      },
+      "seconds": 7.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2383408743,
+      "owned": 2,
+      "owned_inferred_from_tests": true,
+      "directly_called": 2,
+      "fully_executed": 1,
+      "bytes_owned": 285,
+      "bytes_executed": 279,
+      "coverage": 0.9789
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawFastIndexedDrawing.swift",
+      "Sources/ClawNativeRendering.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "compare_indexed_bottom_edge.py assigned by content: compiles and calls claw_native_indexed_composite8; compare_native_indexed_composite.py assigned by content: compiles and calls claw_native_indexed_composite8"
+}

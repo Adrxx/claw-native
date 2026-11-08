@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "id": "crt_byte_fill",
+  "title": "Original CRT byte fill",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CrtByteFillRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a4a20",
+      "name": "CRT memset",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1106,
+        "optional": true
+      }
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/crt_byte_fill.cases.py",
+    "entry": "claw_crt_byte_fill_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2978526919,
+      "cases": 1298,
+      "mutants_killed": 12,
+      "mutants_tried": 13,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "148bc4cb274695273febb42d7ff9bbb2459baea093e0316e37baca89b170d0d7"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Whole88-byte function, no fixtures or exemptions. Windows cdecl3/u32 with ABI direction flag clear; no invalid return-slot overwrite or inaccessible nonzero destination spans.",
+    "All count/fill/destination operands are captured before writes, but source reloads returned destination from incoming stack slot after a nonzero fill; guest argument-slot aliasing must be retained.",
+    "Optional full-register source capability retains the ordinary ABI. The current recorded gate compares both modes; source parity does not establish connected TLS or startup acceptance.",
+    "Full-source normal-return domain requires DF clear, mapped bounded stack, sufficient operation budget, and a writable destination that does not overwrite the return word or FS control storage. Incoming argument-slot and saved-EDI-slot aliases remain permitted: the original reloads the destination result and saved EDI after stores. Preserve mask0x452 omits EDI; all11CPU fields and the complete bounded stack are observed. Host invalid-memory/budget diagnostic timing is outside source parity."
+  ],
+  "notes": "Pinned original88bytes freshlyverified; three argument stack reads and original MFC caller503220 pushes3 then503228 adds12. Zero bytecount touches no destination, returns raw pointer. Nonzero pathreloads first source argument atreturn."
+}

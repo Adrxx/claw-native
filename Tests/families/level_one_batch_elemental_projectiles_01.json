@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_elemental_projectiles_01",
+  "title": "Level 1 fire, ice and lightning sword projectiles",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchElementalProjectiles01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x410100",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4101c0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x410280",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x410ec0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411310",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411370",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4117c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411820",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411c70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "original float to integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1,
+      "returns": "u32"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_elemental_projectiles_01.cases.py",
+    "entry": "claw_level_one_batch_elemental_projectiles_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x41015c",
+        "end": "0x41015e",
+        "reason": "Allocation-failure path: operator new returned 0, so EDI is zeroed and the original then unconditionally reads [EDI] and calls through it at the next instruction. No valid normal-return input can execute it; the faulting outcome is unsupported by the canonical case API. The native body must retain the original read and fault, not add a guard."
+      },
+      {
+        "start": "0x41021c",
+        "end": "0x41021e",
+        "reason": "Allocation-failure path: operator new returned 0, so EDI is zeroed and the original then unconditionally reads [EDI] and calls through it at the next instruction. No valid normal-return input can execute it; the faulting outcome is unsupported by the canonical case API. The native body must retain the original read and fault, not add a guard."
+      },
+      {
+        "start": "0x4102dc",
+        "end": "0x4102de",
+        "reason": "Allocation-failure path: operator new returned 0, so EDI is zeroed and the original then unconditionally reads [EDI] and calls through it at the next instruction. No valid normal-return input can execute it; the faulting outcome is unsupported by the canonical case API. The native body must retain the original read and fault, not add a guard."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3628202049,
+      "cases": 174,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.947,
+      "reasons": [],
+      "build_inputs_sha256": "fe5075dd6f55c6ba157afd76def5d670210fb7538f82798179d75be857e0d9cd"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

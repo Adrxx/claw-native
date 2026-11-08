@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "front_statue",
+  "title": "FrontStatue object logic",
+  "abi": "canonical",
+  "sources": [
+    "Sources/FrontStatueRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x471780",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/front_statue.cases.py",
+    "entry": "claw_front_statue_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3624200536,
+      "cases": 82,
+      "mutants_killed": 6,
+      "mutants_tried": 6,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "cf1cf18d1aac6f47a27c711721d6f00ba1a3fbae78456af11da1956e870c97f2"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

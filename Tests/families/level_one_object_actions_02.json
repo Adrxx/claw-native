@@ -1,0 +1,408 @@
+{
+  "schema": 1,
+  "id": "level_one_object_actions_02",
+  "title": "Observed Level 1 level object actions batch 2",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneObjectActions02Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x44f840",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44f850",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452b00",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452c50",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462350",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462410",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462af0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462ef0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x463120",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4631e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46a8d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46c2c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546888": {
+      "kind": "fixture",
+      "name": "SetBkMode",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546880": {
+      "kind": "fixture",
+      "name": "SetTextColor",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546d30": {
+      "kind": "fixture",
+      "name": "DrawTextA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x546890": {
+      "kind": "fixture",
+      "name": "TextOutA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached through the import table; physical platform service, cases supply the result."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_object_actions_02.cases.py",
+    "entry": "claw_level_one_object_actions_02_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4623ac",
+        "end": "0x4623ae",
+        "reason": "Allocator returned null: the original clears the receiver and then unconditionally dereferences it at 0x4623ae. No valid normal-return input reaches this; the harness refuses a backing page at address 0. The native body must keep the original read and not add a guard."
+      },
+      {
+        "start": "0x462b45",
+        "end": "0x462b73",
+        "reason": "Table-grow failure path: the callee 0x4db6e0 returns 0 only after its realloc fails and then calls 0x4dc680 with its own EBP set to 0 and reads address 4, so the original itself faults here (established by harness-mfc-callee-caller-frame). No normal-return input reaches it."
+      },
+      {
+        "start": "0x462b8e",
+        "end": "0x462ba5",
+        "reason": "Table-grow failure path: the callee 0x4db6e0 returns 0 only after its realloc fails and then calls 0x4dc680 with its own EBP set to 0 and reads address 4, so the original itself faults here (established by harness-mfc-callee-caller-frame). No normal-return input reaches it."
+      },
+      {
+        "start": "0x462bbf",
+        "end": "0x462bf2",
+        "reason": "Table-grow failure path: the callee 0x4db6e0 returns 0 only after its realloc fails and then calls 0x4dc680 with its own EBP set to 0 and reads address 4, so the original itself faults here (established by harness-mfc-callee-caller-frame). No normal-return input reaches it."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 45556305,
+      "cases": 580,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "346712d9fdf4c8c7384b4aeefeaec564491b883ddcb0e754fd02cea9849bc608"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect is a stand-in (scripted).",
+    "SetRectEmpty is a stand-in (scripted).",
+    "ShowCursor is a stand-in (scripted).",
+    "timeGetTime is a stand-in (scripted).",
+    "lstrlenA is a stand-in (scripted).",
+    "InterlockedDecrement is a stand-in (scripted).",
+    "InterlockedIncrement is a stand-in (scripted).",
+    "SetBkMode is a stand-in (scripted).",
+    "SetTextColor is a stand-in (scripted).",
+    "DrawTextA is a stand-in (scripted).",
+    "TextOutA is a stand-in (scripted)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly. Indirect receivers (settled 2026-10-20, level-one-indirect-receiver-repair): in 0x46c2c0 every self call has ECX = self (the entry receiver, held in EBP): slot +0x50 at 0x46c4cc, +0x10 at 0x46c514 and +0x64 at 0x46c593. Slot +0x50 takes two stack arguments (the word at [self+0x14c], then the count) that the callee does not pop: the caller reuses them as the last two formatter arguments and removes them with its add esp after 0x4a3920. It is therefore not a callee-pop thiscall and cannot be a harness stub (a cdecl stub refuses a receiver, a thiscall stub pops); cases supply it with an original function that reads ECX and returns with a plain RET, for example 0x40af20 (returns [ECX+0x34]), so that a receiver of 0 faults or differs. Native code must call it as run.call(slot, self, {layer, count}). The surface slots +0x44 (0x46c561) and +0x68 (0x46c60d) are COM methods with the interface pointer as first stack argument; their ECX is incidental. The other indirect sites in this family already pass the original receivers (0x462350 via vcall, 0x462af0 handler entries with the entry receiver, 0x4631e0 +0x44 via vcall, 0x46a8d0 +0x24/+0x34 via vcall, 0x462410 calls through a register holding an import)."
+}

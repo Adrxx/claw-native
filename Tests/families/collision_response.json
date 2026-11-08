@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "collision_response",
+  "title": "Collision Response",
+  "abi": "legacy",
+  "sources": [
+    "Sources/CollisionResponse.cpp",
+    "Sources/CollisionResponse.h"
+  ],
+  "source_sha256": {
+    "Sources/CollisionResponse.cpp": "45a0e4f1db710c3cedda9d1cb6f5d2b11d291dbd5a591112de7298a98034554b",
+    "Sources/CollisionResponse.h": "1146aa370ca394bee5e0d9d1b5c54fee2779b910cceb0defedf716a535b0205d"
+  },
+  "docs": [],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_collision_response.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/libCollisionResponse.dylib",
+          "--world",
+          "Original/cd-assets/LEVEL1/WORLDS/WORLD.WWD",
+          "--swift-traces",
+          "work/swift-collision-traces.json"
+        ],
+        "prerequisites": [
+          "xcrun clang++ -std=c++17 -dynamiclib Sources/CollisionResponse.cpp Sources/TileCollision.cpp -o work/libCollisionResponse.dylib"
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_collision_response.py": "pass"
+      },
+      "seconds": 47.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 841553671,
+      "owned": 1,
+      "owned_inferred_from_tests": false,
+      "directly_called": 1,
+      "fully_executed": 1,
+      "bytes_owned": 649,
+      "bytes_executed": 649,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawCollision.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_world_collision_03 (0x4cda10). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

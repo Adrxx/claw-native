@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "id": "scene_fade_closure_02",
+  "title": "Level 1 closure: scene fade and paper transition helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SceneFadeClosure02Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4ed060",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed080",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed0a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed0b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed1a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ed5d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4efb00",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4efc40",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c62e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7180",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7780",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "original float to integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      },
+      "returns": "u32"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4f6449": {
+      "kind": "fixture",
+      "name": "CString copy constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC CString copy reaches InterlockedIncrement; it is a native string service."
+    },
+    "0x4f6584": {
+      "kind": "fixture",
+      "name": "CString release",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC CString data release reaches InterlockedDecrement; it is a native string service."
+    },
+    "0x4f72c9": {
+      "kind": "fixture",
+      "name": "CFile constructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native services, not recovered; cases supply outcomes."
+    },
+    "0x4f7369": {
+      "kind": "fixture",
+      "name": "CFile destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native services, not recovered; cases supply outcomes."
+    },
+    "0x4f7448": {
+      "kind": "fixture",
+      "name": "CFile Open",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native services, not recovered; cases supply outcomes."
+    },
+    "0x4f766e": {
+      "kind": "fixture",
+      "name": "CFile Close",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC file transport is replaced by native services, not recovered; cases supply outcomes."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/scene_fade_closure_02.cases.py",
+    "entry": "claw_scene_fade_closure_02_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c6370",
+        "end": "0x4c638b",
+        "reason": "With an array count of -1 the original frees the data pointer and clears it, then at 0x4c6488 (reached through 0x4c6479) stores through [data + index*4] with data zero and index -1, which is address 0xfffffffc: the original faults on every input that takes this branch. The native body must keep the store and fault, not add a guard."
+      },
+      {
+        "start": "0x4c71c8",
+        "end": "0x4c71cc",
+        "reason": "Allocation failure of the 12-byte list item: the original continues with a null item, stores it, then 0x4c7780 and 0x4c7510 dereference null (0x4c78d0 reads through it, or 0x4c7730 writes this+4), so the original faults on every input that takes this branch."
+      },
+      {
+        "start": "0x4c71e4",
+        "end": "0x4c71ff",
+        "reason": "With an array count of -1 the original frees and clears the data pointer, then at 0x4c72f5 (reached through 0x4c72ed) stores through [data + index*4] with data zero and index -1 (address 0xfffffffc): the original faults on every input that takes this branch. Observed as UC_ERR_WRITE_UNMAPPED at 0x4c72f5."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3110584577,
+      "cases": 198,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "6ba3369e7bdd3ab56af84ce5bf3aeaee5c13ed227d3fb8e6d80e808675af678a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly. Platform code recovered because: Coordinator decision 2026-10-22: game code in game ranges, recover"
+}

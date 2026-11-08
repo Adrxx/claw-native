@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "generic_enemy_states",
+  "title": "Original common enemy states, damage and death",
+  "abi": "legacy",
+  "sources": [
+    "Sources/GenericEnemyStates.cpp",
+    "Sources/GenericEnemyStates.h"
+  ],
+  "source_sha256": {
+    "Sources/GenericEnemyStates.cpp": "c448400d22ace7e245cbab211d05284cace76937f2108493319336f2c5d0acd6",
+    "Sources/GenericEnemyStates.h": "8a3ce9155c24157e364ee6598678063b247b69aebaaaef188388dceee3f2bbe9"
+  },
+  "docs": [
+    "docs/generic-enemy-states.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_generic_enemy_states.py"
+      }
+    ],
+    "helpers": [
+      "Tests/generic_enemy_states_helpers.py"
+    ],
+    "work_dirs": [
+      "work/generic-enemy-states-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_generic_enemy_states.py": "pass"
+      },
+      "seconds": 5.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1550179147,
+      "owned": 30,
+      "owned_inferred_from_tests": false,
+      "directly_called": 29,
+      "fully_executed": 27,
+      "bytes_owned": 5183,
+      "bytes_executed": 5008,
+      "coverage": 0.9662
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift",
+      "Sources/ClawNativeEnemy.swift",
+      "Sources/ClawNativeFlare.swift",
+      "Sources/ClawNativeHumanoid.swift",
+      "Sources/ClawNativeProjectiles.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_batch_enemy_base_callee_02 (0x404dd0, 0x43f640, 0x43f740); level_one_batch_enemy_base_virtuals_01 (0x43e9c0, 0x43e9e0, 0x440e20); level_one_batch_enemy_callee_03 (0x404eb0, 0x404ed0, 0x404f00, 0x43f120, 0x43fe60, 0x43ffa0); level_one_batch_enemy_states_01 (0x43f030, 0x43f450, 0x43f540, 0x43f6e0, 0x43f720); level_one_batch_enemy_states_02 (0x43f980, 0x43fc20, 0x43ff60, 0x440070, 0x440260, 0x4405b0, 0x440870, 0x440a50, 0x440be0, 0x440d50); level_one_collision_dispatch_04 (0x4dc850); level_one_enemy_actions (0x4dc830); level_one_player_actions_04 (0x4c9e30). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

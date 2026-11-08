@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "id": "menu_diagnostic_policy",
+  "title": "Audio and display diagnostic policy",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuDiagnosticPolicyRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b4ed0",
+      "name": "audioDiagnosticPolicy",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared",
+      "body_ranges": [
+        {
+          "start": "0x4b4ed0",
+          "end": "0x4b520b",
+          "sha256": "ace4bc0d0c378c19a995e3482e1e4d100f55da687a6852bf5073d719b4bc4280"
+        }
+      ]
+    },
+    {
+      "address": "0x4bd260",
+      "name": "displayDiagnosticPolicy",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared",
+      "body_ranges": [
+        {
+          "start": "0x4bd260",
+          "end": "0x4bda95",
+          "sha256": "16874c57470ac9c8e5b3edda20a25afb82e645a30013b1d22be7fd8b89f56f3a"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a3920": {
+      "kind": "whole",
+      "name": "sprintf (original bounded fixed-format comparison service)",
+      "reason": "Original formatting executes unchanged on both comparison sides; calls have 2, 5 or 7 cdecl arguments. The native app replaces formatting; no CRT body is recovered or admitted."
+    },
+    "0x4bc110": {
+      "kind": "whole",
+      "name": "display RET-only output sink",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "void",
+      "reason": "The original body is a single RET and must not become a debug-log effect."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native beep replaces the Windows import; return is ignored and callbacks may change diagnostic flags."
+    },
+    "0x546a08": {
+      "kind": "fixture",
+      "name": "OutputDebugStringA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native audio debug transport replaces the Windows import and captures the formatted output bytes."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native dialog presentation replaces the Windows import; output and caption bytes are captured and the return is ignored."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_diagnostic_policy.cases.py",
+    "entry": "claw_menu_diagnostic_policy_entry",
+    "equivalent_mutants": [
+      {
+        "line": 155,
+        "operator": "le-to-lt",
+        "source_sha256": "deeb3165bbd26d143738b69b8fbd0d52f58d584ca124dd29c3d04ec3ad3a790c",
+        "mutant_sha256": "d39241351f14126ef1bc3850b8b44b363dd058d57bd7f9bb35452d19ac5b2578",
+        "reason": "For every finite NUL-terminated source, count is its length including NUL. Changing offset+4 <= count to offset+4 < count leaves the word loop unchanged unless count is divisible by four, in which case its final four bytes are instead copied by the following byte loop. The two disjoint original stack destinations never alias the immutable source literals. Both versions copy exactly bytes [0,count), in increasing order, with no calls or flag loads between these loops. Original instructions likewise copy count/4 words followed by count%4 bytes. Final guest bytes and all external observations are identical for every permitted input; only native operation budget consumption differs within the ample host safety budget."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1716919693,
+      "cases": 439,
+      "mutants_killed": 15,
+      "mutants_tried": 17,
+      "mutants_equivalent": 1,
+      "mutation_score": 0.938,
+      "reasons": [],
+      "build_inputs_sha256": "a54bec298dd27696d50a5d4b035d0aea3cf3c2dd474254354a9501b2bfe5bf23"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "MessageBeep is a scripted native physical-service boundary.",
+    "OutputDebugStringA is a scripted native debug-service boundary with captured output bytes.",
+    "MessageBoxA is a scripted native dialog-service boundary with captured output and caption bytes.",
+    "Unchanged original sprintf is only a comparison service for the five original ASCII %s/%i formats and outputs shorter than 512 bytes; no CRT code is recovered or certified.",
+    "The native app replaces formatting; its physical service join is checked separately from this game-policy admission.",
+    "All HRESULT selection branches and four independent flags are in scope, including the internal display switch; the display RET-only sink remains original."
+  ],
+  "notes": "Boundary settled from hash-verified original and reviewed audio/display contracts; exact variable formatter ABI, complete branch inventory, flag reloads, string spans and jump-table data are documented locally in work/packets/menu_diagnostic_policy/NOTES.md."
+}

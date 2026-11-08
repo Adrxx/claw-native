@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "id": "v13_cheat_presentation",
+  "title": "v1.3 grayscale palette toggle and music tempo request",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13CheatPresentationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x463bc0",
+      "interval_end": "0x463c87",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x463c90",
+      "interval_end": "0x463cda",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b55e0",
+      "interval_end": "0x4b5612",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4bc4f0": {
+      "kind": "fixture",
+      "name": "palette set entries",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    },
+    "0x4bc560": {
+      "kind": "fixture",
+      "name": "palette save",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    },
+    "0x4bc5b0": {
+      "kind": "fixture",
+      "name": "palette restore",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    },
+    "0x50c61c": {
+      "kind": "fixture",
+      "name": "AIL_set_sequence_tempo",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_cheat_presentation.cases.py",
+    "entry": "claw_v13_cheat_presentation_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 541590313,
+      "cases": 106,
+      "mutants_killed": 33,
+      "mutants_tried": 37,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.971,
+      "reasons": [],
+      "build_inputs_sha256": "a326d6781adb6a2ad9b242aea28cab9ce92f64f26131ad887e7ed397fffa9f28"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

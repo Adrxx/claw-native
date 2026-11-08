@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "menu_input_dispatch",
+  "title": "Application menu input forwarding",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuInputDispatchRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x429d60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429d80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429db0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429de0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_input_dispatch.cases.py",
+    "entry": "claw_menu_input_dispatch_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3019461423,
+      "cases": 80,
+      "mutants_killed": 12,
+      "mutants_tried": 12,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "a1047c96bf640b750c855a140f4037435b715e2d6d20e8657958c46112e965ed"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

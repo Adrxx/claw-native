@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "id": "menu_display_resize",
+  "title": "Menu resize virtual boundaries",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuDisplayResizeRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4d5720",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4280",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9bd0",
+      "name": "MenuState::type",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "native allocator owns physical storage release"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_display_resize.cases.py",
+    "entry": "claw_menu_display_resize_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 251868592,
+      "cases": 70,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "87ca2586b6d50bf210d893a167bd73abdc7df27004157f09122bf8ed85f41474"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a stand-in (allocate).",
+    "operator delete is native storage release."
+  ],
+  "notes": "Original forced/same-size, 800x600 changed-size and genuine CreateSurface failure tracing reaches these three virtual entries. Primary and auxiliary resize replace physical surfaces before signed size/depth admission. The menu type query belongs to the same finite resize boundary. Application error target 0x4b90b0 is native platform shutdown, not game recovery."
+}

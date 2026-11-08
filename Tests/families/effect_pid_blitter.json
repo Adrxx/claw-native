@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "id": "effect_pid_blitter",
+  "title": "Original remaining compressed eight-bit effects",
+  "abi": "legacy",
+  "sources": [
+    "Sources/EffectPIDBlitter.cpp",
+    "Sources/EffectPIDBlitter.h"
+  ],
+  "source_sha256": {
+    "Sources/EffectPIDBlitter.cpp": "095c2aace29448a4697f34702fa2abc9f24073cad7ee0d012450b903122ee1a5",
+    "Sources/EffectPIDBlitter.h": "21e0aba5ef80f6ac367eede701f8e41e6b3a59af9c4d4ab8de5a0b1aa90717c1"
+  },
+  "docs": [
+    "docs/effect-pid-blitter.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_effect_pid_blitter.py"
+      }
+    ],
+    "helpers": [
+      "Tests/effect_pid_blitter_helpers.py"
+    ],
+    "work_dirs": [
+      "work/effect-pid-blit-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-effect-pid-independent.log"
+      ],
+      "worker_evidence": [
+        "work/effect-pid-blit-agent/smoke.log",
+        "work/effect-pid-blit-agent/verification.json",
+        "work/effect-pid-blit-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_effect_pid_blitter.py": "pass"
+      },
+      "seconds": 120.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3764700981,
+      "owned": 2,
+      "owned_inferred_from_tests": true,
+      "directly_called": 2,
+      "fully_executed": 1,
+      "bytes_owned": 285,
+      "bytes_executed": 279,
+      "coverage": 0.9789
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeDisplay.swift"
+    ]
+  },
+  "limits": []
+}

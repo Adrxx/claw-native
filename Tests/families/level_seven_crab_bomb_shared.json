@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "id": "level_seven_crab_bomb_shared",
+  "title": "Level seven crab bomb shared closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelSevenCrabBombSharedRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x41fce0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x41fe80",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x431cd0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x431df0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4320d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x432250",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x432460",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4324e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x432550",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x432560",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic reference-count operation reached by the original CString implementation."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_seven_crab_bomb_shared.cases.py",
+    "entry": "claw_level_seven_crab_bomb_shared_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x431d2c",
+        "end": "0x431d2e",
+        "reason": "Original operator-new failure sets EDI=0 here and immediately reads [EDI] at 0x431d2e; original-only allocation-failure probe faults at address 0. No returning execution reaches this path."
+      },
+      {
+        "start": "0x431e45",
+        "end": "0x431e73",
+        "reason": "Requires 0x4db6e0 to return zero. Both original realloc-failure paths set EBP=0 then call 0x4dc680, whose mov eax,[ebp+4] faults at address 4 before returning; original-only failure probe confirms this."
+      },
+      {
+        "start": "0x431e8e",
+        "end": "0x431ea5",
+        "reason": "Second bounds miss is impossible after successful first lookup: original 0x4db6e0 with param2=0 sets the appropriate signed bound to the requested input. The in-range path changes no bounds; there is no intervening call after the first lookup. First-lookup failure faults in original 0x4dc680 before this check."
+      },
+      {
+        "start": "0x431ebf",
+        "end": "0x431ef2",
+        "reason": "Requires second bounds-miss growth returning zero. That miss cannot occur after successful first lookup, and original growth failure faults at 0x4dc680 with EBP=0 before returning zero."
+      },
+      {
+        "start": "0x432371",
+        "end": "0x4323c2",
+        "reason": "Original forces y velocity=2000 and forms vx*vx+2000*2000+vz*vz at 0x4322cb..0x4322e1. The stored coefficient is multiplied by immutable 0.25 at 0x43234b, so finite values are at least 1000000, outside immutable epsilon +/-0.1. Infinity takes quadratic branch; NaN sets C0 and takes 0x432362. Thus normalized-linear branch is unreachable with original constants."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 378,
+        "operator": "drop-statement",
+        "mutant_sha256": "979225ef0d3610937e2e76bb1aa562ca9ff17554f75ff552791a1630d2f2bfff",
+        "source_sha256": "b4ed9d03e6dbee4f10791cd656c463d72875573a26e3264f994f45a0e7410f15",
+        "reason": "Reviewed exact native diff against original 0x43237b. The change is wholly within the unreachable normalized-linear branch 0x432371..0x4323c2, with no entry or effect outside it. Original forces y velocity 2000, computes the sum of squared velocities and multiplies by immutable 0.25, giving a finite coefficient >=1000000 versus immutable epsilon0.1. Infinity takes the quadratic branch and NaN takes 0x432362. The modified operation cannot execute for any original input; the matching coverage exemption records the instruction-level proof."
+      },
+      {
+        "line": 384,
+        "operator": "swap-statements",
+        "mutant_sha256": "3a44de8b54c201309b946b610834e456e50dec564ca07f110b002c298330c9a2",
+        "source_sha256": "b4ed9d03e6dbee4f10791cd656c463d72875573a26e3264f994f45a0e7410f15",
+        "reason": "Reviewed exact native diff against original 0x432389..0x43238b. The change is wholly within the unreachable normalized-linear branch 0x432371..0x4323c2, with no entry or effect outside it. Original forces y velocity 2000, computes the sum of squared velocities and multiplies by immutable 0.25, giving a finite coefficient >=1000000 versus immutable epsilon0.1. Infinity takes the quadratic branch and NaN takes 0x432362. The modified operation cannot execute for any original input; the matching coverage exemption records the instruction-level proof."
+      },
+      {
+        "line": 389,
+        "operator": "drop-statement",
+        "mutant_sha256": "a37751077913df8c1c8ab6797237626ed756bc87ba33a2c3ec3cae6fb6b366ae",
+        "source_sha256": "b4ed9d03e6dbee4f10791cd656c463d72875573a26e3264f994f45a0e7410f15",
+        "reason": "Reviewed exact native diff against original 0x432395. The change is wholly within the unreachable normalized-linear branch 0x432371..0x4323c2, with no entry or effect outside it. Original forces y velocity 2000, computes the sum of squared velocities and multiplies by immutable 0.25, giving a finite coefficient >=1000000 versus immutable epsilon0.1. Infinity takes the quadratic branch and NaN takes 0x432362. The modified operation cannot execute for any original input; the matching coverage exemption records the instruction-level proof."
+      },
+      {
+        "line": 394,
+        "operator": "drop-statement",
+        "mutant_sha256": "538fd1dc27b6f77c0077c04d95c6b3056b0314be8c9c795a020dbcc2d5a8a228",
+        "source_sha256": "b4ed9d03e6dbee4f10791cd656c463d72875573a26e3264f994f45a0e7410f15",
+        "reason": "Reviewed exact native diff against original 0x4323a3. The change is wholly within the unreachable normalized-linear branch 0x432371..0x4323c2, with no entry or effect outside it. Original forces y velocity 2000, computes the sum of squared velocities and multiplies by immutable 0.25, giving a finite coefficient >=1000000 versus immutable epsilon0.1. Infinity takes the quadratic branch and NaN takes 0x432362. The modified operation cannot execute for any original input; the matching coverage exemption records the instruction-level proof."
+      },
+      {
+        "line": 400,
+        "operator": "swap-statements",
+        "mutant_sha256": "ed471216243c24e3978fd6922f02c13a9a2028f7842c33742400f7d1fa5c5101",
+        "source_sha256": "b4ed9d03e6dbee4f10791cd656c463d72875573a26e3264f994f45a0e7410f15",
+        "reason": "Reviewed exact native diff against original 0x4323b1..0x4323b5. The change is wholly within the unreachable normalized-linear branch 0x432371..0x4323c2, with no entry or effect outside it. Original forces y velocity 2000, computes the sum of squared velocities and multiplies by immutable 0.25, giving a finite coefficient >=1000000 versus immutable epsilon0.1. Infinity takes the quadratic branch and NaN takes 0x432362. The modified operation cannot execute for any original input; the matching coverage exemption records the instruction-level proof."
+      },
+      {
+        "line": 407,
+        "operator": "shift-offset",
+        "mutant_sha256": "5371ec39574a6d76ab0088b491d759df24dc2e87a9124fe7a75862a1ba0ef0f1",
+        "source_sha256": "b4ed9d03e6dbee4f10791cd656c463d72875573a26e3264f994f45a0e7410f15",
+        "reason": "Reviewed exact native diff against original 0x4323bd. The change is wholly within the unreachable normalized-linear branch 0x432371..0x4323c2, with no entry or effect outside it. Original forces y velocity 2000, computes the sum of squared velocities and multiplies by immutable 0.25, giving a finite coefficient >=1000000 versus immutable epsilon0.1. Infinity takes the quadratic branch and NaN takes 0x432362. The modified operation cannot execute for any original input; the matching coverage exemption records the instruction-level proof."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 658311969,
+      "cases": 600,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 6,
+      "mutation_score": 0.927,
+      "reasons": [],
+      "build_inputs_sha256": "1cd941f21b753c15bfa4c042657c1bd673f5947f5d5000664ba95707390a7c8c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "InterlockedDecrement is a declared scripted Windows service; cases implement the atomic decrement if that path is exercised."
+  ],
+  "notes": "Boundary reviewed against original disassembly; cdecl state callbacks use void, CrabBomb dispatcher takes one stack object argument, and 0x432560 executes its virtual tail target."
+}

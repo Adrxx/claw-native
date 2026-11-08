@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "player_standing",
+  "title": "Original standing and idle callbacks",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerStanding.cpp",
+    "Sources/PlayerStanding.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerStanding.cpp": "239b3263c76afc54ab03710898b46928cea3d72ae6af5b87a2ae9600ec98ee74",
+    "Sources/PlayerStanding.h": "c37e4f7b20520d5715860717b2ac14f029db4cdd5bd60ef954df74b8708ee7df"
+  },
+  "docs": [
+    "docs/player-standing.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_standing.py"
+      }
+    ],
+    "work_dirs": [
+      "work/standing-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/standing-agent/test-results.txt"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_standing.py": "pass"
+      },
+      "seconds": 5.8
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1132340797,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 2,
+      "bytes_owned": 3250,
+      "bytes_executed": 3238,
+      "coverage": 0.9963
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": []
+}

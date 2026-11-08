@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "id": "menu_application_services",
+  "title": "Menu application volume and full-palette forwarding services",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuApplicationServicesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42cdc0",
+      "name": "Application::setVolume",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42d590",
+      "name": "Palette::fadeAll",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Original palette fading allocates a temporary copy through the platform heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Original palette fade releases its temporary heap copy."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Original palette fade reads the Windows multimedia clock."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_application_services.cases.py",
+    "entry": "claw_menu_application_services_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1945251765,
+      "cases": 85,
+      "mutants_killed": 6,
+      "mutants_tried": 8,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "09332b4b2077a130765f2581bbb712689dc08a21e7b6333a2b4e91a44be6e8e5"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Original palette fading uses a fixture allocation for its temporary palette.",
+    "Original palette fading and reachable audio cleanup use a fixture release for platform heap storage.",
+    "Original palette fading uses a scripted multimedia clock; elapsed time is case-controlled.",
+    "Audio coordinator and palette fading remain original game callees, not fixtures."
+  ]
+}

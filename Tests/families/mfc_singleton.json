@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "id": "mfc_singleton",
+  "title": "Original complete MFC singleton lookup with genuine typed catch",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcSingletonRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x503420",
+      "name": "MfcSingleton::get",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x503420",
+          "end": "0x50348b",
+          "sha256": "20ff5fcf52ab88830c763c3a660763af742d480ec55bb7a587e7a51992258b5b"
+        }
+      ],
+      "attached_entries": [
+        {
+          "address": "0x503454",
+          "kind": "eh-funclet",
+          "native_entry": "claw_mfc_singleton_eh_entry",
+          "handler": "0x508bf8",
+          "func_info": "0x51ebc0",
+          "handler_table": "0x51ec08",
+          "call_site": "0x4a8f25",
+          "return_pc": "0x4a8f27",
+          "frame_delta_ebp": 12,
+          "cpu": {
+            "input_mask": 2047,
+            "output_mask": 2047
+          },
+          "normal_return": false
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48c0": {
+      "kind": "whole",
+      "name": "Original compiler scope registration",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      }
+    },
+    "0x502e95": {
+      "kind": "whole",
+      "name": "Original numbered lock acquire",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502f05": {
+      "kind": "whole",
+      "name": "Original numbered lock release",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502369": {
+      "kind": "whole",
+      "name": "Original module-state factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x502bde": {
+      "kind": "whole",
+      "name": "Original sixteen-byte singleton factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502c0f": {
+      "kind": "whole",
+      "name": "Original forty-eight-byte singleton factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a5690": {
+      "kind": "whole",
+      "name": "Original C++ throw/rethrow helper; nominal RET8 is unreachable on valid noncontinuable throw",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Real physical OS service with mapped state and coherent lifetime/lock effects; original internal code remains executable. No exception dispatch or game callback is supplied by this fixture."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Real physical OS service with mapped state and coherent lifetime/lock effects; original internal code remains executable. No exception dispatch or game callback is supplied by this fixture."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Real physical OS service with mapped state and coherent lifetime/lock effects; original internal code remains executable. No exception dispatch or game callback is supplied by this fixture."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Real physical OS service with mapped state and coherent lifetime/lock effects; original internal code remains executable. No exception dispatch or game callback is supplied by this fixture."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Real physical OS service with mapped state and coherent lifetime/lock effects; original internal code remains executable. No exception dispatch or game callback is supplied by this fixture."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546984": {
+      "kind": "fixture",
+      "name": "IsBadWritePtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546988": {
+      "kind": "fixture",
+      "name": "IsBadCodePtr",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546958": {
+      "kind": "guest-service",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "reason": "Driver-owned nonlocal physical guest transfer. Scripted returns, Halt substitution and arbitrary case overrides are forbidden; original exception search and cleanup execute unchanged."
+    },
+    "0x546a38": {
+      "kind": "guest-service",
+      "name": "RtlUnwind",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "reason": "Driver-owned nonlocal physical guest transfer. Scripted returns, Halt substitution and arbitrary case overrides are forbidden; original exception search and cleanup execute unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_singleton.cases.py",
+    "entry": "claw_mfc_singleton_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x503464",
+        "end": "0x50346d",
+        "reason": "Under pinned immutable code and exception metadata, genuine source-established frames and noncontinuable physical exception semantics, the original rethrow helper cannot return to 0x503464. Normal control skips to 0x50346d; the interior continuation has no independent valid entry. Exactly nine unreachable continuation bytes remain owned but exempt. The reachable catch at 0x503454 through 0x503464 is mandatory. Corrupted metadata, arbitrary seeded PCs and returning RaiseException are outside this contract."
+      }
+    ],
+    "guest_graph": {
+      "version": 1,
+      "allowed_handlers": [
+        "0x508539",
+        "0x5089cd",
+        "0x508bf8",
+        "0x4a3260",
+        "0x4a9348",
+        "0x4a3490"
+      ],
+      "factory_call_site": "0x50344d",
+      "allowed_factories": [
+        "0x502369",
+        "0x502bde",
+        "0x502c0f"
+      ],
+      "required_outcomes": [
+        "returned",
+        "unhandled"
+      ],
+      "require_native_attached_entries": true
+    },
+    "equivalent_mutants": [
+      {
+        "line": 68,
+        "operator": "drop-statement",
+        "source_sha256": "0bdc40cbb8c28e22cfa30dfa52c9174a3e0ea6635634b8de0e776edf9e54415d",
+        "mutant_sha256": "4795f5285621ef4d7de3967c0fc7edd0813d56a84a20c5ead415601ef8447cfc",
+        "reason": "Independent full-domain review: work/coordination/mfc-singleton-store-equivalent-review.md. Original compiler helper fixes EBP=F-4 and ESP=F-16. Second ECX push writes O to F-24=EBP-0x14; no intervening operation changes that word or ECX, and ESI is copied from ECX. This store rewrites identical bytes and changes no guest CPU/FS/flags state for all valid mapped aliases, registers and later returned/unhandled paths. Source-semantic observations with sufficient guards/budget only; host operation/access counters, exhausted-budget diagnostic timing and per-access observers excluded. Keep original store. Contract-update revalidation: work/coordination/mfc-singleton-store-contract-revalidation.md."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4278325022,
+      "cases": 60,
+      "mutants_killed": 7,
+      "mutants_tried": 9,
+      "mutants_equivalent": 1,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "f44603541005da36872842102b6c7aa603c971cb79b0514a2809dca08551de6e"
+    }
+  },
+  "integration": {
+    "level": "source-only",
+    "in_app_target": false,
+    "in_bridging_header": false,
+    "swift_references": []
+  },
+  "limits": [
+    "Whole107-byte root ownership with attached genuine catch,98 conditionally executable bytes. No reachable catch exemption and no original-owned native-side fallback.",
+    "Full source thiscall1/u32, all11 CPU input/output fields, preserve0. Valid mapped owner/frames, immutable source code/metadata, real original factory pointers and noncontinuable physical exception semantics.",
+    "All three declared original factories must execute on returned and unhandled paths in each admission seed/build; warm singleton returns cannot provide factory execution credit.",
+    "Outside internal dependencies execute as unchanged originals for family comparison; this is not proof of a shipping all-native CRT/lock/factory graph. Physical guest services are driver-owned transfers, not callbacks returning fabricated source results.",
+    "Unhandled is an explicit bounded guest outcome after original CRT cleanup, distinct from physical Halt, native fault, source normal return and transfer-in-progress.",
+    "No app startup, device, connected gameplay or native singleton parity is established by this specification.",
+    "Semantic source parity covers valid mapped spans, sufficient guards/budget and synchronous CPU/FS, memory, calls, ownership and returned/unhandled physical-transfer outcomes. Host operation/access counters, invalid-memory/ABI/budget diagnostic timing and asynchronous per-access observers are outside original CPU semantics. The equivalent owner store rewrites an identical value; retain the native store.",
+    "Selected module-factory source capability preserves0x472 with fresh physical heap storage and no physical-service writes into saved nonvolatile-register or FS restoration storage. Singleton root and locks retain preserve0; the child header does not replace the root header."
+  ],
+  "notes": "Reviewed whole-body source contract with a genuine typed catch attachment. Strict runtime policy and explicit outcome comparison are required. Blind original cases and native comparison pass; only the full gate determines admission."
+}

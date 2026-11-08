@@ -1,0 +1,45 @@
+[
+  {
+    "logic": "Sign",
+    "basis": "original-ignores",
+    "levels": [
+      12
+    ],
+    "wwd_sha256": "d5ad94d0779a2619323bb6c606b6f6325762947927c7e84b47a384267fb78ade",
+    "placements": [
+      {
+        "id": 749,
+        "plane": 1,
+        "x": 7456,
+        "y": 2962,
+        "z": 1000,
+        "record_offset": 823348,
+        "callback": "0x00000000",
+        "reason": "loader-returned-no-actor"
+      },
+      {
+        "id": 760,
+        "plane": 1,
+        "x": 20636,
+        "y": 1712,
+        "z": 1000,
+        "record_offset": 827062,
+        "callback": "0x00000000",
+        "reason": "loader-returned-no-actor"
+      },
+      {
+        "id": 771,
+        "plane": 1,
+        "x": 31264,
+        "y": 2197,
+        "z": 1000,
+        "record_offset": 1022454,
+        "callback": "0x00000000",
+        "reason": "loader-returned-no-actor"
+      }
+    ],
+    "evidence": "work/level-12-sign-discovery/object-loading.json",
+    "evidence_sha256": "2e37b06a1bfd92bc43d8023fd83e2235c1661622d925d093fd6a6884bb7a6be2",
+    "reason": "Original Level 12 registry lookup misses for IDs 749, 760 and 771; the loader destroys each temporary object and consumes its exact WWD record without creating an actor."
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_projectile_base_01",
+  "title": "Level 1 projectile base slot 0x474290",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchProjectileBase01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x474290",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_projectile_base_01.cases.py",
+    "entry": "claw_level_one_batch_projectile_base_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1444774475,
+      "cases": 126,
+      "mutants_killed": 14,
+      "mutants_tried": 20,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.933,
+      "reasons": [],
+      "build_inputs_sha256": "06d1628cd4afe4613e88752c445dc298c782b069088bb4fb6d7ed23fb2de6ff5"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

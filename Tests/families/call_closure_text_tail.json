@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "id": "call_closure_text_tail",
+  "title": "Font lookup measurement and clipped text drawing tail",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CallClosureTextTailRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4df6c0",
+      "name": "FontPainter::initialize",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df6d0",
+      "name": "FontPainter::setFont",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df6e0",
+      "name": "FontPainter::setColor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df6f0",
+      "name": "FontPainter::drawText",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df7d0",
+      "name": "FontPainter::drawClippedText",
+      "convention": "thiscall",
+      "argc": 9,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dfde0",
+      "name": "FontPainter::measureText",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dfee0",
+      "name": "Font::glyphSlot",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dff00",
+      "name": "Font::glyphExtent",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dff30",
+      "name": "Font::maximumHeight",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546ce0": {
+      "kind": "fixture",
+      "name": "IntersectRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows rectangle intersection writes destination and returns intersection status"
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Atomic CString reference-count increment reachable through original MFC copy constructor"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Atomic CString reference-count decrement reachable through original MFC destructor"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "C runtime heap release"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/call_closure_text_tail.cases.py",
+    "entry": "claw_call_closure_text_tail_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4df87e",
+        "end": "0x4df885",
+        "reason": "Original 0x4df828-0x4df830 copies measured width at local+0x84, and 0x4df842-0x4df861 calls IntersectRect with bounds (0,0,width,height), aliasing its other input/output. A successful physical intersection has right <= measured width. The unchanged signed compare at 0x4df87a therefore always takes JLE; the right clamp cannot execute."
+      },
+      {
+        "start": "0x4df894",
+        "end": "0x4df89b",
+        "reason": "Original 0x4df82c-0x4df83b copies measured height at local+0x88, and 0x4df842-0x4df861 intersects the input/output rectangle with (0,0,width,height). On physical success bottom <= measured height; no call or write intervenes before signed compare 0x4df890, so JLE always skips this bottom clamp."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 70,
+        "operator": "le-to-lt",
+        "source_sha256": "498e6bbbc2524697053c47d304e9913f93a41ba63007e24b1da6509517fb7c92",
+        "mutant_sha256": "b7bd351d20c31d235ea3b06a22b503919207965af3b2b0c51f51500617230801",
+        "reason": "Checked original 0x4dff40-0x4dff46: signed CMP maximum,height conditionally copies height into the EAX maximum. Changing <= to < only omits that register assignment when both bit-identical signed32 operands are equal. No memory write, call, flag-dependent descendant or alternate value occurs on this equality path; subsequent slot/count updates and returned maximum are identical for every permitted input."
+      },
+      {
+        "line": 128,
+        "operator": "drop-statement",
+        "source_sha256": "498e6bbbc2524697053c47d304e9913f93a41ba63007e24b1da6509517fb7c92",
+        "mutant_sha256": "f4f52040b5d4bf9fcced9f158f8a7709e0260d932421448a01729f92ce66bf83",
+        "reason": "Checked original range [0x4df87e,0x4df885) and original IntersectRect call 0x4df861 with the measured (0,0,width,height) bounds. This is the unreachable defensive clamp store already justified in coverage_exempt: a successful physical intersection cannot exceed that measured upper bound, and failure skips this entire block. Deleting this store cannot affect any permitted input."
+      },
+      {
+        "line": 131,
+        "operator": "drop-statement",
+        "source_sha256": "498e6bbbc2524697053c47d304e9913f93a41ba63007e24b1da6509517fb7c92",
+        "mutant_sha256": "11fd856e8d9999a05356e337559e3a5ad0b03bb319dfb0bfdd5c242e6562d136",
+        "reason": "Checked original range [0x4df894,0x4df89b) and original IntersectRect call 0x4df861 with the measured (0,0,width,height) bounds. This is the unreachable defensive clamp store already justified in coverage_exempt: a successful physical intersection cannot exceed that measured upper bound, and failure skips this entire block. Deleting this store cannot affect any permitted input."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2941621932,
+      "cases": 275,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 3,
+      "mutation_score": 0.929,
+      "reasons": [],
+      "build_inputs_sha256": "0c10842c92a8fa01c85449775d5bfd513d4d66c0bc563cd7e85f809470f280ce"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Windows rectangle intersection and atomic reference counts are physical-service fixtures.",
+    "MFC CString and CRect helpers run unchanged original code during comparison; the native app replaces the platform constructor separately."
+  ],
+  "notes": "Game font logic only. Platform CRect constructor0x4dfec0 stays outside ownership and requires a native production route."
+}

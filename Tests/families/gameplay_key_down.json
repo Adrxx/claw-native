@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "id": "gameplay_key_down",
+  "title": "Gameplay key-down handler and cheat-code buffer",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GameplayKeyDownRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x46bb30",
+      "name": "gameplay_state_key_down",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x422e00",
+      "name": "cheat_code_key",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window-message queue boundary."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/gameplay_key_down.cases.py",
+    "entry": "claw_gameplay_key_down_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1472414620,
+      "cases": 286,
+      "mutants_killed": 37,
+      "mutants_tried": 40,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "cee814c4f1ff98976030670bca064480a3372b616a8cd028ed23ee65dc0778b6"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "PostMessageA: Physical window-message queue boundary."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

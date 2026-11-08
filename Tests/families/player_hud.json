@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "player_hud",
+  "title": "Original player HUD frames",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerHUDRuntime.cpp",
+    "Sources/PlayerHUDRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerHUDRuntime.cpp": "72cc44fea33ee1d0a598fae27ce2a71e362d4189cd7e901da113bc557ac84b64",
+    "Sources/PlayerHUDRuntime.h": "504179540d0fbc4b26545e8c943e1c4fb270f4c5bf26e10e87b5f3069cd66b69"
+  },
+  "docs": [
+    "docs/player-hud-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_hud_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_hud_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/player-hud-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-player-hud-independent.log"
+      ],
+      "worker_evidence": [
+        "work/player-hud-agent/sanitizer.log",
+        "work/player-hud-agent/verification.json",
+        "work/player-hud-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_hud_runtime.py": "pass"
+      },
+      "seconds": 46.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3022652801,
+      "owned": 10,
+      "owned_inferred_from_tests": true,
+      "directly_called": 10,
+      "fully_executed": 5,
+      "bytes_owned": 4358,
+      "bytes_executed": 3923,
+      "coverage": 0.9002
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeHUD.swift"
+    ]
+  },
+  "limits": []
+}

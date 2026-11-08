@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "id": "level_one_world_collision_03",
+  "title": "Level 1 world and collision entries, batch 3",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneWorldCollision03Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4cda10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cdcb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cddc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cde00",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cde10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cde40",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d03b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0450",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0cd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f4a90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import: cases provide the rectangle copy (destination receives the four source dwords, returns 1) while original code runs unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_world_collision_03.cases.py",
+    "entry": "claw_level_one_world_collision_03_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4d05d8",
+        "end": "0x4d05da",
+        "reason": "Reached only when the slot count at [this+0xa4] is not positive; this xor leaves EDX zero and the original unconditionally reads [EDX+0x18] at 0x4d05da, a null access that faults before any recoverable return."
+      },
+      {
+        "start": "0x4d061d",
+        "end": "0x4d0629",
+        "reason": "The only incoming edge at 0x4d0604 follows the same slot-range compare (0x4d05e6/0x4d05ea) that already selected a nonzero slot in range, with EDI, EDX and EAX unchanged and no call or write between; the out-of-range branch cannot be taken. It would also xor EAX and dereference [EAX+0x14], a null fault."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1721691727,
+      "cases": 522,
+      "mutants_killed": 41,
+      "mutants_tried": 50,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "b76db50427d92a3dedacaf60afa55c2076e7d0513033b2bbbfb74e95843f7fb4"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "CopyRect is a stand-in (scripted)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly. Platform code recovered because: 0x4f4a90 is the 8-byte element constructor that the Level 1 trace shows being called from the game's grid vector constructor (23616 calls); it is game object code in the MFC address range, and the owner queued it by address in level-one-batch-world-and-collision-03 Indirect receivers (settled 2026-10-20, level-one-indirect-receiver-repair): at all three sites in 0x4cda10 (0x4cdac9, 0x4cdb99, 0x4cdc5a) the original loads ECX = the tile handler (the word read from the handler table at [this+0x4c] indexed by the cell's low 16 bits) and calls the handler's virtual slot +0x20 as thiscall with two stack arguments (local x, local y), callee-pop. In the game that slot is 0x4cde10, which reads [ECX+0x14..0x20]. Native code must pass the handler as receiver; cases must supply the slot as a thiscall stub (or the original 0x4cde10) so that a receiver of 0 fails the comparison."
+}

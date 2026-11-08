@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "glitter_logic",
+  "title": "Original glitter controllers",
+  "abi": "legacy",
+  "sources": [
+    "Sources/GlitterLogic.cpp",
+    "Sources/GlitterLogic.h"
+  ],
+  "source_sha256": {
+    "Sources/GlitterLogic.cpp": "1aa566531be6d3b211ff715bb8f80ad42dc5cff9a3bc2cac673f5f726e46deed",
+    "Sources/GlitterLogic.h": "fa5f518ce74b7220e97b69bd886feb8dd7cf3cf4df2c9e6c28b9abb4edf06288"
+  },
+  "docs": [
+    "docs/glitter-logic.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_glitter_logic.py"
+      }
+    ],
+    "helpers": [
+      "Tests/glitter_logic_helpers.py"
+    ],
+    "work_dirs": [
+      "work/glitter-logic-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/glitter-logic-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_glitter_logic.py": "pass"
+      },
+      "seconds": 2.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 94595347,
+      "owned": 6,
+      "owned_inferred_from_tests": true,
+      "directly_called": 6,
+      "fully_executed": 5,
+      "bytes_owned": 851,
+      "bytes_executed": 797,
+      "coverage": 0.9365
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeEffects.swift"
+    ]
+  },
+  "limits": []
+}

@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "id": "level_two_cannon_projectiles_01",
+  "title": "Level 2 cannon projectiles",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwoCannonProjectiles01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x414030",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4141f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138
+      }
+    },
+    {
+      "address": "0x414b20",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x414be0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x495ec0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x495f90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4db4d0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4db6e0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a36f0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "The original RTTI fallback 0x4a36f0 probes physical memory through this Windows import; the fixture validates guest memory availability."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_two_cannon_projectiles_01.cases.py",
+    "entry": "claw_level_two_cannon_projectiles_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x414245",
+        "end": "0x414273",
+        "reason": "Original 0x4db6e0 can return zero only after realloc returns null, setting EBP to zero at 0x4db70b or 0x4db77f; it then calls 0x4dc680, which reads [EBP+4] and faults before returning. Original probes dispatch 9 fail and dispatch 14 fail in work/packets/level_two_cannon_projectiles_01/cases-failure-probe.log confirm the null read at 0x4dc680."
+      },
+      {
+        "start": "0x4142bf",
+        "end": "0x4142f2",
+        "reason": "This block requires a zero result from original 0x4db6e0; both zero-allocation paths instead fault at 0x4dc680 after clearing EBP, as demonstrated in work/packets/level_two_cannon_projectiles_01/cases-failure-probe.log. The second successful growth path remains required and is exercised with an inverted zero-stride interval."
+      },
+      {
+        "start": "0x414b7c",
+        "end": "0x414b7e",
+        "reason": "The original null operator-new branch clears EDI here, then immediately reads [EDI] at 0x414b7e and faults. The allocation failure original probe in work/packets/level_two_cannon_projectiles_01/cases-failure-probe.log confirms the null read at 0x414b7e."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3341570671,
+      "cases": 199,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.978,
+      "reasons": [],
+      "build_inputs_sha256": "a5192ce1f64f8769f4a0348338421f1ce4544f48c441d5fd3e0446045dca78d3"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr is a stand-in that checks the requested guest-memory range."
+  ],
+  "notes": "Boundary reviewed against corpus disassembly. 0x414b20 is cdecl1 and returns 1. Only 0x4141f0 requires ordinary source context: original 0x4db5f0 returns the real return PC, which the caller stores globally. Other escaped output slots use ordinary stack aliases. Original game dependencies remain original-backed."
+}

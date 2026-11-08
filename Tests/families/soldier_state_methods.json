@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "id": "soldier_state_methods",
+  "title": "Soldier state dispatch and idle behaviour",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SoldierStateMethodsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x48b0c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48b730",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/soldier_state_methods.cases.py",
+    "entry": "claw_soldier_state_methods_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x48b115",
+        "end": "0x48b143",
+        "reason": "Taken only when 0x4db6e0 fails because realloc returns 0; the original then calls 0x4dc680 with EBP zero, which reads address 4 and faults. No normal-return input exists."
+      },
+      {
+        "start": "0x48b18f",
+        "end": "0x48b1c2",
+        "reason": "Second realloc-failure branch of 0x4db6e0 growth; same fault in 0x4dc680 reading [ebp+4] with EBP zero. No normal-return input exists."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4203443566,
+      "cases": 556,
+      "mutants_killed": 34,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.919,
+      "reasons": [],
+      "build_inputs_sha256": "ea1fa682e9e0020709cc2f62090b88dc963b3b28b2dec67ee7b67b47a755bc61"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "realloc is a stand-in (reallocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

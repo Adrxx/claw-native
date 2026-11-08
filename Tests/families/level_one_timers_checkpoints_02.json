@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "id": "level_one_timers_checkpoints_02",
+  "title": "Level 1 timer and checkpoint entries, batch 2",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneTimersCheckpoints02Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4919f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x491ed0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8e00",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8f60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3ca0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3e50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3ef0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3f20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_timers_checkpoints_02.cases.py",
+    "entry": "claw_level_one_timers_checkpoints_02_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c8ec1",
+        "end": "0x4c8ec3",
+        "reason": "First operator new returns null, the original then reads [esi] with esi zero and faults at 0x4c8ecb; no normally returning original case reaches it (checked by running the case on the original)."
+      },
+      {
+        "start": "0x4d3e34",
+        "end": "0x4d3e41",
+        "reason": "Delete path after the list add returns zero: the list add (0x4f51c5) never returns zero without faulting first (node allocation failure faults at 0x4f5ac1, zero block size at 0x4f56ca); checked by running cases on the original."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1220540808,
+      "cases": 596,
+      "mutants_killed": 46,
+      "mutants_tried": 55,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.92,
+      "reasons": [],
+      "build_inputs_sha256": "74fb2459115a084be1b3cec0280c15db4652982883888b3b56b731067837ab23"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

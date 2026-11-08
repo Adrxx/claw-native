@@ -1,0 +1,10 @@
+[
+  {
+    "path": "Sources/PlayerFadeRuntime.cpp",
+    "reason": "Tests/player_fade_blend_runtime_helpers.py reads this file and patches it with exact str.replace on single-line case bodies (count must be 1)."
+  },
+  {
+    "path": "Sources/WorldLootRuntime.cpp",
+    "reason": "Tests/super_powerup_runtime_helpers.py extracts the loot name table from this file with a single-line regex over its text."
+  }
+]

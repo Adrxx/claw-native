@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "id": "carray",
+  "title": "Original pointer CArray runtime",
+  "abi": "legacy",
+  "sources": [
+    "Sources/CArrayRuntime.cpp",
+    "Sources/CArrayRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/CArrayRuntime.cpp": "fe98c563d5d5c463072c71c6b45a3cecbdafdcc9beb02cea3e1b1bb9b2695adc",
+    "Sources/CArrayRuntime.h": "4ffe3555099f1711ca945107b192200ea6bfb650ef226b0e2d0c851fbd05eeb0"
+  },
+  "docs": [
+    "docs/carray-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4a48e0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a4900",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a4950",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a4a80",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f582f",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f58ab",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f5915",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_carray_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/carray_helpers.py"
+    ],
+    "work_dirs": [
+      "work/carray-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/carray-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_carray_runtime.py": "pass"
+      },
+      "seconds": 62.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2842739957,
+      "owned": 10,
+      "owned_inferred_from_tests": false,
+      "directly_called": 9,
+      "fully_executed": 8,
+      "bytes_owned": 1349,
+      "bytes_executed": 1232,
+      "coverage": 0.9133
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeWarpFade.swift",
+      "Sources/ClawNativeWorld.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: application_operator_new (0x4f63ec); core_registration (0x4f6428); crt_byte_fill (0x4a4a20). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims. The retained core_registration owner implements 0x4f6428 through backingFree; CArrayRuntime delegates release to its host callback."
+}

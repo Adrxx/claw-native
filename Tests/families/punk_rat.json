@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "punk_rat",
+  "title": "Retail PunkRat controller",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PunkRatRuntime.cpp",
+    "Sources/PunkRatRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PunkRatRuntime.cpp": "447eae1713b115b9214eabcbb89db1602ad94622c853e78935663955cfc690eb",
+    "Sources/PunkRatRuntime.h": "24485e7a7d4ef6d456108e3d0053c799840752a8eb8c2e8cda1c760bc9bb333d"
+  },
+  "docs": [
+    "docs/punk-rat-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_punk_rat_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/punk_rat_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/original-disc-assets",
+      "work/punk-rat-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-punk-rat-independent.log"
+      ],
+      "worker_evidence": [
+        "work/punk-rat-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_punk_rat_runtime.py": "pass"
+      },
+      "seconds": 32.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1142633359,
+      "owned": 16,
+      "owned_inferred_from_tests": false,
+      "directly_called": 16,
+      "fully_executed": 14,
+      "bytes_owned": 2439,
+      "bytes_executed": 2343,
+      "coverage": 0.9606
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_two_cannon_objects_01 (0x414640, 0x414660, 0x414860, 0x414a60); punk_rat_states (0x474330, 0x4743f0, 0x4746f0, 0x474710, 0x4747e0, 0x474bc0, 0x474c50, 0x474d00, 0x474db0, 0x474e10, 0x474e60, 0x474ec0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

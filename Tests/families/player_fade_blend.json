@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "id": "player_fade_blend",
+  "title": "Original palette blend tables, pointer-array growth and fade diagnostics",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PlayerFadeBlendCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4c61f0",
+      "name": "PaletteBlendManager_destroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c6270",
+      "name": "PaletteBlendManager_clear",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c6bd0",
+      "name": "PaletteBlendManager_addColorBlend",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7510",
+      "name": "PaletteBlendManager_remove",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7580",
+      "name": "Palette_findNearestRGB",
+      "convention": "cdecl",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c76d0",
+      "name": "BlendTable_construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c76e0",
+      "name": "BlendTable_destroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c76f0",
+      "name": "BlendTable_allocate",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c78d0",
+      "name": "BlendTable_release",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dee30",
+      "name": "PointerArray_setSize",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ec6b0",
+      "name": "FadeDiagnostic_consumeString",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The release fixture pairs with operator new."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic decrement import reached through the unchanged CString destructor 0x4f6584."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "Original x87 integer conversion with live blend weights",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/player_fade_blend.cases.py",
+    "entry": "claw_player_fade_blend_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1097666490,
+      "cases": 84,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.913,
+      "reasons": [],
+      "build_inputs_sha256": "99000f22a631d3b912b7e10dd3d73cc3539400512a8c374d5c6f5f730282e7c1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new: The C runtime heap ends in operating-system calls.",
+    "operator delete: The release fixture pairs with operator new.",
+    "InterlockedDecrement: Physical atomic decrement import reached through the unchanged CString destructor 0x4f6584."
+  ],
+  "notes": "Eleven game entries remain owned, including 0x4dee30. Existing canonical player_fade ownership of 0x4ec050, 0x4ed800 and 0x4ee170 is preserved. Platform entries 0x4f6433, 0x4f6480 and 0x4f65f2 are excluded from this migration; their executable dependencies remain original where reached. Legacy source and tests are unchanged historical artifacts. The three 0x4c6bd0 conversion calls require exact live x87 state; no game body is replaced by a fixture. This boundary specification is not parity or admission evidence."
+}

@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "humanoid_strike",
+  "title": "Original humanoid strike overloads",
+  "abi": "legacy",
+  "sources": [
+    "Sources/HumanoidStrikeRuntime.cpp",
+    "Sources/HumanoidStrikeRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/HumanoidStrikeRuntime.cpp": "2207d78e4e376d8e08d768e4c9631f143ed7dbd9b7af3072468dbabcda39772b",
+    "Sources/HumanoidStrikeRuntime.h": "fdc387be678a85349356850a1bf716cc275220935c390550cff10181093ca2ae"
+  },
+  "docs": [
+    "docs/humanoid-strike-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_humanoid_strike_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/humanoid_strike_helpers.py"
+    ],
+    "work_dirs": [
+      "work/humanoid-strike-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-humanoid-strike-independent.log"
+      ],
+      "worker_evidence": [
+        "work/humanoid-strike-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_humanoid_strike_runtime.py": "pass"
+      },
+      "seconds": 43.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 218828409,
+      "owned": 94,
+      "owned_inferred_from_tests": true,
+      "directly_called": 94,
+      "fully_executed": 90,
+      "bytes_owned": 9532,
+      "bytes_executed": 8944,
+      "coverage": 0.9383
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeHumanoid.swift"
+    ]
+  },
+  "limits": []
+}

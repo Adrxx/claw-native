@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_rat_01",
+  "title": "Level 1 closure: Rat logic helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosureRat01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x47cd70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47d4b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47d540",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47d5d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47d780",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_rat_01.cases.py",
+    "entry": "claw_level_one_closure_rat_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x47cdc5",
+        "end": "0x47cdf3",
+        "reason": "Table-grow failure path: the grow routine 0x4db6e0 returns 0 only after its realloc fails, then calls 0x4dc680 with EBP still 0, so the original reads address 4 and faults (reproduced under the harness: null pointer access at 0x4 from 0x4dc680); no case can complete this path."
+      },
+      {
+        "start": "0x47ce0e",
+        "end": "0x47ce25",
+        "reason": "Second range check cannot fail: it follows the first lookup immediately with no call between, and the first lookup either found the index inside the table bounds or grew the table through 0x4db6e0, which moves exactly one bound to the index; a path that left the index outside would fault first in 0x4dc680."
+      },
+      {
+        "start": "0x47ce3f",
+        "end": "0x47ce72",
+        "reason": "Reachable only from the second range check's grow call (exempt above), and its failure return would fault in 0x4dc680 as for the first grow."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4178495069,
+      "cases": 194,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "b0fd57e959404a9ff303e73adc8c3e868c98fd080cd3f82c4e549042e7686fbb"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "realloc is a stand-in (reallocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

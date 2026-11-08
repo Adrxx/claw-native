@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "id": "rat_logic",
+  "title": "Original v1.0 Rat callback and overrides",
+  "abi": "legacy",
+  "sources": [
+    "Sources/RatLogic.cpp",
+    "Sources/RatLogic.h"
+  ],
+  "source_sha256": {
+    "Sources/RatLogic.cpp": "38ab618357e192843d50b92daf149b8472b0c3c69d4ba79b07853ed503817d56",
+    "Sources/RatLogic.h": "186633c63c0a7e2d2aeda415fa7d370f1527d10200cb57527648538892b1bb90"
+  },
+  "docs": [
+    "docs/rat-logic.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_rat_logic.py"
+      }
+    ],
+    "helpers": [
+      "Tests/rat_helpers.py"
+    ],
+    "work_dirs": [
+      "work/rat-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_rat_logic.py": "pass"
+      },
+      "seconds": 8.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 4242620607,
+      "owned": 17,
+      "owned_inferred_from_tests": true,
+      "directly_called": 17,
+      "fully_executed": 13,
+      "bytes_owned": 3289,
+      "bytes_executed": 2997,
+      "coverage": 0.9112
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift",
+      "Sources/ClawNativeEnemy.swift"
+    ]
+  },
+  "limits": []
+}

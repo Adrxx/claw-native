@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "animation_engine",
+  "title": "Original v1.0 animation recovery",
+  "abi": "legacy",
+  "sources": [
+    "Sources/AnimationEngine.cpp",
+    "Sources/AnimationEngine.h"
+  ],
+  "source_sha256": {
+    "Sources/AnimationEngine.cpp": "0f727c0d470333ff5d819740eae91ea64b54f9fecac386c8310383d24cfc24e0",
+    "Sources/AnimationEngine.h": "bd993af698419e1d884c364087a7b335f73b000e1548d9632b011fe36b79ab23"
+  },
+  "docs": [
+    "docs/animation-engine.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_animation_engine.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/libAnimationEngine.dylib",
+          "--assets",
+          "Original/cd-assets"
+        ],
+        "prerequisites": [
+          "xcrun clang++ -std=c++17 -dynamiclib Sources/AnimationEngine.cpp -o work/libAnimationEngine.dylib"
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-animation-core-independent.log"
+      ],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_animation_engine.py": "pass"
+      },
+      "seconds": 1.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 645558883,
+      "owned": 3,
+      "owned_inferred_from_tests": true,
+      "directly_called": 3,
+      "fully_executed": 2,
+      "bytes_owned": 1484,
+      "bytes_executed": 1482,
+      "coverage": 0.9987
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawAnimationPlayback.swift",
+      "Sources/ClawAssets.swift"
+    ]
+  },
+  "limits": []
+}

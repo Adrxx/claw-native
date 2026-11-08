@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "id": "omar_projectiles_shield",
+  "title": "Omar projectiles and shield",
+  "abi": "canonical",
+  "sources": [
+    "Sources/OmarProjectilesShieldRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x410400",
+      "name": "OmarBullet",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412330",
+      "name": "OmarBullet::constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412460",
+      "name": "OmarBullet::dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412740",
+      "name": "OmarBullet::falling",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x464f20",
+      "name": "OmarShield",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x464fe0",
+      "name": "OmarShield::constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4651a0",
+      "name": "OmarShield::dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x465480",
+      "name": "OmarShield::selectShield",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x465550",
+      "name": "OmarShield::attack",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4742f0": {
+      "kind": "whole",
+      "name": "Projectile::falling",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Win32 pointer validation reached through original RTTI lookup 0x4a36f0; validates real case-owned storage"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/omar_projectiles_shield.cases.py",
+    "entry": "claw_omar_projectiles_shield_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x41045c",
+        "end": "0x41045e",
+        "reason": "Original operator-new failure clears EDI here, then immediately reads [EDI] at 0x41045e. Original execution with allocation failure confirmed a null read at 0x0; this path cannot return successfully."
+      },
+      {
+        "start": "0x464f79",
+        "end": "0x464f7b",
+        "reason": "Original operator-new failure clears EDI here, then immediately reads [EDI] at 0x464f7b. Original execution with allocation failure confirmed a null read at 0x0; this path cannot return successfully."
+      },
+      {
+        "start": "0x4124b5",
+        "end": "0x4124e3",
+        "reason": "Reached only if first table grow 0x4db6e0 returns zero. On realloc failure that original callee sets EBP to zero then calls 0x4dc680, which reads [EBP+4] and faults before returning. Original failed-growth probes at indices -1 and 3 confirmed read 0x4 at 0x4dc680."
+      },
+      {
+        "start": "0x41252f",
+        "end": "0x412562",
+        "reason": "Reached only if second table grow 0x4db6e0 returns zero. Original execution after a successful wrapped-bound first grow and failed second realloc confirmed read 0x4 at 0x4dc680: 0x4db6e0 sets EBP to zero and the callee reads [EBP+4] before any return. Successful second growth is covered."
+      },
+      {
+        "start": "0x4651f5",
+        "end": "0x465223",
+        "reason": "Reached only if first table grow 0x4db6e0 returns zero. On realloc failure that original callee sets EBP to zero then calls 0x4dc680, which reads [EBP+4] and faults before returning. Original failed-growth probes at indices -1 and 3 confirmed read 0x4 at 0x4dc680."
+      },
+      {
+        "start": "0x46526f",
+        "end": "0x4652a2",
+        "reason": "Reached only if second table grow 0x4db6e0 returns zero. Original execution after a successful wrapped-bound first grow and failed second realloc confirmed read 0x4 at 0x4dc680: 0x4db6e0 sets EBP to zero and the callee reads [EBP+4] before any return. Successful second growth is covered."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2721358598,
+      "cases": 113,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "667c275be36585bae2ace77ced62193eb94c57b7fbda838f8fea36a780b4bead"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr is a stand-in that validates case-owned storage."
+  ],
+  "notes": "Boundary reviewed against original disassembly; factories are cdecl1/u32, constructors thiscall1/u32, state handlers thiscall0/u32, and dispatch/select methods thiscall1/void. Falling preserves inherited x87 state while using exact ftol transport."
+}

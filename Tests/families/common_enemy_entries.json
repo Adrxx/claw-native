@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "common_enemy_entries",
+  "title": "Bounded common enemy entry controllers",
+  "abi": "legacy",
+  "sources": [
+    "Sources/CommonEnemyEntries.cpp",
+    "Sources/CommonEnemyEntries.h"
+  ],
+  "source_sha256": {
+    "Sources/CommonEnemyEntries.cpp": "8952135edb20e356ff1b2b685c99caff113f6fc7d974b68204612ab14d3fb775",
+    "Sources/CommonEnemyEntries.h": "f83bbead1ee18c0b979f85dcee1a33cb88ec0468348fab8f930c8b23fa1a2e5d"
+  },
+  "docs": [
+    "docs/common-enemy-entries.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_common_enemy_entries.py"
+      }
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_common_enemy_entries.py": "pass"
+      },
+      "seconds": 4.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 24622179,
+      "owned": 99,
+      "owned_inferred_from_tests": true,
+      "directly_called": 99,
+      "fully_executed": 94,
+      "bytes_owned": 7297,
+      "bytes_executed": 6924,
+      "coverage": 0.9489
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift",
+      "Sources/ClawNativeHumanoid.swift"
+    ]
+  },
+  "limits": []
+}

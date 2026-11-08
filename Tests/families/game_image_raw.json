@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "id": "game_image_raw",
+  "title": "Raw unflipped game image helper",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GameImageRawRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4d32e0",
+      "name": "GameImage::drawRawUnflipped",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical USER32 rectangle copy import; cases control copy and synchronous mutations."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/game_image_raw.cases.py",
+    "entry": "claw_game_image_raw_entry",
+    "equivalent_mutants": [
+      {
+        "line": 58,
+        "operator": "lt-to-le",
+        "source_sha256": "a1335af4500ee36c919079f98b1ab7210c901dbbec93647a1528c2db2ddb6645",
+        "mutant_sha256": "c5ca586305dae6810f0394d3ea93acdfaf11c27c2c0c8a00adf8a8aaf4b25a94",
+        "reason": "Original 0x4d33bb skips the left adjustment at equality. Changing < to <= adds only destination = destination + clipLeft - x when clipLeft equals x; uint32 subtraction is zero, so every existing destination bit (including CopyRect callback mutations) remains unchanged. No service call or subsequent branch differs."
+      },
+      {
+        "line": 62,
+        "operator": "lt-to-le",
+        "source_sha256": "a1335af4500ee36c919079f98b1ab7210c901dbbec93647a1528c2db2ddb6645",
+        "mutant_sha256": "fef10ec74e86b0555a5e7e0732019f7c06b1e9142efecc4f75a307cb25495162",
+        "reason": "Original 0x4d33f1 skips the top adjustment at equality. The added equality path writes destinationTop + clipTop - y with clipTop equal to y, an identity modulo 2^32 even after callback mutations. No service call or subsequent branch differs."
+      },
+      {
+        "line": 69,
+        "operator": "lt-to-le",
+        "source_sha256": "a1335af4500ee36c919079f98b1ab7210c901dbbec93647a1528c2db2ddb6645",
+        "mutant_sha256": "61754925007c3d1e35dfe1314f655b5f0a70bffe44e85c3e79b90bf759f07e03",
+        "reason": "Original 0x4d342f skips the target-left clamp at x=0. Destination-left was initialized to x after projection and no callback or write to it occurs before this non-world test; writing zero at equality rewrites its existing zero. All geometry, service calls and output bytes are unchanged."
+      },
+      {
+        "line": 74,
+        "operator": "lt-to-le",
+        "source_sha256": "a1335af4500ee36c919079f98b1ab7210c901dbbec93647a1528c2db2ddb6645",
+        "mutant_sha256": "19e5daca5ceefdc2cfc54839bd7a3d46b8be7f148395e665e53125dae1273f6d",
+        "reason": "Original 0x4d344d skips the target-top clamp at y=0. Destination-top was initialized to y after projection; preceding left/right clamps touch distinct words and there is no callback on this path. The extra equality store rewrites the existing zero, preserving all geometry, services and output bytes."
+      },
+      {
+        "line": 80,
+        "operator": "lt-to-le",
+        "source_sha256": "a1335af4500ee36c919079f98b1ab7210c901dbbec93647a1528c2db2ddb6645",
+        "mutant_sha256": "5630fb6ab86d9b76135d9514882e0e13f13a0e384bafb42aadaf3ebabc2e0a9b",
+        "reason": "Original 0x4d346f skips the actor-left clamp at x=leftClip. Destination-left already equals x, initialized after projection with no intervening callback on this non-world path. The equality store writes the identical uint32 value leftClip; all later geometry, calls and output bytes are unchanged."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2366702844,
+      "cases": 141,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 5,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8df21a5adf405c1c22bd8a4509df9bc10067ced857eeacbc7e0f88c24cc468c7"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "CopyRect and case-supplied DirectDraw callbacks are physical service fixtures; no native display or PID election is claimed.",
+    "Projection 0x4c96d0 and compressed dispatcher 0x4bffa0 execute unchanged original code on both comparison sides; valid backed eight-bit PID buffers exercise successful callbacks without entering the diagnostic failure path."
+  ],
+  "notes": "Owns only the exact thiscall2/void raw unflipped helper. Legacy game_image retains its dispatcher and loader ownership. Native display joining and raw PID admission remain separate queue prerequisites."
+}

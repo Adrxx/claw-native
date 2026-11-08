@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "id": "level_thirteen_wind_debris_01",
+  "title": "Level 13 wind debris",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelThirteenWindDebris01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x49f0a0",
+      "name": "wind_debris_factory",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49f1c0",
+      "name": "wind_debris_dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138
+      }
+    },
+    {
+      "address": "0x49f470",
+      "name": "wind_debris_construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49f770",
+      "name": "wind_debris_start",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49f7e0",
+      "name": "wind_debris_tick",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "capture caller instruction address",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4db6e0": {
+      "kind": "whole",
+      "name": "grow indexed callback table",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4db4d0": {
+      "kind": "whole",
+      "name": "record registry error",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a36f0": {
+      "kind": "whole",
+      "name": "RTTI type lookup",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Win32 address probe reached by original RTTI lookup; fixture checks case memory readability"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_thirteen_wind_debris_01.cases.py",
+    "entry": "claw_level_thirteen_wind_debris_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x49f0fc",
+        "end": "0x49f0fe",
+        "reason": "Original operator-new failure sets the instance to zero and immediately faults reading address 0 at 0x49f0fe; measured original-fault-probes.json records that original fault."
+      },
+      {
+        "start": "0x49f215",
+        "end": "0x49f243",
+        "reason": "Only reachable after original 0x4db6e0 returns zero. Every normal growth return retains the nonzero realloc result; realloc failure instead sets EBP=0 and original 0x4dc680 faults reading address 4 before returning. Checked original control flow and measured original-fault-probes.json."
+      },
+      {
+        "start": "0x49f28f",
+        "end": "0x49f2c2",
+        "reason": "Second-growth zero-return arm cannot execute normally: original 0x4db6e0 returns its nonzero realloc result or faults at 0x4dc680 reading address 4 after realloc failure. Checked original control flow and measured original-fault-probes.json."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 222,
+        "operator": "drop-statement",
+        "source_sha256": "c3800c89dcadd557c533e2deb8de481ca5d9e3bc3eae72bc9dbb29e3b85c636a",
+        "mutant_sha256": "e1957dbd73d4143853d6c1285df9f9ab7d130e76eecd52304ef389c60d8d20cb",
+        "reason": "Original constructor calls 0x4080a0 with receiver+0x28 at 0x49f4a7. Original initializer 0x40811e already stores global 0x513e14 to its +0x5c, hence receiver+0x84. Until the zero-config branch repeats that store at 0x49f4d7 there are no calls or changes to that destination or the default global; the omitted store leaves identical bits for every live debris receiver and default value."
+      },
+      {
+        "line": 228,
+        "operator": "drop-statement",
+        "source_sha256": "c3800c89dcadd557c533e2deb8de481ca5d9e3bc3eae72bc9dbb29e3b85c636a",
+        "mutant_sha256": "afecd34819417b06a4e37de5430b77c79a69502b5074e69ff06ff1c04864fc63",
+        "reason": "Original initializer 0x40813f stores global 0x513e10 to its +0x60, hence debris receiver+0x88, before returning to constructor 0x49f4ac. The zero-config branch repeats the same bits at 0x49f503; intervening owned stores affect other fields and no call changes the default. Deleting this repeated store preserves the original state for every live debris receiver and default value."
+      },
+      {
+        "line": 243,
+        "operator": "drop-statement",
+        "source_sha256": "c3800c89dcadd557c533e2deb8de481ca5d9e3bc3eae72bc9dbb29e3b85c636a",
+        "mutant_sha256": "b9cb760bf6ad24e77a4a81fd6433cd0b149e6c12e5505dcd2f3dd1967e298fe8",
+        "reason": "Original initializer 0x408154 stores global 0x513e1c to its +0x7c, hence debris receiver+0xa4. The zero-config constructor branch repeats the same bits at 0x49f56d, with no intervening calls or writes to that destination or default. Deleting this repeated high-word store preserves original state for every live debris receiver and default value."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1527047906,
+      "cases": 162,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 3,
+      "mutation_score": 0.905,
+      "reasons": [],
+      "build_inputs_sha256": "3caf13d2a8fb49d3bbdc34cecefa32f4925eb45e0b220833c11e0c65f55df1d5"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr uses case memory readability in place of operating-system probing."
+  ],
+  "notes": "Boundary reviewed against all five original disassemblies; factory takes one stack argument; dispatch uses existing source-context transport to preserve caller addresses in error records."
+}

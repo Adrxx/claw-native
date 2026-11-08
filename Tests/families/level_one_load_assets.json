@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "id": "level_one_load_assets",
+  "title": "Level 1 palette preparation and world reset",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneLoadAssetsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x46e160",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c60a0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c6fa0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c70b0",
+      "name": "Palette byte luminance comparator",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb5f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4ff5f9": {
+      "kind": "fixture",
+      "name": "CMemFile constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native byte-stream transport replaces MFC; cases provide serialized CLT bytes through virtual Read without replacing game parsing."
+    },
+    "0x4ff645": {
+      "kind": "fixture",
+      "name": "CMemFile Attach",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native byte-stream transport replaces MFC; cases provide serialized CLT bytes through virtual Read without replacing game parsing."
+    },
+    "0x4ff682": {
+      "kind": "fixture",
+      "name": "CMemFile destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native byte-stream transport replaces MFC; cases provide serialized CLT bytes through virtual Read without replacing game parsing."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_load_assets.cases.py",
+    "entry": "claw_level_one_load_assets_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c7085",
+        "end": "0x4c7087",
+        "reason": "The preceding initialization writes every byte index 0 through 255 once, and qsort only swaps those elements. For each inverse-rank search the requested index therefore exists before the 256-element search limit; the exhausted-search jump cannot execute in a returning uncorrupted run."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 76,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "4df0c086f61676ae06ff19e118239950bfc8246590e5b5a41a00c3551c277b83",
+        "reason": "byteSort is private and has exactly one caller, rank, which always passes count 256. Both count < 2 and count <= 2 are false for every permitted call."
+      },
+      {
+        "line": 112,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "e5987444d0d6965840ddb3fe60b152de36d27d09fa263694c03d28f36426bd2c",
+        "reason": "This condition selects which disjoint partition is processed first and which is deferred on the explicit stack. Both partitions have identical bounds in either branch, comparisons are pure palette reads, and swaps remain inside each partition. Changing the tie choice or subtracting a different one changes scheduling only, preserving every equal-key swap within each partition and the final bytes. At most 256 elements fit within the 30-frame stack for either schedule."
+      },
+      {
+        "line": 112,
+        "operator": "minus-one",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "5d68dcd2562ebeaa3c4e711d96e7e75c7eeec2ff813bc1a061b828a588fbd472",
+        "reason": "This condition selects which disjoint partition is processed first and which is deferred on the explicit stack. Both partitions have identical bounds in either branch, comparisons are pure palette reads, and swaps remain inside each partition. Changing the tie choice or subtracting a different one changes scheduling only, preserving every equal-key swap within each partition and the final bytes. At most 256 elements fit within the 30-frame stack for either schedule."
+      },
+      {
+        "line": 113,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "50b9916c5948d0f26907dd70beba4722bdf3523cfc53e61430ce4e33fb91f911",
+        "reason": "Changing left < high to left <= high only adds a deferred singleton [high,high]. Its small-sort loop does not execute, so it performs no compare or store and cannot change byte ordering. All non-singleton partitions are unchanged."
+      },
+      {
+        "line": 118,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "b6aa8070306313ad3cf6c5487d2724cf19bcf3b606b4ef7ea21aa42e4058f939",
+        "reason": "Changing low + 1 < right to <= only additionally processes singleton [low,right-1] when right == low+1. Its small-sort loop performs no compare or store. All other partition bounds and swaps are unchanged."
+      },
+      {
+        "line": 123,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "a1fef0dc519dc869596669a3076df71ee120a412b0e1a12ec821c0f0309f76d3",
+        "reason": "Changing low + 1 < right to <= only additionally defers singleton [low,right-1] when right == low+1. Its small-sort loop performs no compare or store. All other partition bounds and swaps are unchanged."
+      },
+      {
+        "line": 129,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "8ebcdb8fedb811e828bf177ab7f9bbea9d4b379ac5157a5b1ec440d7ac4a956d",
+        "reason": "Changing left < high to <= only additionally processes singleton [high,high]. Its small-sort loop performs no compare or store. All non-singleton partitions are unchanged."
+      },
+      {
+        "line": 133,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "be0bd498a2a3271fb32c990737b2295d2aeb1db2932199049ca85da824ab4d2b",
+        "reason": "Changing low < end to low <= end adds one selection-sort iteration with end == low. best starts at low, the scan is empty, and swap(low,low) explicitly does nothing. No memory or tie ordering changes."
+      },
+      {
+        "line": 164,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "6e323fbd9f65542a3ec63b877c43ce8a08b5372672a0539c74a07679b8d802d4",
+        "reason": "Changing initialization bound i < 256 to i <= 256 writes byte zero to destination+256 in the allocated 512-byte buffer. Sorting reads and swaps only the first 256 bytes and has no external callbacks. Inverse generation subsequently overwrites destination+256 with the actual rank of index zero before any outside observation or return; both final memory and call states are identical."
+      },
+      {
+        "line": 167,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "7597a44f75f86e0ad97f33b3c4335f0ccc81dde2caa60e5a3ec556e0198ae0e4",
+        "reason": "Changing inverse outer bound i < 256 to i <= 256 adds search for integer 256. Every loaded element is a byte 0 through 255, so the additional search cannot match and performs no store or outside call. The 512-byte output and return remain identical."
+      },
+      {
+        "line": 168,
+        "operator": "lt-to-le",
+        "source_sha256": "cc5ff97b9f7d765a371330b69d5d3c041db1064ee52f70565bfaed484244f375",
+        "mutant_sha256": "61f7edcb281765d97c8571ca17349e486a7d7316a29e4b383cf5525a4286f86f",
+        "reason": "Changing inverse search bound j < 256 to j <= 256 cannot reach j == 256: sorting only permutes the initialized 0 through 255 byte indices, so every requested index i in 0 through 255 is found and breaks earlier. This is the same invariant as the declared exhausted-search coverage exemption."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1623501263,
+      "cases": 85,
+      "mutants_killed": 34,
+      "mutants_tried": 48,
+      "mutants_equivalent": 11,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "68478f11f92e36e30a4925e13194c99c9259bd2cee922045dd29d912856a2bb9"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "Successful startup is checked with real namespace lookup and serialized CLT parsing; missing, empty and failed-load resources exercise fallback generation failure returns. Full successful light/average table generation remains unchanged outside this owned surface and exceeds the reference runner deadline in these startup cases.",
+    "Comparator arithmetic uses the original pinned byte-domain dyadic coefficient profile; no arbitrary floating-point coefficient or control-word policy is claimed."
+  ],
+  "notes": "Owns exactly the five Level 1 adaptation entries; legacy app adapters and canonical world_file ownership remain unchanged. Palette installation cdecl2 is confirmed by 0x46e28d/0x46e2a2/0x46e2b7 caller cleanup. Comparator cdecl2 is confirmed by incoming stack loads at 0x4c70b0/0x4c70b4. Native byte-domain sort preserves the existing legacy CRT qsort specialization, including equal-key swaps; unchanged original qsort is the independent reference. Physical zlib remains native and is outside this family."
+}

@@ -1,0 +1,398 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_commands_01",
+  "title": "Level 1 closure: level end, special command and application command helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosureCommands01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x46bc90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46bcf0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46bdb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42abb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42b910",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42d520",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42a570",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5c00",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5c10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5e50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4373d0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49c860",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "PostMessageA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546dec": {
+      "kind": "fixture",
+      "name": "mciSendCommandA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "mciSendCommandA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x546824": {
+      "kind": "fixture",
+      "name": "RegSetValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "RegSetValueExA is a physical operating-system import; cases supply its result and documented output-memory effects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows string length import used by unchanged CString helpers."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic operation reached by the original MFC string release boundary 0x4f6584."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic service: add one modulo 2^32 to the pointed word, store it, and return the new word."
+    },
+    "0x546a34": {
+      "kind": "fixture",
+      "name": "GetLocalTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical local clock transport; cases supply SYSTEMTIME bytes."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical millisecond clock at original CALL4b83aa/RPC4b83b0 and CALL4b83d0/RPC4b83d6. Supply a coherent per-environment 32-bit timeline; original instructions alone write receiver timing fields and image clock globals. No source helper, game state or global-write fixture."
+    },
+    "0x546e7c": {
+      "kind": "fixture",
+      "name": "AIL_sequence_status",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Platform audio import reached through unchanged original 0x4b5bd0; cases supply the sequence status."
+    },
+    "0x5469b4": {
+      "kind": "fixture",
+      "name": "GetSystemTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical UTC clock transport; cases supply SYSTEMTIME bytes."
+    },
+    "0x546a3c": {
+      "kind": "fixture",
+      "name": "GetTimeZoneInformation",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:172"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical timezone transport; cases supply TIME_ZONE_INFORMATION bytes."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup; cases supply a live initialized CRT thread-data block."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Thread last-error transport for original CRT TLS lookup."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Thread last-error restoration after original CRT TLS lookup."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_commands_01.cases.py",
+    "entry": "claw_level_one_closure_commands_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x46bcb8",
+        "end": "0x46bcba",
+        "reason": "Early return after the test of the 0x46bcf0 result: 0x46bcf0 has a single exit that loads 1 into eax (read in the disassembly), so the branch to 0x46bcba is always taken and this return cannot execute."
+      },
+      {
+        "start": "0x43748a",
+        "end": "0x437491",
+        "reason": "Branch for a zero-length string after truncation: the code only reaches it past a check that the length is at least 5 and then removes 4 characters, so the length is at least 1 and the compare against 1 never fails (read in the disassembly)."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2920541096,
+      "cases": 267,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.951,
+      "reasons": [],
+      "build_inputs_sha256": "bc03e03490354dbd8a2d5a8645d6d9070dfbf99de435f1ef4a371de5083f10ac"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

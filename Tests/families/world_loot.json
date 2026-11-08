@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "id": "world_loot",
+  "title": "Original world loot runtime",
+  "abi": "legacy",
+  "sources": [
+    "Sources/WorldLootRuntime.cpp",
+    "Sources/WorldLootRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/WorldLootRuntime.cpp": "aef21262fe5d321f52b9886011309d202125d2d9cb85109e1c79193c1744f9f5",
+    "Sources/WorldLootRuntime.h": "328265972115ddb4fcbe2bccfd0d242d876c51def38c44de4b945cf5f19306bd"
+  },
+  "docs": [
+    "docs/world-loot-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_world_loot_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/world_loot_helpers.py"
+    ],
+    "extra": [
+      "Tests/world_loot_chain_helpers.cpp",
+      "Tests/world_loot_death_chain.py",
+      "Tests/world_loot_initializer_profile.json"
+    ],
+    "work_dirs": [
+      "work/world-loot-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/world-loot-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_world_loot_runtime.py": "pass"
+      },
+      "seconds": 17.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-18",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2161056341,
+      "owned": 1,
+      "owned_inferred_from_tests": false,
+      "directly_called": 1,
+      "fully_executed": 1,
+      "bytes_owned": 427,
+      "bytes_executed": 427,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeLoot.swift",
+      "Tests/NativePlayer/main.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_loot_breakables_01 (0x42df90). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

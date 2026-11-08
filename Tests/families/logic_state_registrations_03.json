@@ -1,0 +1,388 @@
+{
+  "schema": 1,
+  "id": "logic_state_registrations_03",
+  "title": "Original logic state registrations group 3",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LogicStateRegistrations03Runtime.cpp"
+  ],
+  "canonical_sources": [
+    "Sources/LogicStateRegistrations03Runtime.cpp"
+  ],
+  "shared_sources": [
+    {
+      "family": "logic_state_registry_core",
+      "sources": [
+        "Sources/LogicStateRegistryCoreRuntime.cpp",
+        "Sources/LogicStateRegistryCoreRuntime.h"
+      ]
+    }
+  ],
+  "owned": [
+    {
+      "address": "0x433be0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x434a60",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x438210",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43ae30",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43cee0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43d5b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x441030",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4413f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x441e10",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4434c0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x445c00",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string length import reached from original string assignment"
+    },
+    "0x546928": {
+      "kind": "fixture",
+      "name": "HeapReAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 process heap reallocation import reached from original CRT realloc"
+    },
+    "0x546960": {
+      "kind": "fixture",
+      "name": "HeapAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 process heap allocation import reachable from original CRT realloc small-block fallback"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/logic_state_registrations_03.cases.py",
+    "entry": "claw_logic_state_registrations_03_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x433ca1",
+        "end": "0x433cb9",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x433d44",
+        "end": "0x433d5d",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x433ddb",
+        "end": "0x433e04",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x433ea4",
+        "end": "0x433ec8",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x434cc5",
+        "end": "0x434cde",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x4383ee",
+        "end": "0x438417",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x4384b7",
+        "end": "0x4384eb",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x43aef1",
+        "end": "0x43af09",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x43af94",
+        "end": "0x43afad",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x43b02b",
+        "end": "0x43b054",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x43b0f4",
+        "end": "0x43b118",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x43cf70",
+        "end": "0x43cf99",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x43d039",
+        "end": "0x43d06d",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x441080",
+        "end": "0x4410a4",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x442075",
+        "end": "0x44208e",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x445cc1",
+        "end": "0x445cd9",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x445d64",
+        "end": "0x445d7d",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x445dfb",
+        "end": "0x445e24",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      },
+      {
+        "start": "0x445ec4",
+        "end": "0x445ee8",
+        "reason": "Unreachable returning path: original grow helper 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f; a zero result calls 0x4dc680 at 0x4db788, which reads [EBP+4] at unmapped address 4 and faults before returning zero. Physical realloc remains original; no game helper is replaced."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 57,
+        "operator": "drop-statement",
+        "mutant_sha256": "f500a8c1ee6412ab112252fce79cf6213d20c7833aae06d9025548f1245c76bd",
+        "source_sha256": "c94e56c1d0ea1575c9132dacbed116b6c9eebeb42ed9313929189962851ec3fc",
+        "reason": "This mutation changes only the zero-return continuation of index 0x441030 (original 0x441080..0x4410a4). Before that continuation, original grow 0x4db6e0 sets EBP=0 on a null realloc result and calls 0x4dc680, which faults reading address 4. The unchanged native core grow likewise calls diagnostic with EBP=0 and faults before returning. Success returns a nonzero pointer and bypasses this block. Therefore no permitted returning or faulting input can execute the mutated statement; both prefixes are unchanged. This is the same original-proven range recorded in coverage_exempt, not equivalence inferred from surviving tests."
+      },
+      {
+        "line": 59,
+        "operator": "swap-statements",
+        "mutant_sha256": "ca33f149e324c1669caa55a5ad17ba77f80bf6c0a4781d87f718dbe407a9dc26",
+        "source_sha256": "c94e56c1d0ea1575c9132dacbed116b6c9eebeb42ed9313929189962851ec3fc",
+        "reason": "This mutation changes only the zero-return continuation of index 0x441030 (original 0x441080..0x4410a4). Before that continuation, original grow 0x4db6e0 sets EBP=0 on a null realloc result and calls 0x4dc680, which faults reading address 4. The unchanged native core grow likewise calls diagnostic with EBP=0 and faults before returning. Success returns a nonzero pointer and bypasses this block. Therefore no permitted returning or faulting input can execute the mutated statement; both prefixes are unchanged. This is the same original-proven range recorded in coverage_exempt, not equivalence inferred from surviving tests."
+      },
+      {
+        "line": 60,
+        "operator": "shift-offset",
+        "mutant_sha256": "28f834562f37517eb05731cf76c71cab9380c174361af74c829f82dfc84ed692",
+        "source_sha256": "c94e56c1d0ea1575c9132dacbed116b6c9eebeb42ed9313929189962851ec3fc",
+        "reason": "This mutation changes only the zero-return continuation of index 0x441030 (original 0x441080..0x4410a4). Before that continuation, original grow 0x4db6e0 sets EBP=0 on a null realloc result and calls 0x4dc680, which faults reading address 4. The unchanged native core grow likewise calls diagnostic with EBP=0 and faults before returning. Success returns a nonzero pointer and bypasses this block. Therefore no permitted returning or faulting input can execute the mutated statement; both prefixes are unchanged. This is the same original-proven range recorded in coverage_exempt, not equivalence inferred from surviving tests."
+      },
+      {
+        "line": 61,
+        "operator": "shift-offset",
+        "mutant_sha256": "3e9f483044e41873f5770b265c22305c178f14acb6f1d0209426dc48ec2a2821",
+        "source_sha256": "c94e56c1d0ea1575c9132dacbed116b6c9eebeb42ed9313929189962851ec3fc",
+        "reason": "This mutation changes only the zero-return continuation of index 0x441030 (original 0x441080..0x4410a4). Before that continuation, original grow 0x4db6e0 sets EBP=0 on a null realloc result and calls 0x4dc680, which faults reading address 4. The unchanged native core grow likewise calls diagnostic with EBP=0 and faults before returning. Success returns a nonzero pointer and bypasses this block. Therefore no permitted returning or faulting input can execute the mutated statement; both prefixes are unchanged. This is the same original-proven range recorded in coverage_exempt, not equivalence inferred from surviving tests."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3606810276,
+      "cases": 130,
+      "mutants_killed": 20,
+      "mutants_tried": 26,
+      "mutants_equivalent": 4,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8b130c8693ae8f6361a2f0802ad866cad8cab25b1851e228d95baff439065d48"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "lstrlenA is a stand-in (scripted).",
+    "HeapReAlloc is a stand-in (scripted).",
+    "HeapAlloc is a stand-in (scripted)."
+  ],
+  "notes": "Group 3 adapts exactly the eleven owned original entries using the unchanged canonical registry core and existing typed binding descriptors. Registration callback addresses remain data and confer no actor-body ownership. Coverage exemptions cover only returning fallback blocks unreachable after the original grow helper faults at address 4 on allocation failure."
+}

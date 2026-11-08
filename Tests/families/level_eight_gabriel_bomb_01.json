@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "id": "level_eight_gabriel_bomb_01",
+  "title": "Level 8 Gabriel bomb closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelEightGabrielBomb01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4459d0",
+      "name": "GabrielBomb::logic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x445af0",
+      "name": "GabrielBomb::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x445ef0",
+      "name": "GabrielBomb::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446130",
+      "name": "GabrielBomb::setTrajectory",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446340",
+      "name": "GabrielBomb::beginExplosion",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4463f0",
+      "name": "GabrielBomb::updateExplosion",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446490",
+      "name": "GabrielBomb::updateFall",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime allocator ends in operating-system heap calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_eight_gabriel_bomb_01.cases.py",
+    "entry": "claw_level_eight_gabriel_bomb_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x445a2c",
+        "end": "0x445a2e",
+        "reason": "Runs only when operator new returns 0. The original then zeroes EDI and unconditionally loads the vtable word at [EDI] at 0x445a2e, so it faults. The native body must keep the read, not add a guard."
+      },
+      {
+        "start": "0x445b45",
+        "end": "0x445b73",
+        "reason": "Runs only when the table grow routine 0x4db6e0 returns 0. Its single zero-return exit follows a failed realloc with EBP holding the zero result, and calls 0x4dc680, which loads [EBP+4]. The original faults before returning."
+      },
+      {
+        "start": "0x445b8e",
+        "end": "0x445ba5",
+        "reason": "Second range check, reached only if the entry at 0x445b73 is nonzero yet outside the table. After a successful first-pass grow the entry address is the start of the freshly zero-filled area, so it is zero and takes the 0x445bf2 branch. An in-range first pass leaves the same bounds. The check cannot fail."
+      },
+      {
+        "start": "0x445bbf",
+        "end": "0x445bf2",
+        "reason": "Failure arm of the unreachable second range check (0x445b8e), and itself only entered after 0x4db6e0 fails, which faults at 0x4dc680 with EBP zero."
+      },
+      {
+        "start": "0x446255",
+        "end": "0x4462b2",
+        "reason": "Near-zero linear branch, taken only when the squared-length scalar times 0.25 lies in [-0.1, 0.1]. The function stores 2000.0 at this+0x40 on entry and that component enters the sum of squares, so the scalar is at least 4e6 (or NaN, which takes the other branch). Checked with a stack simulation of the instruction sequence and the data constants 0.25 at 0x50df30 and 0.1 at 0x513e20."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1826106598,
+      "cases": 422,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "21a52bc24a795e1aa34b984ed97eba81196ede2f90342af5af14fd938ec119f3"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Boundary reviewed against corpus disassembly; packet NOTES records object layouts, x87 branch semantics, transitive imports and original null-dereference paths requiring coordinator review."
+}

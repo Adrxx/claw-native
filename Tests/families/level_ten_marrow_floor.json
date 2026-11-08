@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "id": "level_ten_marrow_floor",
+  "title": "Level 10 marrow floor closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTenMarrowFloorRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x45a400",
+      "name": "MarrowFloor::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45a7c0",
+      "name": "MarrowFloor::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45a940",
+      "name": "MarrowFloor::enterIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45a980",
+      "name": "MarrowFloor::idle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45a9f0",
+      "name": "MarrowFloor::enterOpening",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45aa40",
+      "name": "MarrowFloor::opening",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45aa90",
+      "name": "MarrowFloor::enterClosing",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45aae0",
+      "name": "MarrowFloor::closing",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ab40",
+      "name": "MarrowFloor::moveTowardLow",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45abc0",
+      "name": "MarrowFloor::moveTowardHigh",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ac40",
+      "name": "MarrowFloor::reset",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows readable-memory query reached by the original RTTI lookup on a null state callback."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_ten_marrow_floor.cases.py",
+    "entry": "claw_level_ten_marrow_floor_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x45a455",
+        "end": "0x45a483",
+        "reason": "Original table growth 0x4db6e0 stores failed realloc result zero into EBP at 0x4db70b or 0x4db77f, then calls 0x4dc680 at 0x4db788; its first instruction reads [EBP+4] and faults at address 4 before growth can return zero. Independently checked against hash-verified original bytes; fresh case-author failure probe observed this exact fault. Therefore the dispatch grow-return-zero handler cannot execute."
+      },
+      {
+        "start": "0x45a4cf",
+        "end": "0x45a502",
+        "reason": "Original table growth 0x4db6e0 stores failed realloc result zero into EBP at 0x4db70b or 0x4db77f, then calls 0x4dc680 at 0x4db788; its first instruction reads [EBP+4] and faults at address 4 before growth can return zero. Independently checked against hash-verified original bytes; fresh case-author failure probe observed this exact fault. Therefore the dispatch grow-return-zero handler cannot execute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2125377726,
+      "cases": 374,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.9,
+      "reasons": [],
+      "build_inputs_sha256": "097e886e3f57c850248a985974af3db9660423ec7536273e43e3bff047ba3157"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "IsBadReadPtr uses the declared readable-memory fixture."
+  ],
+  "notes": "Boundary checked against original disassembly: ECX receiver at every entry, one stack word only for dispatchState and construct; move helpers return full EAX booleans."
+}

@@ -1,0 +1,432 @@
+{
+  "schema": 1,
+  "id": "image_registry",
+  "title": "Original image and ANI registry transport",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ImageRegistryCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4cdff0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce0d0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce250",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce270",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce2d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce320",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce480",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce530",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce5e0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce670",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce770",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf1f0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf230",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cfaa0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cfba0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cfca0",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cfdb0",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cfec0",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cfee0",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cff00",
+      "convention": "stdcall",
+      "argc": 5,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cff20",
+      "convention": "stdcall",
+      "argc": 5,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cff40",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0120",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d02f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0310",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0380",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2380",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6070",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d61b0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6210",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6260",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6280",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d76e0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime allocator reaches the operating-system heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime release pairs with the emulated allocation fixture."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached by original CString assignment during map insertion."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic reference-count import reached through original CString release."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows resource lookup import called at original 0x4be064; cases provide absent bitmap resources while the filename loader remains original-backed."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/image_registry.cases.py",
+    "entry": "claw_image_registry_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4ce374",
+        "end": "0x4ce376",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4ce4d4",
+        "end": "0x4ce4d6",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4ce584",
+        "end": "0x4ce586",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4cfb32",
+        "end": "0x4cfb34",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4cfc32",
+        "end": "0x4cfc34",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4cfd32",
+        "end": "0x4cfd34",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4cfe42",
+        "end": "0x4cfe44",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4d0090",
+        "end": "0x4d0092",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4d60fa",
+        "end": "0x4d60fc",
+        "reason": "Reviewed original allocation-null path zeros the receiver then immediately dereferences it (directly or in owned 0x4d76e0). This two-byte prefix cannot complete in the normal-return comparison profile; invalid-memory fault parity is not claimed. The allocation branch and all successful allocation instructions remain required; no game callback is replaced to manufacture a return."
+      },
+      {
+        "start": "0x4cfb4e",
+        "end": "0x4cfb61",
+        "reason": "Structurally unreachable with the original newly constructed group vtable 0x513cf8: its name-setter 0x4d0380 has sole normal return EAX=1 at 0x4d039a, so the zero-result cleanup branch cannot execute. Original game vtables and owned callees are retained."
+      },
+      {
+        "start": "0x4cfc4e",
+        "end": "0x4cfc61",
+        "reason": "Structurally unreachable with the original newly constructed group vtable 0x513cf8: its name-setter 0x4d0380 has sole normal return EAX=1 at 0x4d039a, so the zero-result cleanup branch cannot execute. Original game vtables and owned callees are retained."
+      },
+      {
+        "start": "0x4cfd4e",
+        "end": "0x4cfd61",
+        "reason": "Structurally unreachable with the original newly constructed group vtable 0x513cf8: its name-setter 0x4d0380 has sole normal return EAX=1 at 0x4d039a, so the zero-result cleanup branch cannot execute. Original game vtables and owned callees are retained."
+      },
+      {
+        "start": "0x4cfe5e",
+        "end": "0x4cfe71",
+        "reason": "Structurally unreachable with the original newly constructed group vtable 0x513cf8: its name-setter 0x4d0380 has sole normal return EAX=1 at 0x4d039a, so the zero-result cleanup branch cannot execute. Original game vtables and owned callees are retained."
+      },
+      {
+        "start": "0x4d00aa",
+        "end": "0x4d00bd",
+        "reason": "Structurally unreachable with the original newly constructed group vtable 0x513cf8: its name-setter 0x4d0380 has sole normal return EAX=1 at 0x4d039a, so the zero-result cleanup branch cannot execute. Original game vtables and owned callees are retained."
+      },
+      {
+        "start": "0x4d613f",
+        "end": "0x4d619b",
+        "reason": "Structurally unreachable: direct owned record parser 0x4d76e0 has sole normal return EAX=1 at 0x4d7793. The caller cleanup requires EAX=0 at 0x4d610b; invalid-memory faults do not return into this block. No owned parser fixture is permitted."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 309,
+        "operator": "shift-offset",
+        "mutant_sha256": "873cceaf76f07708da0da53936fa39369e07f8f49d218b3908b2eb254b3b1c43",
+        "source_sha256": "f2514ceb83590cecfe9ed7736482b7962d76f1495ad1651ba75e76f1e5d14e51",
+        "reason": "The shifted read is inside the zero-result cleanup branch following the direct native-owned 0x4d76e0 parser. Both original 0x4d7793 and the native parser have sole normal return 1. No permitted fixture replaces this owned function. The altered expression therefore cannot execute for any permitted normal-return input, matching the independently reviewed structural coverage exclusion [0x4d613f,0x4d619b)."
+      },
+      {
+        "line": 470,
+        "operator": "lt-to-le",
+        "mutant_sha256": "4bd6a94a8140b1cf362947e1ad3982e0ccdd5ae77357835cf9ac4ab01a42058e",
+        "source_sha256": "f2514ceb83590cecfe9ed7736482b7962d76f1495ad1651ba75e76f1e5d14e51",
+        "reason": "Changing index < current signed minimum to <= only adds the equality case. Equality of the signed representations implies identical uint32 words; that case writes index back to the same receiver+0x64 word which already holds index. There is no call, aliasing write or callback between the comparison and this store, and no externally observed write trace. All unequal cases retain the same behavior and subsequent maximum handling is unchanged."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4230906790,
+      "cases": 257,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 2,
+      "mutation_score": 0.923,
+      "reasons": [],
+      "build_inputs_sha256": "e879320e89af5c77173e1f3745eeae81bb5eb5279a306d68e0a9c1f25072cf0a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new is an emulated allocation service, not the Windows heap.",
+    "Operator delete is an emulated release service, not the Windows heap.",
+    "The lstrlenA import is supplied by each case using the actual argument string.",
+    "InterlockedDecrement is a scripted atomic decrement over the actual CString reference-count word.",
+    "Game, MFC collection and CRT string callees execute original instructions on both sides; normal-return comparison does not certify exception unwinding.",
+    "FindResourceA supplies native Windows resource availability; the current profile exercises missing embedded bitmap resources through the original filename loader.",
+    "The normal-return profile excludes invalid-memory fault parity for nine two-byte allocation-null prefixes; 187 additional bytes are structurally unreachable with the unchanged owned name setter and record parser. All reachable normal-return owned bytes remain required."
+  ],
+  "notes": "Canonical migration retains all 28 previous owners and adds reviewed destructors/cleanup at 0x4ce270, 0x4ce2d0, 0x4d0310, 0x4d6210 and 0x4d6280; legacy native sources remain untouched. Forward-only stdcall wrappers have no proven consumed EAX and retain semantic-void results."
+}

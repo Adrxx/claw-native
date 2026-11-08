@@ -1,0 +1,352 @@
+{
+  "schema": 1,
+  "id": "logic_state_registrations_05",
+  "title": "Original logic state registrations group 5",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LogicStateRegistrations05Runtime.cpp"
+  ],
+  "canonical_sources": [
+    "Sources/LogicStateRegistrations05Runtime.cpp"
+  ],
+  "shared_sources": [
+    {
+      "family": "logic_state_registry_core",
+      "sources": [
+        "Sources/LogicStateRegistryCoreRuntime.cpp",
+        "Sources/LogicStateRegistryCoreRuntime.h"
+      ]
+    }
+  ],
+  "owned": [
+    {
+      "address": "0x457860",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4583a0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4588b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45a520",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x460820",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x462c00",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x463c50",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4652c0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x465ec0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x468be0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46f7b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string length import reached from original string assignment"
+    },
+    "0x546928": {
+      "kind": "fixture",
+      "name": "HeapReAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 process heap reallocation import reached from original CRT realloc"
+    },
+    "0x546960": {
+      "kind": "fixture",
+      "name": "HeapAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 process heap allocation import reachable from original CRT realloc small-block fallback"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/logic_state_registrations_05.cases.py",
+    "entry": "claw_logic_state_registrations_05_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4578de",
+        "end": "0x4578f6",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x457986",
+        "end": "0x45799f",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x457a1d",
+        "end": "0x457a46",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x457ae8",
+        "end": "0x457b0c",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x458430",
+        "end": "0x458459",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x4584f9",
+        "end": "0x45852d",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x45a6be",
+        "end": "0x45a6e7",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x45a787",
+        "end": "0x45a7bb",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x460a85",
+        "end": "0x460a9e",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x462cc1",
+        "end": "0x462cd9",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x462d64",
+        "end": "0x462d7d",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x462dfb",
+        "end": "0x462e24",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x462ec4",
+        "end": "0x462ee8",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x465350",
+        "end": "0x465379",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x465419",
+        "end": "0x46544d",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x468e45",
+        "end": "0x468e5e",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x46f98e",
+        "end": "0x46f9b7",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      },
+      {
+        "start": "0x46fa57",
+        "end": "0x46fa8b",
+        "reason": "This normal-return continuation requires 0x4db6e0 to return zero. On failed realloc the original copies zero to EBP and calls 0x4dc680, which reads [EBP+4] and faults at unmapped address 4 before growth can return. No physical fixture can produce this continuation without replacing game code; the fault outcome is outside ordinary comparison coverage."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3686371290,
+      "cases": 192,
+      "mutants_killed": 16,
+      "mutants_tried": 16,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ba379da99da35a34b4c4b46b054f27f4a655da8b6c699f67e9ea60945d520964"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "Registration wrappers only; actor constructors, virtual tables and callback bodies retain existing owners.",
+    "Original array growth failure faults in its diagnostic helper before returning; any unreachable continuation is reported explicitly."
+  ],
+  "notes": "All eleven entries register state-name bindings only: cdecl, zero stack arguments, void result, confirmed by original decompiles and return instructions. The unchanged typed registry core supplies Patricia trie and array algorithms; callback pointers are data, not owned actor logic. Parent registrations retain their declared whole-code boundaries."
+}

@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "end_level_gem",
+  "title": "Original EndLevelGem and EndOfLevelPowerup",
+  "abi": "legacy",
+  "sources": [
+    "Sources/EndLevelGemRuntime.cpp",
+    "Sources/EndLevelGemRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/EndLevelGemRuntime.cpp": "eb095efb099c35c451104ba7d2101ad080bac685ad4e3ebb57e1e14eb3794069",
+    "Sources/EndLevelGemRuntime.h": "3b39b512aafaf067625059c262ae843062d9995202d932a9ced42bd529da77fc"
+  },
+  "docs": [
+    "docs/end-level-gem-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_end_level_gem_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/end_level_gem_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/end-level-gem-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-end-level-gem-independent.log"
+      ],
+      "worker_evidence": [
+        "work/end-level-gem-agent/smoke.log",
+        "work/end-level-gem-agent/verification.json",
+        "work/end-level-gem-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_end_level_gem_runtime.py": "pass"
+      },
+      "seconds": 10.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 803399483,
+      "owned": 16,
+      "owned_inferred_from_tests": true,
+      "directly_called": 16,
+      "fully_executed": 12,
+      "bytes_owned": 5332,
+      "bytes_executed": 3221,
+      "coverage": 0.6041
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": []
+}

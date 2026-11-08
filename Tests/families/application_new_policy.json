@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "id": "application_new_policy",
+  "title": "Per-thread application allocation failure policy",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationNewPolicyRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x5022b5",
+      "name": "ApplicationThreadStateGet",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x5022b5",
+          "end": "0x5022cc",
+          "sha256": "f3d12a61214c8607ab1ebea35be225f8172974a948f6b10b8ffcb1026b39ce30"
+        }
+      ]
+    },
+    {
+      "address": "0x4f63d8",
+      "name": "ApplicationThreadNewHandlerSet",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f63d8",
+          "end": "0x4f63ec",
+          "sha256": "ef8eec5fdbd25c601d8fd46fb6a4afa28a7cb705b46cfc06078e7c39f04652b6"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x50228f": {
+      "kind": "whole",
+      "name": "Admitted real module-state getter",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024
+      }
+    },
+    "0x50335e": {
+      "kind": "whole",
+      "name": "Admitted real TLS slot getter",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024
+      }
+    },
+    "0x502301": {
+      "kind": "whole",
+      "name": "Admitted actual application-thread factory callback",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Allocates a distinct live TLS index orffffffff; same logical-thread owner persists across roots. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Reads actual current logical-thread TLS[index]; returns0 for a live unpopulated slot. No fabricated thread-record pointer. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Stores the exact source-provided container pointer only on success; false preserves existing TLS. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical LocalAlloc flags,size: fresh tracked backing or0; flag40 zero-fills, flags0 does not promise zero. Source creates module/thread/container/values. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical LocalReAlloc pointer,size,flags: flags2 permits movement; preserve old prefix, old allocation on failure and exact identities. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical GlobalAlloc flags,size: source requests2002; distinct tracked movable handle and data backing, no implicit zero fill without flag40. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalLock returns tracked data for an actual global handle and maintains lock count; cached import remains this physical API. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalHandle maps real global data to its handle; null in the original allocation-failure path maps to0. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalUnlock decrements the actual handle lock count; zero may indicate successful final unlock. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalReAlloc handle,size,flags: preserve prefix, ownership and handle/data identity rules; failure retains old allocation. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Initialize the exact source-selected 24-byte critical-section identity; no publication or source cache writes. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Acquire an actually initialized section for the current logical thread, preserving recursive ownership. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Release the actually held section; same source-created manager and numbered-lock owners. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Declared process GetVersion input; original502e47 derives MFC lock policy. Probe used NT4 DWORD4, not an injected lock-policy global. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Noncontinuable physical RaiseException: flag1/count3 from real4f50fd/4a5690; Halt at genuine frame/RPC4a56cf without fabricated return, dispatch or unwind. Every program getter/factory/constructor/handler remains original source."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_new_policy.cases.py",
+    "entry": "claw_application_new_policy_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3678728918,
+      "cases": 68,
+      "mutants_killed": 8,
+      "mutants_tried": 9,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "b6bae781d4997aaa4e874459b530d5ec2859f3dee53a3574ef30fba2a9367d45"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Own both complete ordinary functions:5022b5..5022cc(23B) and4f63d8..4f63ec(20B),43B total, full source7ff/7ff/preserve0. No body, branch or byte exemptions.",
+    "Accessor is cdecl0/u32: actualmodule50228f result plus1070 is the TLS-slot receiver, and50335e receives actualsourcefactory502301. Original cold/warm module/TLS creation and publication execute unchanged source.",
+    "Setter is stdcall1/u32 RET4: source obtains actualapplicationthread, reads its+28 previoushandler, stores the full32-bit input word at+28 andreturns the oldword. It does not invoke, dereference or validate the newhandler value. Opaque setterwords are data within these43B, not callback capabilities.",
+    "All getters, factories, constructors, compiler helpers, bytefill and failure helpers remain real source. Only exact declaredphysicalimports may be scripted; no sourcecache, slot, manager, threadfield or gameoutput fixturewrites.",
+    "Use one coherent process image and live physicalowner across sequential roots. Real TLS uses currentlogicalthread plus index; cold roots allocate andpublish realrecords, warm roots retain actualidentity, and handlerchanges remain perapplicationthread. Logicalthread cases are explicitly modeled unitinputs, not native multithread scheduling acceptance.",
+    "Initial actualapplicationthread constructor sets+28=4f63d0. A genuine setter0 profile returns that oldpointer, then subsequentget/set observe the sourcewritten0 andlateropaque values. Do not preseed fabricatedrecords or borrowed snapshots to skip coldsetup.",
+    "Physical Local/Global allocation/TLS/criticalsection ownership and lifetimes stay distinct and consistent. Failure prefixes stop at physicalRaiseException through the realchain; no returned/caught/unwound outcome or defaultnewhandler change is claimed.",
+    "Ordinary source entry stack andFS chain must be mapped with sufficientheadroom and live disjointcontrols. The43B bodies have no localSEH registration; their existing children carry realcompiler/SEH frames. All representedCPU/flags/FS andboundedstack outputs remain observed.",
+    "Original construction readiness already executed these roots with realcoldTLS andsetter0; it is feasibility evidence only, not authoredcases or familyadmission. No allocator is required by the43B closure beyond physicalLocal/Global memory; the larger applicationnew request0x134(308)/capacity0x140(320) remains a separate allocator-domain join.",
+    "No admission, nativecaller election, guestEH, actualoperatornew retry, fullWinMain/gameinit/menu/gameplay or deviceacceptance claim."
+  ],
+  "notes": "Boundary and blind-author contract: Tests/families/application_new_policy.notes.md. Original-pinned analysis: work/coordination/application-allocation-boundary.json. No native implementation or case body was inspected."
+}

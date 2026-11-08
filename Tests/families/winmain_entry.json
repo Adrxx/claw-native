@@ -1,0 +1,1337 @@
+{
+  "schema": 1,
+  "id": "winmain_entry",
+  "title": "Original application entry",
+  "abi": "canonical",
+  "sources": [
+    "Sources/WinmainEntryRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x49f8d0",
+      "name": "OriginalWinMain",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f8d0",
+          "end": "0x49fb25",
+          "sha256": "05c9203f9ebdac89528ead044142f52417ae63261fcacc2ffb31e07401a67fd8"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "whole",
+      "name": "Original CRT lock acquire",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a7c40": {
+      "kind": "whole",
+      "name": "Original CRT lock release",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x49c2e0": {
+      "kind": "whole",
+      "name": "Original process enumeration and executable-instance check",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a3990": {
+      "kind": "whole",
+      "name": "Original strstr",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a4660": {
+      "kind": "whole",
+      "name": "Original variadic sscanf at this fixed six-argument callsite",
+      "convention": "cdecl",
+      "argc": 6,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x421030": {
+      "kind": "whole",
+      "name": "Original CD-ROM availability decision",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4537e0": {
+      "kind": "whole",
+      "name": "Original registry and joystick-configuration decision",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x423300": {
+      "kind": "whole",
+      "name": "Original outer-window owner constructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f1a4c": {
+      "kind": "whole",
+      "name": "Original GetFileVersionInfoSizeA import thunk",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f1a46": {
+      "kind": "whole",
+      "name": "Original GetFileVersionInfoA import thunk",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f1a40": {
+      "kind": "whole",
+      "name": "Original VerQueryValueA import thunk",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4233a0": {
+      "kind": "whole",
+      "name": "Original outer-owner virtual initialization",
+      "convention": "thiscall",
+      "argc": 7,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4b8d10": {
+      "kind": "whole",
+      "name": "Original outer-owner message loop",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x423320": {
+      "kind": "whole",
+      "name": "Original outer-owner scalar deleting destructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x5469f4": {
+      "kind": "fixture",
+      "name": "GetModuleFileNameA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "ptr:254",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546c88": {
+      "kind": "fixture",
+      "name": "FindWindowA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "cstr",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546cf8": {
+      "kind": "fixture",
+      "name": "IsIconic",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546d44": {
+      "kind": "fixture",
+      "name": "SendMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x5469f8": {
+      "kind": "fixture",
+      "name": "WinExec",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546da4": {
+      "kind": "fixture",
+      "name": "GetFileVersionInfoSizeA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546da8": {
+      "kind": "fixture",
+      "name": "GetFileVersionInfoA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "cstr",
+        "u32",
+        "u32",
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x546dac": {
+      "kind": "fixture",
+      "name": "VerQueryValueA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "ptr:1",
+        "cstr",
+        "ptr:4",
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical operating-system boundary only; cases model its real arguments, buffer/handle lifetime and branch-driving result. All original process, CD, configuration, constructor and fixed virtual source callees remain original."
+    },
+    "0x5469fc": {
+      "kind": "fixture",
+      "name": "GetModuleHandleA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical module/process service. Resolve only verified named foreign procedures with exact stdcall contracts; Toolhelp snapshots, cursors, record bytes and handle lifetime follow packet NOTES. No replacement of original49c2e0/49c4e0 or game virtual methods."
+    },
+    "0x546a18": {
+      "kind": "fixture",
+      "name": "GetProcAddress",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical module/process service. Resolve only verified named foreign procedures with exact stdcall contracts; Toolhelp snapshots, cursors, record bytes and handle lifetime follow packet NOTES. No replacement of original49c2e0/49c4e0 or game virtual methods."
+    },
+    "0x546a00": {
+      "kind": "fixture",
+      "name": "OpenProcess",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical module/process service. Resolve only verified named foreign procedures with exact stdcall contracts; Toolhelp snapshots, cursors, record bytes and handle lifetime follow packet NOTES. No replacement of original49c2e0/49c4e0 or game virtual methods."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical module/process service. Resolve only verified named foreign procedures with exact stdcall contracts; Toolhelp snapshots, cursors, record bytes and handle lifetime follow packet NOTES. No replacement of original49c2e0/49c4e0 or game virtual methods."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical critical-section service on original-supplied 24-byte records. Track initialization/ownership/depth coherently; original CRT lock-table publication and source lock/unlock helpers execute. No seeded lock-cache outcome."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical critical-section service on original-supplied 24-byte records. Track initialization/ownership/depth coherently; original CRT lock-table publication and source lock/unlock helpers execute. No seeded lock-cache outcome."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical critical-section service on original-supplied 24-byte records. Track initialization/ownership/depth coherently; original CRT lock-table publication and source lock/unlock helpers execute. No seeded lock-cache outcome."
+    },
+    "0x54696c": {
+      "kind": "fixture",
+      "name": "LCMapStringA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical character/locale service only. Lengths, null sizing probes, ANSI/wide widths and failure outputs follow exact API operands in NOTES; original CRT locale probes, cache publication and parsing execute. Unsupported locale/prestate halts before effects."
+    },
+    "0x546924": {
+      "kind": "fixture",
+      "name": "LCMapStringW",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical character/locale service only. Lengths, null sizing probes, ANSI/wide widths and failure outputs follow exact API operands in NOTES; original CRT locale probes, cache publication and parsing execute. Unsupported locale/prestate halts before effects."
+    },
+    "0x546978": {
+      "kind": "fixture",
+      "name": "GetStringTypeA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical character/locale service only. Lengths, null sizing probes, ANSI/wide widths and failure outputs follow exact API operands in NOTES; original CRT locale probes, cache publication and parsing execute. Unsupported locale/prestate halts before effects."
+    },
+    "0x54697c": {
+      "kind": "fixture",
+      "name": "GetStringTypeW",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical character/locale service only. Lengths, null sizing probes, ANSI/wide widths and failure outputs follow exact API operands in NOTES; original CRT locale probes, cache publication and parsing execute. Unsupported locale/prestate halts before effects."
+    },
+    "0x5469dc": {
+      "kind": "fixture",
+      "name": "MultiByteToWideChar",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical character/locale service only. Lengths, null sizing probes, ANSI/wide widths and failure outputs follow exact API operands in NOTES; original CRT locale probes, cache publication and parsing execute. Unsupported locale/prestate halts before effects."
+    },
+    "0x5469e0": {
+      "kind": "fixture",
+      "name": "WideCharToMultiByte",
+      "convention": "stdcall",
+      "argc": 8,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical character/locale service only. Lengths, null sizing probes, ANSI/wide widths and failure outputs follow exact API operands in NOTES; original CRT locale probes, cache publication and parsing execute. Unsupported locale/prestate halts before effects."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic signed-DWORD update: modify exactly the addressed 4 bytes and return the updated 32-bit value; preserve coherent counter state."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic signed-DWORD update: modify exactly the addressed 4 bytes and return the updated 32-bit value; preserve coherent counter state."
+    },
+    "0x546a28": {
+      "kind": "fixture",
+      "name": "GetCurrentDirectoryA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546a2c": {
+      "kind": "fixture",
+      "name": "GetDriveTypeA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546a30": {
+      "kind": "fixture",
+      "name": "OpenFile",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "cstr",
+        "ptr:136",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546b3c": {
+      "kind": "fixture",
+      "name": "Sleep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546834": {
+      "kind": "fixture",
+      "name": "RegCreateKeyExA",
+      "convention": "stdcall",
+      "argc": 9,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "cstr",
+        "u32",
+        "u32",
+        "u32",
+        "ptr:4",
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical registry service with per-environment key lifetime and exact DWORD value/type/length buffers; original config and registry helpers execute and derive their own decisions."
+    },
+    "0x54682c": {
+      "kind": "fixture",
+      "name": "RegQueryValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "ptr:4",
+        "ptr:4",
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical registry service with per-environment key lifetime and exact DWORD value/type/length buffers; original config and registry helpers execute and derive their own decisions."
+    },
+    "0x546824": {
+      "kind": "fixture",
+      "name": "RegSetValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "u32",
+        "ptr:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical registry service with per-environment key lifetime and exact DWORD value/type/length buffers; original config and registry helpers execute and derive their own decisions."
+    },
+    "0x546830": {
+      "kind": "fixture",
+      "name": "RegCloseKey",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical registry service with per-environment key lifetime and exact DWORD value/type/length buffers; original config and registry helpers execute and derive their own decisions."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard/cursor/joystick service with coherent device counts, 0x34 JOYINFOEX and 0x194 capability records, key states and metrics. Preserve original calibration decisions and object writes."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard/cursor/joystick service with coherent device counts, 0x34 JOYINFOEX and 0x194 capability records, key states and metrics. Preserve original calibration decisions and object writes."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard/cursor/joystick service with coherent device counts, 0x34 JOYINFOEX and 0x194 capability records, key states and metrics. Preserve original calibration decisions and object writes."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard/cursor/joystick service with coherent device counts, 0x34 JOYINFOEX and 0x194 capability records, key states and metrics. Preserve original calibration decisions and object writes."
+    },
+    "0x546df8": {
+      "kind": "fixture",
+      "name": "joyGetNumDevs",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard/cursor/joystick service with coherent device counts, 0x34 JOYINFOEX and 0x194 capability records, key states and metrics. Preserve original calibration decisions and object writes."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:52"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard/cursor/joystick service with coherent device counts, 0x34 JOYINFOEX and 0x194 capability records, key states and metrics. Preserve original calibration decisions and object writes."
+    },
+    "0x546df4": {
+      "kind": "fixture",
+      "name": "joyGetDevCapsA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "ptr:404",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard/cursor/joystick service with coherent device counts, 0x34 JOYINFOEX and 0x194 capability records, key states and metrics. Preserve original calibration decisions and object writes."
+    },
+    "0x546d2c": {
+      "kind": "fixture",
+      "name": "DialogBoxParamA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical dialog/UI service. DialogBoxParamA receives fixed original453a10 stdcall4 callback; successful interactions must execute that original callback with genuine message operands. No fixture writes to537968/53796c/537970. Missing callback transport is a before-effect halt frontier."
+    },
+    "0x546d18": {
+      "kind": "fixture",
+      "name": "IsDlgButtonChecked",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical dialog/UI service. DialogBoxParamA receives fixed original453a10 stdcall4 callback; successful interactions must execute that original callback with genuine message operands. No fixture writes to537968/53796c/537970. Missing callback transport is a before-effect halt frontier."
+    },
+    "0x546d34": {
+      "kind": "fixture",
+      "name": "EndDialog",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical dialog/UI service. DialogBoxParamA receives fixed original453a10 stdcall4 callback; successful interactions must execute that original callback with genuine message operands. No fixture writes to537968/53796c/537970. Missing callback transport is a before-effect halt frontier."
+    },
+    "0x546ca0": {
+      "kind": "fixture",
+      "name": "LoadIconA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical dialog/UI service. DialogBoxParamA receives fixed original453a10 stdcall4 callback; successful interactions must execute that original callback with genuine message operands. No fixture writes to537968/53796c/537970. Missing callback transport is a before-effect halt frontier."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical dialog/UI service. DialogBoxParamA receives fixed original453a10 stdcall4 callback; successful interactions must execute that original callback with genuine message operands. No fixture writes to537968/53796c/537970. Missing callback transport is a before-effect halt frontier."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical per-thread TLS/last-error service. Track allocated indices, pointer lifetime and source-produced records on the same environment; never seed an unvalidated CRT/TLS global or fabricate source record contents."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical per-thread TLS/last-error service. Track allocated indices, pointer lifetime and source-produced records on the same environment; never seed an unvalidated CRT/TLS global or fabricate source record contents."
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical per-thread TLS/last-error service. Track allocated indices, pointer lifetime and source-produced records on the same environment; never seed an unvalidated CRT/TLS global or fabricate source record contents."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical per-thread TLS/last-error service. Track allocated indices, pointer lifetime and source-produced records on the same environment; never seed an unvalidated CRT/TLS global or fabricate source record contents."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical per-thread TLS/last-error service. Track allocated indices, pointer lifetime and source-produced records on the same environment; never seed an unvalidated CRT/TLS global or fabricate source record contents."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical per-thread TLS/last-error service. Track allocated indices, pointer lifetime and source-produced records on the same environment; never seed an unvalidated CRT/TLS global or fabricate source record contents."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546960": {
+      "kind": "fixture",
+      "name": "HeapAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546964": {
+      "kind": "fixture",
+      "name": "HeapFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546990": {
+      "kind": "fixture",
+      "name": "VirtualAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546954": {
+      "kind": "fixture",
+      "name": "VirtualFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS memory service with coherent allocation/resize/lock/handle ownership and required zeroing flags. Original callers execute. Requires validated process-heap/CRT prestate; a declaration alone does not elect the Windows allocator or permit fake heap globals."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical exceptional transfer only: honest before-effect halt in this ordinary normal-return/physical-halt family. Never return success, invent guest unwind or claim exception handling."
+    },
+    "0x546974": {
+      "kind": "fixture",
+      "name": "GetStdHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546a14": {
+      "kind": "fixture",
+      "name": "LoadLibraryA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical module/version service only. Named procedure resolution must match an inspected external ABI. Unknown dynamic procedures remain a halt frontier; never replace source function pointers."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical module/version service only. Named procedure resolution must match an inspected external ABI. Unknown dynamic procedures remain a halt frontier; never replace source function pointers."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546af8": {
+      "kind": "fixture",
+      "name": "WriteFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file/drive/time/handle service only. Model actual capacities, flags, existing handles, output lengths and errors; never replace original CD decisions, sprintf/scanf, descriptor logic or game state. Missing validated descriptor/process state halts."
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "ptr:28",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546ca8": {
+      "kind": "fixture",
+      "name": "TranslateMessage",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:28"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546cb0": {
+      "kind": "fixture",
+      "name": "DispatchMessageA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:28"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546b84": {
+      "kind": "fixture",
+      "name": "TranslateAcceleratorA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "ptr:28"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546d98": {
+      "kind": "fixture",
+      "name": "DestroyAcceleratorTable",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546bd4": {
+      "kind": "fixture",
+      "name": "RegisterClassA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:40"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546b80": {
+      "kind": "fixture",
+      "name": "LoadAcceleratorsA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546b60": {
+      "kind": "fixture",
+      "name": "LoadCursorA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x5468bc": {
+      "kind": "fixture",
+      "name": "GetStockObject",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    },
+    "0x546b8c": {
+      "kind": "fixture",
+      "name": "LoadMenuA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window/resource/message service. Preserve fixed original WNDPROC and game callbacks; no callback-return or owner/cache fabrication. Dispatch requiring original callback transport is a real frontier. Queue bytes and handle/resource lifetime must be coherent."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/winmain_entry.cases.py",
+    "entry": "claw_winmain_entry_entry"
+  },
+  "evidence": {
+    "level": "none"
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Whole original WinMain ordinary root is597bytes at[49f8d0,49fb25), including completeRET16. Required full source7ff/7ff/preserve0; compare all CPU/flags/FS and bounded stack. No coverage exemptions.",
+    "Scope is ordinary normal returns and honest physical-service halt prefixes. Separate compiler cleanup508270 and handler50827e are not owned or claimed; no guest unwind, fake direct funclet entry or native EH parity.",
+    "malloc/free/operator new/delete are the elected coherent allocation/lifetime service boundaries. Null owner allocation follows original branches; no source constructor or game-decision fixture.",
+    "Direct and reviewed transitive Win32/version imports are scripted physical fixtures with exact stdcall operands. Import thunks and all original source callees execute; being transitive is not grounds to remove a needed physical declaration.",
+    "Every nonphysical source dependency, including CRTlocks4a7bc0/4a7c40, process enumeration49c2e0, CD421030, configuration4537e0 and fixed original virtual callbacks, executes unchanged original instructions on both sides. No automatic lock stubs or invented success callbacks.",
+    "Source constructor423300 publishes vtable50bbdc with original virtual targets4233a0/4b8d10/423320. Preserve source-derived owner53ec28 and real global reloads. Do not patch pinned vtable targets or helper returns to force coverage.",
+    "Imported descendants require separately reviewed physical process/file/registry/input/window/message policies. Unknown import, dynamic-procedure ABI, callback dispatch, unsupported guest exception or invalid original prestate is a real frontier, never an exemption or source fixture.",
+    "4a4660 is variadic cdecl; its six-argument declaration is specific to49f9eb with original integer format52de68 and four writable result globals. No generic six-argument claim or x87 return is made.",
+    "All167rootinstructions are statically CFG-reachable, not yet dynamically covered. Full source cases must actually traverse process/CD/configuration and window/message-loop paths. The47byte first-physical-stop reference is not whole-family admission.",
+    "Physical-import refinement verifies 97-function direct-call/JMP closure from process49c2e0, sscanf4a4660, CD421030 and configuration4537e0, plus inspected fixed window methods and raw dialog453a10. This is bounded reachability advice, not exhaustive computed-callback or runtime coverage.",
+    "Toolhelp foreign procedures returned by GetProcAddress may use fresh stdcall2 physical stubs with original 0x128/0x224 records. Fixed source callback453a10 and game vtable methods must execute original. No source helper stubs, source-cache writes or coverage exemptions.",
+    "WinMain WinExec path requires config result1 produced by original dialog callback453a10 for WM_COMMAND0x45b. All597-byte coverage requires validated physical-to-original callback transport; that transport is being independently assessed. Ordinary prefixes remain useful but unsealed.",
+    "Variable or nullable pointer arguments deliberately use raw u32 where a fixed pointer extent would misstate API sizing probes; effects must validate and model the actual byte counts in packet NOTES. Physical declarations do not authorize seeding unvalidated CRT descriptor/locale/heap/TLS process globals."
+  ],
+  "notes": "Original-only boundary: work/coordination/winmain-entry-family-boundary.{md,json}. Distinct whole597byte normal-domain source family; externalEH explicitly outside claims. Existing canonical constructors/string helper remain outside owned set. No source-case/native implementation read by boundary reviewer."
+}

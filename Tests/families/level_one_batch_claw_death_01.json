@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_claw_death_01",
+  "title": "Level 1 Claw death, respawn and life services",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneBatchClawDeath01Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x41ebd0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x41ee40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x479f10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47a220",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7aa0",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0c60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0d70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e10d0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native beep replaces the Windows import; the return is ignored."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native dialog presentation replaces the Windows import; text and caption bytes are captured."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string length used by the unchanged original CString helpers."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic increment used by the unchanged original CString copy."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic decrement used by the unchanged original CString release."
+    },
+    "0x4a3920": {
+      "kind": "whole",
+      "name": "sprintf (original bounded fixed-format comparison service)",
+      "reason": "Original formatting executes unchanged on both comparison sides. The native app replaces formatting; no CRT body is recovered or admitted."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_claw_death_01.cases.py",
+    "entry": "claw_level_one_batch_claw_death_01_entry",
+    "equivalent_mutants": [
+      {
+        "line": 107,
+        "operator": "le-to-lt",
+        "source_sha256": "83215e51c33ca44e1c7c778acb68371fe1963fba671cb41fbd52bec1f3da2b69",
+        "mutant_sha256": "90e03d6d5381178e692b49a9523332bcc3429bbc100aa38241cff80ba5516c4e",
+        "reason": "The index is a remainder modulo 26 read as unsigned, so the guarded table has 26 entries. The mutant sends index 25 to the default phrase pointer 0x524ad4, but the table entry for index 25 is also 0x524ad4, so the chosen phrase pointer is identical for every index."
+      },
+      {
+        "line": 141,
+        "operator": "swap-statements",
+        "source_sha256": "83215e51c33ca44e1c7c778acb68371fe1963fba671cb41fbd52bec1f3da2b69",
+        "mutant_sha256": "5a39fde6f53f6242e3c468afeb607fe7dc774007a9941aa062572e7703e038a2",
+        "reason": "Original 0x41ee49 stores zero into entryESP-4, the ECX slot pushed at 0x41ee40 and popped at 0x41ee5c. Dropping or moving the store affects only ordinary stack bytes and final volatile ECX; neither is observed by this context-free thiscall contract. Heap/globals, ownership, consumed return and outward calls remain identical. Original verification: work/readability/level_one_batch_claw_death_01/equivalence-audit.txt."
+      },
+      {
+        "line": 141,
+        "operator": "drop-statement",
+        "source_sha256": "83215e51c33ca44e1c7c778acb68371fe1963fba671cb41fbd52bec1f3da2b69",
+        "mutant_sha256": "4cf241bafb01c96fd9c955ca29ddf234948cb940e41367ee07d5df42c2e8c851",
+        "reason": "Original 0x41ee49 stores zero into entryESP-4, the ECX slot pushed at 0x41ee40 and popped at 0x41ee5c. Dropping or moving the store affects only ordinary stack bytes and final volatile ECX; neither is observed by this context-free thiscall contract. Heap/globals, ownership, consumed return and outward calls remain identical. Original verification: work/readability/level_one_batch_claw_death_01/equivalence-audit.txt."
+      },
+      {
+        "line": 372,
+        "operator": "shift-offset",
+        "mutant_sha256": "609f60e1c98115552ca89e3746cdec9ca4eb1d7484b41b5fc59f84f28961e10c",
+        "source_sha256": "83215e51c33ca44e1c7c778acb68371fe1963fba671cb41fbd52bec1f3da2b69",
+        "reason": "Independent fresh translator and case-author audits prove original 0x4e19e1 reads unknown_0xc only after formatDetails and showDialog are both zero. Either branch performs no further calls or writes, skips first formatting, then returns at the unchanged zero showDialog check. Shifted code global is equally mapped; backed ABI arguments cannot fault; return is void. Both paths preserve all observable memory, events and ownership, including source-file aliases. Original evidence and audit: work/readability/level_one_batch_claw_death_01/translator-survivor-audit.txt and additive-case-rationale.txt."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1260862456,
+      "cases": 375,
+      "mutants_killed": 54,
+      "mutants_tried": 62,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "e30d743ae964f8854e5d7b497bfebf41b870550d6ca801781f8d541216136adf"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,4597 @@
+{
+  "about": "One bounded contributor task per session. See docs/OPERATING.md.",
+  "tasks": [
+    {
+      "id": "app-checkpoint-keep-super-flags",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed task"
+    },
+    {
+      "id": "app-ipad-touch-overlay",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed task"
+    },
+    {
+      "id": "app-claw-recluse-original-disc",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed task"
+    },
+    {
+      "id": "repo-readme-gameplay-video",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "app-claw-recluse-download",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "repo-public-privacy-audit",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed task"
+    },
+    {
+      "id": "plan-v13-callback-frontier",
+      "model": "strong",
+      "state": "done",
+      "exclusive": false,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "app-owner-crash-level-seven-404580",
+      "title": "Owner crash on iPad Level 7: frame fault at 0x404580 (not recovered by any family)",
+      "model": "strong",
+      "state": "blocked",
+      "depends_on": [],
+      "scope": "Find which caller reaches 0x404580 in Level 7 (reproduce with MPSCULLY to Level 7, --mute --fast-clock; the custom test level tool can isolate the object) and what 0x404580 does. Recover it the normal way (a -batch- family admitted through the gate, then connected through the level join/transport), not as a stand-in. Check whether other levels can reach it too. Add the reproduction to work/new-game/regressions.sh.",
+      "done_when": "Level 7 runs past the same point without a fault in the Release app, 0x404580 is owned by an admitted family and connected, the cause is named in the finish note, and the regression check passes."
+    },
+    {
+      "id": "plan-v13-enemy-body-effects",
+      "model": "strong",
+      "state": "done",
+      "exclusive": false,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "plan-v13-dynamic-callback-effects",
+      "model": "strong",
+      "state": "done",
+      "exclusive": false,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "plan-v13-animation-effects",
+      "model": "strong",
+      "state": "done",
+      "exclusive": false,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "plan-v13-enemy-constructor-effects",
+      "model": "strong",
+      "state": "done",
+      "exclusive": false,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "plan-v13-object-lifetime-effects",
+      "model": "strong",
+      "state": "done",
+      "exclusive": false,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "plan-v13-semantic-closure",
+      "title": "Close the v1.0/v1.3 semantic function inventory before gameplay ports are queued",
+      "model": "owner",
+      "state": "open",
+      "exclusive": false,
+      "parallel": true,
+      "depends_on": [],
+      "start_with": [
+        "docs/V13-CHANGES.md",
+        "work/v13/changes.json",
+        "work/v13/object-registry.json",
+        "work/v13/function-coverage.json"
+      ],
+      "scope": "Static binary-analysis planning only for Original/claw10/CLAW.EXE and the embedded v1.3 game in work/v13/CLAW-game.exe, with the hashes in work/v13/inputs.json. Continue from work/v13/matches.json, manual-pairs.json, root-deltas.json, fold-candidates.json, key-xrefs.json, bump-bindings.json, vtables.json, v13-functions.json and local c/ output; the original corpus is work/corpus/index.json and work/corpus/c/. Local analysis helpers and the Ghidra project are under work/v13/; code-seeds-pass1.txt preserves the 668 callback seeds that expanded discovery, and the remaining two unowned immediate-pointer seeds are at 0x508b95 and 0x508d05. Resolve function boundaries and code-versus-data gaps; validate correspondences using control flow, callees, strings, referenced constants and layout mappings. Allow proven folding/inlining instead of forcing one-to-one matches. Partition platform, multiplayer/custom-level and single-player game logic explicitly. Classify every changed, added and removed single-player game function and every behavior group, including changes to existing commands, moving platforms and contact production; finish the mpwildwacky flag consumer and normal-versus-developer profile distinction. Preserve the completed data evidence and its MP3 identity/timing limits; review game-facing help if needed for the data scope. Update only docs/V13-CHANGES.md and ignored work/v13/ evidence/tools as needed. No Sources/*Runtime.cpp, cases, shared Tests/clawparity, app code or implementation tasks. The parent plan-v13-changes task will queue the final per-group ports and the single exclusive v1.3 oracle-profile prerequisite after this inventory closes. (Owner 2026-10-28 later: the unreachable Level 2 coin was NOT fixed in v1.3; no treasure-reachability search is needed.)",
+      "done_when": "docs/V13-CHANGES.md and work/v13/changes.json contain an exhaustive source-effect inventory with addresses and plain effects for all in-scope changed/added/removed functions, a checked game/platform partition, classified discovery gaps and no unresolved in-scope game-function entries; each compiler-only or folded correspondence has an explicit basis rather than a masked signature alone. Every confirmed effect has a concrete v1.3 oracle comparison scope for the parent to queue. The data inventory retains 14 byte-identical WWD maps, accounts for every REZ delta and labels audio/helper evidence limits. Run work/test-env/bin/python work/v13/check-plan.py --evidence-only and make lint-docs; update the checker to inspect semantic completeness as the classifications become concrete, without pretending implementation tasks are already queued."
+    },
+    {
+      "id": "levels-tools-active-x87-environment-transport",
+      "title": "Carry active x87 state through the three refused level-join owner paths",
+      "model": "owner",
+      "state": "open",
+      "exclusive": false,
+      "parallel": true,
+      "depends_on": [
+        "levels-tools-stream-large-traces"
+      ],
+      "start_with": [
+        "Tests/NativeLevelOne/native_join.py",
+        "Tests/NativeLevelTwo/native_join.py",
+        "Tests/NativeLevels/native_join.py",
+        "Tests/NativeLevels/base_x87_check.py",
+        "Tests/NativeLevels/loot_x87_check.py",
+        "Tests/NativeLevels/native_join_check.py",
+        "work/levels-streaming/current/join-2-retry.log",
+        "work/levels-streaming/current/join-14.log",
+        "work/levels-streaming/current/retained-joins.json",
+        "work/levels-streaming/current/join-7-refreshed.log",
+        "work/levels-streaming/current/native-7-mode-equivalence.json",
+        "work/levels-streaming/refresh/summary.json",
+        "work/levels-streaming/refresh/level-7-equivalence.json",
+        "work/levels-streaming/refresh/continue.log",
+        "work/levels-streaming/refresh/original-14.log"
+      ],
+      "scope": "Per-level comparison tooling only; no app code, translation, family-case/specification or Tests/clawparity edits. Inspect the owning specifications and hash-verified original bodies/call paths for 0x43d490, 0x43e420 and 0x4dca10 and their named actual callers. Establish the real incoming/outgoing CW, SW, TOP and live x87 values across the enclosing active method frame, ordinary virtual dispatch and each owner. Elect only the proven transport using the existing checked environment/source/frame providers. Add focused original/native profiles with dirty inherited status and live values, and negative controls for wrong path/frame/owner/continuation, malformed environment requests and missing context. Do not use ambient zero state, fitted flags, canned game returns, new exemptions or relaxed refusals. Serialize heavy jobs below load 16. Run Level 2, Level 7 and Level 14 native joins to show all three formerly refused boundaries cross, reporting any genuinely separate next refusal without claiming full parity. Keep the work bounded to these three environment joins; leave stale discovery/reference regeneration and memory acceptance with levels-tools-stream-large-traces. For Level 7, check the actual virtual target and intermediate 0x483ae0/0x483e10 owners before widening cursor witnesses or dispatch paths; appending an unverified whitelist path is insufficient. Reuse declared fixtures and never patch import slots ad hoc.",
+      "done_when": "Focused original/native environment comparisons pass for all three named paths and reject malformed or unelected paths without changing game owners or the shared harness; work/test-env/bin/python -m Tests.NativeLevelTwo.native_join, work/test-env/bin/python -m Tests.NativeLevels.native_join --level 7 and work/test-env/bin/python -m Tests.NativeLevels.native_join --level 14 cross their former 0x43d490, 0x4dca10 and 0x43e420 refusals respectively. Record exact commands, preserved x87 fields and any separate next boundary. No claim of complete route parity unless the whole join passes."
+    },
+    {
+      "id": "levels-tools-stream-large-traces",
+      "title": "Make the level tools stream their large trace and snapshot files instead of loading them whole into memory",
+      "model": "owner",
+      "state": "blocked",
+      "depends_on": [],
+      "scope": "Tools only (Tests/NativeLevels/, Tests/NativeLevelTwo/, Tests/NativeEndOfLevel/ and their callers); no change to recorded results. Measure peak memory (/usr/bin/time -l) of trace, plan, check and native_join for Level 7 before and after. Store traces compressed and in a streamable form (e.g. gzip JSON lines) with readers that stream; keep snapshots only where a later step needs them and compress them; delete leftover diagnostic dumps. Every level's check and native join must give identical results.",
+      "done_when": "Peak memory of each level tool on Level 7 is under 2 GB (before/after numbers in the finish note), all level checks and joins pass with identical results, and work/ is smaller."
+    },
+    {
+      "id": "plan-v13-changes",
+      "title": "Plan: port Captain Claw v1.3 (build 1.3.0.60) gameplay changes on top of the v1.0 reconstruction",
+      "model": "owner",
+      "state": "open",
+      "depends_on": [
+        "plan-v13-semantic-closure"
+      ],
+      "scope": "Planning only, no game code changes. Match functions between the two executables (by bytes, call graph and strings) and list every game-code function that changed, was added or removed in v1.3, ignoring platform layer (DirectX, CRT, MFC, RealNetworks launcher/lobby) changes. Also diff the game data (REZ/levels/config) between the two releases. Group the changes by player-visible effect (bug fixes, gameplay tweaks, new options, data fixes) in work/v13/changes.json and a short tracked summary docs/V13-CHANGES.md with addresses and plain descriptions only (no decompiled or disassembled text). Propose how the app should carry them (default on, matching v1.3, unless the owner prefers a 1.0/1.3 option) and queue one task per change group, each comparing against the v1.3 executable under the existing oracle. Do not start them before the remaining wire-object and coverage tasks.",
+      "done_when": "docs/V13-CHANGES.md lists every v1.3 game-code and data change with its effect, and the follow-up tasks are queued after the current object work; the finish note gives counts and anything the owner must decide."
+    },
+    {
+      "id": "startup-state-two-cursor-coverage",
+      "title": "Close the original state-2 second cursor-loop coverage with a faithful callback boundary or complete unreachability proof",
+      "model": "strong",
+      "state": "blocked",
+      "exclusive": true,
+      "depends_on": [],
+      "start_with": [
+        "Tests/families/startup_state_two.json",
+        "work/packets/startup_state_two/NOTES.md",
+        "work/packets/startup_state_two/CURSOR-REACHABILITY.md",
+        "Tests/clawparity/README.md (window callback contracts)",
+        "work/main-menu-idle/original.json"
+      ],
+      "scope": "Resolve only this eight-byte coverage boundary. Verify against the hash-checked original whether a physically legal reached API can dispatch a coherent inactive/active/inactive schedule through WndProc 0x4b8500 and the concrete activation path 0x42de90/0x42ac50. Candidate SetDisplayMode is called at 0x4bd1d8; prove actual service/message provenance before adding support. If needed, add a narrowly authenticated active-window callback contract to Tests/clawparity with positive and negative transport selftests; never fabricate cursor resets, replace game callbacks, or widen first-show contracts silently. Alternatively establish whole-original unreachability, including virtual and reentrant closure, before any justified exemption. Use a fresh case-author to finish seed-independent coverage, stay below about 600 cases, and seal only after full required coverage. Do not translate the family or change the app; that remains main-menu-idle-command.",
+      "done_when": "make cases-check FAMILY=startup_state_two has full required coverage and ROLE=case-author can be sealed with original evidence for the formerly missing loop (or a complete original-checked unreachability proof); any added callback transport passes focused positive and negative selftests without relaxing thresholds."
+    },
+    {
+      "id": "level-one-breakable-tail-targets",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-batch-loot-and-breakables-02"
+      ],
+      "addresses": [
+        "0x433fb0",
+        "0x433f30"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-world-timer-4224f0-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-batch-world-and-collision-01"
+      ],
+      "addresses": [
+        "0x4224f0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-indirect-receiver-repair",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-one-batch-world-and-collision-03",
+        "level-one-batch-level-object-actions-02"
+      ],
+      "addresses": [
+        "0x4cda10",
+        "0x46c2c0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "native-x87-return-dispatch",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-one-batch-player-actions-04b"
+      ],
+      "addresses": [
+        "0x420af0",
+        "0x420b60",
+        "0x420dd0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-timers-checkpoints-02-eax-receiver-repair",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-one-batch-timers-and-checkpoints-02"
+      ],
+      "addresses": [
+        "0x4d3e50",
+        "0x4c8f60",
+        "0x4d3f20"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "harness-mfc-callee-caller-frame",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [],
+      "addresses": [
+        "0x4db6e0",
+        "0x4db4d0",
+        "0x4dbd60",
+        "0x4dc680",
+        "0x40ebe0",
+        "0x40f2a0",
+        "0x4a9070",
+        "0x4a36f0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-trace-scene-fixtures",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4254a0",
+        "0x428c40",
+        "0x4ce960",
+        "0x4cea10",
+        "0x4b3b90"
+      ],
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-trace-resources-and-frames",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-trace-scene-fixtures"
+      ],
+      "addresses": [
+        "0x428c40",
+        "0x45ace0",
+        "0x45b240",
+        "0x45b650",
+        "0x45b880",
+        "0x4b7f20",
+        "0x4b7cd0",
+        "0x4dcdf0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-trace-initializer-tail",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-trace-resources-and-frames"
+      ],
+      "addresses": [
+        "0x45ace0",
+        "0x4cf230",
+        "0x4d00ed",
+        "0x4ce0d0",
+        "0x4dcdf0",
+        "0x428c40"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-trace-idle-presentation",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-trace-initializer-tail"
+      ],
+      "addresses": [
+        "0x428c40",
+        "0x45ace0",
+        "0x45b650",
+        "0x45b880",
+        "0x4b98b0",
+        "0x4b9d80"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-trace-gdi-idle-cycles",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-trace-idle-presentation"
+      ],
+      "addresses": [
+        "0x428b60",
+        "0x4b82f0",
+        "0x45b650",
+        "0x45fbb0",
+        "0x4b9ce0",
+        "0x4b98b0",
+        "0x4b9d80"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-finalize-traced-batches",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-trace-gdi-idle-cycles"
+      ],
+      "addresses": [
+        "0x428c40",
+        "0x45ace0",
+        "0x45b650",
+        "0x45b880",
+        "0x4b98b0",
+        "0x4b9d80"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-application-1",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4024e0",
+        "0x4026a0",
+        "0x40b5c0",
+        "0x4208e0",
+        "0x422370",
+        "0x425640",
+        "0x428b60",
+        "0x429e10",
+        "0x429eb0",
+        "0x429ed0",
+        "0x42a060",
+        "0x42ae70",
+        "0x42af70"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-application-2",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x42b5d0",
+        "0x42c0a0",
+        "0x42c280",
+        "0x42cdc0",
+        "0x42d590",
+        "0x45f500",
+        "0x461730",
+        "0x47e1d0",
+        "0x48c190",
+        "0x48f0d0",
+        "0x498f40",
+        "0x49af30"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-audio-1",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4b3b90",
+        "0x4b3cb0",
+        "0x4b4200",
+        "0x4b42e0",
+        "0x4b4430",
+        "0x4b44f0",
+        "0x4b45f0",
+        "0x4b46b0",
+        "0x4b48b0",
+        "0x4b4a20",
+        "0x4b4ae0",
+        "0x4b4e30",
+        "0x4b4ed0",
+        "0x4b5240"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-display-1",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4b82f0",
+        "0x4b8410",
+        "0x4b8910",
+        "0x4b96f0",
+        "0x4b97c0",
+        "0x4b98b0",
+        "0x4bb0e0",
+        "0x4bb100",
+        "0x4bb5a0",
+        "0x4bb800"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-display-2",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4bb870",
+        "0x4bb910",
+        "0x4bb990",
+        "0x4bc9b0",
+        "0x4bcbc0",
+        "0x4bd260",
+        "0x4be810",
+        "0x4bfbf0",
+        "0x4c00b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-actor-1",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4c7df0",
+        "0x4c8160",
+        "0x4c81f0",
+        "0x4c87f0",
+        "0x4c8810",
+        "0x4c8850",
+        "0x4c88b0",
+        "0x4c88e0",
+        "0x4c8be0",
+        "0x4c8da0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-actor-2",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4c8fc0",
+        "0x4c91d0",
+        "0x4c9690",
+        "0x4c96c0",
+        "0x4c9780",
+        "0x4c9830",
+        "0x4c9860",
+        "0x4c9ba0",
+        "0x4c9d40",
+        "0x4c9e00"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-resource-1",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4ca280",
+        "0x4ca960",
+        "0x4cb670",
+        "0x4cb960",
+        "0x4cdca0",
+        "0x4cdf20",
+        "0x4ce270",
+        "0x4ce2d0",
+        "0x4cea10",
+        "0x4cf020",
+        "0x4cfa60",
+        "0x4d0310",
+        "0x4d32e0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-traced-resource-2",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches"
+      ],
+      "addresses": [
+        "0x4d4240",
+        "0x4d45f0",
+        "0x4d46f0",
+        "0x4d56d0",
+        "0x4d5800",
+        "0x4d6210",
+        "0x4d6280",
+        "0x4d6620",
+        "0x4d6690",
+        "0x4dd2c0",
+        "0x4efcd0",
+        "0x4efd00"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-review-open-boundaries",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-review-traced-audio-1",
+        "menu-review-traced-display-1",
+        "menu-review-traced-display-2",
+        "menu-review-traced-resource-1",
+        "menu-review-traced-resource-2"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-implement-diagnostic-policy",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-review-open-boundaries"
+      ],
+      "addresses": [
+        "0x4b4ed0",
+        "0x4bd260"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-implement-native-message-drain",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-review-open-boundaries"
+      ],
+      "addresses": [
+        "0x4b8910"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-adapt-raw-compressed-entries",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-review-open-boundaries"
+      ],
+      "addresses": [
+        "0x4d32e0",
+        "0x4c00b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-raw-game-image-entry",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-adapt-raw-compressed-entries"
+      ],
+      "addresses": [
+        "0x4d32e0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-adapt-and-admit-raw-pid-entry",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-adapt-raw-compressed-entries"
+      ],
+      "addresses": [
+        "0x4c00b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-join-raw-compressed-entries",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-admit-raw-game-image-entry",
+        "menu-adapt-and-admit-raw-pid-entry"
+      ],
+      "addresses": [
+        "0x4d32e0",
+        "0x4c00b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-complete-raw-actor-display-join",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-join-raw-compressed-entries"
+      ],
+      "addresses": [
+        "0x4d32e0",
+        "0x4bffa0",
+        "0x4c00b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-implement-movie-state-cleanup",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-review-open-boundaries"
+      ],
+      "addresses": [
+        "0x4efcd0",
+        "0x4efd00"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-complete-effect-flip-display-transport",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-complete-raw-actor-display-join"
+      ],
+      "addresses": [
+        "0x4c0450",
+        "0x4c0920",
+        "0x4c0cc0",
+        "0x4c1190",
+        "0x4c25b0",
+        "0x4c3800",
+        "0x4c4c20"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-finalize-reviewed-batches",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-traced-batches",
+        "menu-review-open-boundaries",
+        "menu-review-traced-actor-1",
+        "menu-review-traced-actor-2",
+        "menu-review-traced-application-1",
+        "menu-review-traced-application-2",
+        "menu-review-traced-audio-1",
+        "menu-review-traced-display-1",
+        "menu-review-traced-display-2",
+        "menu-review-traced-resource-1",
+        "menu-review-traced-resource-2",
+        "menu-implement-diagnostic-policy",
+        "menu-implement-native-message-drain",
+        "menu-adapt-raw-compressed-entries",
+        "menu-implement-movie-state-cleanup",
+        "menu-join-raw-compressed-entries",
+        "menu-complete-raw-actor-display-join",
+        "menu-complete-effect-flip-display-transport"
+      ],
+      "addresses": [
+        "0x428c40",
+        "0x45ace0",
+        "0x45b650",
+        "0x45b880",
+        "0x4b98b0",
+        "0x4b9d80"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-trace-and-batch",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-finalize-reviewed-batches"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-resource-namespace",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b67f0",
+        "0x4b68c0",
+        "0x4b68e0",
+        "0x4b6900",
+        "0x4b6920",
+        "0x4b6940",
+        "0x4b6960",
+        "0x4b6980",
+        "0x4b7540",
+        "0x4b7cd0",
+        "0x4b7dc0",
+        "0x4b7f20",
+        "0x4b7f50",
+        "0x4b7f80",
+        "0x4b8060",
+        "0x4b80d0",
+        "0x4b80e0",
+        "0x4b8140",
+        "0x4b8170",
+        "0x4d5350",
+        "0x4d54c0",
+        "0x4d54f0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-scene-state-x87-transport",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4f4490",
+        "0x4f4504",
+        "0x4f451a",
+        "0x4f4532",
+        "0x4f454b"
+      ],
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-scene-camera-owner-review",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x430d30",
+        "0x430d80",
+        "0x430ec0",
+        "0x431300",
+        "0x4b3430",
+        "0x4b3490",
+        "0x4b3ab0"
+      ],
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-scene-state",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x49ae60",
+        "0x4cb040",
+        "0x4d0a60",
+        "0x4d0c50",
+        "0x4d2050"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-scene-state-x87-transport",
+        "menu-scene-camera-owner-review"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-world-file",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4cace0",
+        "0x4cb670",
+        "0x4cb960",
+        "0x4cdca0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-scene-state"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-music",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b52a0",
+        "0x4b53f0",
+        "0x4b5470",
+        "0x4b54a0",
+        "0x4b54f0",
+        "0x4b5550",
+        "0x4b55e0",
+        "0x4b5650",
+        "0x4b56b0",
+        "0x4b56d0",
+        "0x4b58a0",
+        "0x4b5a40"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-actor-services",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4c7df0",
+        "0x4c8160",
+        "0x4c81f0",
+        "0x4c9690",
+        "0x4c96c0",
+        "0x4c9780",
+        "0x4c9830",
+        "0x4c9ba0",
+        "0x4c9d40",
+        "0x4d5800"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-actor-owners",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x40f680",
+        "0x4c7900",
+        "0x4c7970",
+        "0x4c79e0",
+        "0x4c8210",
+        "0x4c8220",
+        "0x4c82a0",
+        "0x4c87f0",
+        "0x4c8810",
+        "0x4c9be0",
+        "0x4c9c00"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-audio-owners",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b3bf0",
+        "0x4b3c80",
+        "0x4b3d80",
+        "0x4b3dc0",
+        "0x4b3e30",
+        "0x4b3e70",
+        "0x4b3ec0",
+        "0x4b3ef0",
+        "0x4b3f40",
+        "0x4b3f70",
+        "0x4b3fc0",
+        "0x4b3fe0",
+        "0x4b40c0",
+        "0x4b4110",
+        "0x4b4160",
+        "0x4b41b0",
+        "0x4b4710",
+        "0x4b47e0",
+        "0x4b4b80",
+        "0x4b4c10",
+        "0x4b4c80",
+        "0x4b4d00",
+        "0x4b4d80",
+        "0x4b5210",
+        "0x4b5270"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-audio-x87-primitives",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-admit-audio-owners"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-audio-owners-complete",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b3bf0",
+        "0x4b3c80",
+        "0x4b3d80",
+        "0x4b3dc0",
+        "0x4b3e30",
+        "0x4b3e70",
+        "0x4b3ec0",
+        "0x4b3ef0",
+        "0x4b3f40",
+        "0x4b3f70",
+        "0x4b3fc0",
+        "0x4b3fe0",
+        "0x4b40c0",
+        "0x4b4110",
+        "0x4b4160",
+        "0x4b41b0",
+        "0x4b4710",
+        "0x4b47e0",
+        "0x4b4b80",
+        "0x4b4c10",
+        "0x4b4c80",
+        "0x4b4d00",
+        "0x4b4d80",
+        "0x4b5210",
+        "0x4b5270"
+      ],
+      "depends_on": [
+        "menu-admit-audio-owners",
+        "menu-audio-x87-primitives"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-display-enumeration-callback",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4bcc50",
+        "0x4bcda0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-display-player-fade-admission",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42d420",
+        "0x42d440",
+        "0x48fae0",
+        "0x48fbe0",
+        "0x4b8960",
+        "0x4c61d0",
+        "0x4ebf80",
+        "0x4ec050",
+        "0x4ec600",
+        "0x4ec8d0",
+        "0x4ec920",
+        "0x4ec990",
+        "0x4ec9c0",
+        "0x4ecb00",
+        "0x4ecb20",
+        "0x4ecb30",
+        "0x4ecbc0",
+        "0x4ed5e0",
+        "0x4ed600",
+        "0x4ed620",
+        "0x4ed670",
+        "0x4ed800",
+        "0x4ee170",
+        "0x4ee6b0",
+        "0x4ee820",
+        "0x4ee860"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-display-owners",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b8960",
+        "0x4b9540",
+        "0x4b9950",
+        "0x4b9ce0",
+        "0x4b9d80",
+        "0x4bb8c0",
+        "0x4bbb70",
+        "0x4bbd20",
+        "0x4bbd90",
+        "0x4bc120",
+        "0x4bc220",
+        "0x4bc5f0",
+        "0x4bc610",
+        "0x4bcc50",
+        "0x4bcda0",
+        "0x4bd0c0",
+        "0x4bd1c0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-display-enumeration-callback",
+        "menu-display-player-fade-admission"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-game-image",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b9180",
+        "0x4b9380",
+        "0x4b9730",
+        "0x4b9990",
+        "0x4bb0e0",
+        "0x4bc490",
+        "0x4bc520",
+        "0x4bf310",
+        "0x4bf9c0",
+        "0x4bfbf0",
+        "0x4bfc50",
+        "0x4bffa0",
+        "0x4d2410",
+        "0x4d25e0",
+        "0x4d2890"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-interface",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4bc110",
+        "0x4dcc40",
+        "0x4dcd10",
+        "0x4dcdf0",
+        "0x4dceb0",
+        "0x4dcf00",
+        "0x4dcf10",
+        "0x4dd020",
+        "0x4dd0d0",
+        "0x4dd180",
+        "0x4dd270",
+        "0x4dd2c0",
+        "0x4dd420",
+        "0x4dd450",
+        "0x4dd480",
+        "0x4dd490",
+        "0x4dd520",
+        "0x4dd800",
+        "0x4ddbc0",
+        "0x4ddce0",
+        "0x4dde80",
+        "0x4de0e0",
+        "0x4de790",
+        "0x4deb50",
+        "0x4dec60",
+        "0x4dece0",
+        "0x4ded00",
+        "0x4ded20",
+        "0x4ded40",
+        "0x4def70",
+        "0x4df0e0",
+        "0x4df200",
+        "0x4df260",
+        "0x4df270",
+        "0x4df2b0",
+        "0x4df480",
+        "0x4df490",
+        "0x4df620",
+        "0x4df630",
+        "0x4ed050"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-launch-mutation-gate",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x426e30",
+        "0x42ba10",
+        "0x42ba70",
+        "0x42bab0",
+        "0x42bad0",
+        "0x436e60",
+        "0x4cd530"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-scene-state"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-special-command-mutation-gate",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x40ac20",
+        "0x40b120",
+        "0x415d90",
+        "0x42abf0",
+        "0x46b7b0",
+        "0x46bbc0",
+        "0x46c630",
+        "0x46c7b0",
+        "0x46c900",
+        "0x48fda0",
+        "0x48feb0",
+        "0x4ecc00"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-scene-state"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-launch-stable-harness-gates",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42abf0",
+        "0x42ba10",
+        "0x42ba70",
+        "0x42bab0",
+        "0x42bad0"
+      ],
+      "depends_on": [
+        "menu-admit-launch-mutation-gate",
+        "menu-admit-special-command-mutation-gate",
+        "menu-progress-wide-call-abi",
+        "menu-admit-scene-display"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-menu-launch",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42abf0",
+        "0x42ba10",
+        "0x42ba70",
+        "0x42bab0",
+        "0x42bad0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-scene-state",
+        "menu-admit-launch-mutation-gate",
+        "menu-admit-special-command-mutation-gate",
+        "menu-launch-stable-harness-gates"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-progress-wide-call-abi",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-progress-initial-stack-input",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-progress-wide-call-abi"
+      ],
+      "addresses": [
+        "0x42b140",
+        "0x42b4b0",
+        "0x42d4a0",
+        "0x42d4c0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-menu-progress",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42b140",
+        "0x42b4b0",
+        "0x42d4a0",
+        "0x42d4c0",
+        "0x48ffa0",
+        "0x4b95b0",
+        "0x4bd250",
+        "0x4ca900",
+        "0x4ca930",
+        "0x4caa20",
+        "0x4caa90",
+        "0x4d4190"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-resource-namespace",
+        "menu-progress-wide-call-abi",
+        "menu-progress-initial-stack-input"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-pcx-image",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4babe0",
+        "0x4bb040",
+        "0x4bb050",
+        "0x4bb0f0",
+        "0x4be810",
+        "0x4bebc0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-prerequisite-owners",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b4ed0",
+        "0x4bd260",
+        "0x4c00b0",
+        "0x4d32e0",
+        "0x4efcd0",
+        "0x4efd00"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-recorded-game-owners",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x428c40",
+        "0x4918b0",
+        "0x4ca3b0",
+        "0x4ca440",
+        "0x4ca670",
+        "0x4ca690",
+        "0x4ce960"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-resource-namespace"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-resource-images",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b5ff0",
+        "0x4b61b0",
+        "0x4b61c0",
+        "0x4b6230",
+        "0x4b7ab0",
+        "0x4cdff0",
+        "0x4ce0d0",
+        "0x4ce250",
+        "0x4ce270",
+        "0x4ce2d0",
+        "0x4ce320",
+        "0x4ce5e0",
+        "0x4cf230",
+        "0x4cff40",
+        "0x4d02f0",
+        "0x4d0310",
+        "0x4d0380",
+        "0x4d2380",
+        "0x4d6070",
+        "0x4d61b0",
+        "0x4d6210",
+        "0x4d6260",
+        "0x4d6280",
+        "0x4d76e0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-resource-namespace"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-scene-display",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b9150",
+        "0x4b91f0",
+        "0x4bb000",
+        "0x4bc4f0",
+        "0x4bc670",
+        "0x4bc890",
+        "0x4bcf80",
+        "0x4bf970",
+        "0x4bfb80",
+        "0x4ca6f0",
+        "0x4ca960",
+        "0x4cab90",
+        "0x4cacb0",
+        "0x4d4000",
+        "0x4d4160",
+        "0x4d5510",
+        "0x4d63c0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-state-five-x87-stack-result-transport",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-state-five",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x45ace0",
+        "0x45b240",
+        "0x45b3f0",
+        "0x45b650",
+        "0x45b880",
+        "0x45bbc0",
+        "0x45be10",
+        "0x45cd90",
+        "0x45ce60",
+        "0x45ce80",
+        "0x45cee0",
+        "0x45d500",
+        "0x45d720",
+        "0x45d750",
+        "0x45db40",
+        "0x45dc90",
+        "0x45e040",
+        "0x45e0e0",
+        "0x45e1b0",
+        "0x45e7c0",
+        "0x45e880",
+        "0x45e8f0",
+        "0x45ea80",
+        "0x45ef30",
+        "0x45eff0",
+        "0x45f100",
+        "0x45f360",
+        "0x45f490",
+        "0x45f940",
+        "0x45fa80",
+        "0x45fbb0",
+        "0x45fde0",
+        "0x45fee0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-music",
+        "menu-admit-resource-namespace",
+        "menu-state-five-x87-stack-result-transport"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-traced-runtime-owners",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x428b60",
+        "0x42bf90",
+        "0x430ac0",
+        "0x49a5a0",
+        "0x49ad50",
+        "0x49adc0",
+        "0x49bdb0",
+        "0x49bee0",
+        "0x4b82f0",
+        "0x4d6340",
+        "0x4dee30"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-batch-actor-services"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-application-services",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x425640",
+        "0x429e10",
+        "0x429eb0",
+        "0x429ed0",
+        "0x42a000",
+        "0x42a060",
+        "0x42ae70",
+        "0x42b5d0",
+        "0x42c0a0",
+        "0x42c280",
+        "0x42cdc0",
+        "0x42d590",
+        "0x4b8410",
+        "0x4b97c0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-scene-state",
+        "menu-admit-world-file"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-asset-controller-services",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4c8be0",
+        "0x4c8da0",
+        "0x4c8fc0",
+        "0x4c91d0",
+        "0x4c9860",
+        "0x4c9e00"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-batch-actor-services"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-audio-buffer-services",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b3cb0",
+        "0x4b4200",
+        "0x4b42e0",
+        "0x4b4430",
+        "0x4b46b0",
+        "0x4b48b0",
+        "0x4b4e30",
+        "0x4b5240"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-display-palette-services",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b96f0",
+        "0x4b98b0",
+        "0x4bb100",
+        "0x4bb5a0",
+        "0x4bb800",
+        "0x4bb870",
+        "0x4bb910",
+        "0x4bb990",
+        "0x4bc9b0",
+        "0x4bcbc0",
+        "0x4d4240",
+        "0x4d45f0",
+        "0x4d46f0",
+        "0x4d6620",
+        "0x4d6690"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-menu-navigation-services",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x422370",
+        "0x42af70",
+        "0x45f500",
+        "0x461730",
+        "0x47e1d0",
+        "0x48c190",
+        "0x498f40",
+        "0x49af30"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-scene-state"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-pcm-canonical-build-inputs",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-pcm-resource-services",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4024e0",
+        "0x4026a0",
+        "0x4208e0",
+        "0x4b3b90",
+        "0x4b44f0",
+        "0x4b45f0",
+        "0x4b4a20",
+        "0x4b4ae0",
+        "0x4c8850",
+        "0x4c88b0",
+        "0x4c88e0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-pcm-canonical-build-inputs"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-batch-startup-context",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x40b5c0",
+        "0x48f0d0",
+        "0x4ca280",
+        "0x4cdf20",
+        "0x4cea10",
+        "0x4cf020",
+        "0x4cfa60",
+        "0x4d56d0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-resource-namespace",
+        "menu-admit-scene-state",
+        "menu-admit-world-file"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-resource-table-construction",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b64b0",
+        "0x4b6600",
+        "0x4b7170",
+        "0x4b7f40",
+        "0x4b8050",
+        "0x4b80c0",
+        "0x4b8130",
+        "0x4d53a0",
+        "0x4d5410",
+        "0x4d5450"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-audio-owners",
+        "menu-admit-resource-namespace",
+        "menu-admit-audio-owners-complete"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-resource-archive-loading",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b6b60",
+        "0x4b6ed0",
+        "0x4b7210",
+        "0x4b72e0",
+        "0x4b7bd0"
+      ],
+      "depends_on": [
+        "menu-finalize-reviewed-batches",
+        "menu-trace-and-batch",
+        "menu-admit-resource-images",
+        "menu-admit-resource-namespace",
+        "menu-admit-resource-table-construction"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-state-five-canonical-translation-admission",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-admit-state-five"
+      ],
+      "addresses": [
+        "0x45ace0",
+        "0x45b240",
+        "0x45b3f0",
+        "0x45b650",
+        "0x45b880",
+        "0x45bbc0",
+        "0x45be10",
+        "0x45cd90",
+        "0x45ce60",
+        "0x45ce80",
+        "0x45cee0",
+        "0x45d500",
+        "0x45d720",
+        "0x45d750",
+        "0x45db40",
+        "0x45dc90",
+        "0x45e040",
+        "0x45e0e0",
+        "0x45e1b0",
+        "0x45e7c0",
+        "0x45e880",
+        "0x45e8f0",
+        "0x45ea80",
+        "0x45ef30",
+        "0x45eff0",
+        "0x45f100",
+        "0x45f360",
+        "0x45f490",
+        "0x45f940",
+        "0x45fa80",
+        "0x45fbb0",
+        "0x45fde0",
+        "0x45fee0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-runtime-admit-save-load",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x49a5a0",
+        "0x49ad50",
+        "0x49adc0",
+        "0x49bdb0",
+        "0x49bee0"
+      ],
+      "depends_on": [
+        "menu-admit-traced-runtime-owners"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-runtime-admit-fade-blend",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4dee30"
+      ],
+      "depends_on": [
+        "menu-admit-traced-runtime-owners"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-movie-selection",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42b5d0",
+        "0x42c0a0",
+        "0x42c280"
+      ],
+      "depends_on": [
+        "menu-batch-application-services"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-admit-surface-fill",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4b97c0"
+      ],
+      "depends_on": [
+        "menu-batch-application-services"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-palette-named-loader-chain",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x4d6560",
+        "0x4bca40",
+        "0x4bb180",
+        "0x4bb740",
+        "0x4bb2f0",
+        "0x4bb470",
+        "0x4bb620"
+      ],
+      "depends_on": [
+        "menu-batch-display-palette-services"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-navigation-admit-player-startup",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "menu-batch-menu-navigation-services"
+      ],
+      "addresses": [
+        "0x422370",
+        "0x42af70",
+        "0x49af30"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-navigation-admit-rat-bomb",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "menu-batch-menu-navigation-services"
+      ],
+      "addresses": [
+        "0x47e1d0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-navigation-admit-archive-path",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-batch-menu-navigation-services"
+      ],
+      "addresses": [
+        "0x48c190"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-navigation-admit-menu-claw",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-batch-menu-navigation-services"
+      ],
+      "addresses": [
+        "0x45f500"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-startup-single-player-initialization-cases",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-batch-startup-context",
+        "menu-startup-single-player-level-cases"
+      ],
+      "addresses": [
+        "0x40b5c0",
+        "0x48f0d0",
+        "0x46a6d0",
+        "0x4cea10",
+        "0x4cdf20",
+        "0x4cfa60"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-startup-single-player-level-cases",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-batch-startup-context"
+      ],
+      "addresses": [
+        "0x46aeb0",
+        "0x46a6d0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-startup-single-player-translation-admission",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-startup-single-player-level-cases",
+        "menu-startup-single-player-initialization-cases"
+      ],
+      "addresses": [
+        "0x40b5c0",
+        "0x48f0d0",
+        "0x4ca280",
+        "0x4cdf20",
+        "0x4cea10",
+        "0x4cf020",
+        "0x4cfa60",
+        "0x4d56d0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-runtime-dialog-callback-transport",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-admit-traced-runtime-owners"
+      ],
+      "exclusive": true,
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-runtime-dialog-owned-cpu-transport",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "menu-runtime-dialog-callback-transport"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-runtime-admit-player-cache",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42bf90",
+        "0x430ac0"
+      ],
+      "depends_on": [
+        "menu-admit-traced-runtime-owners",
+        "menu-runtime-dialog-callback-transport",
+        "menu-runtime-dialog-owned-cpu-transport"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-resize-error-boundary-join",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42a000",
+        "0x42a060",
+        "0x4cf020",
+        "0x429e10",
+        "0x4c9bd0",
+        "0x4b90b0"
+      ],
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-paper-transition-native-proof",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42a4f0",
+        "0x48f500",
+        "0x48f740",
+        "0x4b9c50",
+        "0x4c6260",
+        "0x4c7360",
+        "0x4c7730",
+        "0x4c7850",
+        "0x4c96b0",
+        "0x4d4100",
+        "0x4ecb40",
+        "0x4ee880",
+        "0x4ee8c0",
+        "0x4ee8e0",
+        "0x4ee9a0",
+        "0x4eecc0",
+        "0x4ef010",
+        "0x4ef7d0",
+        "0x4efac0"
+      ],
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-paper-transition-batch",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x42a4f0",
+        "0x48f500",
+        "0x48f740",
+        "0x4ecb40",
+        "0x4ee880",
+        "0x4ee8c0",
+        "0x4ee8e0",
+        "0x4ee9a0",
+        "0x4eecc0",
+        "0x4ef010",
+        "0x4ef7d0",
+        "0x4efac0"
+      ],
+      "depends_on": [
+        "menu-paper-transition-native-proof"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-native-shared-initializer",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-admit-resource-namespace",
+        "menu-admit-scene-state",
+        "menu-admit-world-file",
+        "menu-admit-music",
+        "menu-batch-actor-services",
+        "menu-admit-actor-owners",
+        "menu-admit-audio-owners",
+        "menu-admit-display-owners",
+        "menu-admit-game-image",
+        "menu-admit-interface",
+        "menu-admit-menu-launch",
+        "menu-admit-menu-progress",
+        "menu-admit-pcx-image",
+        "menu-admit-prerequisite-owners",
+        "menu-admit-recorded-game-owners",
+        "menu-admit-resource-images",
+        "menu-admit-scene-display",
+        "menu-admit-state-five",
+        "menu-admit-traced-runtime-owners",
+        "menu-batch-application-services",
+        "menu-batch-asset-controller-services",
+        "menu-batch-audio-buffer-services",
+        "menu-batch-display-palette-services",
+        "menu-batch-menu-navigation-services",
+        "menu-batch-pcm-resource-services",
+        "menu-batch-startup-context",
+        "menu-admit-resource-table-construction",
+        "menu-admit-resource-archive-loading",
+        "menu-admit-audio-owners-complete",
+        "menu-state-five-canonical-translation-admission",
+        "menu-runtime-admit-save-load",
+        "menu-runtime-dialog-callback-transport",
+        "menu-runtime-admit-player-cache",
+        "menu-runtime-admit-fade-blend",
+        "menu-admit-movie-selection",
+        "menu-admit-surface-fill",
+        "menu-palette-named-loader-chain",
+        "menu-navigation-admit-player-startup",
+        "menu-navigation-admit-rat-bomb",
+        "menu-navigation-admit-archive-path",
+        "menu-navigation-admit-menu-claw",
+        "menu-startup-single-player-initialization-cases",
+        "menu-startup-single-player-level-cases",
+        "menu-startup-single-player-translation-admission",
+        "menu-resize-error-boundary-join",
+        "menu-paper-transition-batch"
+      ],
+      "addresses": [
+        "0x45ace0",
+        "0x48f0d0",
+        "0x4ce0d0",
+        "0x4dcdf0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-native-shared-frames-routes",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-native-shared-initializer"
+      ],
+      "addresses": [
+        "0x45b240",
+        "0x45b650",
+        "0x45b880",
+        "0x42a060",
+        "0x429e10"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-native-shared-route-controls",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-native-shared-frames-routes"
+      ],
+      "addresses": [
+        "0x4bd260",
+        "0x4bd83f",
+        "0x4b8910",
+        "0x4efcd0",
+        "0x4efd00",
+        "0x4d32e0",
+        "0x4b98b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-native-shared-resize-transition-controls",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-native-shared-frames-routes",
+        "menu-native-shared-route-controls"
+      ],
+      "addresses": [
+        "0x42a060",
+        "0x429e10",
+        "0x45b3f0",
+        "0x45b426",
+        "0x4cf020",
+        "0x4d5510",
+        "0x4d5587"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-native-batch-join",
+      "model": "strong",
+      "state": "done",
+      "addresses": [
+        "0x428c40",
+        "0x45ace0",
+        "0x48f0d0",
+        "0x42a000",
+        "0x42a060",
+        "0x429e10",
+        "0x4b7cd0",
+        "0x4ce0d0",
+        "0x4dcdf0",
+        "0x45b240",
+        "0x45b650",
+        "0x45b880"
+      ],
+      "depends_on": [
+        "menu-admit-resource-namespace",
+        "menu-admit-scene-state",
+        "menu-admit-world-file",
+        "menu-admit-music",
+        "menu-batch-actor-services",
+        "menu-admit-actor-owners",
+        "menu-admit-audio-owners",
+        "menu-admit-display-owners",
+        "menu-admit-game-image",
+        "menu-admit-interface",
+        "menu-admit-menu-launch",
+        "menu-admit-menu-progress",
+        "menu-admit-pcx-image",
+        "menu-admit-prerequisite-owners",
+        "menu-admit-recorded-game-owners",
+        "menu-admit-resource-images",
+        "menu-admit-scene-display",
+        "menu-admit-state-five",
+        "menu-admit-traced-runtime-owners",
+        "menu-batch-application-services",
+        "menu-batch-asset-controller-services",
+        "menu-batch-audio-buffer-services",
+        "menu-batch-display-palette-services",
+        "menu-batch-menu-navigation-services",
+        "menu-batch-pcm-resource-services",
+        "menu-batch-startup-context",
+        "menu-admit-resource-table-construction",
+        "menu-admit-resource-archive-loading",
+        "menu-admit-audio-owners-complete",
+        "menu-state-five-canonical-translation-admission",
+        "menu-runtime-admit-save-load",
+        "menu-runtime-dialog-callback-transport",
+        "menu-runtime-admit-player-cache",
+        "menu-runtime-admit-fade-blend",
+        "menu-admit-movie-selection",
+        "menu-admit-surface-fill",
+        "menu-palette-named-loader-chain",
+        "menu-navigation-admit-player-startup",
+        "menu-navigation-admit-rat-bomb",
+        "menu-navigation-admit-archive-path",
+        "menu-navigation-admit-menu-claw",
+        "menu-startup-single-player-initialization-cases",
+        "menu-startup-single-player-level-cases",
+        "menu-startup-single-player-translation-admission",
+        "menu-resize-error-boundary-join",
+        "menu-paper-transition-batch",
+        "menu-native-shared-initializer",
+        "menu-native-shared-frames-routes",
+        "menu-native-shared-route-controls",
+        "menu-native-shared-resize-transition-controls"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "menu-on-screen",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "menu-native-batch-join"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-trace-and-batch",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-continue-original-trace",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "level-one-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registry-core",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4db6e0",
+        "0x4db7f0",
+        "0x4dba00",
+        "0x4dc690",
+        "0x4036c0",
+        "0x404420",
+        "0x406020",
+        "0x406640",
+        "0x407010",
+        "0x407620",
+        "0x408690"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registrations-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x4092d0",
+        "0x40a150",
+        "0x40e390",
+        "0x40ed00",
+        "0x40fc50",
+        "0x410b90",
+        "0x411140",
+        "0x4115f0",
+        "0x411aa0",
+        "0x411f80",
+        "0x412570"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registrations-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x412ae0",
+        "0x412f90",
+        "0x413770",
+        "0x413c90",
+        "0x414310",
+        "0x414f00",
+        "0x415590",
+        "0x421430",
+        "0x431560",
+        "0x431f00",
+        "0x4327b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registrations-03",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x433be0",
+        "0x434a60",
+        "0x438210",
+        "0x43ae30",
+        "0x43cee0",
+        "0x43d5b0",
+        "0x441030",
+        "0x4413f0",
+        "0x441e10",
+        "0x4434c0",
+        "0x445c00"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registrations-04",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x446780",
+        "0x448970",
+        "0x448f50",
+        "0x4496a0",
+        "0x449e70",
+        "0x44c950",
+        "0x4544f0",
+        "0x455720",
+        "0x455c20",
+        "0x456400",
+        "0x456d30"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registrations-05",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x457860",
+        "0x4583a0",
+        "0x4588b0",
+        "0x45a520",
+        "0x460820",
+        "0x462c00",
+        "0x463c50",
+        "0x4652c0",
+        "0x465ec0",
+        "0x468be0",
+        "0x46f7b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registrations-06",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x474060",
+        "0x4748f0",
+        "0x47ce80",
+        "0x47dc30",
+        "0x47e9f0",
+        "0x47f910",
+        "0x483290",
+        "0x4844f0",
+        "0x4849f0",
+        "0x485a70",
+        "0x4874b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-registrations-07",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x488b00",
+        "0x489210",
+        "0x489960",
+        "0x48b1d0",
+        "0x48e6e0",
+        "0x4924f0",
+        "0x4940e0",
+        "0x497240",
+        "0x4982e0",
+        "0x49f2e0",
+        "0x4a0340"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-admit-load-assets",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x46e160",
+        "0x4c60a0",
+        "0x4c6fa0",
+        "0x4c70b0",
+        "0x4cb5f0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-launch-services",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-admit-load-assets",
+        "level-one-batch-registry-core"
+      ],
+      "addresses": [
+        "0x422980",
+        "0x4229c0",
+        "0x429b70",
+        "0x42c060",
+        "0x46bb80",
+        "0x46db30",
+        "0x46dff0",
+        "0x46e100",
+        "0x46f040",
+        "0x48f1e0",
+        "0x48f370",
+        "0x48f3e0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-actor-dispatch-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x402ca0",
+        "0x402cc0",
+        "0x402e20",
+        "0x403b40",
+        "0x405000",
+        "0x4060b0",
+        "0x4061b0",
+        "0x4061e0",
+        "0x406290",
+        "0x4062e0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-x87-signaling-nan-load-store",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "level-one-continue-original-trace"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-actor-dispatch-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-x87-signaling-nan-load-store"
+      ],
+      "addresses": [
+        "0x4080a0",
+        "0x408220",
+        "0x4082d0",
+        "0x4082f0",
+        "0x408370",
+        "0x40ab80",
+        "0x40abb0",
+        "0x40abf0",
+        "0x40f6c0",
+        "0x4209d0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-actor-storage-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4c7f20",
+        "0x4c7fa0",
+        "0x4c7fe0",
+        "0x4c8060",
+        "0x4c8a20",
+        "0x4c8b90"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-actor-storage-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4c9390",
+        "0x4c95b0",
+        "0x4c96d0",
+        "0x4c9ae0",
+        "0x4c9f80",
+        "0x4ca230",
+        "0x4caaa0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-audio-events-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x48bfd0",
+        "0x48c1e0",
+        "0x48c410",
+        "0x48c430",
+        "0x48c630",
+        "0x48c8f0",
+        "0x48ca40",
+        "0x48ca60",
+        "0x48cc60",
+        "0x490130"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-enemy-balanced-x87-transport",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-actions-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "level-one-enemy-balanced-x87-transport"
+      ],
+      "addresses": [
+        "0x404fc0",
+        "0x4063b0",
+        "0x43d490",
+        "0x43dfa0",
+        "0x43e420",
+        "0x43e9b0",
+        "0x4dc830",
+        "0x4dca10"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-frame-and-resources-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4d2140",
+        "0x4d3790",
+        "0x4d3c40",
+        "0x4d4870",
+        "0x4d4c70",
+        "0x4d51f0",
+        "0x4d5240"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-level-object-actions-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "harness-mfc-callee-caller-frame"
+      ],
+      "addresses": [
+        "0x4332f0",
+        "0x43eab0",
+        "0x4410f0",
+        "0x44aaf0",
+        "0x44bc60",
+        "0x44c000",
+        "0x44c840",
+        "0x44d000",
+        "0x44d3c0",
+        "0x44edd0",
+        "0x44ef70"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-level-object-actions-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "harness-mfc-callee-caller-frame"
+      ],
+      "addresses": [
+        "0x44f840",
+        "0x44f850",
+        "0x452b00",
+        "0x452c50",
+        "0x462350",
+        "0x462410",
+        "0x462af0",
+        "0x462ef0",
+        "0x463120",
+        "0x4631e0",
+        "0x46a8d0",
+        "0x46c2c0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-level-object-actions-03",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x46caf0",
+        "0x46cb40",
+        "0x46d520",
+        "0x46fd10",
+        "0x470110",
+        "0x4719e0",
+        "0x473630",
+        "0x473660",
+        "0x4736b0",
+        "0x473ae0",
+        "0x473b10",
+        "0x486940"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-loot-and-breakables-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4170b0",
+        "0x42df90",
+        "0x433070",
+        "0x433130",
+        "0x4339e0",
+        "0x433a00",
+        "0x433ad0",
+        "0x433ed0",
+        "0x433f70",
+        "0x434050"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-loot-and-breakables-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "harness-mfc-callee-caller-frame",
+        "level-one-continue-original-trace",
+        "level-one-trace-and-batch"
+      ],
+      "addresses": [
+        "0x434170",
+        "0x434180",
+        "0x46f1e0",
+        "0x46f2a0",
+        "0x46f6a0",
+        "0x471530",
+        "0x471720",
+        "0x471750",
+        "0x48d560",
+        "0x48d6e0",
+        "0x48de40"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-player-actions-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "harness-mfc-callee-caller-frame"
+      ],
+      "addresses": [
+        "0x40e690",
+        "0x40e750",
+        "0x40ebe0",
+        "0x40efa0",
+        "0x40f010",
+        "0x40f0e0",
+        "0x40f200",
+        "0x40f2a0",
+        "0x40f6a0",
+        "0x40f6f0",
+        "0x40f760"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-player-actions-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x40f780",
+        "0x40fe90",
+        "0x415df0",
+        "0x4171d0",
+        "0x417380",
+        "0x417590",
+        "0x417930",
+        "0x418120",
+        "0x4183e0",
+        "0x418b40",
+        "0x419030"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-player-actions-03",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x41b630",
+        "0x41c4e0",
+        "0x41c5a0",
+        "0x41ce80",
+        "0x41d6f0",
+        "0x41d750",
+        "0x41d850",
+        "0x41de90",
+        "0x41e710",
+        "0x41f850",
+        "0x41fc30"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-player-actions-04",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4207b0",
+        "0x4207f0",
+        "0x4208b0",
+        "0x420a40",
+        "0x420ad0",
+        "0x420cd0",
+        "0x420fc0",
+        "0x4c9e30",
+        "0x4dc870",
+        "0x420af0",
+        "0x420b60",
+        "0x420dd0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "harness-owned-x87-return",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [],
+      "addresses": [
+        "0x420af0",
+        "0x420b60",
+        "0x420dd0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "harness-x87-register-primitives",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "harness-owned-x87-return"
+      ],
+      "addresses": [
+        "0x420af0",
+        "0x420b60",
+        "0x420dd0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-player-actions-04b",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "harness-owned-x87-return",
+        "harness-x87-register-primitives"
+      ],
+      "addresses": [
+        "0x420af0",
+        "0x420b60",
+        "0x420dd0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "harness-owned-caller-entry-ebp",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [],
+      "addresses": [
+        "0x4dc680",
+        "0x4dbd60",
+        "0x4dbe10",
+        "0x4dc180"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-state-registry-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace",
+        "harness-owned-caller-entry-ebp"
+      ],
+      "addresses": [
+        "0x4db6c0",
+        "0x4dbd60",
+        "0x4dbe10",
+        "0x4dc180",
+        "0x4dc560",
+        "0x4dc7b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-timers-and-checkpoints-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x490590",
+        "0x490760",
+        "0x4908b0",
+        "0x490c40",
+        "0x490c50",
+        "0x490f80",
+        "0x4912a0",
+        "0x491540"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-timers-and-checkpoints-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4919f0",
+        "0x491ed0",
+        "0x4c8e00",
+        "0x4c8f60",
+        "0x4d3ca0",
+        "0x4d3e50",
+        "0x4d3ef0",
+        "0x4d3f20"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-world-and-collision-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x422350",
+        "0x4224f0",
+        "0x4296f0",
+        "0x42ce20",
+        "0x42d1f0",
+        "0x4cb7b0",
+        "0x4cbb60",
+        "0x4cbcd0",
+        "0x4cbe30"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-world-and-collision-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4cbff0",
+        "0x4cc1b0",
+        "0x4cc420",
+        "0x4cc570",
+        "0x4cc6c0",
+        "0x4cc9a0",
+        "0x4ccc50",
+        "0x4ccef0",
+        "0x4cd1c0",
+        "0x4cd800"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-world-and-collision-03",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-trace-and-batch",
+        "level-one-continue-original-trace"
+      ],
+      "addresses": [
+        "0x4cda10",
+        "0x4cdcb0",
+        "0x4cddc0",
+        "0x4cde00",
+        "0x4cde10",
+        "0x4cde40",
+        "0x4d03b0",
+        "0x4d0450",
+        "0x4d0cd0",
+        "0x4f4a90"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-native-batch-join",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "level-one-admit-load-assets",
+        "level-one-batch-actor-dispatch-01",
+        "level-one-batch-actor-dispatch-02",
+        "level-one-batch-actor-storage-01",
+        "level-one-batch-actor-storage-02",
+        "level-one-batch-audio-events-01",
+        "level-one-batch-enemy-actions-01",
+        "level-one-batch-frame-and-resources-01",
+        "level-one-batch-launch-services",
+        "level-one-batch-level-object-actions-01",
+        "level-one-batch-level-object-actions-02",
+        "level-one-batch-level-object-actions-03",
+        "level-one-batch-loot-and-breakables-01",
+        "level-one-batch-loot-and-breakables-02",
+        "level-one-batch-player-actions-01",
+        "level-one-batch-player-actions-02",
+        "level-one-batch-player-actions-03",
+        "level-one-batch-player-actions-04",
+        "level-one-batch-player-actions-04b",
+        "level-one-batch-registrations-01",
+        "level-one-batch-registrations-02",
+        "level-one-batch-registrations-03",
+        "level-one-batch-registrations-04",
+        "level-one-batch-registrations-05",
+        "level-one-batch-registrations-06",
+        "level-one-batch-registrations-07",
+        "level-one-batch-registry-core",
+        "level-one-batch-state-registry-01",
+        "level-one-batch-timers-and-checkpoints-01",
+        "level-one-batch-timers-and-checkpoints-02",
+        "level-one-batch-world-and-collision-01",
+        "level-one-batch-world-and-collision-02",
+        "level-one-batch-world-and-collision-03",
+        "level-one-continue-original-trace",
+        "level-one-trace-and-batch",
+        "menu-native-batch-join",
+        "level-one-timers-checkpoints-02-eax-receiver-repair",
+        "native-x87-return-dispatch",
+        "level-one-indirect-receiver-repair",
+        "level-one-breakable-tail-targets",
+        "level-one-world-timer-4224f0-01"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "new-game-app-launch-lifetime",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "new-game-app-level-one-data",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "new-game-app-launch-lifetime"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "new-game-app-source-transports",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "new-game-app-launch-lifetime",
+        "new-game-app-level-one-data"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "new-game-app-level-one-services",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "new-game-app-launch-lifetime",
+        "new-game-app-source-transports",
+        "new-game-app-level-one-data"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "new-game-app-level-one-control",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "new-game-app-level-one-services"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "new-game-to-level-one",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-one-admit-load-assets",
+        "level-one-batch-actor-dispatch-01",
+        "level-one-batch-actor-dispatch-02",
+        "level-one-batch-actor-storage-01",
+        "level-one-batch-actor-storage-02",
+        "level-one-batch-audio-events-01",
+        "level-one-batch-enemy-actions-01",
+        "level-one-batch-frame-and-resources-01",
+        "level-one-batch-launch-services",
+        "level-one-batch-level-object-actions-01",
+        "level-one-batch-level-object-actions-02",
+        "level-one-batch-level-object-actions-03",
+        "level-one-batch-loot-and-breakables-01",
+        "level-one-batch-loot-and-breakables-02",
+        "level-one-batch-player-actions-01",
+        "level-one-batch-player-actions-02",
+        "level-one-batch-player-actions-03",
+        "level-one-batch-player-actions-04",
+        "level-one-batch-player-actions-04b",
+        "level-one-batch-registrations-01",
+        "level-one-batch-registrations-02",
+        "level-one-batch-registrations-03",
+        "level-one-batch-registrations-04",
+        "level-one-batch-registrations-05",
+        "level-one-batch-registrations-06",
+        "level-one-batch-registrations-07",
+        "level-one-batch-registry-core",
+        "level-one-batch-state-registry-01",
+        "level-one-batch-timers-and-checkpoints-01",
+        "level-one-batch-timers-and-checkpoints-02",
+        "level-one-batch-world-and-collision-01",
+        "level-one-batch-world-and-collision-02",
+        "level-one-batch-world-and-collision-03",
+        "level-one-continue-original-trace",
+        "level-one-native-batch-join",
+        "level-one-trace-and-batch",
+        "menu-on-screen",
+        "native-x87-return-dispatch",
+        "new-game-app-launch-lifetime",
+        "new-game-app-source-transports",
+        "new-game-app-level-one-services",
+        "new-game-app-level-one-control",
+        "new-game-app-level-one-data"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-trace-and-batch",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-continue-original-trace",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "end-of-level-trace-and-batch"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-admit-owned-entries",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "end-of-level-trace-and-batch"
+      ],
+      "addresses": [
+        "0x40db30",
+        "0x40db50",
+        "0x42a630",
+        "0x4c9fc0",
+        "0x4c9fe0",
+        "0x4d3eb0",
+        "0x429ac0",
+        "0x429be0",
+        "0x49bbc0",
+        "0x49e060",
+        "0x49e1c0",
+        "0x49e2a0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-batch-level-complete",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "end-of-level-trace-and-batch"
+      ],
+      "addresses": [
+        "0x42ae40",
+        "0x45fe20",
+        "0x462a00",
+        "0x462a20",
+        "0x46ab30",
+        "0x4d2230",
+        "0x4d4ab0",
+        "0x4d5120"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-batch-results-state",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "end-of-level-trace-and-batch"
+      ],
+      "addresses": [
+        "0x40b0b0",
+        "0x40b140",
+        "0x40b1f0",
+        "0x40b300",
+        "0x429790",
+        "0x4297b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-batch-next-level-start",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "end-of-level-trace-and-batch"
+      ],
+      "addresses": [
+        "0x452cc0",
+        "0x48a980",
+        "0x48aa40",
+        "0x48b0c0",
+        "0x48b6b0",
+        "0x48b730"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-batch-in-game-menu",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "end-of-level-trace-and-batch"
+      ],
+      "addresses": [
+        "0x44f880",
+        "0x44fad0",
+        "0x450060",
+        "0x450610",
+        "0x451770",
+        "0x451900",
+        "0x451c40",
+        "0x451d50",
+        "0x451f00",
+        "0x4525a0",
+        "0x46dd90",
+        "0x46ddf0",
+        "0x4dd5b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-native-batch-join",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "end-of-level-admit-owned-entries",
+        "end-of-level-batch-in-game-menu",
+        "end-of-level-batch-level-complete",
+        "end-of-level-batch-next-level-start",
+        "end-of-level-batch-results-state",
+        "end-of-level-continue-original-trace",
+        "end-of-level-trace-and-batch",
+        "level-one-batch-collision-dispatch-01",
+        "level-one-batch-powerups-01",
+        "level-one-native-batch-join",
+        "end-of-level-level-two-traces-audio-volumes"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-class-census-and-batch",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-native-speed",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-cxx-optimization",
+      "title": "Compile the recovered C++ in the Release app with optimization",
+      "model": "strong",
+      "state": "blocked",
+      "scope": "Turn on C++ optimization (-O1 or -O2) for the Release configuration, rebuild with CLAW_CONFIG=Release scripts/run-mac.sh, and run every check in work/new-game/COMMANDS.md with CLAW_CONFIG=Release (work/real-speed/regressions.sh). If any check diverges, find the undefined behaviour or host assumption responsible instead of keeping -O0; do not change recovered game logic.",
+      "done_when": "Release with optimized C++ passes every work/new-game/COMMANDS.md check and work/real-speed/run.sh still shows frame_ms 17 in the menu and Level 1.",
+      "depends_on": []
+    },
+    {
+      "id": "level-one-batch-claw-states-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x4170f0",
+        "0x417480",
+        "0x417dd0",
+        "0x417f20",
+        "0x418790",
+        "0x4197e0",
+        "0x4198d0",
+        "0x419c80",
+        "0x419fd0",
+        "0x41a490"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-claw-states-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x41bb70",
+        "0x41c030",
+        "0x41c2b0",
+        "0x41c440",
+        "0x41e790",
+        "0x41f4c0",
+        "0x420480",
+        "0x420bd0",
+        "0x420c40",
+        "0x420d50",
+        "0x417c50",
+        "0x4cd740"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-claw-hit-and-ranged-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x405f80",
+        "0x417b00",
+        "0x41c9f0",
+        "0x41cab0",
+        "0x41cb80",
+        "0x41cc60",
+        "0x41dd80",
+        "0x41e660",
+        "0x4207a0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-claw-lift-throw-and-rope-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x41a850",
+        "0x41b1f0",
+        "0x41b280",
+        "0x41dc50",
+        "0x421010",
+        "0x4dbd20",
+        "0x4dc6d0",
+        "0x403ab0",
+        "0x403ac0",
+        "0x418080",
+        "0x4181c0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-claw-death-and-powerups-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x41ebd0",
+        "0x41ee40",
+        "0x479f10",
+        "0x47a220",
+        "0x4b7aa0",
+        "0x41f990",
+        "0x420070",
+        "0x448400",
+        "0x4ce7b0",
+        "0x4e0c60",
+        "0x4e0d70",
+        "0x4e10d0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-powerups-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x417050",
+        "0x41ee60",
+        "0x436860",
+        "0x470430",
+        "0x470a20",
+        "0x470100",
+        "0x470d00",
+        "0x471100",
+        "0x448440",
+        "0x4485a0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-collision-dispatch-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x4cc2b0",
+        "0x4ccdd0",
+        "0x4ccf80",
+        "0x4cd060",
+        "0x4cd120",
+        "0x4db5f0",
+        "0x406120",
+        "0x4dc3d0",
+        "0x4dc850"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "gate-all-equivalent-mutants",
+      "title": "Gate: admit a family whose only mutation candidates are all reviewed equivalent",
+      "model": "strong",
+      "state": "blocked",
+      "exclusive": true,
+      "depends_on": [],
+      "start_with": [
+        "Tests/clawparity/gate.py (mutation section, MUTATION_THRESHOLD)",
+        "Tests/families/level_one_collision_dispatch_05.json"
+      ],
+      "scope": "Change only the gate so that when every tried candidate is covered by a reviewed equivalent_mutants entry (tried above zero, none survived, none killed needed), the mutation check passes without lowering MUTATION_THRESHOLD for any family that has a scorable candidate. Add a selftest. Then run `make gate FAMILY=level_one_collision_dispatch_05 ARGS='--record --jobs 1'`; do not touch the family's cases or source.",
+      "done_when": "make gate FAMILY=level_one_collision_dispatch_05 ARGS='--record --jobs 1' prints status admitted and work/test-env/bin/python work/level-one-classes/census.py shows 0x4db5f0 admitted."
+    },
+    {
+      "id": "level-one-batch-pegs-and-elevators-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x49d860",
+        "0x49e470",
+        "0x49e4b0",
+        "0x49e4e0",
+        "0x49e7b0",
+        "0x49e7d0",
+        "0x49e7f0",
+        "0x4ca610",
+        "0x49cdd0",
+        "0x49daf0",
+        "0x49db10",
+        "0x49db30",
+        "0x49db50",
+        "0x49db70",
+        "0x49ee20"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-crates-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x48d620",
+        "0x4717e0",
+        "0x40f450",
+        "0x40f540",
+        "0x4735b0",
+        "0x473610",
+        "0x46fa90",
+        "0x46fc20",
+        "0x40f400"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-sound-triggers-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x48c450",
+        "0x48c470",
+        "0x48c490",
+        "0x48c4b0",
+        "0x48ca80",
+        "0x48caa0",
+        "0x48cac0",
+        "0x48cae0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-states-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x43edd0",
+        "0x43fd10",
+        "0x43fdc0",
+        "0x43f030",
+        "0x43f450",
+        "0x43f540",
+        "0x43f6e0",
+        "0x43f720"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-states-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x43f980",
+        "0x43fc20",
+        "0x43ff60",
+        "0x440070",
+        "0x440260",
+        "0x4405b0",
+        "0x440870",
+        "0x440a50",
+        "0x440be0",
+        "0x440d50"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-human-enemies-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x44da20",
+        "0x44dd30",
+        "0x44de50",
+        "0x44e510",
+        "0x44ea10",
+        "0x44ea60",
+        "0x44ebb0",
+        "0x44ec80",
+        "0x44f290",
+        "0x44f490",
+        "0x44f660",
+        "0x44f800",
+        "0x463020",
+        "0x48b4b0",
+        "0x48ba00"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-rat-and-speech-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x47c850",
+        "0x47c910",
+        "0x408050",
+        "0x406310",
+        "0x4357a0",
+        "0x47d150",
+        "0x47d1b0",
+        "0x47d2f0",
+        "0x47d470",
+        "0x47d490",
+        "0x47d660",
+        "0x48ce40",
+        "0x48ceb0",
+        "0x4a1180"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-player-projectiles-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x4084b0",
+        "0x4089d0",
+        "0x40ff80",
+        "0x410040",
+        "0x410870",
+        "0x410900",
+        "0x410d60",
+        "0x43a850",
+        "0x43a910",
+        "0x43b290",
+        "0x43b320",
+        "0x486e70",
+        "0x4107c0",
+        "0x40fec0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-elemental-projectiles-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x410100",
+        "0x4101c0",
+        "0x410280",
+        "0x410ec0",
+        "0x411310",
+        "0x411370",
+        "0x4117c0",
+        "0x411820",
+        "0x411c70"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-effects-and-save-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "level-one-class-census-and-batch"
+      ],
+      "addresses": [
+        "0x457f00",
+        "0x458120",
+        "0x4581c0",
+        "0x458530",
+        "0x458570",
+        "0x4ce850",
+        "0x461a00",
+        "0x461a90",
+        "0x461bc0",
+        "0x461c40",
+        "0x49bf70",
+        "0x49bfb0",
+        "0x49c000",
+        "0x49c030",
+        "0x49c070"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-evidence-review",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-class-native-join",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "level-one-batch-claw-death-and-powerups-01",
+        "level-one-batch-claw-hit-and-ranged-01",
+        "level-one-batch-claw-lift-throw-and-rope-01",
+        "level-one-batch-claw-states-01",
+        "level-one-batch-claw-states-02",
+        "level-one-batch-collision-dispatch-01",
+        "level-one-batch-crates-01",
+        "level-one-batch-effects-and-save-01",
+        "level-one-batch-elemental-projectiles-01",
+        "level-one-batch-enemy-states-01",
+        "level-one-batch-enemy-states-02",
+        "level-one-batch-human-enemies-01",
+        "level-one-batch-pegs-and-elevators-01",
+        "level-one-batch-player-projectiles-01",
+        "level-one-batch-powerups-01",
+        "level-one-batch-rat-and-speech-01",
+        "level-one-batch-sound-triggers-01",
+        "level-one-evidence-review",
+        "level-one-native-speed"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-pause-menu-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x450460",
+        "0x450850",
+        "0x450cf0",
+        "0x451e10",
+        "0x452080",
+        "0x450310",
+        "0x4503c0",
+        "0x450430",
+        "0x44fe40",
+        "0x44fa80",
+        "0x429820",
+        "0x429810"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-dynamite-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x408510",
+        "0x408580",
+        "0x408860",
+        "0x408870",
+        "0x43ad20",
+        "0x43b120",
+        "0x43b160",
+        "0x43b1a0",
+        "0x43b1e0",
+        "0x43b210"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-projectiles-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x410a80",
+        "0x414010",
+        "0x411030",
+        "0x4114e0",
+        "0x411990",
+        "0x411cd0",
+        "0x4030e0",
+        "0x458280"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-enemies-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x440350",
+        "0x440710",
+        "0x440c70",
+        "0x44c7c0",
+        "0x44e120",
+        "0x44f1b0",
+        "0x44f6e0",
+        "0x409f00",
+        "0x463310",
+        "0x4041a0",
+        "0x4041b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-rat-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x47cd70",
+        "0x47d4b0",
+        "0x47d540",
+        "0x47d5d0",
+        "0x47d780"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-object-actions-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x452d50",
+        "0x452db0",
+        "0x452ea0",
+        "0x452f80",
+        "0x453070",
+        "0x453150",
+        "0x453240",
+        "0x453310",
+        "0x453410",
+        "0x453500",
+        "0x453600",
+        "0x4536f0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-path-elevator-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x468170",
+        "0x4681c0",
+        "0x4682c0",
+        "0x4683a0",
+        "0x468540",
+        "0x468840",
+        "0x468890",
+        "0x4688f0",
+        "0x49f020",
+        "0x49f040"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-breakables-powerups-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x46f5b0",
+        "0x46f5d0",
+        "0x46fbe0",
+        "0x46fc60",
+        "0x46fc90",
+        "0x404f30",
+        "0x404f50",
+        "0x40f390",
+        "0x470f00",
+        "0x471330"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-play-state-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x429470",
+        "0x429480",
+        "0x4294a0",
+        "0x46a840",
+        "0x46a870",
+        "0x46b8f0",
+        "0x46ba80",
+        "0x46bc00",
+        "0x46ca50",
+        "0x46ef80",
+        "0x48fcf0",
+        "0x40af60"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-commands-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x46bc90",
+        "0x46bcf0",
+        "0x46bdb0",
+        "0x42abb0",
+        "0x42b910",
+        "0x42d520",
+        "0x42a570",
+        "0x4b5c00",
+        "0x4b5c10",
+        "0x4b5e50",
+        "0x4373d0",
+        "0x49c860"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-engine-misc-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4226b0",
+        "0x491970",
+        "0x490c00",
+        "0x4b5720",
+        "0x4b3d50",
+        "0x4db6a0",
+        "0x4dbd00"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-scene-fade-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4ec720",
+        "0x4ec900",
+        "0x4ecc30",
+        "0x4ecc60",
+        "0x4ecc90",
+        "0x4eccb0",
+        "0x4ecd00",
+        "0x4ecef0",
+        "0x4ecf10",
+        "0x423f10",
+        "0x4c7650",
+        "0x4c76b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-scene-fade-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4ed060",
+        "0x4ed080",
+        "0x4ed0a0",
+        "0x4ed0b0",
+        "0x4ed1a0",
+        "0x4ed5d0",
+        "0x4efb00",
+        "0x4efc40",
+        "0x4c62e0",
+        "0x4c7180",
+        "0x4c7780"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-scene-display-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4b9b00",
+        "0x4b9bd0",
+        "0x4bc960",
+        "0x4bdad0",
+        "0x4bdc40",
+        "0x4be050",
+        "0x4bea60",
+        "0x4bf540",
+        "0x4bfa70"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-images-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4b9fa0",
+        "0x4ba150",
+        "0x4ba3f0",
+        "0x4ba890",
+        "0x4bd0a0",
+        "0x4c68e0",
+        "0x4c6d90"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-scene-actor-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4c7a90",
+        "0x4c7ae0",
+        "0x4c7cd0",
+        "0x4c80a0",
+        "0x4c80b0",
+        "0x4c81b0",
+        "0x4c97c0",
+        "0x4c97e0",
+        "0x4c9810",
+        "0x4c9890",
+        "0x4c9bc0",
+        "0x4c9d80",
+        "0x4cf080",
+        "0x4d56c0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-scene-timers-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4c9e20",
+        "0x4c9e40",
+        "0x4c9e50",
+        "0x4c9fa0",
+        "0x4c9fb0",
+        "0x4ca1b0",
+        "0x4d3f50",
+        "0x4d3f80",
+        "0x4d3fc0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-pid-blitters-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4c0450",
+        "0x4c0920",
+        "0x4c0cc0",
+        "0x4c1190",
+        "0x4c25b0",
+        "0x4c3800",
+        "0x4c4c20",
+        "0x4c5e80"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-collision-dispatch-01-eax-repair",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4cbb60"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-collision-dispatch-01-limit-mutants",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4cbb60"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-projectile-lifetime-01",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-one-collision-dispatch-01-eax-repair"
+      ],
+      "addresses": [
+        "0x40ff80",
+        "0x410040",
+        "0x457f00",
+        "0x474290",
+        "0x4741f0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-playable",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-loading-screen",
+        "level-one-class-census-and-batch",
+        "level-one-native-speed",
+        "level-one-batch-claw-states-01",
+        "level-one-batch-claw-states-02",
+        "level-one-batch-claw-hit-and-ranged-01",
+        "level-one-batch-claw-lift-throw-and-rope-01",
+        "level-one-batch-claw-death-and-powerups-01",
+        "level-one-batch-powerups-01",
+        "level-one-batch-collision-dispatch-01",
+        "level-one-batch-pegs-and-elevators-01",
+        "level-one-batch-crates-01",
+        "level-one-batch-sound-triggers-01",
+        "level-one-batch-enemy-states-01",
+        "level-one-batch-enemy-states-02",
+        "level-one-batch-human-enemies-01",
+        "level-one-batch-rat-and-speech-01",
+        "level-one-batch-player-projectiles-01",
+        "level-one-batch-elemental-projectiles-01",
+        "level-one-batch-effects-and-save-01",
+        "level-one-class-native-join",
+        "level-one-batch-pause-menu-01",
+        "level-one-batch-pause-menu-commands-01",
+        "level-one-batch-pause-menu-resume-01",
+        "level-one-batch-enemy-base-virtuals-01",
+        "level-one-batch-enemy-base-virtuals-02",
+        "level-one-batch-enemy-base-callee-01",
+        "level-one-state-handler-abi-01",
+        "level-one-batch-enemy-base-callee-02",
+        "level-one-batch-enemy-callee-03",
+        "level-one-batch-respawn-01",
+        "level-one-batch-soldier-01",
+        "level-one-batch-human-enemy-virtuals-03",
+        "level-one-batch-respawn-02",
+        "level-one-batch-projectile-base-01",
+        "level-one-closure-dynamite-01",
+        "level-one-closure-projectiles-01",
+        "level-one-closure-enemies-01",
+        "level-one-closure-rat-01",
+        "level-one-closure-object-actions-01",
+        "level-one-closure-path-elevator-01",
+        "level-one-closure-breakables-powerups-01",
+        "level-one-closure-play-state-01",
+        "level-one-closure-commands-01",
+        "level-one-closure-engine-misc-01",
+        "level-one-closure-scene-fade-01",
+        "level-one-closure-scene-fade-02",
+        "level-one-closure-scene-display-01",
+        "level-one-closure-images-01",
+        "level-one-closure-scene-actor-01",
+        "level-one-closure-scene-timers-01",
+        "level-one-closure-pid-blitters-01",
+        "level-one-collision-dispatch-01-eax-repair",
+        "level-one-projectile-lifetime-01",
+        "level-one-collision-dispatch-01-limit-mutants",
+        "level-one-closure-light-blend-table-01"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-pause-menu-commands-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x4505f0",
+        "0x450b50",
+        "0x450e00",
+        "0x450ed0",
+        "0x451230",
+        "0x451410",
+        "0x451530",
+        "0x451660",
+        "0x451210",
+        "0x4519f0",
+        "0x4526f0",
+        "0x42cdf0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-pause-menu-resume-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x46ddc0",
+        "0x46df20"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-base-callee-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x44f510"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-base-virtuals-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x44df60",
+        "0x44cfd0",
+        "0x44d460",
+        "0x44d570",
+        "0x44d5a0",
+        "0x44d700",
+        "0x44d730",
+        "0x44d760",
+        "0x44d9f0",
+        "0x43e9c0",
+        "0x43e9e0",
+        "0x44f3c0",
+        "0x440e20"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-base-virtuals-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x404dd0",
+        "0x43ed70",
+        "0x43eee0",
+        "0x43ee10",
+        "0x43efe0",
+        "0x43f640",
+        "0x43f740",
+        "0x43fa10",
+        "0x44e0c0",
+        "0x44f1b0",
+        "0x40a440",
+        "0x40aaf0",
+        "0x40e5b0",
+        "0x40e1b0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-state-handler-abi-01",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x463020",
+        "0x48b4b0",
+        "0x48ba00",
+        "0x44da20",
+        "0x44dd30",
+        "0x44de50",
+        "0x44e510",
+        "0x44ea10",
+        "0x44ea60",
+        "0x44ec80",
+        "0x44f290",
+        "0x44f490",
+        "0x44f660",
+        "0x44f800",
+        "0x43edd0",
+        "0x43f030",
+        "0x43f450",
+        "0x43f540",
+        "0x43f6e0",
+        "0x43fd10",
+        "0x43fdc0",
+        "0x43f980",
+        "0x43fc20",
+        "0x43ff60",
+        "0x440070",
+        "0x440260",
+        "0x4405b0",
+        "0x440870",
+        "0x440a50",
+        "0x440be0",
+        "0x440d50",
+        "0x4bb030"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-base-callee-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x404dd0",
+        "0x43f640",
+        "0x43f740"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-enemy-callee-03",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x43f120",
+        "0x43fe60",
+        "0x43ffa0",
+        "0x404eb0",
+        "0x404ed0",
+        "0x404f00",
+        "0x420370"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-respawn-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x46be40",
+        "0x46e2d0",
+        "0x46f1c0",
+        "0x46f1d0",
+        "0x46c110",
+        "0x42d5c0"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-soldier-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x48b670",
+        "0x48b880",
+        "0x48afd0",
+        "0x48aff0",
+        "0x404e00",
+        "0x404e10",
+        "0x43f500",
+        "0x43fcb0",
+        "0x43fd60",
+        "0x43fe00"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-human-enemy-virtuals-03",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x44dbb0",
+        "0x44de30",
+        "0x44df10",
+        "0x4407d0",
+        "0x4409d0",
+        "0x440b20",
+        "0x440c90",
+        "0x440410"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-projectile-base-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x474290"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-batch-respawn-02",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [],
+      "addresses": [
+        "0x46e340"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-loading-screen",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-one-native-speed"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-results",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "new-game-to-level-one",
+        "end-of-level-continue-original-trace",
+        "end-of-level-admit-owned-entries",
+        "end-of-level-batch-level-complete",
+        "end-of-level-batch-results-state",
+        "end-of-level-batch-next-level-start",
+        "end-of-level-batch-in-game-menu",
+        "end-of-level-native-batch-join"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "harness-long-original-run-limit",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-closure-light-blend-table-01",
+      "model": "cheaper",
+      "state": "done",
+      "depends_on": [
+        "harness-long-original-run-limit"
+      ],
+      "addresses": [
+        "0x4c6d90"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "level-one-powerup-timer-icon",
+      "model": "strong",
+      "state": "done",
+      "depends_on": [
+        "level-one-playable"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "native-startup-settings-defaults",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "level-one-powerup-timer-icon"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "native-startup-audio-volume-defaults",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "native-startup-settings-defaults"
+      ],
+      "title": "Completed dependency for original level census checks"
+    },
+    {
+      "id": "end-of-level-level-two-traces-audio-volumes",
+      "model": "strong",
+      "state": "done",
+      "exclusive": true,
+      "depends_on": [
+        "native-startup-audio-volume-defaults"
+      ],
+      "title": "Completed dependency for original level census checks"
+    }
+  ],
+  "level_one_batch_contract": {
+    "trace_sha256": "af54e0812377e098997996d0c5e6d6b833f47aa93b8571050cfeed7f6968f3ef",
+    "ownership_counts": {
+      "admitted": 1144,
+      "native-reuse": 40
+    },
+    "functions_executed": 1184,
+    "stop": null,
+    "missing_stand_in": null,
+    "batches": [
+      "level-one-batch-registry-core",
+      "level-one-batch-registrations-01",
+      "level-one-batch-registrations-02",
+      "level-one-batch-registrations-03",
+      "level-one-batch-registrations-04",
+      "level-one-batch-registrations-05",
+      "level-one-batch-registrations-06",
+      "level-one-batch-registrations-07",
+      "level-one-admit-load-assets",
+      "level-one-batch-launch-services",
+      "level-one-batch-actor-dispatch-01",
+      "level-one-batch-actor-dispatch-02",
+      "level-one-batch-actor-storage-01",
+      "level-one-batch-actor-storage-02",
+      "level-one-batch-audio-events-01",
+      "level-one-batch-enemy-actions-01",
+      "level-one-batch-frame-and-resources-01",
+      "level-one-batch-level-object-actions-01",
+      "level-one-batch-level-object-actions-02",
+      "level-one-batch-level-object-actions-03",
+      "level-one-batch-loot-and-breakables-01",
+      "level-one-batch-loot-and-breakables-02",
+      "level-one-batch-player-actions-01",
+      "level-one-batch-player-actions-02",
+      "level-one-batch-player-actions-03",
+      "level-one-batch-player-actions-04",
+      "level-one-batch-state-registry-01",
+      "level-one-batch-timers-and-checkpoints-01",
+      "level-one-batch-timers-and-checkpoints-02",
+      "level-one-batch-world-and-collision-01",
+      "level-one-batch-world-and-collision-02",
+      "level-one-batch-world-and-collision-03"
+    ],
+    "continuation": "level-one-continue-original-trace",
+    "native_join": "level-one-native-batch-join",
+    "unresolved_functions": 0,
+    "completed_play_ms": 30005,
+    "treasure_pickups": 1
+  },
+  "end_of_level_batch_contract": {
+    "trace_sha256": "82b3063a6fcdae85dea9be1dde4471a90dc56692093920f4708686963a9a89b4",
+    "ownership_counts": {
+      "admitted": 1179,
+      "native-reuse": 40
+    },
+    "functions_executed": 1219,
+    "new_since_level_one": 106,
+    "unresolved_functions": 0,
+    "stop": null,
+    "batches": [
+      "end-of-level-admit-owned-entries",
+      "end-of-level-batch-level-complete",
+      "end-of-level-batch-results-state",
+      "end-of-level-batch-next-level-start",
+      "end-of-level-batch-in-game-menu"
+    ],
+    "continuation": "end-of-level-continue-original-trace",
+    "native_join": "end-of-level-native-batch-join",
+    "route": "Original New Game to Level 1, 1000 ms standing, original MPSCULLY typed through key-down 0x46bb30, level-complete command 0x800e, results with physical Return keys, original Level 2 load (command 0x8075), about 5000 ms of scripted Level 2 play (stand, walk right, jump).",
+    "covered_by_level_one_batches": [
+      "0x470100",
+      "0x4ccf80"
+    ]
+  }
+}

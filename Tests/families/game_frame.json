@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "game_frame",
+  "title": "Original outer game-frame runtime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GameFrameCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x428b60",
+      "name": "GameManager::frame",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46ac30",
+      "name": "GameState::frame",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x475dc0",
+      "name": "MultiplayerState::frame",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "WINMM!timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows clock service reached through the original game-timing callees."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/game_frame.cases.py",
+    "entry": "claw_game_frame_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 346245412,
+      "cases": 126,
+      "mutants_killed": 33,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.943,
+      "reasons": [],
+      "build_inputs_sha256": "fed5a1495b833270b85e66a1449c787d3c1d0ca81c2394dbfeebbafad67dff33"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The Windows clock import is scripted; original game timing remains executable and owns its own behavior.",
+    "All game callees remain original-backed dependencies; indirect calls use case-supplied callbacks.",
+    "Cases may avoid optional debug text, active networking, audio cleanup and input-device import paths through their original state guards."
+  ],
+  "notes": "Canonical migration owns exactly the three reviewed frame entries. Sources/GameFrameRuntime.cpp and Sources/GameFrameRuntime.h remain intact as legacy application integration; this canonical module is not elected in the app."
+}

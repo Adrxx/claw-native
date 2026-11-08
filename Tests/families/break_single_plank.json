@@ -1,0 +1,284 @@
+{
+  "schema": 1,
+  "id": "break_single_plank",
+  "title": "Break and single plank Level 5 closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/BreakSinglePlankRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x40f870",
+      "name": "BreakPlank::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40fb30",
+      "name": "BreakPlank::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40fde0",
+      "name": "BreakPlank::checkReset",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40fe20",
+      "name": "BreakPlank::resetChain",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x488e30",
+      "name": "SinglePlank::logic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x488ef0",
+      "name": "SinglePlank::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4890f0",
+      "name": "SinglePlank::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4894b0",
+      "name": "SinglePlank::enterIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x489530",
+      "name": "SinglePlank::checkPlayer",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4895b0",
+      "name": "SinglePlank::enterWait",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x489600",
+      "name": "SinglePlank::tickWait",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x489640",
+      "name": "SinglePlank::enterCrumble",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x489680",
+      "name": "SinglePlank::tickCrumble",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Win32 memory query reached by the original RTTI lookup when a dispatch slot is null"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "C runtime allocator ends in operating-system heap calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/break_single_plank.cases.py",
+    "entry": "claw_break_single_plank_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40fb85",
+        "end": "0x40fbb3",
+        "reason": "The unchanged original 0x4db6e0 stores a failed realloc result in EBP and calls 0x4dc680, which reads [EBP+4] and faults at address 0x4 before returning zero; checked against both original disassemblies and work/packets/break_single_plank/boundary-probe.json."
+      },
+      {
+        "start": "0x40fbff",
+        "end": "0x40fc32",
+        "reason": "The unchanged original 0x4db6e0 stores a failed realloc result in EBP and calls 0x4dc680, which reads [EBP+4] and faults at address 0x4 before returning zero; checked against both original disassemblies and work/packets/break_single_plank/boundary-probe.json."
+      },
+      {
+        "start": "0x489145",
+        "end": "0x489173",
+        "reason": "The unchanged original 0x4db6e0 stores a failed realloc result in EBP and calls 0x4dc680, which reads [EBP+4] and faults at address 0x4 before returning zero; checked against both original disassemblies and work/packets/break_single_plank/boundary-probe.json."
+      },
+      {
+        "start": "0x4891bf",
+        "end": "0x4891f2",
+        "reason": "The unchanged original 0x4db6e0 stores a failed realloc result in EBP and calls 0x4dc680, which reads [EBP+4] and faults at address 0x4 before returning zero; checked against both original disassemblies and work/packets/break_single_plank/boundary-probe.json."
+      },
+      {
+        "start": "0x40f914",
+        "end": "0x40f923",
+        "reason": "The original compares ECX with EDI at 0x40f90c and jumps past this block when unequal; with registers unchanged it repeats the same comparison at 0x40f910 and jumps past the block when equal. No original input can enter this block."
+      },
+      {
+        "start": "0x488e89",
+        "end": "0x488e8b",
+        "reason": "On null operator new, the original clears EDI at 0x488e89 then unconditionally reads [EDI] at 0x488e8b. The original-only state-zero allocation-failure probe faults at address 0x0 from 0x488e8b; this path cannot return."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 191,
+        "operator": "shift-offset",
+        "source_sha256": "495072af2c6168cbde17c5640a3d8358149a4c3caeb8c361460d42ba6447c98c",
+        "mutant_sha256": "3dfe808dd25bedcce56867ac1efa3e2e507d3328061f8454890da84cf259331b",
+        "reason": "This change is confined to a zero-return continuation of original registry growth 0x4db6e0. On failed realloc the unchanged original writes zero to EBP then calls 0x4dc680, whose [EBP+4] read faults before the growth call returns. Confirmed from both original disassemblies and original-only dispatcher probes in work/packets/break_single_plank/boundary-probe.json; no returning permitted input executes the mutated diagnostic code."
+      },
+      {
+        "line": 206,
+        "operator": "swap-statements",
+        "source_sha256": "495072af2c6168cbde17c5640a3d8358149a4c3caeb8c361460d42ba6447c98c",
+        "mutant_sha256": "d9479ff13204af6aa201ace0920a8d3ad26c9d931b12911675aeb739a2d47df1",
+        "reason": "This change is confined to a zero-return continuation of original registry growth 0x4db6e0. On failed realloc the unchanged original writes zero to EBP then calls 0x4dc680, whose [EBP+4] read faults before the growth call returns. Confirmed from both original disassemblies and original-only dispatcher probes in work/packets/break_single_plank/boundary-probe.json; no returning permitted input executes the mutated diagnostic code."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1215364816,
+      "cases": 281,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 2,
+      "mutation_score": 0.907,
+      "reasons": [],
+      "build_inputs_sha256": "90b8db54597d51e08ba7d42d823906e065a138f2686f5c69c58f47d35f5aed88"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in for the operating-system critical section.",
+    "_unlock is a stand-in for leaving the operating-system critical section.",
+    "realloc uses the deterministic fixture heap.",
+    "operator new uses the deterministic fixture heap.",
+    "operator delete releases fixture allocations.",
+    "IsBadReadPtr queries the fixture memory model rather than Win32 process memory.",
+    "malloc uses the deterministic fixture heap."
+  ],
+  "notes": "ABI and boundaries reviewed against the original corpus; detailed layout and branch notes are in the local packet. Failed registry realloc reaches an original null read in 0x4dc680 before the owned diagnostic continuation."
+}

@@ -1,0 +1,523 @@
+{
+  "schema": 1,
+  "id": "call_closure_interface_helpers",
+  "title": "Call closure interface dialog helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CallClosureInterfaceHelpersRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4de560",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4de830",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4df250",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e29a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e2f70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e3090",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e31f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546870": {
+      "kind": "fixture",
+      "name": "BitBlt",
+      "convention": "stdcall",
+      "argc": 9,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x54687c": {
+      "kind": "fixture",
+      "name": "CreateCompatibleDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546900": {
+      "kind": "fixture",
+      "name": "GetTextMetricsA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x54690c": {
+      "kind": "fixture",
+      "name": "CreateCompatibleBitmap",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546b60": {
+      "kind": "fixture",
+      "name": "LoadCursorA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546b7c": {
+      "kind": "fixture",
+      "name": "OffsetRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546d24": {
+      "kind": "fixture",
+      "name": "InflateRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546ce0": {
+      "kind": "fixture",
+      "name": "IntersectRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "C runtime heap allocation ends in operating-system heap calls."
+    },
+    "0x4f2190": {
+      "kind": "fixture",
+      "name": "access",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "C runtime access ends in GetFileAttributesA and its failure path enters Windows TLS/error-state services; cases control file existence."
+    },
+    "0x4fcfff": {
+      "kind": "fixture",
+      "name": "CDC Attach",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC DC handle attachment enters 4fcf79 -> 5022b5 thread state and the Windows handle map; no initialized MFC thread exists in the emulator."
+    },
+    "0x4fd067": {
+      "kind": "fixture",
+      "name": "CDC DeleteDC",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC DC deletion detaches through 4fd036 -> 4fcf79 -> 5022b5 thread state and then calls DeleteDC."
+    },
+    "0x4fd150": {
+      "kind": "fixture",
+      "name": "CGdiObject SelectObject",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC SelectObject invokes Windows SelectObject then 4fd6c5 -> 4fd655 -> 5022b5 thread-local handle map conversion."
+    },
+    "0x4fd6db": {
+      "kind": "fixture",
+      "name": "CGdiObject Attach",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC GDI handle attachment enters 4fd655 -> 5022b5 thread state and the Windows handle map."
+    },
+    "0x4fd732": {
+      "kind": "fixture",
+      "name": "CGdiObject DeleteObject",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC GDI deletion detaches through 4fd708 -> 4fd655 -> 5022b5 thread state then calls DeleteObject."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows resource service reached through unchanged image loader 0x4be050; the platform owns resource handles and bytes."
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows resource service reached through unchanged image loader 0x4be050; the platform owns resource handles and bytes."
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows resource service reached through unchanged image loader 0x4be050; the platform owns resource handles and bytes."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/call_closure_interface_helpers.cases.py",
+    "entry": "claw_call_closure_interface_helpers_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4e2f97",
+        "end": "0x4e2f9b",
+        "reason": "Original 0x4e2f93 JE and 0x4e2f95 JNE share unchanged flags; reaching the second branch proves ZF clear so this fallthrough cannot execute."
+      },
+      {
+        "start": "0x4e30b7",
+        "end": "0x4e30bb",
+        "reason": "Original 0x4e30b3 JE and 0x4e30b5 JNE share unchanged flags; reaching the second branch proves ZF clear so this fallthrough cannot execute."
+      },
+      {
+        "start": "0x4e2b3a",
+        "end": "0x4e2b48",
+        "reason": "Original 0x4e2b07 masks generated scrollbar flags to 0x18000000 then sets bit 0; the following rectangle stores cannot change those flags, so 0x4e2b33 always finds bit 0x800000 clear."
+      },
+      {
+        "start": "0x4e2df4",
+        "end": "0x4e2e02",
+        "reason": "Original 0x4e2dca masks generated scrollbar flags to 0x18000000 then sets bit 0; the following rectangle stores cannot change those flags, so the InflateRect condition always finds bit 0x800000 clear."
+      },
+      {
+        "start": "0x4e2f80",
+        "end": "0x4e2f84",
+        "reason": "Original-only wrapped receiver 0xffffff2c makes embedded DC null and faults at outer receiver vtable load 0x4e2fbf with UC_ERR_READ_UNMAPPED; no valid original execution completes this arm."
+      },
+      {
+        "start": "0x4e30a0",
+        "end": "0x4e30a4",
+        "reason": "Original-only wrapped receiver 0xffffff14 makes embedded DC null and faults at outer receiver vtable load 0x4e30dd with UC_ERR_READ_UNMAPPED; no valid original execution completes this arm."
+      },
+      {
+        "start": "0x4e31ff",
+        "end": "0x4e3203",
+        "reason": "Original-only wrapped receiver 0xfffffefc makes embedded bitmap null and faults at outer receiver vtable load 0x4e3211 with UC_ERR_READ_UNMAPPED; no valid original execution completes this arm."
+      },
+      {
+        "start": "0x4e2ae3",
+        "end": "0x4e2ae5",
+        "reason": "Original-only class 0x83 first 0x5c allocation failure faults writing null+0x12 at 0x4e2af4."
+      },
+      {
+        "start": "0x4e2ce6",
+        "end": "0x4e2cec",
+        "reason": "Original-only class 0x85 third allocation failure faults writing null at 0x4e2cec."
+      },
+      {
+        "start": "0x4e2da5",
+        "end": "0x4e2da7",
+        "reason": "Original-only class 0x85 fourth allocation failure faults writing null+0x12 at 0x4e2db8."
+      },
+      {
+        "start": "0x4de653",
+        "end": "0x4de66e",
+        "reason": "Original-only count 0xffffffff witnesses with both null and nonnull array take the wrapped zero-size arm, then unconditionally write index 0xffffffff through a null array at 0x4de75f (UC_ERR_WRITE_UNMAPPED). This arm cannot complete valid original execution."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3480513893,
+      "cases": 188,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.936,
+      "reasons": [],
+      "build_inputs_sha256": "826409927133ca69d6f0f673f5d3e5404749d1055836163183559a35c8da7a32"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero): C runtime lock: enters an operating-system critical section; the game is single-threaded here",
+    "_unlock is a stand-in (return-zero): C runtime unlock: leaves an operating-system critical section",
+    "operator new is a stand-in (allocate): the C runtime heap ends in operating-system calls",
+    "operator delete is a stand-in (release): pairs with operator new",
+    "BitBlt is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "CreateCompatibleDC is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "GetTextMetricsA is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "CreateCompatibleBitmap is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "LoadCursorA is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "OffsetRect is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "SetRectEmpty is a stand-in (set-rect-empty): Windows import; requires a native operating-system service.",
+    "InflateRect is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "SetRect is a stand-in (set-rect): Windows import; requires a native operating-system service.",
+    "lstrlenA is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "InterlockedDecrement is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "InterlockedIncrement is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "IntersectRect is a stand-in (scripted): Windows import; requires a native operating-system service.",
+    "malloc is a stand-in (allocate): C runtime heap allocation ends in operating-system heap calls.",
+    "access is a stand-in (scripted): C runtime access ends in GetFileAttributesA and its failure path enters Windows TLS/error-state services; cases control file existence.",
+    "CDC Attach is a stand-in (scripted): MFC DC handle attachment enters 4fcf79 -> 5022b5 thread state and the Windows handle map; no initialized MFC thread exists in the emulator.",
+    "CDC DeleteDC is a stand-in (scripted): MFC DC deletion detaches through 4fd036 -> 4fcf79 -> 5022b5 thread state and then calls DeleteDC.",
+    "CGdiObject SelectObject is a stand-in (scripted): MFC SelectObject invokes Windows SelectObject then 4fd6c5 -> 4fd655 -> 5022b5 thread-local handle map conversion.",
+    "CGdiObject Attach is a stand-in (scripted): MFC GDI handle attachment enters 4fd655 -> 5022b5 thread state and the Windows handle map.",
+    "CGdiObject DeleteObject is a stand-in (scripted): MFC GDI deletion detaches through 4fd708 -> 4fd655 -> 5022b5 thread state then calls DeleteObject."
+  ],
+  "notes": "Boundary reviewed against v1.0 original corpus. Game callees execute original code; only operating-system, CRT heap/locking and MFC thread/handle-map services are fixtures."
+}

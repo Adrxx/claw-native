@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "id": "player_death_services",
+  "title": "Original player death services",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerDeathServices.cpp",
+    "Sources/PlayerDeathServices.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerDeathServices.cpp": "14289314180add929cd069315fdd1cde877503a98c3cc27001ba2ca94bcca10a",
+    "Sources/PlayerDeathServices.h": "cc684803af2e951b8e3e8d24b29fac7167f2cf550fc0237e4e08f7f86a3e0fb0"
+  },
+  "docs": [
+    "docs/player-death-services.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4f6449",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_death_services.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_death_services_helpers.py"
+    ],
+    "extra": [
+      "Tests/player_death_services_callers.py"
+    ],
+    "work_dirs": [
+      "work/player-death-services-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/player-death-services-agent/smoke.log",
+        "work/player-death-services-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_death_services.py": "pass"
+      },
+      "seconds": 4.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1574065979,
+      "owned": 6,
+      "owned_inferred_from_tests": false,
+      "directly_called": 5,
+      "fully_executed": 6,
+      "bytes_owned": 1080,
+      "bytes_executed": 1080,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayerServices.swift",
+      "Sources/ClawNativeSave.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: level_one_batch_claw_death_01 (0x41ebd0, 0x41ee40, 0x479f10, 0x47a220, 0x4b7aa0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

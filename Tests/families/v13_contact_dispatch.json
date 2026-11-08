@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "id": "v13_contact_dispatch",
+  "title": "v1.3 collision manager contact mode dispatcher",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13ContactDispatchRuntime.cpp"
+  ],
+  "canonical_sources": [
+    "Sources/V13ContactDispatchRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4cc920",
+      "interval_end": "0x4cca63",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4d7860": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32"
+    },
+    "0x4cca90": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32"
+    },
+    "0x4ccc60": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32"
+    },
+    "0x4cce20": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32"
+    },
+    "0x4ccf20": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_contact_dispatch.cases.py",
+    "entry": "claw_v13_contact_dispatch_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 225174921,
+      "cases": 528,
+      "mutants_killed": 22,
+      "mutants_tried": 22,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8172fa96069a24fd3265cf64d6f42a5f95e10f497af10d7e3f040733dd785677"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

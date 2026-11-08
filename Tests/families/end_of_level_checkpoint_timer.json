@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "id": "end_of_level_checkpoint_timer",
+  "title": "End-of-level checkpoint timer entries",
+  "abi": "canonical",
+  "sources": [
+    "Sources/EndOfLevelCheckpointTimerRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x40db30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40db50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42a630",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9fc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9fe0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d3eb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/end_of_level_checkpoint_timer.cases.py",
+    "entry": "claw_end_of_level_checkpoint_timer_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1540915727,
+      "cases": 194,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.905,
+      "reasons": [],
+      "build_inputs_sha256": "d9db2000ae192184cea4f27b748dfc52a1ad824618527a0d4d41e3043bbfb12f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "id": "image_controller_loading",
+  "title": "Original image-controller dictionary and loading composition",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ImageControllerLoadingRuntime.cpp",
+    "Sources/ImageControllerLoadingRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/ImageControllerLoadingRuntime.cpp": "d9f47a0a71c1a3198c8fd1f821b28f68996944fb967c6ee7821e0481c6a41e15",
+    "Sources/ImageControllerLoadingRuntime.h": "27d9111df0afd64e82a624e6a39c5b1664e27db2bbddded5b5065e2317196d31"
+  },
+  "docs": [
+    "docs/image-controller-loading-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4f5d33",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f5d5c",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f5db6",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f615b",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f6226",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f6286",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f62a8",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_image_controller_loading_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/image_controller_loading_helpers.py"
+    ],
+    "work_dirs": [
+      "work/image-controller-loading-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-image-controller-loading-asan.log",
+        "work/root-image-controller-loading-independent.log"
+      ],
+      "worker_evidence": [
+        "work/image-controller-loading-agent/verification.json",
+        "work/image-controller-loading-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_image_controller_loading_runtime.py": "pass"
+      },
+      "seconds": 51.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 421497999,
+      "owned": 7,
+      "owned_inferred_from_tests": false,
+      "directly_called": 5,
+      "fully_executed": 7,
+      "bytes_owned": 533,
+      "bytes_executed": 533,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeScene.swift"
+    ]
+  },
+  "limits": []
+}

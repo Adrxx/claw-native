@@ -1,0 +1,407 @@
+{
+  "schema": 1,
+  "id": "v13_enemy_lifecycle",
+  "title": "v1.3 enemy callback allocation and lifecycle event routing",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13EnemyLifecycleRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x40a020",
+      "interval_end": "0x40a11e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "BearSailor lifecycle callback"
+    },
+    {
+      "address": "0x422290",
+      "interval_end": "0x42238e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "Chameleon lifecycle callback"
+    },
+    {
+      "address": "0x435ba0",
+      "interval_end": "0x435c9e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "CrazyHook lifecycle callback"
+    },
+    {
+      "address": "0x439170",
+      "interval_end": "0x43926e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "CutThroat lifecycle callback"
+    },
+    {
+      "address": "0x443020",
+      "interval_end": "0x44311e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "Fish lifecycle callback"
+    },
+    {
+      "address": "0x44b500",
+      "interval_end": "0x44b5fe",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "HermitCrab lifecycle callback"
+    },
+    {
+      "address": "0x461e50",
+      "interval_end": "0x461f4e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "Mercat lifecycle callback"
+    },
+    {
+      "address": "0x464850",
+      "interval_end": "0x46494e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "Officer lifecycle callback"
+    },
+    {
+      "address": "0x467ae0",
+      "interval_end": "0x467bde",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "Parrot lifecycle callback"
+    },
+    {
+      "address": "0x46ac10",
+      "interval_end": "0x46ad0e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "PegLeg lifecycle callback"
+    },
+    {
+      "address": "0x475e90",
+      "interval_end": "0x475f8e",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "PunkRat lifecycle callback"
+    },
+    {
+      "address": "0x47f0c0",
+      "interval_end": "0x47f1be",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "Rat lifecycle callback"
+    }
+  ],
+  "callees": {
+    "0x40a190": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x422850": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x435d10": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4392e0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4435f0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x44bce0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x461fc0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4649c0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x467c50": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x46b1e0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x476000": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x47f230": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4def40": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocation replaces the original CRT allocator."
+    },
+    "0x4fcb13": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native heap release replaces the original CRT deallocator."
+    },
+    "0x4a6b1f": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocation replaces the CRT path into operating-system heap services."
+    },
+    "0x4a6c59": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native heap release replaces the CRT path into operating-system heap services."
+    },
+    "0x4a595b": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT random state is accessed through thread-local storage imports."
+    },
+    "0x50c430": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 rectangle service reached by retained constructors."
+    },
+    "0x50c4d8": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle service reached by retained constructors."
+    },
+    "0x50c468": {
+      "kind": "fixture",
+      "name": "InflateRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle service reached by retained HermitCrab constructor."
+    },
+    "0x50c58c": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical timer seeds the retained game random generator."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_enemy_lifecycle.cases.py",
+    "entry": "claw_v13_enemy_lifecycle_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40a087",
+        "end": "0x40a09b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x40a08b reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x4222f7",
+        "end": "0x42230b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x4222fb reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x435c07",
+        "end": "0x435c1b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x435c0b reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x4391d7",
+        "end": "0x4391eb",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x4391db reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x443087",
+        "end": "0x44309b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x44308b reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x44b567",
+        "end": "0x44b57b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x44b56b reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x461eb7",
+        "end": "0x461ecb",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x461ebb reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x4648b7",
+        "end": "0x4648cb",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x4648bb reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x467b47",
+        "end": "0x467b5b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x467b4b reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x46ac77",
+        "end": "0x46ac8b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x46ac7b reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x475ef7",
+        "end": "0x475f0b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x475efb reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      },
+      {
+        "start": "0x47f127",
+        "end": "0x47f13b",
+        "reason": "Pinned v1.3 allocation-failure run faults at 0x47f12b reading address zero after operator new returns zero. Entire 20-byte null branch cannot return; exact bytes and all twelve original faults checked in work/packets/v13_enemy_lifecycle/null-allocation.json."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 791945500,
+      "cases": 432,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.935,
+      "reasons": [],
+      "build_inputs_sha256": "05c27b07d8766f0bcbfd22cbcc34af7d096b1c22ad0fe5d8349f352036945dc1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new at 0x4fcaea is a allocate fixture: Native heap allocation replaces the original CRT allocator.",
+    "operator delete at 0x4fcb13 is a release fixture: Native heap release replaces the original CRT deallocator.",
+    "malloc at 0x4a6b1f is a allocate fixture: Native heap allocation replaces the CRT path into operating-system heap services.",
+    "free at 0x4a6c59 is a release fixture: Native heap release replaces the CRT path into operating-system heap services.",
+    "rand at 0x4a595b is a scripted fixture: CRT random state is accessed through thread-local storage imports.",
+    "SetRectEmpty at 0x50c430 is a set-rect-empty fixture: Win32 rectangle service reached by retained constructors.",
+    "SetRect at 0x50c4d8 is a set-rect fixture: Win32 rectangle service reached by retained constructors.",
+    "InflateRect at 0x50c468 is a scripted fixture: Win32 rectangle service reached by retained HermitCrab constructor.",
+    "timeGetTime at 0x50c58c is a scripted fixture: Physical timer seeds the retained game random generator."
+  ],
+  "notes": "Only the twelve registered v1.3 callback roots are owned. Constructors, virtual bodies and generic dispatch remain whole original boundaries. The v1.0 profile is unchanged."
+}

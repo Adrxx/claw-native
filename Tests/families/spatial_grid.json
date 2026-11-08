@@ -1,0 +1,306 @@
+{
+  "schema": 1,
+  "id": "spatial_grid",
+  "title": "Original spatial grid runtime",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SpatialGridCanonical.cpp"
+  ],
+  "docs": [
+    "docs/spatial-grid-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4cb040",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb0e0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d1620",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d1fd0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2000",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2030",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d2050",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4890",
+      "convention": "thiscall",
+      "argc": 8,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4a90",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4b00",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4b50",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4c40",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4d10",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d50e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d51a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f4490",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f45f0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f4630",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f4680",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f46b0",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f4860",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f48a0",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f49c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with the allocation fixture."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "USER32 SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported Windows rectangle write; cases provide the four output words."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32 lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported string length reached through original object-record parsing and CString construction."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32 InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported reference-count operation reached through original CString destruction; empty shared strings avoid it."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "Original x87 integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4f1b30": {
+      "kind": "whole",
+      "name": "Original x87 power runtime",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 2,
+        "push": 1
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/spatial_grid.cases.py",
+    "entry": "claw_spatial_grid_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4d172d",
+        "end": "0x4d172f",
+        "reason": "Coordinator verified hash-pinned original: this arm requires the initial 0x70-byte manager allocation to return null, then passes that null receiver with the already-proven nonzero object container into 0x4d4890, which writes manager fields. It cannot complete in the valid returning object domain. The arm remains owned and translated; nested grid allocation failures are covered."
+      },
+      {
+        "start": "0x4f4a4c",
+        "end": "0x4f4a55",
+        "reason": "Coordinator verified hash-pinned original: rejection reloads the unchanged nonnull current node from iterator+8 at 0x4f4a2b; only pending at +0xc changes. No callback occurs, so every rejected node repeats forever at 0x4f4a4e, and the null-current jump at 0x4f4a50 is unreachable. These bytes remain owned and translated; returning cases cover matching nodes, empty-cell advancement and exhaustion."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3781215274,
+      "cases": 323,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.917,
+      "reasons": [],
+      "build_inputs_sha256": "5216953cd31274cd9c584d65870864ee64be6efbd0d1e007213b78fb3dd37769"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new uses the comparison heap allocator; operating-system allocation is outside this family.",
+    "Operator delete releases comparison heap objects; operating-system deallocation is outside this family.",
+    "SetRect is a scripted import that writes the supplied rectangle words.",
+    "lstrlenA is a scripted import for strings passed by unchanged original CString code.",
+    "InterlockedDecrement is a scripted import for original CString reference counts.",
+    "Exact x87 arithmetic follows the documented comparison interpreter at startup control word 0x023f; no app arithmetic backend is elected.",
+    "Original object parsing, list helpers, array construction/destruction and runtime mathematics remain original-backed dependencies."
+  ],
+  "notes": "All 23 legacy owners are retained. Sources/SpatialGridRuntime.cpp and .h and their legacy comparisons remain unchanged for existing app consumers; this separate canonical module is source-only. Boundary details and original-code returning-domain hazards are in work/packets/spatial_grid/NOTES.md."
+}

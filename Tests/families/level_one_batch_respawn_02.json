@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_respawn_02",
+  "title": "Level 1 respawn cleanup callback 0x46e340",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneBatchRespawn02Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x46e340",
+      "name": "markDeferredRemovalCallback",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_respawn_02.cases.py",
+    "entry": "claw_level_one_batch_respawn_02_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3253762374,
+      "cases": 245,
+      "mutants_killed": 8,
+      "mutants_tried": 8,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "545a446dc2752dffc71e495b09ec9c1dbb5d343c46dccdb3da7796420130d14a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

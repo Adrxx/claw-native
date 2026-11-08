@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "id": "game_timing",
+  "title": "Original clock update and busy pacing",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GameTimingCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b82f0",
+      "name": "GameTimingUpdate",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "body_ranges": [
+        {
+          "start": "0x4b82f0",
+          "end": "0x4b839a",
+          "sha256": "45da47a83f4a9571ed1254897fa2690ed7e1514caca825efb493ae5f9058d6c5"
+        }
+      ]
+    },
+    {
+      "address": "0x4b83f0",
+      "name": "GameTimingWait",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "body_ranges": [
+        {
+          "start": "0x4b83f0",
+          "end": "0x4b8410",
+          "sha256": "5837cc3b184029e5fc1c4d5fd1b154952ca20416db246b56d5be835bebfffad4"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The operating-system millisecond clock supplies physical time values; cases control only the clock return sequence."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/game_timing.cases.py",
+    "entry": "claw_game_timing_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2382973697,
+      "cases": 190,
+      "mutants_killed": 17,
+      "mutants_tried": 20,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "c60c5d4ed33d1e6af4d37173ccdb70d8d5e503186417800bfa2195564e55e5d6"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The sole fixture is timeGetTime at import slot 0x546df0; it supplies clock values without replacing game state writes or decisions.",
+    "GameTimingUpdate requires a writable receiver of at least 0x2c bytes and uses the original globals at 0x541328 through 0x541338 directly.",
+    "The unowned reset-rate function 0x4b83a0 executes as original code on both sides, including its additional physical clock read; application_base_timing retains that election and 0x4b83d0.",
+    "Returning busy-wait cases supply a clock sequence that eventually exceeds the unsigned modulo-32-bit deadline; a deadline of 0xffffffff cannot return normally.",
+    "Canonical ownership covers both complete bodies and excludes partial legacy timing slices at 0x4b8240, 0x428b60, 0x4c8fc0 and 0x42ae40.",
+    "The existing typed GameTiming.cpp and GameTiming.h remain the app implementation; this canonical module is a separate source-only migration."
+  ],
+  "notes": "Boundary packet and original-derived domain notes: work/packets/game_timing/NOTES.md. Original body bytes verified through Tests.clawparity.program.claw(); no legacy comparison cases or implementation body were used."
+}

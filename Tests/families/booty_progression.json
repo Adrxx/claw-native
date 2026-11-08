@@ -1,0 +1,859 @@
+{
+  "schema": 1,
+  "id": "booty_progression",
+  "title": "Original default Booty movie and progression controller",
+  "abi": "canonical",
+  "sources": [
+    "Sources/BootyProgressionCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x40af20",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40af30",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40af40",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40af50",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40afa0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40afc0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b330",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b6a0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b700",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b720",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b740",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b780",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b7a0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b7c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b7d0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42b140",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42b4b0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42d4a0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42d4c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48d320",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f180",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb030",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bd240",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bd250",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ca930",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ce8b0",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime allocator ends in operating-system heap calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime deallocator pairs with the fixture allocator."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime allocator ends in operating-system heap calls."
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The C runtime random generator reads operating-system thread-local state."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546d44": {
+      "kind": "fixture",
+      "name": "SendMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546a30": {
+      "kind": "fixture",
+      "name": "OpenFile",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546a34": {
+      "kind": "fixture",
+      "name": "GetLocalTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x5469b4": {
+      "kind": "fixture",
+      "name": "GetSystemTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546a3c": {
+      "kind": "fixture",
+      "name": "GetTimeZoneInformation",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Physical Windows import; cases supply deterministic operating-system behavior."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical timer import reached at 0x4bb9ef and 0x4bbb19 in original palette callee 0x4bb990 from owned 0x48d320."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Physical synchronization reached by original CRT time initialization; test execution is single-threaded."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Physical synchronization reached by original CRT time initialization; test execution is single-threaded."
+    },
+    "0x546c7c": {
+      "kind": "fixture",
+      "name": "GetDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical display/palette service reached by original movie initialization 0x4f0a70."
+    },
+    "0x546914": {
+      "kind": "fixture",
+      "name": "GetSystemPaletteEntries",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical display/palette service reached by original movie initialization 0x4f0a70."
+    },
+    "0x546c80": {
+      "kind": "fixture",
+      "name": "ReleaseDC",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical display/palette service reached by original movie initialization 0x4f0a70."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Physical synchronization initialization reached by original movie constructor; tests run single-threaded."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546ebc": {
+      "kind": "fixture",
+      "name": "smackw32.DLL!#38",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546ea4": {
+      "kind": "fixture",
+      "name": "smackw32.DLL!#14",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546eb4": {
+      "kind": "fixture",
+      "name": "smackw32.DLL!#18",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546df8": {
+      "kind": "fixture",
+      "name": "WINMM.dll!joyGetNumDevs",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "USER32.dll!PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic word operation in original constructor/CString lifetime path; guest word update remains an observed service effect."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic word operation in original constructor/CString lifetime path; guest word update remains an observed service effect."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical import reached by original CString, palette, or input descendant; verified original callsites in packet."
+    },
+    "0x546ea8": {
+      "kind": "fixture",
+      "name": "smackw32.DLL!#32",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External Smacker wait-status operation called by unchanged playback code 0x4f0380."
+    },
+    "0x546ec0": {
+      "kind": "fixture",
+      "name": "smackw32.DLL!#28",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External decoder dirty-rectangle enumeration at original0x4f0896 and0x4f08c8 during natural movie completion."
+    },
+    "0x546ec4": {
+      "kind": "fixture",
+      "name": "smackw32.DLL!#23",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Smacker decoder copy at hash-verified original 0x4f0854: decoder, x, y, pitch, height, destination pixels and format flags; game render control remains original-backed."
+    },
+    "0x546ec8": {
+      "kind": "fixture",
+      "name": "smackw32.DLL!#19",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Smacker decoder frame operation at hash-verified original 0x4f085e with one decoder handle; game render control remains original-backed."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/booty_progression.cases.py",
+    "entry": "claw_booty_progression_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40b3f1",
+        "end": "0x40b3f3",
+        "reason": "Allocation-null fallback publishes zero child then inevitably dereferences it at 0x40b55c; no defined returning execution exists. Exact two-byte XOR retained in translation; allocation succeeds for the supported returning domain."
+      },
+      {
+        "start": "0x40b544",
+        "end": "0x40b546",
+        "reason": "Allocation-null fallback publishes zero child then inevitably dereferences it at 0x40b55c; no defined returning execution exists. Exact two-byte XOR retained in translation; allocation succeeds for the supported returning domain."
+      },
+      {
+        "start": "0x42b350",
+        "end": "0x42b359",
+        "reason": "Constructed movie queue buffer at movie+0x8684 aliases the small local destructor pointer. Constructor42d4a0 clears it; both preceding calls to original4f0120 either see an inactive movie with no queue or call4f1490, which deletes and zeros this buffer at4f14d3. Its loop uses the saved positive count and each4f13c0(1) success decrements count exactly once, so its early-failure guards cannot occur for the constructed queue with normal allocator release semantics. The second cleanup skips after movie+4 is cleared. The nine-byte duplicate delete is unreachable in this returning constructed-object domain; no physical fixture may manufacture a queue pointer after cleanup."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 373,
+        "operator": "drop-statement",
+        "mutant_sha256": "258472c2c9617011b2731575d1f813c96a9d82539f6d29232344aefb8c8f2c9a",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "In the ordinary returning 0x42b140 contract, base+0x34 is movie+0x18. Original 0x4f0000 writes the supplied surface there at 0x4f0037 before any downstream use. Its three early rejection branches leave movie+4 inactive, so cleanup 0x4f0120 skips all member reads. Missing graphics takes the same inactive cleanup. The discarded stack local is neither an output nor an external pointer argument; nonzero initial backing does not change this dominance proof."
+      },
+      {
+        "line": 375,
+        "operator": "shift-offset",
+        "mutant_sha256": "7a6f103d1571035e7bf3c073832343049813192f95642596de839906eefa3f40",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "The specific shift replaces movie+0x0c initialization with a duplicate zero at movie+0x10 (base+0x2c). Original 0x4f0000 sets movie+0x0c to 1 at 0x4f0030 before any active initialization or cleanup reads it; early rejection and absent graphics leave movie+4 inactive. The neighboring movie+0x10 already equals zero, with no intervening call. Only dead ordinary local-stack residue can differ."
+      },
+      {
+        "line": 378,
+        "operator": "drop-statement",
+        "mutant_sha256": "e6c0e0e1975241511874e97c20229e9afb1b5784d2487e7a71697854831e345f",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "base+0x524 is movie+0x508. The owned path only opens a stream through original 0x4f02e0 -> 0x4f0230, whose 0x4f024f store assigns this field before decoder or rendering use at 0x4f0881. Failures before that store never render and cleanup does not read this field. This is dead initialization under the ordinary contract, independently of initial stack bytes."
+      },
+      {
+        "line": 380,
+        "operator": "shift-offset",
+        "mutant_sha256": "3fb3d2fbff7f111121eae0113bdbf00aae91022ff4a4d78e2b3287d140eac30d",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "The shift removes initialization of movie+0x51c and duplicates the zero at movie+0x520, which is explicitly zeroed later without an intervening call. Original 0x4f0ca0 initializes movie+0x51c in every successful render-configuration arm (0x4f0d78, 0x4f0db4, 0x4f0e42, 0x4f0eae, 0x4f0f0c) before any use; early failure never renders and cleanup does not read it. Only unobserved ordinary local residue differs."
+      },
+      {
+        "line": 383,
+        "operator": "drop-statement",
+        "mutant_sha256": "524224787d7db730985f762c67778c2ea8fabd5598ec8d0ebc4283119bc36005",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "base+0x540 is movie+0x524. Every successful original 0x4f0ca0 render-configuration arm assigns it (0x4f0d9e, 0x4f0dd5, 0x4f0e01, 0x4f0e67, 0x4f0e94, 0x4f0eba, 0x4f0f18) before rendering reads at 0x4f0b2a. Failures do not render, and cleanup never consumes it. Nonzero initial local backing is therefore immaterial to the ordinary observations."
+      },
+      {
+        "line": 393,
+        "operator": "drop-statement",
+        "mutant_sha256": "4bbba0a7273ca0fe0575c0721d67bd8e6e0174ecf2e5aaff77899fa323504b15",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "This store spills the already loaded interface into base+0x10, an unescaped ordinary stack temporary. Native subsequent logic uses the local interface value, never that slot. Original 0x42b27c stores this temporary and reloads it before the call, while later cleanup overwrites it at 0x42b339/0x42b36b or 0x42b3e6. Omitting the redundant native spill cannot change arguments, return, live memory, lifetime or physical events; full stack/exception-state parity is not this ordinary ABI."
+      },
+      {
+        "line": 424,
+        "operator": "drop-statement",
+        "mutant_sha256": "61b980ebe560ca3a8b4b934157fec90422ec169b3db8d5da5f1f21d464853598",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "The immediately preceding unchanged 0x4f0120 call either sees inactive movie+4 or completes cleanup and clears movie+4 at 0x4f013e. There is no intervening service or store. The second original call at 0x42b322 consequently takes 0x4f0128 -> 0x4f017c and returns without effects. Its return value is unused. Deleting this duplicate no-op preserves all ordinary observations."
+      },
+      {
+        "line": 428,
+        "operator": "shift-offset",
+        "mutant_sha256": "90df3b01504b6a065f15585a6ee98c494ee709a7785e1ecd6c92d9f4e8ec4803",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "The exact shift moves the final local array destructor from helper+0x138 to helper+0x13c. The helper constructor zeros both candidate buffer fields. If activated, preceding helper cleanup 0x4efcd0 calls 0x4f5915 with size zero, which frees and clears +4/+8/+0xc at 0x4f593a-0x4f5940; inactive construction leaves those fields zero. Thus both destructor receivers issue the same delete(null), and only the discarded stack vtable position changes. This proof is for the owned returning 0x42b140 path, not arbitrary standalone array destructors."
+      },
+      {
+        "line": 438,
+        "operator": "swap-statements",
+        "mutant_sha256": "cea20d056ed3560c3483d1d7a889a3b1b09ddb9de1f8881e31af8199c912aeac",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "This swap is in the missing-graphics arm only: the freshly constructed helper has first word zero and has never been activated through 0x4f02e0. Original 0x4efcd0 therefore immediately skips at 0x4efcd6 to 0x4efcf2 without a service or store. Moving that no-op across the unchanged local array destructor preserves the physical delete(null) and every ordinary output."
+      },
+      {
+        "line": 440,
+        "operator": "drop-statement",
+        "mutant_sha256": "f2b2cfb579f40d38cbe4ea805f09f110c7f68f6a2d17d1004aa3c70e4226a83b",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "This omitted file-member destructor is in the missing-graphics arm only. Constructor 0x4f72c9 initializes the handle to -1 at 0x4f72ec and its CString via 0x4f6439 to the shared empty singleton; original globals 0x52e1cc=0x52e1c4 and 0x52e1c8=0x52e1b8 satisfy data-12=header. No file open occurs in this arm. Destructor 0x4f7369 skips close at 0x4f738b, and CString release 0x4f6584 skips atomic/free at 0x4f6592 for that singleton. It only updates a discarded local vtable and restores its exception frame. In the ordinary returning contract with valid CRT singleton state, omitting it changes no physical events, live memory, lifetimes or return; this is not an exemption for active file destruction."
+      },
+      {
+        "line": 455,
+        "operator": "swap-statements",
+        "mutant_sha256": "6256be4239b598689ddcc5b3ad5607190e52ee0a2ced27d1f0d86ef5d23ed6c9",
+        "source_sha256": "a579473e9a3f544bb64c5b3341af9269407dfe62f71e28b578367ff306142179",
+        "reason": "Original 0x4f57c5 is a leaf constructor writing only the disjoint twenty-byte member at receiver+0x138 through +0x148, with no calls or input reads. Swapping it with the zero store to receiver+0 therefore commutes for every valid backed receiver, including standalone heap instances. Both complete before the following physical time service. No initial-zero assumption is used."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4057307037,
+      "cases": 257,
+      "mutants_killed": 35,
+      "mutants_tried": 48,
+      "mutants_equivalent": 11,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "82fc989f538b22b5a9279ad398af4b562eca35115e700fa9135b20114cbbe2e1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a allocate fixture; The C runtime allocator ends in operating-system heap calls.",
+    "operator delete is a release fixture; The C runtime deallocator pairs with the fixture allocator.",
+    "malloc is a allocate fixture; The C runtime allocator ends in operating-system heap calls.",
+    "rand is a scripted fixture; The C runtime random generator reads operating-system thread-local state.",
+    "PostMessageA is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "SendMessageA is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "ShowCursor is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "OpenFile is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "GetLocalTime is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "GetSystemTime is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "GetTimeZoneInformation is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "GetLastError is a return-zero fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "TlsGetValue is a scripted fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "SetLastError is a return-zero fixture; Physical Windows import; cases supply deterministic operating-system behavior.",
+    "timeGetTime is a scripted physical timer boundary; palette game code remains original-backed.",
+    "LeaveCriticalSection is a physical single-threaded synchronization fixture; original CRT time logic remains unchanged.",
+    "EnterCriticalSection is a physical single-threaded synchronization fixture; original CRT time logic remains unchanged.",
+    "GetDC is a physical display fixture; movie initialization remains original-backed.",
+    "GetSystemPaletteEntries is a physical display fixture; movie initialization remains original-backed.",
+    "ReleaseDC is a physical display fixture; movie initialization remains original-backed.",
+    "InitializeCriticalSection: Physical synchronization initialization reached by original movie constructor; tests run single-threaded.",
+    "KERNEL32.dll!GetFullPathNameA is an external service fixture; the movie controller and original callees remain unchanged.",
+    "KERNEL32.dll!lstrcpynA is an external service fixture; the movie controller and original callees remain unchanged.",
+    "KERNEL32.dll!CreateFileA is an external service fixture; the movie controller and original callees remain unchanged.",
+    "KERNEL32.dll!ReadFile is an external service fixture; the movie controller and original callees remain unchanged.",
+    "KERNEL32.dll!SetFilePointer is an external service fixture; the movie controller and original callees remain unchanged.",
+    "KERNEL32.dll!CloseHandle is an external service fixture; the movie controller and original callees remain unchanged.",
+    "smackw32.DLL!#38 is an external service fixture; the movie controller and original callees remain unchanged.",
+    "smackw32.DLL!#14 is an external service fixture; the movie controller and original callees remain unchanged.",
+    "smackw32.DLL!#18 is an external service fixture; the movie controller and original callees remain unchanged.",
+    "WINMM.dll!joyGetNumDevs is an external service fixture; the movie controller and original callees remain unchanged.",
+    "USER32.dll!PeekMessageA is an external service fixture; the movie controller and original callees remain unchanged.",
+    "InterlockedIncrement models the physical atomic word operation; original lifetime logic remains unchanged.",
+    "InterlockedDecrement models the physical atomic word operation; original lifetime logic remains unchanged.",
+    "lstrlenA is a physical service fixture; original game descendant logic remains unchanged.",
+    "Smacker ordinal32 is an external decoder wait-status fixture; movie playback controller remains original-backed.",
+    "smackw32.DLL!#28: External decoder dirty-rectangle enumeration at original0x4f0896 and0x4f08c8 during natural movie completion.",
+    "smackw32.DLL!#23: Physical Smacker decoder copy at hash-verified original 0x4f0854: decoder, x, y, pitch, height, destination pixels and format flags; game render control remains original-backed.",
+    "smackw32.DLL!#19: Physical Smacker decoder frame operation at hash-verified original 0x4f085e with one decoder handle; game render control remains original-backed."
+  ],
+  "notes": "Canonical migration retains 26 unique owners, including elected 0x4bd250. Coordinator reviewed ownership deduplication: constant-three 0x40af90 belongs to checkpoint_logic; full command dispatcher 0x426e30 belongs to menu_game_launch, while this legacy family implemented only command 0x807c. These two entries remain original-backed outside this module. Existing BootyProgressionRuntime sources and app integration remain unchanged. All unlisted callees execute original code. Deep physical imports discovered by cases require boundary review; no game fixture is authorized. ABI correction 2026-10-21 (level-one-state-handler-abi-01): 0x4bb030 (return zero) is the LS_HOME and LS_IDLE handler of state table 0x537638 (kind 0x1 rows of Sources/LogicStateRegistry.cpp) and a shared virtual slot, and the original state dispatchers and virtual calls reach it with the object in ECX and no stack arguments. The original body ignores ECX, reads no stack argument and ends in a plain ret, so thiscall with no arguments describes it exactly as well as cdecl with none, and it is the declaration under which the native dispatch accepts its callers' receiver."
+}

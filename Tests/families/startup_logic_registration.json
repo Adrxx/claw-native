@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "id": "startup_logic_registration",
+  "title": "Startup game logic registration",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StartupLogicRegistrationCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x401000",
+      "name": "registerGameLogics",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6340",
+      "name": "createAndRegisterLogic",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with operator new."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported string length reached through original CString assignment."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Imported reference-count update reached through original CString release."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/startup_logic_registration.cases.py",
+    "entry": "claw_startup_logic_registration_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4d637d",
+        "end": "0x4d637f",
+        "reason": "The hash-verified original assigns ESI=0 here only after operator new returns null, then unconditionally dereferences ESI at 0x4d6387 before any recoverable return or physical service. Ordinary returning cases cannot execute this two-byte assignment without an invalid null-object access. Keep the full owned body and its source null dereference; callback-null initialization failure and real destruction remain required returning coverage."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2698802656,
+      "cases": 14,
+      "mutants_killed": 48,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "0fd75f0027a8d7b380dd6ea55c588631fd74d9fcdaf49c33f2ac2ff1123ebb4f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new is a controlled allocator because the original heap ultimately calls the operating system.",
+    "Operator delete is a controlled release paired with the allocator.",
+    "The lstrlenA import is supplied by cases with actual string-length behavior.",
+    "The InterlockedDecrement import is supplied by cases with actual 32-bit decrement behavior.",
+    "Cases provision valid state-name and handler-array storage to keep original callees away from CRT reallocation and diagnostic OS paths."
+  ],
+  "notes": "Owns the complete game registration entries only; 0x4c8160 and all state initializers remain original-backed callees. Legacy source files are retained separately and are not canonical evidence."
+}

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "selftest",
+  "title": "Harness self-test on a synthetic program",
+  "abi": "canonical",
+  "program": "synthetic",
+  "sources": ["Tests/clawparity/selftest/Module.cpp"],
+  "owned": [
+    {"address": "0x401000", "name": "sum_and_store", "convention": "thiscall", "argc": 0, "returns": "u32", "confidence": "declared", "interval_end": "0x401009"},
+    {"address": "0x401010", "name": "scaled_global", "convention": "stdcall", "argc": 2, "returns": "u32", "confidence": "declared", "interval_end": "0x401024"},
+    {"address": "0x401030", "name": "make_buffer", "convention": "thiscall", "argc": 1, "returns": "u32", "confidence": "declared", "interval_end": "0x401059"}
+  ],
+  "callees": {
+    "0x402000": {"kind": "fixture", "name": "allocate", "convention": "cdecl", "argc": 1, "arguments": ["u32"], "returns": "u32", "fixture": "allocate", "reason": "an import: no code to run"}
+  },
+  "oracle": {"kind": "clawparity", "cases": "Tests/clawparity/selftest/cases.py", "entry": "claw_selftest_entry"},
+  "evidence": {"level": "none"},
+  "integration": {"level": "source-only"},
+  "notes": "Not game code. Tests the harness."
+}

@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "static_lock_base",
+  "title": "Complete original embedded lock base constructor with physical RET4",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticLockBaseRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a2f62",
+      "name": "OriginalEmbeddedLockBaseConstructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a2f62",
+          "end": "0x4a2f71",
+          "sha256": "a5a90ce4c6b1c2bf8c5287154ad1828c594d8712d30000724a2fa598b9b99882"
+        }
+      ]
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_lock_base.cases.py",
+    "entry": "claw_static_lock_base_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3004251511,
+      "cases": 108,
+      "mutants_killed": 4,
+      "mutants_tried": 5,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "cd44114f7d4b55dbed25378349e0333af9332c3b0352d6dc678432a5c0301f0b"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Owns the complete 15-byte thiscall1 embedded constructor with its genuine RET4; the corpus fastcall label and omitted argument are not the actual caller ABI.",
+    "Full integer and FS source input/output masks are 0x7ff with preserve zero, matching the admitted parent dependency; semantic void retains actual receiver EAX and arithmetic flags as selected witnesses.",
+    "The receiver is borrowed live backing of at least eight bytes; no allocation, release, physical fixture or source callback occurs.",
+    "The genuine parent CALL at 0x4a2d19 has continuation 0x4a2d1e and one pushed zero word; direct leaf cases may vary the ignored physical argument, while finite parent election retains the original zero.",
+    "Parent stores, compiler scope, final vtables, critical-section initialization, native election and complete startup/gameplay are outside this leaf admission."
+  ]
+}

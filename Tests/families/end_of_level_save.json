@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "id": "end_of_level_save",
+  "title": "End-of-level save path entry",
+  "abi": "canonical",
+  "sources": [
+    "Sources/EndOfLevelSaveRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x49bbc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Noncontinuable physical RaiseException: flag1/count3 from real4f50fd/4a5690; Halt at genuine frame/RPC4a56cf without fabricated return, dispatch or unwind. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetCurrentThreadId returns the same declared logical-thread ID; realCWinApp stores it. Physical ownership only; every program allocator/getter/handler/constructor remains original source."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows string length import used by unchanged CString helpers."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic operation reached by the original MFC string release boundary 0x4f6584."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546a0c": {
+      "kind": "fixture",
+      "name": "GetVolumeInformationA",
+      "convention": "stdcall",
+      "argc": 8,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 thread service reached by unchanged CRT overflow handling at 0x4a7dc0; no arithmetic body is replaced."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Sets current-thread slot to exact source-provided pointer; succeeds1 in this bounded profile.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Win32 thread service reached by unchanged CRT overflow handling at 0x4a7dc0; no arithmetic body is replaced."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546ad4": {
+      "kind": "fixture",
+      "name": "FindFirstFileA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546ad8": {
+      "kind": "fixture",
+      "name": "FindClose",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    },
+    "0x546af8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!WriteFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "External operating-system or Smacker DLL service reached by unchanged movie/input initialization; case author verified original callsite and stack arity."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 thread service reached by unchanged CRT overflow handling at 0x4a7dc0; no arithmetic body is replaced."
+    },
+    "0x546b10": {
+      "kind": "fixture",
+      "name": "lstrcpyA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 ANSI string copy; the case copies the source and terminator into backed destination storage, with size determined by the source."
+    },
+    "0x546c48": {
+      "kind": "fixture",
+      "name": "CharUpperA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported operating-system boundary; cases supply its documented memory and return effects."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/end_of_level_save.cases.py",
+    "entry": "claw_end_of_level_save_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3789777295,
+      "cases": 25,
+      "mutants_killed": 27,
+      "mutants_tried": 34,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "6468b9852c45217ecb406e7ac108366b6d078a3725e3ae083b8a36ae21f09e11"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "RaiseException is a stand-in (scripted).",
+    "GetCurrentThreadId is a stand-in (scripted).",
+    "KERNEL32.dll!lstrcpynA is a stand-in (scripted).",
+    "lstrlenA is a stand-in (scripted).",
+    "InterlockedDecrement is a stand-in (scripted).",
+    "KERNEL32.dll!CloseHandle is a stand-in (scripted).",
+    "GetVolumeInformationA is a stand-in (scripted).",
+    "TlsGetValue is a stand-in (scripted).",
+    "TlsSetValue is a stand-in (scripted).",
+    "SetLastError is a stand-in (scripted).",
+    "KERNEL32.dll!GetFullPathNameA is a stand-in (scripted).",
+    "FindFirstFileA is a stand-in (scripted).",
+    "FindClose is a stand-in (scripted).",
+    "KERNEL32.dll!WriteFile is a stand-in (scripted).",
+    "KERNEL32.dll!CreateFileA is a stand-in (scripted).",
+    "GetLastError is a stand-in (scripted).",
+    "lstrcpyA is a stand-in (scripted).",
+    "CharUpperA is a stand-in (scripted)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

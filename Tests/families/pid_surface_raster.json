@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "id": "pid_surface_raster",
+  "title": "Original uncompressed PID surface raster",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PIDSurfaceRaster.cpp",
+    "Sources/PIDSurfaceRaster.h"
+  ],
+  "source_sha256": {
+    "Sources/PIDSurfaceRaster.cpp": "e3f2a3deaad5b3ec9fa3bf4390cdb474d4e2758fcc588d37d5de0206946c9dd5",
+    "Sources/PIDSurfaceRaster.h": "8d61c31b547aab7daab1526e8b12dd80a074a6f2eb1cd45943f688c5ea720b97"
+  },
+  "docs": [
+    "docs/pid-surface-raster.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_pid_surface_raster.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/surface-raster-agent/libPIDSurfaceRaster.dylib",
+          "--assets",
+          "App/GameData"
+        ],
+        "prerequisites": [
+          "clang++ -std=c++17 -Wall -Wextra -Werror -dynamiclib Sources/PIDSurfaceRaster.cpp -o work/surface-raster-agent/libPIDSurfaceRaster.dylib"
+        ]
+      }
+    ],
+    "extra": [
+      "Tests/PIDSurfaceRaster/main.swift"
+    ],
+    "work_dirs": [
+      "work/surface-raster-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-pid-surface-independent.log"
+      ],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_pid_surface_raster.py": "pass"
+      },
+      "seconds": 91.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2527299713,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 1,
+      "bytes_owned": 1039,
+      "bytes_executed": 558,
+      "coverage": 0.5371
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawAssets.swift",
+      "Sources/ClawNativeRendering.swift",
+      "Tests/PIDSurfaceRaster/main.swift"
+    ]
+  },
+  "limits": []
+}

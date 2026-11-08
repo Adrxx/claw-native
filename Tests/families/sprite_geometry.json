@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "id": "sprite_geometry",
+  "title": "Original v1.0 sprite geometry",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SpriteGeometry.cpp",
+    "Sources/SpriteGeometry.h"
+  ],
+  "source_sha256": {
+    "Sources/SpriteGeometry.cpp": "cdb2e76794e4c8fe6bf56a1b9c07589da2ba7c47b0c78dfbde922fafad1d1b8e",
+    "Sources/SpriteGeometry.h": "33ed764746adf6c4da5c61d070f115c465c988fed5b6204ea5fb5650925740b6"
+  },
+  "docs": [
+    "docs/sprite-geometry.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_sprite_geometry.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/geometry-agent/libSpriteGeometry.dylib",
+          "--assets",
+          "App/GameData"
+        ],
+        "prerequisites": [
+          "clang++ -std=c++17 -dynamiclib Sources/SpriteGeometry.cpp -o work/geometry-agent/libSpriteGeometry.dylib"
+        ]
+      }
+    ],
+    "work_dirs": [
+      "work/geometry-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "fail",
+      "scripts": {
+        "Tests/compare_sprite_geometry.py": "fail"
+      },
+      "seconds": 2.5
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "fail",
+      "salted": "fail",
+      "salt": 2398493027,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 3,
+      "bytes_owned": 1077,
+      "bytes_executed": 1038,
+      "coverage": 0.9638
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawActorResources.swift",
+      "Sources/ClawNativeDisplay.swift",
+      "Sources/ClawNativeEnemyDrawing.swift",
+      "Sources/ClawPlayerDrawing.swift"
+    ]
+  },
+  "limits": []
+}

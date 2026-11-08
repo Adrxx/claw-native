@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "id": "player_powerup",
+  "title": "Original player powerup setter and reset",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerPowerupRuntime.cpp",
+    "Sources/PlayerPowerupRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerPowerupRuntime.cpp": "d1e1b9a8c2265917fc6ba9445aff375e28e2c6698fede637efc0afca185186c3",
+    "Sources/PlayerPowerupRuntime.h": "21321c010e9689d0720d8e3b9b09667dc5169ccc30b2815635579ad1492c7bf2"
+  },
+  "docs": [
+    "docs/player-powerup-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_powerup_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_powerup_caller_helpers.py",
+      "Tests/player_powerup_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/player-powerup-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/player-powerup-agent/smoke.log",
+        "work/player-powerup-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_powerup_runtime.py": "pass"
+      },
+      "seconds": 5.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2862721047,
+      "owned": 7,
+      "owned_inferred_from_tests": false,
+      "directly_called": 7,
+      "fully_executed": 6,
+      "bytes_owned": 1112,
+      "bytes_executed": 1110,
+      "coverage": 0.9982
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeEffects.swift",
+      "Sources/ClawNativePlayerServices.swift",
+      "Tests/NativeEffects/main.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: cheat_command_toggles (0x41fc00); interface_file (0x4bc110); level_one_batch_claw_powerups_01 (0x41f990, 0x420070, 0x448400, 0x4ce7b0); level_one_player_actions_03 (0x41fc30). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

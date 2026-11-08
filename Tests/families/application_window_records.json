@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "application_window_records",
+  "title": "Original outer game-window owner constructors",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationWindowRecordsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x423300",
+      "name": "ClawGameWindowOwner::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8990",
+      "name": "GameWindowOwner::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_window_records.cases.py",
+    "entry": "claw_application_window_records_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2011682298,
+      "cases": 98,
+      "mutants_killed": 16,
+      "mutants_tried": 17,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "b669b88e9f025f399dd19cee84817c1c948f21c085f911894d5d8c51d8375750"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Whole original18-byte derived and60-byte base window-owner constructors, EAX receiver verified from pinned instructions. No physical fixtures, complete source writes/count wrapping. Actual entry49f8d0 allocates0x254 and calls derived owner; game application4254a0 is distinct0x134 object. No window creation or CWinApp lifecycle claim."
+}

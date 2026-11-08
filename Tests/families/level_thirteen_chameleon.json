@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "id": "level_thirteen_chameleon",
+  "title": "Level 13 chameleon",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelThirteenChameleonRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x421320",
+      "name": "Chameleon::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421710",
+      "name": "Chameleon::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421b60",
+      "name": "Chameleon::scalarDeletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421b80",
+      "name": "Chameleon::destroy",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421bf0",
+      "name": "Chameleon::changeState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421d70",
+      "name": "Chameleon::enterIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421e00",
+      "name": "Chameleon::updateIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x421f80",
+      "name": "Chameleon::beginPhaseOut",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x422050",
+      "name": "Chameleon::updatePhaseOut",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4220e0",
+      "name": "Chameleon::beginPhaseIn",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4221b0",
+      "name": "Chameleon::updatePhaseIn",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle import; both direct calls cache this IAT target in EBX"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 rectangle import reached through the original base constructor"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 reference-count import reached through the original CString destructor; cases decrement the pointed word and return it"
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle predicate reached through original geometry update; cases implement signed left/top inclusive and right/bottom exclusive bounds"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_thirteen_chameleon.cases.py",
+    "entry": "claw_level_thirteen_chameleon_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x421375",
+        "end": "0x4213a3",
+        "reason": "Original 0x4db6e0 allocation-failure route sets EBP to zero from realloc EAX at 0x4db77f (also 0x4db70b), then calls 0x4dc680 whose first instruction reads [EBP+4] and faults at 0x4. Original cases-check allocation-failure probes confirm no normal zero return reaches this handler."
+      },
+      {
+        "start": "0x4213be",
+        "end": "0x4213d5",
+        "reason": "Original repeats the identical signed index/bounds check after no intervening call or table writes. The first lookup either already included the index or successful original 0x4db6e0 updates lower/upper bounds to include it; failed growth faults in 0x4dc680. Thus the second growth is unreachable on returning original paths."
+      },
+      {
+        "start": "0x4213ef",
+        "end": "0x421422",
+        "reason": "Only reached by the second growth call returning zero; that call is unreachable after the identical first lookup with no intervening mutations, and original allocation failure additionally faults in 0x4dc680 reading [EBP+4] with EBP zero."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3030871583,
+      "cases": 343,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.947,
+      "reasons": [],
+      "build_inputs_sha256": "bae8a8dda17fa7ae6f39b4ce6e00b54e16f57492eb933a994b7d2ff941ad5ae8"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect is a stand-in (set-rect).",
+    "SetRectEmpty is a stand-in (set-rect-empty).",
+    "InterlockedDecrement is a stand-in (scripted).",
+    "PtInRect is a stand-in (scripted)."
+  ],
+  "notes": "Boundary checked against corpus disassembly. Constructor and deleting destructor return the receiver; dispatcher and state callbacks have no consumed return. Direct __ftol inputs are binary64-representable. Normal execution only; locale and audio-error OS paths remain outside the cases."
+}

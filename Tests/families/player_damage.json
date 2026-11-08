@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "player_damage",
+  "title": "Original player hit, hurt, and hazard death",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerDamage.cpp",
+    "Sources/PlayerDamage.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerDamage.cpp": "fdfc0566314b3babc9aa57e211e2564bda4aea5b4ed60ccdeaa1619122448df0",
+    "Sources/PlayerDamage.h": "13158cef899af868558432b00a49ab1c6f6843b187ab515a215d1c75fb013424"
+  },
+  "docs": [
+    "docs/player-damage.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_damage.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_damage_helpers.py"
+    ],
+    "work_dirs": [
+      "work/player-damage-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/player-damage-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_damage.py": "pass"
+      },
+      "seconds": 30.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3797217157,
+      "owned": 8,
+      "owned_inferred_from_tests": true,
+      "directly_called": 8,
+      "fully_executed": 6,
+      "bytes_owned": 8624,
+      "bytes_executed": 4562,
+      "coverage": 0.529
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift",
+      "Tests/NativeRespawn/main.swift"
+    ]
+  },
+  "limits": []
+}

@@ -1,0 +1,335 @@
+{
+  "schema": 1,
+  "id": "player_cache_application",
+  "title": "Original application player-cache publication and change-player dialog",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/PlayerCacheApplicationCanonical.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x42bb00",
+      "name": "showApplicationDialog",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x42bbb0",
+      "name": "postPlayerCommand",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42bbd0",
+      "name": "showChangePlayer",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x42bbe0",
+      "name": "showPlayerInfo",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x42bbf0",
+      "name": "showRemovePlayer",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x42bf90",
+      "name": "publishPlayer",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x430ac0",
+      "name": "copyPlayerCache",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b050",
+      "name": "displayCurrentPlayer",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b0c0",
+      "name": "publishSelectedPlayer",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49b730",
+      "name": "changePlayerDialogProc",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x49c090",
+      "name": "populatePlayerList",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x546d2c": {
+      "kind": "fixture",
+      "name": "DialogBoxParamA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x546d3c": {
+      "kind": "fixture",
+      "name": "SetDlgItemTextA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x546d44": {
+      "kind": "fixture",
+      "name": "SendMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x546d34": {
+      "kind": "fixture",
+      "name": "EndDialog",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x546d40": {
+      "kind": "fixture",
+      "name": "GetDlgItem",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service; cases provide only physical results and control state, never game callback effects."
+    },
+    "0x4ca9e0": {
+      "kind": "whole",
+      "name": "prepareDialogSurface",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x42abf0": {
+      "kind": "whole",
+      "name": "refreshApplicationTiming",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1523,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x49bee0": {
+      "kind": "whole",
+      "name": "findPlayerByName",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/player_cache_application.cases.py",
+    "entry": "claw_player_cache_application_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x430b23",
+        "end": "0x430b27",
+        "reason": "Hash-verified 0x430b19 LEA(input+0x25c0) can equal zero only for input 0xffffda40. Reaching it requires first-block reads at 0x58 through 0x7c, outside valid live objects. The four-byte early RET is outside this live-object domain; the first pointer-wrap exit remains directly tested."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 161,
+        "operator": "ne-to-eq",
+        "source_sha256": "d8ddd7b8695812719723dc17772ef4092ee1ce6e807c875afe4c37dcf7d7e20a",
+        "mutant_sha256": "f633f046a2fa96b1a7d7efa6e64b8357939de787e3fa0606bc55a4bfb3a450ea",
+        "reason": "Reviewed current ordinary populate path: changing the physical LB_ADDSTRING result predicate changes only the local unsigned count and its returned value. The owned 0x49c090 entry declares void and the only internal ordinary caller, dialog INIT, discards populate return; count never affects memory, calls, item traversal or selection. The physical callback implementation uses a separate stack-backed count and is not covered by this review."
+      },
+      {
+        "line": 71,
+        "operator": "shift-offset",
+        "source_sha256": "d8ddd7b8695812719723dc17772ef4092ee1ce6e807c875afe4c37dcf7d7e20a",
+        "mutant_sha256": "4c5f26d8169b16d9e82601a57adbe300c000481b0459e95ff3372db1b8ab0787",
+        "reason": "Independent fresh translator and case-author original-byte audits agree: shifting the second player+0x25c0 null guard by four differs only for input 0xffffda40 or 0xffffda3c; preceding first-block reads are 0x58..0x7c or 0x54..0x78, outside the retained valid live-object domain. No new coverage exemption. Original evidence and both audits: work/readability/player_cache_application/new-translator-audit.txt and new-case-audit.txt."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2760526090,
+      "cases": 137,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 1,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "88f34c7ad41612bd58a56a7898c1ac4ee72898dc6c1de53c18e0cca40e9cff5c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "ShowCursor at 0x546d54 is a physical service fixture; it cannot replace game logic.",
+    "DialogBoxParamA at 0x546d2c is a physical service fixture; it cannot replace game logic.",
+    "PostMessageA at 0x546d50 is a physical service fixture; it cannot replace game logic.",
+    "SetDlgItemTextA at 0x546d3c is a physical service fixture; it cannot replace game logic.",
+    "SendMessageA at 0x546d44 is a physical service fixture; it cannot replace game logic.",
+    "EndDialog at 0x546d34 is a physical service fixture; it cannot replace game logic.",
+    "GetDlgItem at 0x546d40 is a physical service fixture; it cannot replace game logic.",
+    "timeGetTime at 0x546df0 is a physical service fixture; it cannot replace game logic.",
+    "Direct 0x49b730 tests cover its game decisions independently and do not establish the modal callback join.",
+    "String comparison uses unchanged original 0x4a3cf0 in the C locale, selected by zero at 0x540e88.",
+    "The second pointer-addition-null exit [0x430b23,0x430b27) is exempt only in the valid live-object domain: its unique input 0xffffda40 requires earlier low-address reads 0x58..0x7c."
+  ],
+  "notes": "Boundary reviewed from hash-verified original; eleven entries retained. Modal callers retain ordinary ABI and additionally expose the original source frames for authenticated DialogBox callbacks. Legacy APIs, elected overlapping owners and original-backed cyclic callees remain intact. Admission does not establish native menu construction or visible acceptance."
+}

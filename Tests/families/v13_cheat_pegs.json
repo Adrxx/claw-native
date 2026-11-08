@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "id": "v13_cheat_pegs",
+  "title": "v1.3 Easy Mode cheat guards for SlidingElevator and three peg callbacks",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13CheatPegsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a0f30",
+      "interval_end": "0x4a1223",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a1230",
+      "interval_end": "0x4a1430",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a1430",
+      "interval_end": "0x4a16a0",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a2080",
+      "interval_end": "0x4a2348",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x40fbe0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x421bb0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4a2010": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void"
+    },
+    "0x4a2050": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4c6e40": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4c8550": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4cb050": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4a595b": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native C runtime random source."
+    },
+    "0x4fc6b4": {
+      "kind": "fixture",
+      "name": "MFC resource map lookup",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native resource dictionary replaces MFC map lookup."
+    },
+    "0x4b3da0": {
+      "kind": "fixture",
+      "name": "audio playback",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical DirectSound playback replaced by native audio."
+    },
+    "0x50c58c": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical monotonic clock used by original animation updates."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_cheat_pegs.cases.py",
+    "entry": "claw_v13_cheat_pegs_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1465972685,
+      "cases": 600,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "3dcfc19067db0592f42da0893f9e03277f863ce750e00f5e2c12a417693124c3"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

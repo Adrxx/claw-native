@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "id": "v13_cheat_attack",
+  "title": "v1.3 attack setup and long-range tail before facing mirror",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/V13CheatAttackRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x41f270",
+      "interval_end": "0x41fa3a",
+      "convention": "cdecl",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x41eb30": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x41f030": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void"
+    },
+    "0x41fa90": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x48fb00": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4c6e40": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4c84c0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void"
+    },
+    "0x4dea70": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4a595b": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "C runtime random source."
+    },
+    "0x4fc6b4": {
+      "kind": "fixture",
+      "name": "MFC map lookup",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native resource map replaces MFC CString map lookup; cases back all returned animation resources."
+    },
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap replaces C runtime allocator."
+    },
+    "0x4a6b1f": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocation for original bit-vector growth."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_cheat_attack.cases.py",
+    "entry": "claw_v13_cheat_attack_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 422617654,
+      "cases": 540,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.974,
+      "reasons": [],
+      "build_inputs_sha256": "b80d3b3fd5faa123dff206fbb3bf0fe8816f66d1f45c5e5268562e5cddc59ec5"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "id": "resource_table_construction",
+  "title": "Original resource table construction",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ResourceTableConstructionRuntime.cpp",
+    "Sources/ResourceTableConstructionRuntime.h",
+    "Sources/ResourceTableConstructionCanonical.cpp"
+  ],
+  "canonical_sources": [
+    "Sources/ResourceTableConstructionCanonical.cpp"
+  ],
+  "source_sha256": {
+    "Sources/ResourceTableConstructionRuntime.cpp": "e4157573df203402df1aba391277b2121dd5e8a09f4739588a50cd1de67bf97b",
+    "Sources/ResourceTableConstructionRuntime.h": "61c472dd61bf37c57edccd3dfa54a68e05b99d5d41ebd3d7f56ef185ac31cf82"
+  },
+  "docs": [
+    "docs/resource-table-construction-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4b64b0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6530",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6600",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b66d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b69a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6a60",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7170",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7cc0",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7f40",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8050",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8070",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b80c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8130",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d53a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5410",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5420",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5450",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5490",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The original runtime heap reaches operating-system services."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with the allocator fixture."
+    },
+    "0x546a34": {
+      "kind": "fixture",
+      "name": "GetLocalTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "The CRT time callee requests a native Windows local clock."
+    },
+    "0x5469b4": {
+      "kind": "fixture",
+      "name": "GetSystemTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "The CRT time callee requests a native Windows system clock."
+    },
+    "0x546a3c": {
+      "kind": "fixture",
+      "name": "GetTimeZoneInformation",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:172"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The CRT time callee requests native Windows timezone information."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/resource_table_construction.cases.py",
+    "entry": "claw_resource_table_construction_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4d546d",
+        "end": "0x4d546f",
+        "reason": "Defensive null-node xor branch cannot return on valid ordinary heap-backed inputs: node was already dereferenced for its vtable and written at +0xc/+0x10 before the null test."
+      },
+      {
+        "start": "0x4d549d",
+        "end": "0x4d549f",
+        "reason": "Defensive null-node xor branch requires node zero, followed by an unconditional read of node+0x10; null is outside the valid ordinary heap-backed node domain."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 681561169,
+      "cases": 199,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.953,
+      "reasons": [],
+      "build_inputs_sha256": "7e86baf0efc53eb8d7e99add771188d1c3a2479011b79aade5bc7f1e918a9ac2"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Allocation and release use deterministic comparison fixtures rather than the runtime heap.",
+    "Local time, system time and timezone information use scripted Windows import fixtures.",
+    "Cases keep CRT locale state at the C locale and initialize the CRT timezone flag when exercising valid time conversion; runtime locale and timezone initialization are outside this family."
+  ]
+}

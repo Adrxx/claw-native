@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "player_projectile",
+  "title": "Original player weapon projectiles",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerProjectileRuntime.cpp",
+    "Sources/PlayerProjectileRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerProjectileRuntime.cpp": "ac47437ec6b4dafe8a2d9fa8afa8b96f5d54844799ce2f7b6f71cb3ff667d1b1",
+    "Sources/PlayerProjectileRuntime.h": "ba3f7d52ee2d007288ca939b40408a390abc75a7b563e1863283d18794779118"
+  },
+  "docs": [
+    "docs/player-projectile-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_projectile_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_projectile_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/player-projectile-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-projectile-independent.log"
+      ],
+      "worker_evidence": [
+        "work/player-projectile-agent/verification.json",
+        "work/player-projectile-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_projectile_runtime.py": "pass"
+      },
+      "seconds": 44.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2149871295,
+      "owned": 28,
+      "owned_inferred_from_tests": true,
+      "directly_called": 28,
+      "fully_executed": 17,
+      "bytes_owned": 6380,
+      "bytes_executed": 5745,
+      "coverage": 0.9005
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift",
+      "Sources/ClawNativeProjectiles.swift"
+    ]
+  },
+  "limits": []
+}

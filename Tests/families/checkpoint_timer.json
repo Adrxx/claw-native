@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "id": "checkpoint_timer",
+  "title": "Source checkpoint timer, HUD and command graph",
+  "abi": "legacy",
+  "sources": [
+    "Sources/CheckpointTimerRuntime.cpp",
+    "Sources/CheckpointTimerRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/CheckpointTimerRuntime.cpp": "c1f35fe3c0c36656205b33ec20a65a60d14d0415a418e8899aa06b57f1022a33",
+    "Sources/CheckpointTimerRuntime.h": "9f98ad0fc097c51b26f3f8d62b04866331adcce50d75a6ff07f07bf0a73d10c0"
+  },
+  "docs": [
+    "docs/checkpoint-timer-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x491b30",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f5172",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_checkpoint_timer_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/checkpoint_timer_helpers.py"
+    ],
+    "work_dirs": [
+      "work/checkpoint-timer-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-checkpoint-timer-independent.log"
+      ],
+      "worker_evidence": [
+        "work/checkpoint-timer-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_checkpoint_timer_runtime.py": "pass"
+      },
+      "seconds": 8.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2104586491,
+      "owned": 23,
+      "owned_inferred_from_tests": false,
+      "directly_called": 14,
+      "fully_executed": 12,
+      "bytes_owned": 10730,
+      "bytes_executed": 3795,
+      "coverage": 0.3537
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeHUD.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: end_of_level_checkpoint_timer (0x40db30, 0x40db50, 0x42a630, 0x4c9fc0, 0x4c9fe0, 0x4d3eb0); level_one_closure_engine_misc_01 (0x490c00); level_one_hud_timers_01 (0x490590, 0x490760, 0x490c40); level_one_timers_checkpoints_02 (0x4919f0, 0x491ed0, 0x4c8e00, 0x4c8f60, 0x4d3ca0, 0x4d3e50, 0x4d3ef0, 0x4d3f20); menu_game_launch (0x426e30); pickup_points (0x40f680); player_end_life (0x41f490). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "id": "shake",
+  "title": "Shake object logic",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ShakeRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4887b0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/shake.cases.py",
+    "entry": "claw_shake_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x488809",
+        "end": "0x48880b",
+        "reason": "Reached only when operator new returns 0; original clears EDI here then immediately reads through that null pointer, so no valid returning case can execute these two bytes."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 34,
+        "operator": "swap-statements",
+        "source_sha256": "825207369c054979d71459485b85ced7da0647978046bcdc394c5e4fd69c71e3",
+        "mutant_sha256": "31ba067146df6f3cc763807a83ef8f0b0a566c60ceabc0f2aa8207be50dc8fab",
+        "reason": "For valid returning executions of the unmodified original with fresh non-aliasing allocation, constructor 0x488870 unconditionally installs immutable vtable 0x50f63c at 0x4888ef and makes no later calls. Slot +0x10 is original 0x4c96b0, a zero-argument immediate return with no observable effects. Its temporary return-address stack bytes are dead; the dispatcher ignores the result and returns 1. Removing this empty invocation or moving the state+0x18 publication across it therefore preserves observable behavior. Patched vtables, corrupted/aliased allocations, and the already-exempt original null-allocation fault path are outside this proof. Independently reviewed by Astra high against hash-pinned original and exact generated mutant bytes."
+      },
+      {
+        "line": 34,
+        "operator": "drop-statement",
+        "source_sha256": "825207369c054979d71459485b85ced7da0647978046bcdc394c5e4fd69c71e3",
+        "mutant_sha256": "54046a0fe46f80f26706713f89a92d668d1fe36a12a2e4bc04101c0e7286e362",
+        "reason": "For valid returning executions of the unmodified original with fresh non-aliasing allocation, constructor 0x488870 unconditionally installs immutable vtable 0x50f63c at 0x4888ef and makes no later calls. Slot +0x10 is original 0x4c96b0, a zero-argument immediate return with no observable effects. Its temporary return-address stack bytes are dead; the dispatcher ignores the result and returns 1. Removing this empty invocation or moving the state+0x18 publication across it therefore preserves observable behavior. Patched vtables, corrupted/aliased allocations, and the already-exempt original null-allocation fault path are outside this proof. Independently reviewed by Astra high against hash-pinned original and exact generated mutant bytes."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2931220849,
+      "cases": 24,
+      "mutants_killed": 16,
+      "mutants_tried": 19,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "e34deb9ae707da933386813694370a1f63bdf92a5354008273d450faaffd0f87"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

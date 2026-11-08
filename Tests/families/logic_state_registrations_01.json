@@ -1,0 +1,329 @@
+{
+  "schema": 1,
+  "id": "logic_state_registrations_01",
+  "title": "Level 1 logic registrations group 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LogicStateRegistrations01Runtime.cpp"
+  ],
+  "shared_sources": [
+    {
+      "family": "logic_state_registry_core",
+      "sources": [
+        "Sources/LogicStateRegistryCoreRuntime.cpp",
+        "Sources/LogicStateRegistryCoreRuntime.h"
+      ]
+    }
+  ],
+  "owned": [
+    {
+      "address": "0x4092d0",
+      "name": "registerIdle4092d0",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40a150",
+      "name": "registerBearSailor",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e390",
+      "name": "registerHumanEnemyStartup",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40ed00",
+      "name": "registerBounceFallingDead",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40fc50",
+      "name": "registerIdle40fc50",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x410b90",
+      "name": "registerMagicBullet",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411140",
+      "name": "registerFireBullet",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4115f0",
+      "name": "registerLightningBullet",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411aa0",
+      "name": "registerIceBullet",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411f80",
+      "name": "registerWolvingtonBullet",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412570",
+      "name": "registerOmarBullet",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "the native CRT realloc boundary replaces Windows heap allocation, copying, and release while preserving guest allocation lifetime"
+    },
+    "0x4dc680": {
+      "kind": "whole",
+      "name": "diagnostic saved EBP word",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "diagnostic source return PC",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 1473,
+        "output_mask": 1473
+      }
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows service reachable through unchanged original CString implementation"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/logic_state_registrations_01.cases.py",
+    "entry": "claw_logic_state_registrations_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x409360",
+        "end": "0x409389",
+        "reason": "Growth-failure continuation requires grow at 0x40933f to return zero at branch 0x409346. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x409429",
+        "end": "0x40945d",
+        "reason": "Growth-failure continuation requires grow at 0x4093ff to return zero at branch 0x409406. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x40e460",
+        "end": "0x40e489",
+        "reason": "Growth-failure continuation requires grow at 0x40e43f to return zero at branch 0x40e446. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x40e529",
+        "end": "0x40e55d",
+        "reason": "Growth-failure continuation requires grow at 0x40e4ff to return zero at branch 0x40e506. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x40ee9e",
+        "end": "0x40eec7",
+        "reason": "Growth-failure continuation requires grow at 0x40ee7d to return zero at branch 0x40ee84. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x40ef67",
+        "end": "0x40ef9b",
+        "reason": "Growth-failure continuation requires grow at 0x40ef3d to return zero at branch 0x40ef44. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x40fce0",
+        "end": "0x40fd09",
+        "reason": "Growth-failure continuation requires grow at 0x40fcbf to return zero at branch 0x40fcc6. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x40fda9",
+        "end": "0x40fddd",
+        "reason": "Growth-failure continuation requires grow at 0x40fd7f to return zero at branch 0x40fd86. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x410c60",
+        "end": "0x410c89",
+        "reason": "Growth-failure continuation requires grow at 0x410c3f to return zero at branch 0x410c46. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x410d29",
+        "end": "0x410d5d",
+        "reason": "Growth-failure continuation requires grow at 0x410cff to return zero at branch 0x410d06. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x411210",
+        "end": "0x411239",
+        "reason": "Growth-failure continuation requires grow at 0x4111ef to return zero at branch 0x4111f6. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x4112d9",
+        "end": "0x41130d",
+        "reason": "Growth-failure continuation requires grow at 0x4112af to return zero at branch 0x4112b6. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x4116c0",
+        "end": "0x4116e9",
+        "reason": "Growth-failure continuation requires grow at 0x41169f to return zero at branch 0x4116a6. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x411789",
+        "end": "0x4117bd",
+        "reason": "Growth-failure continuation requires grow at 0x41175f to return zero at branch 0x411766. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x411b70",
+        "end": "0x411b99",
+        "reason": "Growth-failure continuation requires grow at 0x411b4f to return zero at branch 0x411b56. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x411c39",
+        "end": "0x411c6d",
+        "reason": "Growth-failure continuation requires grow at 0x411c0f to return zero at branch 0x411c16. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x412050",
+        "end": "0x412079",
+        "reason": "Growth-failure continuation requires grow at 0x41202f to return zero at branch 0x412036. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x412119",
+        "end": "0x41214d",
+        "reason": "Growth-failure continuation requires grow at 0x4120ef to return zero at branch 0x4120f6. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x412640",
+        "end": "0x412669",
+        "reason": "Growth-failure continuation requires grow at 0x41261f to return zero at branch 0x412626. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      },
+      {
+        "start": "0x412709",
+        "end": "0x41273d",
+        "reason": "Growth-failure continuation requires grow at 0x4126df to return zero at branch 0x4126e6. Failed realloc sets EBP=0 at 0x4db70b or 0x4db77f; 0x4db788 calls 0x4dc680, whose [EBP+4] read faults at address 4 before grow can return."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 210550812,
+      "cases": 203,
+      "mutants_killed": 18,
+      "mutants_tried": 18,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "4c97c904c2dfbdf75be611ce67dcf4deb30d38aaab4d25c4068dfc1949f0e3e1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a native heap allocation stand-in.",
+    "operator delete is a native heap release stand-in.",
+    "realloc is a scripted native CRT allocation boundary; cases preserve copied bytes and allocation lifetime.",
+    "lstrlenA is a scripted Windows string-length boundary.",
+    "InterlockedDecrement is a scripted Windows atomic decrement boundary.",
+    "Registry/index algorithms are reused through the read-only core registerBinding bridge; only the 11 listed registration entries are owned here.",
+    "Callbacks are stored as addresses and are not executed or owned by this family.",
+    "Original table growth failure faults in the saved-EBP diagnostic read at address 4 before any normal zero-return continuation."
+  ],
+  "notes": "The 11 seeded registration entries use typed LogicStateRegistry descriptors and the existing core registerBinding bridge; auxiliary core sources provide linkage without adding core-owned addresses. Parent registrations and CString routines remain original code at their physical boundaries."
+}

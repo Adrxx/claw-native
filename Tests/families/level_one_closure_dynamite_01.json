@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "id": "level_one_closure_dynamite_01",
+  "title": "Level 1 player projectile and dynamite helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneClosureDynamite01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x408510",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408580",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408860",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x408870",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43ad20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43b120",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43b160",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43b1a0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43b1e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43b210",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_closure_dynamite_01.cases.py",
+    "entry": "claw_level_one_closure_dynamite_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4085d5",
+        "end": "0x408603",
+        "reason": "the range runs only after the table-growth helper at 0x4db6e0 returned zero, which happens only when realloc fails; that helper then calls 0x4dc680 with EBP holding the zero realloc result, which reads through address 4, so the original faults and no normal-return input executes this range. The native body must keep the helper call and not add a guard."
+      },
+      {
+        "start": "0x40861e",
+        "end": "0x408635",
+        "reason": "the second range check cannot fail: the first lookup either finds the index inside the table bounds or grows the table, and growing moves the bounds to include the index, with no call in between that changes them. Every path that would leave the index outside the bounds faults first (see the realloc failure ranges)."
+      },
+      {
+        "start": "0x40864f",
+        "end": "0x408682",
+        "reason": "the range runs only after the table-growth helper at 0x4db6e0 returned zero, which happens only when realloc fails; that helper then calls 0x4dc680 with EBP holding the zero realloc result, which reads through address 4, so the original faults and no normal-return input executes this range. The native body must keep the helper call and not add a guard."
+      },
+      {
+        "start": "0x43ad75",
+        "end": "0x43ada3",
+        "reason": "the range runs only after the table-growth helper at 0x4db6e0 returned zero, which happens only when realloc fails; that helper then calls 0x4dc680 with EBP holding the zero realloc result, which reads through address 4, so the original faults and no normal-return input executes this range. The native body must keep the helper call and not add a guard."
+      },
+      {
+        "start": "0x43adbe",
+        "end": "0x43add5",
+        "reason": "the second range check cannot fail: the first lookup either finds the index inside the table bounds or grows the table, and growing moves the bounds to include the index, with no call in between that changes them. Every path that would leave the index outside the bounds faults first (see the realloc failure ranges)."
+      },
+      {
+        "start": "0x43adef",
+        "end": "0x43ae22",
+        "reason": "the range runs only after the table-growth helper at 0x4db6e0 returned zero, which happens only when realloc fails; that helper then calls 0x4dc680 with EBP holding the zero realloc result, which reads through address 4, so the original faults and no normal-return input executes this range. The native body must keep the helper call and not add a guard."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3957846920,
+      "cases": 600,
+      "mutants_killed": 33,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.943,
+      "reasons": [],
+      "build_inputs_sha256": "5d09682b9b0e21b33355ae8130e6f9273ffe0ba252b1adf26a972f07a703376c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

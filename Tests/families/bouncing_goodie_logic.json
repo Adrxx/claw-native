@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "id": "bouncing_goodie_logic",
+  "title": "Original BouncingGoodie",
+  "abi": "legacy",
+  "sources": [
+    "Sources/BouncingGoodieLogic.cpp",
+    "Sources/BouncingGoodieLogic.h"
+  ],
+  "source_sha256": {
+    "Sources/BouncingGoodieLogic.cpp": "778b9f436c2624ec7fcbdb0ca7bf12407d7324cdaa609a90152aed7a24afd663",
+    "Sources/BouncingGoodieLogic.h": "6b373ca8209f4481ab7d124faccac7659748364b7c97a2bc11b006735d119769"
+  },
+  "docs": [
+    "docs/bouncing-goodie.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_bouncing_goodie.py"
+      }
+    ],
+    "helpers": [
+      "Tests/bouncing_goodie_helpers.py"
+    ],
+    "work_dirs": [
+      "work/bouncing-goodie-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_bouncing_goodie.py": "pass"
+      },
+      "seconds": 16.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1656367417,
+      "owned": 100,
+      "owned_inferred_from_tests": true,
+      "directly_called": 100,
+      "fully_executed": 93,
+      "bytes_owned": 9007,
+      "bytes_executed": 8444,
+      "coverage": 0.9375
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeLoot.swift"
+    ]
+  },
+  "limits": []
+}

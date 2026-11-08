@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "id": "mfc_startup_records",
+  "title": "Original MFC startup record constructors and list linkage",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcStartupRecordsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x501f01",
+      "name": "MfcThreadRecord::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x501fde",
+      "name": "MfcModuleRecord::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x502f26",
+      "name": "MfcList::prepend",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_startup_records.cases.py",
+    "entry": "claw_mfc_startup_records_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 110212219,
+      "cases": 831,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "2255558b37f1f137673d9d4306cd4c7ec31cd1fec0d7ea0ee5657d08a1f9a8a6"
+    }
+  },
+  "integration": {
+    "level": "source-only",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Three complete leaf functions without fixtures or exemptions. Constructor return pointers and exact mixed-width writes are included.",
+    "Standalone record/list admission does not establish TLS, locks, exception cleanup, module startup or menu acceptance.",
+    "Constructor input domain: complete live thread/module records through0x108/0x106c bytes, arguments separate from mutable receiver, adequate operation budget and no asynchronous per-store observer. Equivalent-mutant proofs apply to normal completed calls, not invalid-memory, budget-stop or stack-alias prefixes.",
+    "Optional full-register source contracts for both constructors passed independent re-admission with591cases; the earlier ordinary admission/build snapshot is retained under ignored coordination. Source mode observes all11CPU fields, fullstack, true source returns; old list prepend remains context-free.",
+    "Prepend fullsource extension provisional pending freshindependent cases/translation/admission; ordinarysemanticvoid remains0 whilefullsource machineEAX mustretainnode,EDXlinkoffset andESIsave/restoredstack. Constructorcapabilities remaintheirpreviouslyverifiedsourcebaseline."
+  ],
+  "notes": "Boundary independently reviewed against pinned original in ignored work/coordination/startup-mfc-boundary.md. Constructors return receiver despite void decompile. List predecessor uses owner+4 link offset; result unused."
+}

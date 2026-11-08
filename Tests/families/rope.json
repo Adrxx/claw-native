@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "rope",
+  "title": "Original AniRope runtime",
+  "abi": "legacy",
+  "sources": [
+    "Sources/RopeRuntime.cpp",
+    "Sources/RopeRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/RopeRuntime.cpp": "3495c79d865e33e4d808de8de6453d935885ab107beb6c90ed673b6d64959f31",
+    "Sources/RopeRuntime.h": "5c912c9127e9b8cab96e662c3572bc86c478f34276093888c4533e2170a9af24"
+  },
+  "docs": [
+    "docs/rope-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_rope_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/rope_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/original-disc-assets",
+      "work/rope-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-rope-independent.log"
+      ],
+      "worker_evidence": [
+        "work/rope-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_rope_runtime.py": "pass"
+      },
+      "seconds": 58.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2979493399,
+      "owned": 22,
+      "owned_inferred_from_tests": false,
+      "directly_called": 13,
+      "fully_executed": 11,
+      "bytes_owned": 11584,
+      "bytes_executed": 3731,
+      "coverage": 0.3221
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: booty_progression (0x4bb030); level_one_batch_powerups_03 (0x41ee60); level_one_claw_rope_01 (0x403ab0, 0x403ac0, 0x418080, 0x4181c0); level_one_closure_enemies_01 (0x4041a0, 0x4041b0); level_one_player_actions_02 (0x415df0, 0x418120); level_one_player_actions_03 (0x41ce80); level_one_player_actions_04 (0x4c9e30, 0x4dc870); level_three_rope (0x403100, 0x4031c0, 0x4035a0, 0x403850, 0x4038d0, 0x465450); menu_paper_transition (0x4c96b0); rat_bomb_logic (0x456030, 0x484d90). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

@@ -1,0 +1,2751 @@
+{
+  "schema": 1,
+  "id": "static_initializer_driver",
+  "title": "Complete original runtime-selected static table dispatcher",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticInitializerDriverRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a5880",
+      "name": "OriginalStaticInitializerTableDriver",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a5880",
+          "end": "0x4a58a0",
+          "sha256": "1f0dbf3798bdc874327b5fce43c014aab07849d2d667166552daf89f2a2538ee"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a3610": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ae3e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ad7c0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x501fbd": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50226e": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502c90": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502876": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502c51": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x503722": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x503748": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x403540": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4042b0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4064c0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x406e90": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4074a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x408520": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x409150": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x409fe0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40b820": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40e220": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40eb80": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40fad0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x410a20": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x410fd0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411480": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411930": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411e10": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412400": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412970": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412e20": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x413600": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x413b20": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x414190": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x414d80": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x415410": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x415aa0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4212c0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4251e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425220": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425260": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4252a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4252e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425320": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425360": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4253a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4253e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425420": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425460": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4313e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x431d90": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x432630": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x433a70": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4348f0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x436890": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4368d0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x436910": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x437500": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x437550": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4380a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43acc0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43cd60": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d330": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d3e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d430": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x441270": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x441ca0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x443350": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x445a90": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x446610": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4487f0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x448dd0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x449530": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x449d00": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x44c7e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x453cb0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x453cf0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x454380": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4555a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x455aa0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x456280": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x456bc0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4576e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x458220": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x458740": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x45a3a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x45aca0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4606b0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x462a90": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x463ae0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x465140": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x465d50": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x468a70": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x46f640": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x473ee0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474780": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474ed0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474f20": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474f60": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47cd10": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47dac0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47e880": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47f7a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x483120": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x484370": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x484870": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x485900": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x487340": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x488980": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x489090": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4897f0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48b060": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48d1d0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48e560": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x492380": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x493f70": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4970d0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x498160": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f160": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f850": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f890": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a01d0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ff951": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502405": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502426": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50245e": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502546": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x5028d7": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502b00": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502b4d": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f821d": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f8233": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f8271": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f82af": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f82ed": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502cc6": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502cfe": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502d30": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ffce4": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ffd07": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4b9110": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4bc0d0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4db600": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dbb70": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dc160": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dc260": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dc380": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x503813": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ae4a0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ad7e0": {
+      "kind": "whole",
+      "name": "OriginalStaticTableRoot",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x546894": {
+      "kind": "fixture",
+      "name": "GDI32.dll!GetDeviceCaps",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546928": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapReAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x54692c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapSize",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546954": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!VirtualFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546960": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546964": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546974": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetStdHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546990": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!VirtualAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469bc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentThread",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469f4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetModuleFileNameA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a14": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LoadLibraryA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a18": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetProcAddress",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a94": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetProcessVersion",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546af8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!WriteFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b60": {
+      "kind": "fixture",
+      "name": "USER32.dll!LoadCursorA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b64": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColorBrush",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c2c": {
+      "kind": "fixture",
+      "name": "USER32.dll!RegisterWindowMessageA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c7c": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c80": {
+      "kind": "fixture",
+      "name": "USER32.dll!ReleaseDC",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546d20": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546d28": {
+      "kind": "fixture",
+      "name": "USER32.dll!LoadStringA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4a6560": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 usable capacity",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coordinator-selected CRT memory-service v1 physical owner boundary; original registry and constructor source remains unchanged."
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coordinator-selected CRT memory-service v1 physical owner boundary; original registry and constructor source remains unchanged."
+    },
+    "0x546938": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetStdHandle",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    },
+    "0x546980": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetUnhandledExceptionFilter",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    },
+    "0x546aa0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!DeleteCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    },
+    "0x546af0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!FlushFileBuffers",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by original CRT table roots or their unchanged descendants; no initializer body is substituted."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_initializer_driver.cases.py",
+    "entry": "claw_static_initializer_driver_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1329078577,
+      "cases": 30,
+      "mutants_killed": 10,
+      "mutants_tried": 11,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.909,
+      "reasons": [],
+      "build_inputs_sha256": "50a81e88bc83b7e016c110704f5f69dcd5ef99a8521371d0f948a6c874e6cab1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Owns the complete 32-byte cdecl2 original table dispatcher, with its unsigned loop and every null, empty and reversed-bound branch; no fixed count, table snapshot or startup prefix replaces it.",
+    "Full integer source input/output masks 0x7ff retain live EAX and flags despite semantic void; conservative preserve_mask zero avoids an unproven transitive register invariant across mutable runtime-selected table roots.",
+    "The genuine CALL EAX child has cdecl0/RET0, ECX and all selected integer state inherited, child ESP equal to dispatcher entry ESP minus 12, and real return PC 0x4a5896.",
+    "All 149 nonnull original roots from the four actual caller-selected startup and exit tables run whole original source; table-null and bound variations are case inputs, and internal callbacks cannot be env.stub stand-ins.",
+    "Runtime table words are read when each iteration reaches them; callee effects may change later table entries. No table copy or cached future root is permitted.",
+    "Approved CRT memory-service v1 fixtures and physical Windows imports require coherent ownership and memory effects; they do not establish native CRT or Windows acceptance.",
+    "Original calloc 0x4adf50 remains whole original code including HeapAlloc or small-block paths; it is not an additional allocator fixture.",
+    "Dynamic global callbacks at 0x52e9f8 and 0x541138 and loaded function pointers must retain genuine original identities. Unsupported resolution and nonreturning physical failure paths must stop honestly.",
+    "RaiseException cannot be fabricated as a successful return. Guest exception closure, x87/SSE state certification, finite native root election and complete startup/gameplay acceptance are separate unfinished work.",
+    "GDI32.dll!GetDeviceCaps is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!HeapReAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!HeapSize is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!VirtualFree is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!RaiseException is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!HeapAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!HeapFree is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetStdHandle is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!VirtualAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetCurrentThread is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetCurrentThreadId is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GlobalLock is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GlobalUnlock is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!lstrlenA is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!InterlockedDecrement is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetModuleFileNameA is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!LoadLibraryA is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetProcAddress is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!TlsGetValue is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!LocalReAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!TlsSetValue is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GlobalReAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GlobalHandle is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!TlsAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetProcessVersion is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!LeaveCriticalSection is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!InitializeCriticalSection is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!LocalAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!EnterCriticalSection is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetVersion is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!WriteFile is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GlobalAlloc is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!LoadCursorA is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!GetSysColorBrush is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!RegisterWindowMessageA is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!GetSystemMetrics is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!GetDC is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!ReleaseDC is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!GetCursorPos is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!GetSysColor is a physical scripted fixture; cases must model its observable effects.",
+    "USER32.dll!LoadStringA is a physical scripted fixture; cases must model its observable effects.",
+    "malloc is a physical allocate fixture; cases must model its observable effects.",
+    "free is a physical release fixture; cases must model its observable effects.",
+    "operator new is a physical allocate fixture; cases must model its observable effects.",
+    "operator delete is a physical release fixture; cases must model its observable effects.",
+    "CRT memory-service v1 usable capacity is a physical scripted fixture; cases must model its observable effects.",
+    "CRT memory-service v1 realloc is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!SetStdHandle is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!SetUnhandledExceptionFilter is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!CloseHandle is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!DeleteCriticalSection is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!SetLastError is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!FlushFileBuffers is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!SetFilePointer is a physical scripted fixture; cases must model its observable effects.",
+    "KERNEL32.dll!GetLastError is a physical scripted fixture; cases must model its observable effects."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "id": "crt_pmd_adjustment",
+  "title": "Original CRT catch-object PMD adjustment",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CrtPmdAdjustmentRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a8ed0",
+      "name": "CRT catch-object PMD pointer adjustment",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/crt_pmd_adjustment.cases.py",
+    "entry": "claw_crt_pmd_adjustment_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2799770349,
+      "cases": 388,
+      "mutants_killed": 5,
+      "mutants_tried": 5,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "c8c91e984ee9d49487a3ffe559aee02946876cc37795872d1434de0d8cd8f5ba"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Owns the complete 37-byte function at 0x4a8ed0 through exclusive end 0x4a8ef5; no callees, imports or physical fixtures.",
+    "Ordinary cdecl calls and optional full source contexts are supported; full source calls retain original saved-ESI stack writes and all arithmetic flag outputs.",
+    "Valid readable PMD and conditional virtual-table addresses are required; this leaf does not implement exception selection, dispatch, unwind or rethrow."
+  ],
+  "notes": "Boundary independently verified against pinned original bytes and original-only CPU/full-stack probes. The signed PMD pdisp branch and source stack aliases are detailed in the ignored packet notes."
+}

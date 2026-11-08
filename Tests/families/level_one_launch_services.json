@@ -1,0 +1,416 @@
+{
+  "schema": 1,
+  "id": "level_one_launch_services",
+  "title": "Level one launch and scene services",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneLaunchServicesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x422980",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4229c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429b70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c060",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46bb80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46db30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46dff0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46e100",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46f040",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f1e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f370",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f3e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546888": {
+      "kind": "fixture",
+      "name": "SetBkMode",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native platform service; cases provide physical result only"
+    },
+    "0x546880": {
+      "kind": "fixture",
+      "name": "SetTextColor",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native platform service; cases provide physical result only"
+    },
+    "0x546d30": {
+      "kind": "fixture",
+      "name": "DrawTextA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "ptr:16",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native platform service; cases provide physical result only"
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native platform service; cases provide physical result only"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native User32 rectangle write; cases apply only the physical API operands"
+    },
+    "0x54682c": {
+      "kind": "fixture",
+      "name": "RegQueryValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "out:4",
+        "out:4",
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native registry query; cases supply only registry type, bytes, length and status"
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native thread state used by unchanged original CRT srand; cases supply live TLS state and physical last-error state only"
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native thread state used by unchanged original CRT srand; cases supply live TLS state and physical last-error state only"
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "native thread state used by unchanged original CRT srand; cases supply live TLS state and physical last-error state only"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native kernel CString string/atomic operation; physical operands only, unchanged original CString policy"
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native kernel CString string/atomic operation; physical operands only, unchanged original CString policy"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native kernel CString string/atomic operation; physical operands only, unchanged original CString policy"
+    },
+    "0x546ccc": {
+      "kind": "fixture",
+      "name": "UpdateWindow",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native window/cursor/message service reached through unchanged original level loader"
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native window/cursor/message service reached through unchanged original level loader"
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:28",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "native window/cursor/message service reached through unchanged original level loader"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_launch_services.cases.py",
+    "entry": "claw_level_one_launch_services_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 708825363,
+      "cases": 75,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.953,
+      "reasons": [],
+      "build_inputs_sha256": "dd65e9a1ff1064442fff798eb9f564e24c529a55f82214218aa83a747b4d5b3c"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetBkMode, SetTextColor and DrawTextA are native platform fixtures; no game text selection or drawing policy is replaced.",
+    "timeGetTime is a native clock fixture controlling the original bounded retry delay.",
+    "SetRect is a physical rectangle fixture reached through unchanged original layout selection.",
+    "RegQueryValueExA is a physical registry fixture reached through unchanged original preference lookup.",
+    "GetLastError is a physical thread-state fixture reached through unchanged original CRT.",
+    "TlsGetValue is a physical thread-state fixture reached through unchanged original CRT.",
+    "SetLastError is a physical thread-state fixture reached through unchanged original CRT.",
+    "lstrlenA is a physical native string/atomic fixture reached through unchanged original CString code.",
+    "InterlockedIncrement is a physical native string/atomic fixture reached through unchanged original CString code.",
+    "InterlockedDecrement is a physical native string/atomic fixture reached through unchanged original CString code.",
+    "UpdateWindow is a physical native service; cases supply only platform window/cursor/queue results.",
+    "ShowCursor is a physical native service; cases supply only platform window/cursor/queue results.",
+    "PeekMessageA is a physical native service; cases supply only platform window/cursor/queue results."
+  ],
+  "notes": "Boundary reviewed against original v1.0 disassembly. Canonical election of 0x429b70 preserves legacy application_level_progression ownership and reuses that body. All unlisted game callees execute unchanged original code; 0x4a30e0 consumes the genuine x87 conversion operand."
+}

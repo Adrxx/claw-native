@@ -1,0 +1,427 @@
+{
+  "schema": 1,
+  "id": "call_closure_downstream_application",
+  "title": "Downstream application and multiplayer helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CallClosureDownstreamApplicationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x424db0",
+      "name": "Popup::lookupResource",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4268b0",
+      "name": "Application::archiveName",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c0b0",
+      "name": "Application::reportDisplayError",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c640",
+      "name": "Application::setColorKey",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x477790",
+      "name": "Multiplayer::sendPacket",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x477a10",
+      "name": "Multiplayer::dispatchPacket",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546a08": {
+      "kind": "fixture",
+      "name": "OutputDebugStringA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546a0c": {
+      "kind": "fixture",
+      "name": "GetVolumeInformationA",
+      "convention": "stdcall",
+      "argc": 8,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 last-error import."
+    },
+    "0x546b10": {
+      "kind": "fixture",
+      "name": "lstrcpyA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546c48": {
+      "kind": "fixture",
+      "name": "CharUpperA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic beep import reached by original surface lock failure."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic dialog import reached by original surface lock failure."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows service reached through unchanged original dependencies; cases provide its result and documented buffer effects."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows cursor display-count service reached by original communication dialog policy."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows path resolution reached through unchanged CFile open; cases preserve the original fallback path when resolution fails."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/call_closure_downstream_application.cases.py",
+    "entry": "claw_call_closure_downstream_application_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 261539697,
+      "cases": 232,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "94e8a5bd510a9db340023f311f8cab5b1c83e39880ea45370f2bd7ff2c3260ef"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a physical platform stand-in (allocate).",
+    "free is a physical platform stand-in (release).",
+    "_lock is a physical platform stand-in (return-zero).",
+    "_unlock is a physical platform stand-in (return-zero).",
+    "operator new is a physical platform stand-in (allocate).",
+    "operator delete is a physical platform stand-in (release).",
+    "realloc is a physical platform stand-in (reallocate).",
+    "lstrcpynA is a physical platform stand-in (scripted).",
+    "lstrlenA is a physical platform stand-in (scripted).",
+    "InterlockedDecrement is a physical platform stand-in (scripted).",
+    "InterlockedIncrement is a physical platform stand-in (scripted).",
+    "CloseHandle is a physical platform stand-in (scripted).",
+    "OutputDebugStringA is a physical platform stand-in (scripted).",
+    "GetVolumeInformationA is a physical platform stand-in (scripted).",
+    "ReadFile is a physical platform stand-in (scripted).",
+    "CreateFileA is a physical platform stand-in (scripted).",
+    "GetLastError is a physical platform stand-in (scripted).",
+    "lstrcpyA is a physical platform stand-in (scripted).",
+    "CharUpperA is a physical platform stand-in (scripted).",
+    "MessageBeep is a physical platform stand-in (scripted).",
+    "MessageBoxA is a physical platform stand-in (scripted).",
+    "PostMessageA is a physical platform stand-in (scripted).",
+    "ShowCursor is a scripted physical Windows cursor fixture.",
+    "GetFullPathNameA is a scripted physical Windows path fixture."
+  ],
+  "notes": "Boundary reviewed against original disassembly. Game callees run unchanged; only physical C runtime, allocator and OS services are fixtures."
+}

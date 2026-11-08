@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "scene_display_resize",
+  "title": "Original display resize methods",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SceneDisplayResizeRuntime.cpp",
+    "Sources/SceneDisplayResizeRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/SceneDisplayResizeRuntime.cpp": "44d8ee51f0c3c32393b9ee953ef7a565db2784dd16a124cf624b0097cf8acca4",
+    "Sources/SceneDisplayResizeRuntime.h": "c1cf9db70e258d9e2b422ca8f249d1a291a0af8d68e896b5044d119d0faeac60"
+  },
+  "docs": [
+    "docs/scene-display-resize-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_scene_display_resize_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/scene_display_resize_helpers.py"
+    ],
+    "work_dirs": [
+      "work/scene-display-resize-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-scene-display-resize-independent.log"
+      ],
+      "worker_evidence": [
+        "work/scene-display-resize-agent/compare-final.log",
+        "work/scene-display-resize-agent/frozen-sha256.txt",
+        "work/scene-display-resize-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_scene_display_resize_runtime.py": "pass"
+      },
+      "seconds": 3.5
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1695878053,
+      "owned": 3,
+      "owned_inferred_from_tests": true,
+      "directly_called": 3,
+      "fully_executed": 3,
+      "bytes_owned": 463,
+      "bytes_executed": 463,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": []
+}

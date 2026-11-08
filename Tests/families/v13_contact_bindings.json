@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "id": "v13_contact_bindings",
+  "title": "v1.3 LogicBump registry, binding and trampoline",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/V13ContactBindingsRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "canonical_sources": [
+    "Sources/V13ContactBindingsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x404400",
+      "interval_end": "0x4044c8",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7850",
+      "interval_end": "0x4c78e8",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c78f0",
+      "interval_end": "0x4c7925",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4def30",
+      "interval_end": "0x4def3f",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b630",
+      "interval_end": "0x40b636",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c83f0",
+      "interval_end": "0x4c8436",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8440",
+      "interval_end": "0x4c847b",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7690",
+      "interval_end": "0x4c7728",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7770",
+      "interval_end": "0x4c7808",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4fc6b4": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocator."
+    },
+    "0x4fcb13": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native heap release."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_contact_bindings.cases.py",
+    "entry": "claw_v13_contact_bindings_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1348033018,
+      "cases": 162,
+      "mutants_killed": 51,
+      "mutants_tried": 59,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "ec39fe1bddd0e12eb3b28e256b89ae30af8ebc64febd513a35742f5160073225"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

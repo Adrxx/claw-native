@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "scene_fade",
+  "title": "Original scene type2 fader",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SceneFadeRuntime.cpp",
+    "Sources/SceneFadeRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/SceneFadeRuntime.cpp": "f90a45c2f46fb5e2bddbc5f7383f6ef83514eafd03a63b46198502e9a7603ce8",
+    "Sources/SceneFadeRuntime.h": "3e26be893a03a3896867b11c6dac70e7466fa380e3bfcd77f83ef17e4ac6f63e"
+  },
+  "docs": [
+    "docs/scene-fade-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_scene_fade_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/scene_fade_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/scene-fade-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-scene-fade-independent.log"
+      ],
+      "worker_evidence": [
+        "work/scene-fade-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_scene_fade_runtime.py": "pass"
+      },
+      "seconds": 178.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 783775655,
+      "owned": 19,
+      "owned_inferred_from_tests": false,
+      "directly_called": 10,
+      "fully_executed": 12,
+      "bytes_owned": 3928,
+      "bytes_executed": 2744,
+      "coverage": 0.6986
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: menu_paper_transition (0x4c96b0); player_fade (0x4ec050, 0x4ec600, 0x4ec8d0, 0x4ec990, 0x4ec9c0, 0x4ecb00, 0x4ecb20); player_fade_blend (0x4c61f0, 0x4c7510); scene_fade_closure_02 (0x4ed060, 0x4ed080, 0x4ed0a0, 0x4ed0b0, 0x4ed1a0, 0x4ed5d0, 0x4efb00, 0x4efc40); special_command (0x4ecc00). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

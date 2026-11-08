@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "id": "tiger_guard_core",
+  "title": "Tiger guard core",
+  "abi": "canonical",
+  "sources": [
+    "Sources/TigerGuardCoreRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x493fd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x494460",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x494a80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x494aa0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x494b10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x494cc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x494d40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "interval_end": "0x494fe2"
+    },
+    {
+      "address": "0x495000",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x495130",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "x87 truncating integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 import reached directly and through original rectangle setters; writes all four signed coordinates"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 import reached unconditionally by the original base constructor; clears all four coordinates"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 atomic decrement import reached by original CString destruction; cases physically decrement the pointed 32-bit reference count and return the new value."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/tiger_guard_core.cases.py",
+    "entry": "claw_tiger_guard_core_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x494025",
+        "end": "0x494053",
+        "reason": "Original allocation-failure continuation cannot return: 0x4db6e0 puts zero realloc result in EBP, then 0x4dc680 reads [EBP+4] and faults at address 0x4. Original cases-check failure probes for lower and upper range growth confirmed the fault before this continuation."
+      },
+      {
+        "start": "0x49406e",
+        "end": "0x494085",
+        "reason": "The second out-of-range registry lookup is unreachable: the first range check or successful original 0x4db6e0 growth has included the same index, and no call or bound write occurs before the repeated check. Original instruction review confirms the compared index and bounds cannot differ."
+      },
+      {
+        "start": "0x49409f",
+        "end": "0x4940d2",
+        "reason": "Only the unreachable second out-of-range lookup can enter this continuation. In addition, original 0x4db6e0 allocation failure faults in 0x4dc680 at [EBP+4] with EBP zero rather than returning zero; original lower and upper growth failure probes confirmed the null read."
+      },
+      {
+        "start": "0x494ba1",
+        "end": "0x494bb5",
+        "reason": "Original 0x406020 has already established that the unchanged actor state index lies inside registry 0x537698. The intervening original string comparisons only read state/registry; 0x441030 clears registry+0x20 then takes its in-range return without growth, so the following string-initialization count is always zero. Checked original 0x406020, 0x441030 and 0x4a3810 instructions; allocator fixtures do not mutate actor state."
+      },
+      {
+        "start": "0x494bf8",
+        "end": "0x494c0c",
+        "reason": "Original 0x406020 has already established that the unchanged actor state index lies inside registry 0x537698. The intervening original string comparisons only read state/registry; 0x441030 clears registry+0x20 then takes its in-range return without growth, so the following string-initialization count is always zero. Checked original 0x406020, 0x441030 and 0x4a3810 instructions; allocator fixtures do not mutate actor state."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2777674733,
+      "cases": 304,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.951,
+      "reasons": [],
+      "build_inputs_sha256": "c94439763b50c0396f97a2234e87654fcc80e45f3e504a7575dc326e9a12929b"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect uses the physical set-rect fixture to write all 16 rectangle bytes.",
+    "SetRectEmpty uses the physical set-rect-empty fixture to clear all 16 rectangle bytes.",
+    "InterlockedDecrement is a scripted physical decrement of the pointed 32-bit reference count in this single-threaded comparison."
+  ],
+  "notes": "Boundary reviewed against v1.0 corpus disassembly; 0x494d40 includes the attached 0x494e45 continuation through the return at 0x494fe1. The x87 conversion remains whole original code."
+}

@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "id": "application_archive_path",
+  "title": "Application Archive Path",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationArchivePathCanonical.cpp"
+  ],
+  "docs": [],
+  "owned": [
+    {
+      "address": "0x42cab0",
+      "name": "Application::resolveArchivePaths",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c190",
+      "name": "archivePathExists",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546a28": {
+      "kind": "fixture",
+      "name": "GetCurrentDirectoryA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "out:255"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows current-directory service supplies the directory buffer and success status."
+    },
+    "0x546a30": {
+      "kind": "fixture",
+      "name": "OpenFile",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "cstr",
+        "out:136",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows file-existence query supplies OpenFile status and OFSTRUCT output."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows string length import used by unchanged CString helpers."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic decrement import used by unchanged CString release helpers."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with operator new."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_archive_path.cases.py",
+    "entry": "claw_application_archive_path_canonical_entry",
+    "equivalent_mutants": [
+      {
+        "line": 63,
+        "operator": "swap-statements",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "431da0d5d69e3bf8bc82c2347c5714f73a39027a4b79e4fdf419472640a09503",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Moving state 0 before the data constructor preserves its receiver, string, allocation and event order; only the exception state during that constructor changes. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      },
+      {
+        "line": 64,
+        "operator": "swap-statements",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "9121ccaefe5784c0d25d92c2f132d97ea984a12b3e5d92393ce439f763940378",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Moving state 0 after the high-resolution constructor changes only the exception state during that constructor; its receiver, string, allocation and event order remain identical. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      },
+      {
+        "line": 64,
+        "operator": "drop-statement",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "1e9f7b19cf274a94d8d0b4d9dd9e73ff92893ee17b5124b2579717c86f2d15ca",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Deleting the full state-0 write changes only the private construction-state bytes, including the upper bytes left by subsequent byte stores. No normal path reads any of those bytes; they remain private until the final full-word -1 store. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      },
+      {
+        "line": 65,
+        "operator": "swap-statements",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "c8f694e391bc557c8aaa276e49527e73425c48a204ce5e7de9626bc16f827574",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Moving state 1 before the high-resolution constructor changes only the private state during that constructor; constructor order and all published objects are unchanged. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      },
+      {
+        "line": 66,
+        "operator": "swap-statements",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "f1fef72a700d2bc46964780cb66e1da5bc9bce5336fc8166145d5486d66050a2",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Moving state 1 after the movie constructor changes only the private state during that constructor; constructor order and all published objects are unchanged. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      },
+      {
+        "line": 66,
+        "operator": "drop-statement",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "fd292cbb9fc835aec84bd4341cec3858b831e3571bed3c1af2d533653812de65",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Deleting state 1 leaves state 0 until state 2; no normal-return instruction or callee reads the intermediate state. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      },
+      {
+        "line": 67,
+        "operator": "swap-statements",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "aa498b5f298f050d0e2778ff5b1106617076458d389e8b70a29abfff66b38aa6",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Moving state 2 before the movie constructor changes only the private state during that constructor; constructor order and all published objects are unchanged. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      },
+      {
+        "line": 68,
+        "operator": "drop-statement",
+        "source_sha256": "b58279c94c48e2adcbcc3780cb92bfe1b40639479af5762bc0663ee44eb5c761",
+        "mutant_sha256": "958e02357f0c2eaf7316a42944bd8eba9b201ec0582a2f7ef7a90e9bd436dda8",
+        "reason": "Coordinator review against hash-verified v1.0 0x42cab0: entry ESP-4 is the private SEH construction-state word, initialized by PUSH -1 at 0x42cab6; stores at 0x42cb51/0x42cb66/0x42cb89 set states 0/1/2. The registered 0x505511 handler and 0x5054f0/0x5054fb/0x505506 cleanup funclets consume it only on guest exception unwinding, which the ordinary canonical ABI does not transport. This review covers normal-return behavior, not exception parity. Valid receiver/CString objects and physical-service buffers do not alias this unescaped private word: constructor receivers are entry ESP-0x120/-0x11c/-0x118, source strings are original read-only data, GetCurrentDirectoryA receives only ESP-0x10c with capacity 255 (ending at ESP-0xe), and nested OpenFile receives a lower 136-byte OFSTRUCT. CString constructor 0x4f65f2 and allocator helper 0x4f6480 access their own lower frames, the selected CString word and allocated heap, never the parent state; lstrlenA reads only its source, and allocation returns fresh heap. No physical fixture is allowed to inspect unrelated private parent stack. Deleting state 2 leaves state 1 throughout archive queries; no normal-return instruction or callee reads it. Both normal exits overwrite the low byte with 1 before movie destruction, then 0 before high-resolution destruction, then the full word with -1 before data destruction (0x42cd2f/0x42cd40/0x42cd51 and 0x42cd69/0x42cd7a/0x42cd8b). Thus calls, heap, globals, lifetime and return value are identical for every permitted normal-return input; only excluded guest exception dispatch could distinguish this mutant."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3640180917,
+      "cases": 131,
+      "mutants_killed": 35,
+      "mutants_tried": 48,
+      "mutants_equivalent": 8,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "602d60831d0c1702b3fbe89d4621f848442ba7d9430a04c6600ec5ad8d4e2e51"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "GetCurrentDirectoryA supplies the current directory through a physical-service fixture.",
+    "OpenFile supplies file-existence status and OFSTRUCT bytes through a physical-service fixture.",
+    "lstrlenA and InterlockedDecrement fixtures implement only the imported string and atomic operations.",
+    "Operator new and delete use the comparison allocator.",
+    "The unchanged drive-discovery helper is exercised through its cached-drive path; the unchanged display-mode helper is exercised through its early-return paths.",
+    "Legacy source files remain unchanged; canonical recovery owns both historical archive-path entry functions."
+  ],
+  "notes": "Reviewed full legacy surface: archive path resolution and file existence."
+}

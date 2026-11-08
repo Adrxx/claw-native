@@ -1,0 +1,44 @@
+{
+  "sha256": "350b8d51e1cd52037cd31a7722197a815e4206e7d3052ec632465f1354726263",
+  "size": 1308160,
+  "machine": "0x14c",
+  "image_base": "0x400000",
+  "entry": "0x4a46b0",
+  "sections": [
+    {
+      "name": ".text",
+      "va": "0x401000",
+      "virtual_size": 1088949,
+      "raw_size": 1089024,
+      "raw_offset": 1024
+    },
+    {
+      "name": ".rdata",
+      "va": "0x50b000",
+      "virtual_size": 92192,
+      "raw_size": 92672,
+      "raw_offset": 1090048
+    },
+    {
+      "name": ".data",
+      "va": "0x522000",
+      "virtual_size": 147420,
+      "raw_size": 76288,
+      "raw_offset": 1182720
+    },
+    {
+      "name": ".idata",
+      "va": "0x546000",
+      "virtual_size": 10576,
+      "raw_size": 10752,
+      "raw_offset": 1259008
+    },
+    {
+      "name": ".rsrc",
+      "va": "0x549000",
+      "virtual_size": 38024,
+      "raw_size": 38400,
+      "raw_offset": 1269760
+    }
+  ]
+}

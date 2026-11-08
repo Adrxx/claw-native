@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "player_input_dispatch",
+  "title": "Original CaptainClaw movement/input dispatch",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerInputDispatch.cpp",
+    "Sources/PlayerInputDispatch.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerInputDispatch.cpp": "81d64bb4da970d5e68ceba8767eb12992926c640c74993a1d9cb346736f22d80",
+    "Sources/PlayerInputDispatch.h": "af0800f9666f125a3b4ba784398bf42820be273ae89480518a52fdca48a873f6"
+  },
+  "docs": [
+    "docs/player-input-dispatch.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_input_dispatch.py"
+      }
+    ],
+    "helpers": [
+      "Tests/input_dispatch_helpers.py"
+    ],
+    "work_dirs": [
+      "work/input-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/input-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_input_dispatch.py": "pass"
+      },
+      "seconds": 5.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3799028815,
+      "owned": 7,
+      "owned_inferred_from_tests": true,
+      "directly_called": 7,
+      "fully_executed": 3,
+      "bytes_owned": 6234,
+      "bytes_executed": 4747,
+      "coverage": 0.7615
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": []
+}

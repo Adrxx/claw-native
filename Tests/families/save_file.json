@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "id": "save_file",
+  "title": "Original save-file serialization and CFile writer",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SaveFileRuntime.cpp",
+    "Sources/SaveFileRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/SaveFileRuntime.cpp": "0f75472f0d04268e05f98fbce082b3a0968d39d66c6eee67f7fb5e93933c8062",
+    "Sources/SaveFileRuntime.h": "5f0d49c6932c85774df1a1056572f934cb4474c2444a119abfeb9d2095e753ef"
+  },
+  "docs": [
+    "docs/save-file-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4f650f",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f72c9",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f7369",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f7448",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f75aa",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4f766e",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_save_file_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/save_file_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/save-file-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-save-file-independent.log"
+      ],
+      "worker_evidence": [
+        "work/save-file-agent/verification.json",
+        "work/save-file-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_save_file_runtime.py": "pass"
+      },
+      "seconds": 46.8
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 602409513,
+      "owned": 12,
+      "owned_inferred_from_tests": false,
+      "directly_called": 10,
+      "fully_executed": 11,
+      "bytes_owned": 1350,
+      "bytes_executed": 1340,
+      "coverage": 0.9926
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeSave.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: end_of_level_save (0x49bbc0); level_one_super_checkpoint_01 (0x49bf70, 0x49bfb0, 0x49c000, 0x49c030, 0x49c070). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

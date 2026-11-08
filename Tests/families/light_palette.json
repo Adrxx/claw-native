@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "id": "light_palette",
+  "title": "Original light-palette startup and tables",
+  "abi": "legacy",
+  "sources": [
+    "Sources/LightPaletteRuntime.cpp",
+    "Sources/LightPaletteRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/LightPaletteRuntime.cpp": "a7b4f57a4cc100847f79b7d2abf3b8012b03037bf1128dae984d85e3d66da27a",
+    "Sources/LightPaletteRuntime.h": "0a69808b776d8076ed70c5de720b9871d514d3e3474eebde4e9d9e1da0123b59"
+  },
+  "docs": [
+    "docs/light-palette-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_light_palette_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/light_palette_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/light-palette-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-light-palette-independent.log"
+      ],
+      "worker_evidence": [
+        "work/light-palette-agent/smoke.log",
+        "work/light-palette-agent/verification.json",
+        "work/light-palette-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_light_palette_runtime.py": "pass"
+      },
+      "seconds": 36.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3222015345,
+      "owned": 15,
+      "owned_inferred_from_tests": true,
+      "directly_called": 15,
+      "fully_executed": 9,
+      "bytes_owned": 3150,
+      "bytes_executed": 3010,
+      "coverage": 0.9556
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeLightPalette.swift"
+    ]
+  },
+  "limits": []
+}

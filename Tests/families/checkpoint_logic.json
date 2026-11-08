@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "id": "checkpoint_logic",
+  "title": "Original checkpoint actor and save publication",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/CheckpointLogicCanonical.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x40af90",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "checkpointType"
+    },
+    {
+      "address": "0x422ef0",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "checkpointTick"
+    },
+    {
+      "address": "0x422ff0",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "checkpointActivate"
+    },
+    {
+      "address": "0x423060",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "superCheckpointTick"
+    },
+    {
+      "address": "0x4231a0",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "superCheckpointActivate"
+    },
+    {
+      "address": "0x4232c0",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "superCheckpointOneTick"
+    },
+    {
+      "address": "0x4232e0",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "superCheckpointTwoTick"
+    },
+    {
+      "address": "0x46d620",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "publishCheckpoint"
+    },
+    {
+      "address": "0x49a720",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "resetCheckpointCache"
+    },
+    {
+      "address": "0x49a800",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "publishBestScore"
+    },
+    {
+      "address": "0x49a860",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "publishCheckpointRecord"
+    },
+    {
+      "address": "0x49a9d0",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "buildScoreRecord"
+    },
+    {
+      "address": "0x49aa40",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "stampScoreDate"
+    },
+    {
+      "address": "0x49ae60",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "checkpointRecord"
+    }
+  ],
+  "callees": {
+    "0x546a34": {
+      "kind": "fixture",
+      "name": "GetLocalTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical local clock transport; cases supply SYSTEMTIME bytes."
+    },
+    "0x5469b4": {
+      "kind": "fixture",
+      "name": "GetSystemTime",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical UTC clock transport; cases supply SYSTEMTIME bytes."
+    },
+    "0x546a3c": {
+      "kind": "fixture",
+      "name": "GetTimeZoneInformation",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:172"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical timezone transport; cases supply TIME_ZONE_INFORMATION bytes."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "return-zero",
+      "reason": "Thread last-error transport for original CRT TLS lookup."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup; cases supply a live initialized CRT thread-data block."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "Thread last-error restoration after original CRT TLS lookup."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical multimedia clock used by original save-publication timer reset."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The CRT heap requires native allocator transport."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The CRT heap requires native allocator transport."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The CRT heap requires native allocator transport."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/checkpoint_logic.cases.py",
+    "entry": "claw_checkpoint_logic_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x49a7db",
+        "end": "0x49a7dd",
+        "reason": "Coordinator reviewed the original reset loop: ESI is initialized to 0 at 0x49a727, preserved by the only callee 0x49ae60, incremented exactly once at 0x49a7df, and the backedge at 0x49a7ed is taken only while ESI < 15. Thus the tests at 0x49a7d0 and 0x49a7d5 cannot reach the two-byte failure assignment for any permitted returning invocation; the full body remains owned."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4179578109,
+      "cases": 120,
+      "mutants_killed": 45,
+      "mutants_tried": 49,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.957,
+      "reasons": [],
+      "build_inputs_sha256": "fa8f5a51ac33f9a7fcf11a76ba61fd7140e61dd8ceac042b38844ed77d5ebbed"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "GetLocalTime is a stand-in: Physical local clock transport; cases supply SYSTEMTIME bytes.",
+    "GetSystemTime is a stand-in: Physical UTC clock transport; cases supply SYSTEMTIME bytes.",
+    "GetTimeZoneInformation is a stand-in: Physical timezone transport; cases supply TIME_ZONE_INFORMATION bytes.",
+    "GetLastError is a stand-in: Thread last-error transport for original CRT TLS lookup.",
+    "TlsGetValue is a stand-in: Physical TLS lookup; cases supply a live initialized CRT thread-data block.",
+    "SetLastError is a stand-in: Thread last-error restoration after original CRT TLS lookup.",
+    "timeGetTime is a stand-in: Physical multimedia clock used by original save-publication timer reset.",
+    "operator new is a stand-in: The CRT heap requires native allocator transport.",
+    "operator delete is a stand-in: The CRT heap requires native allocator transport.",
+    "malloc is a stand-in: The CRT heap requires native allocator transport."
+  ],
+  "notes": "Canonical migration retains all fourteen previously owned entries. Existing CheckpointLogicRuntime.cpp/.h and their legacy exports remain unchanged; canonical implementation uses a separate source. Game dependencies and calendar conversion run as original code. The canonical source is not yet elected in the app."
+}

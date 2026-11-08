@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "level_two_setup",
+  "title": "Level 2 per-level setup",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwoSetupRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x452cc0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 rectangle transport."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_two_setup.cases.py",
+    "entry": "claw_level_two_setup_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 446025654,
+      "cases": 74,
+      "mutants_killed": 24,
+      "mutants_tried": 24,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "e61a4721a42d87f2196c9547e5bb07012e5d7e78292420edddb6bdbddb5bf9a9"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "SetRect is supplied as a native rectangle transport in cases.",
+    "Only the per-level setup entry; no Level 2 gameplay."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

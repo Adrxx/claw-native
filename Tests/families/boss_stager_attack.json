@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "boss_stager_attack",
+  "title": "BossStagerAttack contact callback",
+  "abi": "canonical",
+  "sources": [
+    "Sources/BossStagerAttackRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x48e430",
+      "name": "BossStagerAttack",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/boss_stager_attack.cases.py",
+    "entry": "claw_boss_stager_attack_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 81017532,
+      "cases": 115,
+      "mutants_killed": 16,
+      "mutants_tried": 19,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "fac013659d4990cace410e20ab7da6dfcd6fbf2ad1ca927ccd319a20fb010793"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "cdecl actor callback with meaningful EAX 0/1; shared player, manager and timer remain caller-owned."
+}

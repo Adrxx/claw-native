@@ -1,0 +1,387 @@
+{
+  "schema": 1,
+  "id": "scene_display",
+  "title": "Original surface holder and renderer queue",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SceneDisplayCanonicalRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x45fe40",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fe60",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fec0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9150",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b91f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb000",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb060",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb080",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc4f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc670",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc810",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc830",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc890",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bcf80",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bf970",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bfb80",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bfbd0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ca6f0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ca8b0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ca960",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cab90",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cabc0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cabe0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cac00",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cac40",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4caca0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cacb0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf730",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf750",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf760",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf780",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4000",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4160",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5510",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d63c0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime allocator reaches the operating system heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native allocation lifecycle pairs with operator new."
+    },
+    "0x546850": {
+      "kind": "fixture",
+      "name": "DDRAW.dll!DirectDrawCreate",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "The DirectDraw COM object is supplied by the case at the physical import boundary."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "USER32.dll!MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "The operating system notification is a physical boundary in the original diagnostic helper."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "USER32.dll!MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "The operating system diagnostic dialog is a physical boundary in the original diagnostic helper."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/scene_display.cases.py",
+    "entry": "claw_scene_display_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4bc6d0",
+        "end": "0x4bc6d2",
+        "reason": "Coordinator reviewed original normal-return domain: allocation-null branch sets ESI zero and unconditionally dereferences it at 0x4bc6da before any return; implementation retained."
+      },
+      {
+        "start": "0x4bc8f0",
+        "end": "0x4bc8f2",
+        "reason": "Coordinator reviewed original normal-return domain: allocation-null branch sets ESI zero and unconditionally dereferences it at 0x4bc8f6 before any return; implementation retained."
+      },
+      {
+        "start": "0x4bd030",
+        "end": "0x4bd032",
+        "reason": "Coordinator reviewed original normal-return domain: allocation-null branch sets ESI zero and unconditionally dereferences it at 0x4bd036 before any return; implementation retained."
+      },
+      {
+        "start": "0x4ca73e",
+        "end": "0x4ca740",
+        "reason": "Coordinator reviewed original normal-return domain: primary allocation-null branch sets EDI zero, stores that as primary, and unconditionally dereferences the primary at 0x4ca7e2 before any return; implementation retained."
+      },
+      {
+        "start": "0x4bd04a",
+        "end": "0x4bd06c",
+        "reason": "Coordinator reviewed original factory domain: constructor installs vtable 0x513588 with no intervening callback before virtual slot +4 invokes owned 0x4b91f0, which unconditionally returns one even on descriptor error; this zero-result arm cannot execute without replacing the original game initializer; implementation retained."
+      },
+      {
+        "start": "0x4d563e",
+        "end": "0x4d5658",
+        "reason": "Original-backed 0x4bc220 returns zero only after checking a nonzero manager+0x880 or storing 0x3e9/0x3ea/0x3ec there. Every such path has no subsequent callback before return; 0x4d5510 immediately reloads that same manager error. Thus the zero-error failure arm cannot execute on a normal return with the unchanged original callee. Independently reviewed 0x4bc280..0x4bc2a3, 0x4bc33e..0x4bc360 and 0x4bc3d6..0x4bc3fc; implementation and full ownership retained."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2445857304,
+      "cases": 299,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.935,
+      "reasons": [],
+      "build_inputs_sha256": "d6e2ad192cd1160349ffe6fdc0c5ab2ba8ed7047b5c3e32a22f75e9c8df62935"
+    }
+  },
+  "integration": {
+    "level": "source-only",
+    "in_app_target": false
+  },
+  "limits": [
+    "Operator new and delete use the harness allocation lifecycle instead of the Windows heap.",
+    "DirectDrawCreate supplies scripted COM objects at the physical import boundary.",
+    "MessageBeep and MessageBoxA do not display native notifications during parity tests.",
+    "Existing game callees and MFC collection helpers execute the unchanged original instructions; they are not recovered or replaced here.",
+    "Canonical admission does not establish the later native application join."
+  ],
+  "notes": "All 34 legacy original addresses retained; 0x4ca960 adds controller resize sequencing. Source module and export are distinct from the existing legacy app implementation."
+}

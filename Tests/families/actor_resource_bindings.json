@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "actor_resource_bindings",
+  "title": "Original actor image, secondary and contact logic binding",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ActorResourceBindings.cpp",
+    "Sources/ActorResourceBindings.h"
+  ],
+  "source_sha256": {
+    "Sources/ActorResourceBindings.cpp": "52b9cde65da1acc8d35d4b4160c1b20e9f8b2ee78e85b834cf17f41010460083",
+    "Sources/ActorResourceBindings.h": "fc22412d00a228b73b767e7d116911e75c757c754f9f34e994da106a765d8bee"
+  },
+  "docs": [
+    "docs/actor-resource-bindings.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_actor_resource_bindings.py"
+      }
+    ],
+    "helpers": [
+      "Tests/actor_resource_binding_helpers.py"
+    ],
+    "work_dirs": [
+      "work/actor-bindings-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_actor_resource_bindings.py": "pass"
+      },
+      "seconds": 26.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1177271645,
+      "owned": 11,
+      "owned_inferred_from_tests": true,
+      "directly_called": 11,
+      "fully_executed": 10,
+      "bytes_owned": 5438,
+      "bytes_executed": 5426,
+      "coverage": 0.9978
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeEnemy.swift",
+      "Sources/ClawNativeHUD.swift",
+      "Sources/ClawNativeHumanoid.swift",
+      "Sources/ClawNativeLoot.swift",
+      "Sources/ClawNativeObjectLoader.swift",
+      "Sources/ClawNativePlayer.swift",
+      "Sources/ClawNativeScene.swift"
+    ]
+  },
+  "limits": []
+}

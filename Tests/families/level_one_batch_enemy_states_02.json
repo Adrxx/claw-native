@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_enemy_states_02",
+  "title": "Level 1 shared enemy state callbacks, batch 2",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchEnemyStates02Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x43f980",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43fc20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43ff60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x440070",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x440260",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4405b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x440870",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x440a50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x440be0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x440d50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_enemy_states_02.cases.py",
+    "entry": "claw_level_one_batch_enemy_states_02_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1650099358,
+      "cases": 635,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "a772b99944209681781eadcc871c15afd5bd4479f5ed2a6e5c157b0115b0bd27"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly. ABI correction 2026-10-21 (level-one-state-handler-abi-01): all ten owned functions are state-table handlers (kind 0x1 rows of Sources/LogicStateRegistry.cpp) that the original enemy state dispatcher 0x43d490 calls with the actor in ECX and no stack arguments. Each original reads the actor from ECX, never reads a stack argument and ends in a plain ret, so they are thiscall with no arguments, not cdecl with one."
+}

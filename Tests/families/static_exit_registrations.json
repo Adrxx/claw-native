@@ -1,0 +1,2622 @@
+{
+  "schema": 1,
+  "id": "static_exit_registrations",
+  "title": "Original static cleanup registration leaves",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticExitRegistrationsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x501fc8",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x501fc8",
+          "end": "0x501fd4",
+          "sha256": "6ed540155afc716aba58671db1f7bc4ef99a525eb951711193872871c5946450"
+        }
+      ]
+    },
+    {
+      "address": "0x502279",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502279",
+          "end": "0x502285",
+          "sha256": "92ddd285967dc390176c1128529dc3742d2b854a8fb13e9018ebc2927ab54704"
+        }
+      ]
+    },
+    {
+      "address": "0x502ca4",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502ca4",
+          "end": "0x502cb0",
+          "sha256": "a6967ed3bae1084b03614da6773569d4ccc6a3ed9232651ef338616e4bcb3c97"
+        }
+      ]
+    },
+    {
+      "address": "0x502881",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502881",
+          "end": "0x50288d",
+          "sha256": "666db2eff4cfc1d521ec2113582232b356e410c253e3e5968699a24088742170"
+        }
+      ]
+    },
+    {
+      "address": "0x502c5c",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502c5c",
+          "end": "0x502c68",
+          "sha256": "270f870b8daafe642591d4cd514fd673322654935a965ff8bc131960b0dcd83d"
+        }
+      ]
+    },
+    {
+      "address": "0x50372d",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x50372d",
+          "end": "0x503739",
+          "sha256": "1c4d4d1ba933cda29cad22b26d0b243d60497789a05f83e52f9b99e4b54aef7e"
+        }
+      ]
+    },
+    {
+      "address": "0x503753",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x503753",
+          "end": "0x50375f",
+          "sha256": "e530fe85bb328171a5360009bc5fb196c8dd73c974a0dee33a73e1c34162dcbf"
+        }
+      ]
+    },
+    {
+      "address": "0x403570",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x403570",
+          "end": "0x40357e",
+          "sha256": "c669fbb95e7d90434275e92e0e1858dfce58eb2e1520f86dc08185d2be60e9fd"
+        }
+      ]
+    },
+    {
+      "address": "0x4042e0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4042e0",
+          "end": "0x4042ee",
+          "sha256": "92c98d01e9b2bceb5297ae0bfe4b487a575b5ac31e48ade70bb5df8dc9b9696b"
+        }
+      ]
+    },
+    {
+      "address": "0x4064f0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4064f0",
+          "end": "0x4064fe",
+          "sha256": "bc01ca5c7094122f6843aae69e73b1c6bc7187197d7bcceac499a15c811ac825"
+        }
+      ]
+    },
+    {
+      "address": "0x406ec0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x406ec0",
+          "end": "0x406ece",
+          "sha256": "e7955fa252b86563ed90b552d17e8353fc4e98283ccb7ba7536cf5a0c2e108b2"
+        }
+      ]
+    },
+    {
+      "address": "0x4074d0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4074d0",
+          "end": "0x4074de",
+          "sha256": "718a71fe7d87f704994abc07d36e8f62e205d43f85f01795949cb385ded2e25e"
+        }
+      ]
+    },
+    {
+      "address": "0x408550",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x408550",
+          "end": "0x40855e",
+          "sha256": "41c08c0fe865b53a15516dbeb4c602d6eca1dfbaecd264a66a2362b5ad021527"
+        }
+      ]
+    },
+    {
+      "address": "0x409180",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x409180",
+          "end": "0x40918e",
+          "sha256": "c4ed1ab41a867d539cfa5b60f8881ea497b51d1c3b3fa6289cc5e29a753d4638"
+        }
+      ]
+    },
+    {
+      "address": "0x40a010",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x40a010",
+          "end": "0x40a01e",
+          "sha256": "cf480c1d20ee7481db7a1592791a5b4820efde6f2f609807a4d130b1387a6781"
+        }
+      ]
+    },
+    {
+      "address": "0x40b840",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x40b840",
+          "end": "0x40b84e",
+          "sha256": "341031e26941a36eaf6c75c182b901ea3ae912e4f888a755994cfdb50b1cb25a"
+        }
+      ]
+    },
+    {
+      "address": "0x40e250",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x40e250",
+          "end": "0x40e25e",
+          "sha256": "315279c73de83a8d9ecd264379202dbf0f58a112623cf3092a186aea0768eacb"
+        }
+      ]
+    },
+    {
+      "address": "0x40ebb0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x40ebb0",
+          "end": "0x40ebbe",
+          "sha256": "d42ff7df38179b7e334e853313d84688f405726eb5b9f85d5283e0b13a77836d"
+        }
+      ]
+    },
+    {
+      "address": "0x40fb00",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x40fb00",
+          "end": "0x40fb0e",
+          "sha256": "a9be640f4bec461229e0f80867b4b07212a3973895f23f5d556e272982fa29e4"
+        }
+      ]
+    },
+    {
+      "address": "0x410a50",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x410a50",
+          "end": "0x410a5e",
+          "sha256": "c03c7d1c1193d0663b86ffa3e0b4394fa6bcad60b60714991b636b246aa29ef4"
+        }
+      ]
+    },
+    {
+      "address": "0x411000",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x411000",
+          "end": "0x41100e",
+          "sha256": "c198fdb647a8c5c4d4dd256d28766165502a7a989fddd6a68a97f8028d892a01"
+        }
+      ]
+    },
+    {
+      "address": "0x4114b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4114b0",
+          "end": "0x4114be",
+          "sha256": "895c6f9dc94ad2806f05ecad4a0d7b7f781b3302ac7372a69d88d6d22919e2ab"
+        }
+      ]
+    },
+    {
+      "address": "0x411960",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x411960",
+          "end": "0x41196e",
+          "sha256": "6d0d92da0e67b593d1d42da63b80ed188ec997df89b85dd9ab361a97fb69b6ba"
+        }
+      ]
+    },
+    {
+      "address": "0x411e40",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x411e40",
+          "end": "0x411e4e",
+          "sha256": "0bea8dc8c1486840b71081768dcd93c17c64bcf2d6924ef2b840eb394a616b9f"
+        }
+      ]
+    },
+    {
+      "address": "0x412430",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x412430",
+          "end": "0x41243e",
+          "sha256": "bc373b5c39967ce25181bca92d6134f97c75abf2d563abd591d12d8600e60765"
+        }
+      ]
+    },
+    {
+      "address": "0x4129a0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4129a0",
+          "end": "0x4129ae",
+          "sha256": "6bbbf45b91faacb6113393c4fe0a24e59b076e9ac0b5579be93ea831d834f780"
+        }
+      ]
+    },
+    {
+      "address": "0x412e50",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x412e50",
+          "end": "0x412e5e",
+          "sha256": "3c37266078a97f5e472ba43d55a2c93401eaa565a1617caae5e568ecb82c6433"
+        }
+      ]
+    },
+    {
+      "address": "0x413630",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x413630",
+          "end": "0x41363e",
+          "sha256": "68761155faadf52674b6a06d854fa66e73f8c362127d1433db6bacf8d4b82f7f"
+        }
+      ]
+    },
+    {
+      "address": "0x413b50",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x413b50",
+          "end": "0x413b5e",
+          "sha256": "2d05650c8e56030723370c6ad797e1d894be9fecd619017873d4b4dec949eb58"
+        }
+      ]
+    },
+    {
+      "address": "0x4141c0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4141c0",
+          "end": "0x4141ce",
+          "sha256": "8439f61776586fba9b1c92c2734e7cb1dc64b103e7cb248fc9c9cf957dd266c2"
+        }
+      ]
+    },
+    {
+      "address": "0x414db0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x414db0",
+          "end": "0x414dbe",
+          "sha256": "fe0cc3c1e17a960d84311ea71b33f6e3d678dece2a61c4ffcac7b122a560c358"
+        }
+      ]
+    },
+    {
+      "address": "0x415440",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x415440",
+          "end": "0x41544e",
+          "sha256": "d77b5cc5550f319c7f4a1101439912260e928a6150b6af2b76a197ed6c311919"
+        }
+      ]
+    },
+    {
+      "address": "0x415cc0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x415cc0",
+          "end": "0x415cce",
+          "sha256": "60aa74a83008d11322dba1f5a438bea8b69a72deced2a1029b8248beae8a0314"
+        }
+      ]
+    },
+    {
+      "address": "0x4212f0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4212f0",
+          "end": "0x4212fe",
+          "sha256": "734f99ab965e01ee90b67726324c226b54d3821ff8e080fa0d7fb1f4e05a9fb1"
+        }
+      ]
+    },
+    {
+      "address": "0x425200",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425200",
+          "end": "0x42520e",
+          "sha256": "e6f409fdeb77d9c8a6ef8f562bda4cf88d560e69596a679d5813d437d8471ff2"
+        }
+      ]
+    },
+    {
+      "address": "0x425280",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425280",
+          "end": "0x42528e",
+          "sha256": "3e18b63a456e190bd8df30b4c8f53889b274dfb1dd0950620f988490c8e39348"
+        }
+      ]
+    },
+    {
+      "address": "0x4252c0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4252c0",
+          "end": "0x4252ce",
+          "sha256": "70cab4b88bf8f03f49f3fe1a05e2eda2e27369a6f14a86cbfb1e8925a73e8c93"
+        }
+      ]
+    },
+    {
+      "address": "0x425300",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425300",
+          "end": "0x42530e",
+          "sha256": "ee6c0cfc00cf9e5ee519389d004ea5c0557d3c1f858f29c2957d4be05b338418"
+        }
+      ]
+    },
+    {
+      "address": "0x425340",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425340",
+          "end": "0x42534e",
+          "sha256": "27946e30d37597708108e2a399b230a2700c8a889a9f2beceb6d56fa5bfb04c8"
+        }
+      ]
+    },
+    {
+      "address": "0x425380",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425380",
+          "end": "0x42538e",
+          "sha256": "92227bc152a19227540581c422d7b4d408b3f24df2840847a5db3fa295b21eff"
+        }
+      ]
+    },
+    {
+      "address": "0x4253c0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4253c0",
+          "end": "0x4253ce",
+          "sha256": "e311caf03c1789a29906a8f93cc38c4d393f0a60836b1232b4385408981da904"
+        }
+      ]
+    },
+    {
+      "address": "0x425400",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425400",
+          "end": "0x42540e",
+          "sha256": "5d42e24e3f9e2f230e519fa01595e61a1bbef3fbf77ebe7dc019f87b531a4702"
+        }
+      ]
+    },
+    {
+      "address": "0x425440",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425440",
+          "end": "0x42544e",
+          "sha256": "5742338ef0edfd2ecb3eecfcfe7c4da76061fe613450f1e4c27d0603c991ac7d"
+        }
+      ]
+    },
+    {
+      "address": "0x425480",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x425480",
+          "end": "0x42548e",
+          "sha256": "a269668463d89a6e976ec8a5418f7ca2544d88c69d6288219484ce86986c04c2"
+        }
+      ]
+    },
+    {
+      "address": "0x431410",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x431410",
+          "end": "0x43141e",
+          "sha256": "dea323be3cfbf2819edc9a63c2c6f7ad390acd5471249732d6f5924ab389a358"
+        }
+      ]
+    },
+    {
+      "address": "0x431dc0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x431dc0",
+          "end": "0x431dce",
+          "sha256": "3a38b313f51f4beae0966ceaec70b94a35196fa243eaec0fa5983b03ebf8f6fb"
+        }
+      ]
+    },
+    {
+      "address": "0x432660",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x432660",
+          "end": "0x43266e",
+          "sha256": "a34f8acaf3db7a85989b04fcfc21c9e08d53a60a97851d3c43cbb8d01f431120"
+        }
+      ]
+    },
+    {
+      "address": "0x433aa0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x433aa0",
+          "end": "0x433aae",
+          "sha256": "86dbcdd40af5026131392978294c442db0f0bbf93c93be9faa961d0cdcb47bfb"
+        }
+      ]
+    },
+    {
+      "address": "0x434920",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x434920",
+          "end": "0x43492e",
+          "sha256": "20d5b73eaf5b51afb6aa3b4bf3a7578b45a9751026c464236e2064ca6ac926f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4368b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4368b0",
+          "end": "0x4368be",
+          "sha256": "82c5d54b0e8bbb21f6663c16fc4edb2ebf77e21520e7221ac14f34fd611e1862"
+        }
+      ]
+    },
+    {
+      "address": "0x4368f0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4368f0",
+          "end": "0x4368fe",
+          "sha256": "a317590108af55d65d303c5aeed072cbe5c03c80561ddfcbe3178a8471e96f92"
+        }
+      ]
+    },
+    {
+      "address": "0x436930",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x436930",
+          "end": "0x43693e",
+          "sha256": "e83828d0184174f8f67d2cae8144741cdcddd39754174ffe5484737b9e1e69e0"
+        }
+      ]
+    },
+    {
+      "address": "0x437520",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x437520",
+          "end": "0x43752e",
+          "sha256": "786e9bfff3adf6056bb02b5f3b413e02978cf57d8b9abec8bcbaa147731a1390"
+        }
+      ]
+    },
+    {
+      "address": "0x437570",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x437570",
+          "end": "0x43757e",
+          "sha256": "b85a1141279499c4e6c06c37e5721fda04ad1dc16f990cca8888441edb170c22"
+        }
+      ]
+    },
+    {
+      "address": "0x4380d0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4380d0",
+          "end": "0x4380de",
+          "sha256": "8bb540da6010c58bd7eb1fb8398a2d8da9d65be02d2e098087da12147d2f5c36"
+        }
+      ]
+    },
+    {
+      "address": "0x43acf0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x43acf0",
+          "end": "0x43acfe",
+          "sha256": "ce1ee22a8aca0337e42a71ee7115b48e0cb44bf85b1a8a6999d5a5a3ab85ad91"
+        }
+      ]
+    },
+    {
+      "address": "0x43cd90",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x43cd90",
+          "end": "0x43cd9e",
+          "sha256": "2eb5a06a0872382335afde98827ffc33ddd1ef510e6a1bcd0fd1c3d4c10ef23e"
+        }
+      ]
+    },
+    {
+      "address": "0x43d350",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d350",
+          "end": "0x43d35e",
+          "sha256": "dd539eab48007f5a951c3c159f92069bb121fdbf856ef29c4466ca8216f7fa27"
+        }
+      ]
+    },
+    {
+      "address": "0x43d410",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d410",
+          "end": "0x43d41e",
+          "sha256": "0314441ac6e1c140bdc139caa034ca3955cdcce2d48185a1fbeff9bf05705215"
+        }
+      ]
+    },
+    {
+      "address": "0x43d460",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d460",
+          "end": "0x43d46e",
+          "sha256": "8415f94491b104acaafffebcdefcb8b2b41464c1393808db0652b0af1e25d624"
+        }
+      ]
+    },
+    {
+      "address": "0x4412a0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4412a0",
+          "end": "0x4412ae",
+          "sha256": "f67fcda94c82dfd838442f8f1cb94bf7cc45c8d4efd0d25fcd0b70d61e4f7784"
+        }
+      ]
+    },
+    {
+      "address": "0x441cd0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x441cd0",
+          "end": "0x441cde",
+          "sha256": "3316d42b839d249fc7e19c4c50bcbb9813bee4340add21cce56f05c111caca4f"
+        }
+      ]
+    },
+    {
+      "address": "0x443380",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x443380",
+          "end": "0x44338e",
+          "sha256": "9ab8d7073e38676ee91e9eb006ab9e71c03e824ab121f8d04fea739edb6cef34"
+        }
+      ]
+    },
+    {
+      "address": "0x445ac0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x445ac0",
+          "end": "0x445ace",
+          "sha256": "b37b67721f43ac989e33f20683bdf9758cf1b9c69adb9b6aaffe117a8880068a"
+        }
+      ]
+    },
+    {
+      "address": "0x446640",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x446640",
+          "end": "0x44664e",
+          "sha256": "625a382831109eeea91838e9a0a6f2394fbf775b7d0843a12f2507fdb8bea486"
+        }
+      ]
+    },
+    {
+      "address": "0x448820",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x448820",
+          "end": "0x44882e",
+          "sha256": "ed728ea893b2ae10183528c3f798d694a1e4d3ae551e60a5f9ddc3ff6b5a1810"
+        }
+      ]
+    },
+    {
+      "address": "0x448e00",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x448e00",
+          "end": "0x448e0e",
+          "sha256": "24766cdb93a469d56ae2fdd90fb6efb29f22671c5b7c33f092e95803ed7b9d53"
+        }
+      ]
+    },
+    {
+      "address": "0x449560",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x449560",
+          "end": "0x44956e",
+          "sha256": "3cfeffe29dc84b8d39e1ffa6e78e6557f875daf94e858525bb7e0c99ad903866"
+        }
+      ]
+    },
+    {
+      "address": "0x449d30",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x449d30",
+          "end": "0x449d3e",
+          "sha256": "3b7d5fe09f91691431d31b8d30aeb9c9a7b1c82e39ce39f5379c88b60b48d425"
+        }
+      ]
+    },
+    {
+      "address": "0x44c810",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x44c810",
+          "end": "0x44c81e",
+          "sha256": "ea4937a88d510ca6a38c8c6219ceac1a1c17cdec7b7177a279186a2f008ae4fe"
+        }
+      ]
+    },
+    {
+      "address": "0x4543b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4543b0",
+          "end": "0x4543be",
+          "sha256": "5a823e2cf085251a603eede80b747edc8bf08da1af03d525e79070f8b2edc528"
+        }
+      ]
+    },
+    {
+      "address": "0x4555d0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4555d0",
+          "end": "0x4555de",
+          "sha256": "3fedd605382d07a0ceb70c272bd372b799fbc95822157069785a3e7735330383"
+        }
+      ]
+    },
+    {
+      "address": "0x455ad0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x455ad0",
+          "end": "0x455ade",
+          "sha256": "09f7687a77248b105efe3d7ce38e30c633dc02730df15a0050890ced44cc1039"
+        }
+      ]
+    },
+    {
+      "address": "0x4562b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4562b0",
+          "end": "0x4562be",
+          "sha256": "0f12570bc1c7cf612c018de0ffa3067b1ebd619f870949c28aab0b844a317495"
+        }
+      ]
+    },
+    {
+      "address": "0x456bf0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x456bf0",
+          "end": "0x456bfe",
+          "sha256": "a5d6f0ed63b29daa4ded92c3570ec402adffea49d7fd76da029f36477809a804"
+        }
+      ]
+    },
+    {
+      "address": "0x457710",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x457710",
+          "end": "0x45771e",
+          "sha256": "9bc6e1060355d8f1a62af3fe1e7685b9c7add070f9932fa89c85565bfa8da0b5"
+        }
+      ]
+    },
+    {
+      "address": "0x458250",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x458250",
+          "end": "0x45825e",
+          "sha256": "8120ba2ee8e3bb540aef75cd9cd4ef65b27f862def6741bb94ebff29c0775b36"
+        }
+      ]
+    },
+    {
+      "address": "0x458770",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x458770",
+          "end": "0x45877e",
+          "sha256": "94b9cd21529499c080c2575d3defdec7ed5f51e5e39bd869f51919523d9ec48d"
+        }
+      ]
+    },
+    {
+      "address": "0x45a3d0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x45a3d0",
+          "end": "0x45a3de",
+          "sha256": "f9b39a2ed9f54c3fb445802a48299d31fbbfffc23c4384e2c2c67c549e205fa0"
+        }
+      ]
+    },
+    {
+      "address": "0x4606e0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4606e0",
+          "end": "0x4606ee",
+          "sha256": "94e43a75f6bf7d41a6c4510beec0e77d13be8dda63679bb6173db8529bf12337"
+        }
+      ]
+    },
+    {
+      "address": "0x462ac0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x462ac0",
+          "end": "0x462ace",
+          "sha256": "f1461b19c013450f458ac2890c7bf3e90f685c852471192409fe4f47fee5d3c1"
+        }
+      ]
+    },
+    {
+      "address": "0x463b10",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x463b10",
+          "end": "0x463b1e",
+          "sha256": "232e88b842e1652f499631b64e203520863013bce9b8a6b65dc0d77f174b58e2"
+        }
+      ]
+    },
+    {
+      "address": "0x465170",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x465170",
+          "end": "0x46517e",
+          "sha256": "ce4eb4440d861730207eb87eed82708150d008bbe88a6416ac35b2d76ae6b461"
+        }
+      ]
+    },
+    {
+      "address": "0x465d80",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x465d80",
+          "end": "0x465d8e",
+          "sha256": "a9f305865b2230671e4d0534d121b718b49b69d2e0f85ce6450300fec6f6bc0b"
+        }
+      ]
+    },
+    {
+      "address": "0x468aa0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x468aa0",
+          "end": "0x468aae",
+          "sha256": "58979d16561ab20f10f3d5ef56ee7d81cc368eba63fd0a3a4d3eb4f48c214561"
+        }
+      ]
+    },
+    {
+      "address": "0x46f670",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x46f670",
+          "end": "0x46f67e",
+          "sha256": "977aae3d1ec4760ba328eb53e31674805e13d24e5ec4fa3d868842c338e662b9"
+        }
+      ]
+    },
+    {
+      "address": "0x473f10",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x473f10",
+          "end": "0x473f1e",
+          "sha256": "d73bbaaafc0bc1e3f85bb943de01a1682ac22df12adfce4cc5e1d480cc67088c"
+        }
+      ]
+    },
+    {
+      "address": "0x4747b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4747b0",
+          "end": "0x4747be",
+          "sha256": "7d8ad4a7c42e6f77aa5bc8493008e37c92a9f0c87e633d9b2427280723e3c7d1"
+        }
+      ]
+    },
+    {
+      "address": "0x474ef0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x474ef0",
+          "end": "0x474efe",
+          "sha256": "07c9e91676944b6caf871abdb7393426e56b1aa0626f75431746bff799491af9"
+        }
+      ]
+    },
+    {
+      "address": "0x474f40",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x474f40",
+          "end": "0x474f4e",
+          "sha256": "77de83a3eb474bed053e56a6a57da51be15ab5096e49da90f7f6abf37b7a75e2"
+        }
+      ]
+    },
+    {
+      "address": "0x474f80",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x474f80",
+          "end": "0x474f8e",
+          "sha256": "2209a2ee6a7533eddd9907551d3780e3f7446e65a4059f1e793547aa25c85e18"
+        }
+      ]
+    },
+    {
+      "address": "0x47cd40",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x47cd40",
+          "end": "0x47cd4e",
+          "sha256": "20ada25c7dbf3c06d306e7b12575eb8cc0a8fd4179da184d9c670a062394c390"
+        }
+      ]
+    },
+    {
+      "address": "0x47daf0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x47daf0",
+          "end": "0x47dafe",
+          "sha256": "c62216a57258888f3310e627f1a4c1ed4316b0b018ba2a137afbf6c32671df9e"
+        }
+      ]
+    },
+    {
+      "address": "0x47e8b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x47e8b0",
+          "end": "0x47e8be",
+          "sha256": "a6fb663aa4037bf6cf39956319041a44b4899a3398c62c97b41b42125c3c5037"
+        }
+      ]
+    },
+    {
+      "address": "0x47f7d0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x47f7d0",
+          "end": "0x47f7de",
+          "sha256": "4d53b0cc61b9238264c74ce7c9dbcdf62f2b1706da0b237fd5ba144e9f9aea43"
+        }
+      ]
+    },
+    {
+      "address": "0x483150",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x483150",
+          "end": "0x48315e",
+          "sha256": "0e65ae97cfae27f848336c3e7c8f4c8640d37e31acab0e9f4a14e8297c3b90f3"
+        }
+      ]
+    },
+    {
+      "address": "0x4843a0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4843a0",
+          "end": "0x4843ae",
+          "sha256": "65690266a9a2ad4cea669ddd53d8cea4c1a47b30b8adbb1c976f56c1e4f0b923"
+        }
+      ]
+    },
+    {
+      "address": "0x4848a0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4848a0",
+          "end": "0x4848ae",
+          "sha256": "5dd671163cdf3fc6301385734a5372375d6931887c3b1fe3f0e56a286b33e87d"
+        }
+      ]
+    },
+    {
+      "address": "0x485930",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x485930",
+          "end": "0x48593e",
+          "sha256": "495b120d1c126805f69f825a9420945489338de54a2a566698e5c18ec51d1806"
+        }
+      ]
+    },
+    {
+      "address": "0x487370",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x487370",
+          "end": "0x48737e",
+          "sha256": "264400b84b8bb35c1072838df281de92be286a9693bae9722556747e45b0e860"
+        }
+      ]
+    },
+    {
+      "address": "0x4889b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4889b0",
+          "end": "0x4889be",
+          "sha256": "83585ae657dc4c27303c50b61ea10f40e3eb4cb29e2b1b8837e589e77f7454a9"
+        }
+      ]
+    },
+    {
+      "address": "0x4890c0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4890c0",
+          "end": "0x4890ce",
+          "sha256": "18d42b855663e7bdff9173e59598e0cf1c9fe988e7b8f382cb676beeafc01d64"
+        }
+      ]
+    },
+    {
+      "address": "0x489820",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x489820",
+          "end": "0x48982e",
+          "sha256": "62904bf83f56d309ff014c69d975f843a846280cdeae0b079a5c67a2bb22e382"
+        }
+      ]
+    },
+    {
+      "address": "0x48b090",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x48b090",
+          "end": "0x48b09e",
+          "sha256": "72539ac78fa25496217fda59f97c8280ba8ee47407c4ec0fc56df998f6446de0"
+        }
+      ]
+    },
+    {
+      "address": "0x48d1f0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x48d1f0",
+          "end": "0x48d1fe",
+          "sha256": "c454b87a2f9b5aca253755e827ee40fe42b25ddf1a0028743253a3134be308cc"
+        }
+      ]
+    },
+    {
+      "address": "0x48e590",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x48e590",
+          "end": "0x48e59e",
+          "sha256": "8e024b066d5ae175d7a97b66966053e9cbff42dc313d7f0daa41b593a21cfd77"
+        }
+      ]
+    },
+    {
+      "address": "0x4923b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4923b0",
+          "end": "0x4923be",
+          "sha256": "e728d1c85959f1a9cf75c37381905d3cda28546b19a451412425e717f8b1e6d2"
+        }
+      ]
+    },
+    {
+      "address": "0x493fa0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x493fa0",
+          "end": "0x493fae",
+          "sha256": "73f3ec3ceda1a3e05fbe414f93dd42ddbd0faaf2b6e70cfa3c8daf27ba42b446"
+        }
+      ]
+    },
+    {
+      "address": "0x497100",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x497100",
+          "end": "0x49710e",
+          "sha256": "9cad8e26acdd31dc61a7e852ccbed7b95bb8b91af840b4a6c76aa13b401587cd"
+        }
+      ]
+    },
+    {
+      "address": "0x498190",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x498190",
+          "end": "0x49819e",
+          "sha256": "637772315ea8de002beebac3a9bfcac551ad94ff29db4b2b954dcfbccb3a67b7"
+        }
+      ]
+    },
+    {
+      "address": "0x49f190",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f190",
+          "end": "0x49f19e",
+          "sha256": "5191496717d1fd2db7d6569282295be6a84f13221cd564e1492a4656f5d7ce03"
+        }
+      ]
+    },
+    {
+      "address": "0x49f870",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f870",
+          "end": "0x49f87e",
+          "sha256": "a6183bf0020fd312967a318c7503c6e1988302e107810961535aab34af50f817"
+        }
+      ]
+    },
+    {
+      "address": "0x49f8b0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f8b0",
+          "end": "0x49f8be",
+          "sha256": "7b9f7f227c47c30ef707f82fdff61ec862449494ff2a489bc45dc94bc3176889"
+        }
+      ]
+    },
+    {
+      "address": "0x4a0200",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a0200",
+          "end": "0x4a020e",
+          "sha256": "ae037ec6d60ad68e7d7dcd7de4c98234fd5ec5c8aa30fe5d7714c1595bb9deea"
+        }
+      ]
+    },
+    {
+      "address": "0x4ff95c",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4ff95c",
+          "end": "0x4ff968",
+          "sha256": "79daea82b87286be8f8dd29e43953aaf4346a6abf272d142993f071afcab952f"
+        }
+      ]
+    },
+    {
+      "address": "0x502442",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502442",
+          "end": "0x50244e",
+          "sha256": "5659754820d4985af7e6058df416a7f15e3f893e34d50fb17bde65cd1e39a828"
+        }
+      ]
+    },
+    {
+      "address": "0x50247a",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x50247a",
+          "end": "0x502486",
+          "sha256": "fbae47f577c5a6873e221f3c8ad8b90f346ed18eec99c91f67270b6b6de8b6ba"
+        }
+      ]
+    },
+    {
+      "address": "0x4f824a",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f824a",
+          "end": "0x4f8256",
+          "sha256": "0b1c88a0ca1a9846b4fd8bd2a8cba3db019b9a8579787261b659e656d233e28f"
+        }
+      ]
+    },
+    {
+      "address": "0x4f8288",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f8288",
+          "end": "0x4f8294",
+          "sha256": "1fde3a3cd1e1f7bfe74b2713b8432cbd4a76fe69ea9a97526789cac620397c55"
+        }
+      ]
+    },
+    {
+      "address": "0x4f82c6",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f82c6",
+          "end": "0x4f82d2",
+          "sha256": "c5cfb19fa7c1afb3093eda94a8bbdc47cc7b88f98ba5fa0a03ecf14c566b463d"
+        }
+      ]
+    },
+    {
+      "address": "0x4f8304",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f8304",
+          "end": "0x4f8310",
+          "sha256": "8359e6f9dc9f08814df43a2910b484fca3903926a8be44ab92c40e7e291fca3e"
+        }
+      ]
+    },
+    {
+      "address": "0x502ce2",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502ce2",
+          "end": "0x502cee",
+          "sha256": "eb23b92d29f62ad2289098c4c2e261d21485c663627f1e93b7e6b7c82d874e6e"
+        }
+      ]
+    },
+    {
+      "address": "0x502d1a",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502d1a",
+          "end": "0x502d26",
+          "sha256": "5a10e44b043fc475d559f289963acf33752538908fa84ce98ba3aac39a0302f0"
+        }
+      ]
+    },
+    {
+      "address": "0x502d44",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x502d44",
+          "end": "0x502d50",
+          "sha256": "92978323b525400368e9e935a8e055e2cb9c3268b73332410bf5b88837bf44e4"
+        }
+      ]
+    },
+    {
+      "address": "0x4b9130",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4b9130",
+          "end": "0x4b913e",
+          "sha256": "bbbd81d992bcc10d1ca3eacded5da89af06ee3afe1a1602e998a05dccda93893"
+        }
+      ]
+    },
+    {
+      "address": "0x4bc0f0",
+      "name": "StaticCleanupRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4bc0f0",
+          "end": "0x4bc0fe",
+          "sha256": "180dce82b5687cae31f22f08485193d560e81ff818035da6001c386c8016ee21"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a35f0": {
+      "kind": "whole",
+      "name": "Original atexit",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a6560": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 usable capacity",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coherent bounded CRT allocation service or physical platform critical-section service; original registry and lock logic remains unchanged."
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 resize",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coherent bounded CRT allocation service or physical platform critical-section service; original registry and lock logic remains unchanged."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coherent bounded CRT allocation service or physical platform critical-section service; original registry and lock logic remains unchanged."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coherent bounded CRT allocation service or physical platform critical-section service; original registry and lock logic remains unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/clawparity/cases/static_exit_registrations.py",
+    "entry": "claw_static_exit_registrations_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 35868359,
+      "cases": 504,
+      "mutants_killed": 10,
+      "mutants_tried": 10,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "3364fca49b8e38c8f01735eca73bd89b17e8a335ba9fdaf65591946a4362d0f7"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "126 registration leaf bodies from the original 144-entry initialization table; tail-jump wrapper chains remain outside this family.",
+    "Original atexit and registry/lock descendants execute unchanged; coherent capacity/resize services and physical critical-section services are fixtures.",
+    "Prepared registry and lock state is a bounded unit input; no complete native static startup claim."
+  ]
+}

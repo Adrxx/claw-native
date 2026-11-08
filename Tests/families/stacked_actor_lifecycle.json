@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "id": "stacked_actor_lifecycle",
+  "title": "Original stacked-parent lifetime and callback restoration",
+  "abi": "legacy",
+  "sources": [
+    "Sources/StackedActorLifecycleRuntime.cpp",
+    "Sources/StackedActorLifecycleRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/StackedActorLifecycleRuntime.cpp": "31870e745a276f25954560b18eb11c22096b257e0d09c1bcfc58a282213cb0ab",
+    "Sources/StackedActorLifecycleRuntime.h": "190925f0b4af1b09719caadf31b4e86a7beaa0ca47ec8fb9520bbe95aed1822e"
+  },
+  "docs": [
+    "docs/stacked-actor-lifecycle-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_stacked_actor_lifecycle_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/stacked_actor_constructor_helpers.py",
+      "Tests/stacked_actor_level1_helpers.py",
+      "Tests/stacked_actor_lifecycle_helpers.py"
+    ],
+    "work_dirs": [
+      "work/stacked-actor-lifecycle-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-stack-lifecycle-independent.log"
+      ],
+      "worker_evidence": [
+        "work/stacked-actor-lifecycle-agent/verification.json",
+        "work/stacked-actor-lifecycle-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_stacked_actor_lifecycle_runtime.py": "pass"
+      },
+      "seconds": 5.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 176923389,
+      "owned": 7,
+      "owned_inferred_from_tests": false,
+      "directly_called": 7,
+      "fully_executed": 7,
+      "bytes_owned": 120,
+      "bytes_executed": 120,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: booty_progression (0x4bb030); level_one_closure_enemies_01 (0x4041a0, 0x4041b0); level_one_player_actions_04 (0x4c9e30); menu_paper_transition (0x4c96b0); rat_bomb_logic (0x456030, 0x484d90). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

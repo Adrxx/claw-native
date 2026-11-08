@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "id": "menu_cleanup_services",
+  "title": "Original menu actor and sound cleanup services",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuCleanupServicesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4c92f0",
+      "name": "ActorList::removeAndDestroy",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4240",
+      "name": "SoundListService::scalarDeletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4260",
+      "name": "SoundListService::destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3d70",
+      "name": "SoundServiceBase::destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b43e0",
+      "name": "SoundListService::releaseNode",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b46e0",
+      "name": "SoundLeafService::scalarDeletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b4700",
+      "name": "SoundLeafService::destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_cleanup_services.cases.py",
+    "entry": "claw_menu_cleanup_services_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4b440b",
+        "end": "0x4b440d",
+        "reason": "Null-node materialization is unreachable with valid live heap: ESI is dereferenced at 0x4b43f2 and written at 0x4b43fd before the null branch; the intervening physical release preserves ESI. Reviewed from pinned disassembly by the boundary worker and coordinator."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 816333882,
+      "cases": 47,
+      "mutants_killed": 21,
+      "mutants_tried": 27,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.955,
+      "reasons": [],
+      "build_inputs_sha256": "4c626a112ab35e23bd874ba48bfdcf4c244bc8eb602b4f6f812b22ba7b65b456"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator delete is a release fixture for receiver deletion and original list-block cleanup.",
+    "Virtual actor/node destructors and the sound-interface release use case-supplied function pointers.",
+    "The ordinary ABI covers normal destructor completion, not exception dispatch or unwind behavior."
+  ],
+  "notes": "Boundary reviewed against the corpus disassembly; all seven entries use ECX as receiver, and only the two scalar deleting destructors return a consumed object pointer."
+}

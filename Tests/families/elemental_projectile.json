@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "id": "elemental_projectile",
+  "title": "Original elemental projectile controllers",
+  "abi": "legacy",
+  "sources": [
+    "Sources/ElementalProjectileRuntime.cpp",
+    "Sources/ElementalProjectileRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/ElementalProjectileRuntime.cpp": "fe10902218d746530d4d6e355dc74abed5ae2031514b4aa9d93a3179165210d9",
+    "Sources/ElementalProjectileRuntime.h": "211bd9dd71809e2ee3684126ab7920aa679d4716e13144c4aec90eba3e554c49"
+  },
+  "docs": [
+    "docs/elemental-projectile-runtime.md",
+    "docs/dynamic-child-residency.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_dynamic_child_residency.py"
+      },
+      {
+        "script": "Tests/compare_elemental_projectile_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/dynamic_child_residency_helpers.py",
+      "Tests/elemental_projectile_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/dynamic-child-residency-agent",
+      "work/elemental-projectile-agent",
+      "work/original-disc-assets"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-dynamic-child-residency-independent.log",
+        "work/root-elemental-independent.log"
+      ],
+      "worker_evidence": [
+        "work/dynamic-child-residency-agent/smoke.log",
+        "work/dynamic-child-residency-agent/verification.json",
+        "work/elemental-projectile-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_dynamic_child_residency.py": "pass",
+        "Tests/compare_elemental_projectile_runtime.py": "pass"
+      },
+      "seconds": 10.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1239666527,
+      "owned": 20,
+      "owned_inferred_from_tests": true,
+      "directly_called": 20,
+      "fully_executed": 15,
+      "bytes_owned": 3682,
+      "bytes_executed": 3219,
+      "coverage": 0.8743
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeProjectiles.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "compare_dynamic_child_residency.py assigned by content: its document says it composes the frozen elemental cleanup bodies"
+}

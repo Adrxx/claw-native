@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "id": "surface_blit",
+  "title": "Original surface blit and color-key wrappers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SurfaceBlitCanonical.cpp"
+  ],
+  "docs": [
+    "docs/surface-blit-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4b9950",
+      "name": "Surface::setColorKey",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9ce0",
+      "name": "Surface::blit",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9d80",
+      "name": "Surface::blitFast",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import reached by the unchanged original diagnostic callee 0x4bd260."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/surface_blit.cases.py",
+    "entry": "claw_surface_blit_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "codex": {
+      "root_logs": [
+        "work/root-surface-blit-asan.log",
+        "work/root-surface-blit-chain-independent.log",
+        "work/root-surface-blit-independent.log"
+      ],
+      "worker_evidence": [
+        "work/surface-blit-agent/report.json",
+        "work/surface-blit-agent/sanitizer.log",
+        "work/surface-blit-agent/source-sha256.json"
+      ]
+    },
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 466128195,
+      "cases": 72,
+      "mutants_killed": 26,
+      "mutants_tried": 29,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "bce13449431900ec7d2eeda005de8da2db6690eff817a5b6135d67516d3eb762"
+    }
+  },
+  "integration": {
+    "level": "source-only",
+    "in_app_target": false,
+    "in_bridging_header": false,
+    "swift_references": []
+  },
+  "limits": [
+    "DirectDraw COM calls and the surface restore virtual call are case-supplied function pointers; no real DirectDraw surface is exercised.",
+    "MessageBeep is a scripted Windows import reached through the original diagnostic logger.",
+    "The unchanged original logger runs with 0x54139c, 0x5413a0 and 0x5413a8 cleared to avoid formatted diagnostic UI paths.",
+    "The slow blit accepts a null source initially but a successful surface-lost restore requires a nonnull source for its unconditional retry dereference.",
+    "The preserved legacy app implementation remains elected, while this new canonical module is source-only and is not yet joined into the app."
+  ],
+  "notes": "Canonical ownership is limited to the full bodies at 0x4b9950, 0x4b9ce0 and 0x4b9d80. 0x4b9990 remains the elected game_image color-key convenience owner and calls 0x4b9950; 0x4b9e60 remains the PCX restore-callback owner and may be reached through the receiver restore vtable. Both are original dependencies rather than duplicate canonical owners. Sources/SurfaceBlitRuntime.cpp and Sources/SurfaceBlitRuntime.h and their app ABI remain unchanged; their historical integration was elected, in the app target and bridging header, with Sources/ClawNativeDisplay.swift references. Historical Codex evidence does not certify this new canonical module."
+}

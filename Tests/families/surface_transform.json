@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "id": "surface_transform",
+  "title": "Original surface vertical flip",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SurfaceTransformRuntime.cpp",
+    "Sources/SurfaceTransformRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/SurfaceTransformRuntime.cpp": "6945bfce65645dc5ede4400deb418085f8f86b687cad8e2f230a6e703a8c9e56",
+    "Sources/SurfaceTransformRuntime.h": "3330b5255726dba6c346335faea8b63560d1b07a0720bbe8ab849c81976742ca"
+  },
+  "docs": [
+    "docs/surface-transform-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4b99d0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "inferred"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_surface_transform_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/surface_transform_helpers.py"
+    ],
+    "work_dirs": [
+      "work/surface-transform-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [
+        "work/root-surface-transform-independent.log"
+      ],
+      "worker_evidence": [
+        "work/surface-transform-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_surface_transform_runtime.py": "pass"
+      },
+      "seconds": 56.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2135438295,
+      "owned": 1,
+      "owned_inferred_from_tests": false,
+      "directly_called": 1,
+      "fully_executed": 1,
+      "bytes_owned": 294,
+      "bytes_executed": 294,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": []
+}

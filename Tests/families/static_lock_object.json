@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "id": "static_lock_object",
+  "title": "Complete original static lock object constructor with physical source and FS state",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticLockObjectRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a2cf1",
+      "name": "OriginalStaticLockObjectConstructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a2cf1",
+          "end": "0x4a2d48",
+          "sha256": "a58aaf795c407742a4c26f37671176de845f65f6b10b96f13a6f26ee5dce4ca7"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48c0": {
+      "kind": "whole",
+      "name": "OriginalCompilerScopeRegistration",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      }
+    },
+    "0x4f5e89": {
+      "kind": "whole",
+      "name": "OriginalPointerMapConstructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a2f62": {
+      "kind": "whole",
+      "name": "OriginalEmbeddedLockBaseConstructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows critical-section initialization is the sole successful-path platform boundary; original constructor and compiler-scope source remains whole original code."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_lock_object.cases.py",
+    "entry": "claw_static_lock_object_entry",
+    "equivalent_mutants": [
+      {
+        "line": 48,
+        "operator": "lt-to-le",
+        "source_sha256": "1055180cc974864fc27be277f8b72ff616af8c3c32cc9725c203ce016571caff",
+        "mutant_sha256": "164cb4fe504ff869bcf0f738d72ab093523880f364957bf662946d18ff1fd494",
+        "reason": "Full-domain unsigned32-bit proof: this private helper has exactly one callsite, result=(left+8) modulo2^32 with right8. The predicates result<left and result<=left differ only on equality, which would require8=0 modulo2^32 and is impossible. All carry/other flags and source/physical outputs are identical, including wraparound and permitted stop prefixes."
+      },
+      {
+        "line": 85,
+        "operator": "drop-statement",
+        "source_sha256": "1055180cc974864fc27be277f8b72ff616af8c3c32cc9725c203ce016571caff",
+        "mutant_sha256": "f7798b89729530aed9e38a0962cdaa13f17dde6cb2753ac8b927801eb31ec1fb",
+        "reason": "Whole original compiler helper gives EBP=S-4 and ESP=S-16. First actual PUSH ECX writesS-20=EBP-0x10. Later pushes write different lower words; MOV EDI,ECX retains the same value. No original effect/callback/intervening write occurs before the repeated store. Deletion preserves full CPU/FS/stack/memory and all later source/physical entry/return/halt states for every valid original input. This excludes artificial native tick counts or hostile memory-lookup hooks, which are not original behavior."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4286851393,
+      "cases": 60,
+      "mutants_killed": 8,
+      "mutants_tried": 12,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "7cfb31dbb19dda1c79549fc3a9981bd28f5d206f031da8fa25c8779a70349704"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Ownership is the complete 87-byte thiscall0 constructor [0x4a2cf1,0x4a2d48), not its deleting destructor or EH funclets.",
+    "Full integer and FS source masks 0x7ff/0x7ff with conservative preserve zero match the existing original thunk dependency; EAX returns the receiver as a selected witness despite semantic void at the actual wrapper callsite.",
+    "The constructor inherits return 0x502c95 through the genuine thunk JMP at 0x502c9f with ECX 0x540708; no additional CALL frame is inserted for the tail.",
+    "Compiler registration 0x4a48c0 runs whole original compiler-context code; the pointer-map and embedded-base constructors run whole original thiscall1 code with real pushed arguments and RET4.",
+    "InitializeCriticalSection is a scripted physical stdcall1 fixture over a complete live 24-byte guest critical-section record at receiver+36; cases must model all observable effects without inventing a semantic return.",
+    "No allocation occurs in the successful constructor graph; the existing static receiver or a case-owned receiver is borrowed live backing of at least 60 bytes, not newly allocated or released by this family.",
+    "The original EH record and state transitions are part of full source/stack comparison; platform failure must stop honestly. Typed guest exception dispatch and out-of-body unwind funclets are not owned or admitted here.",
+    "Whole original descendants cannot be replaced with env.stub callbacks. Native election, complete original static table order and connected startup/gameplay remain subsequent work."
+  ]
+}

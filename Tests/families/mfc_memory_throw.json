@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "id": "mfc_memory_throw",
+  "title": "Original MFC memory exception construction and nonreturning physical raise",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcMemoryThrowRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4f50fd",
+      "name": "MfcMemoryException::throw",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f50fd",
+          "end": "0x4f5118",
+          "sha256": "2cf1ac889a5491089b88e7ea2363f26e1c93a933fd738eb4e9341d4a925010f0"
+        }
+      ]
+    },
+    {
+      "address": "0x4a5690",
+      "name": "MfcException::raise",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a5690",
+          "end": "0x4a56d7",
+          "sha256": "c125a362d238951a4a3612d0c27a3939423e0ba96a81e580612a3ad4abcbe2e0"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary: the original immutable template supplies flags 1 and three arguments; the service must Halt without returning, guest dispatch or unwind."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_memory_throw.cases.py",
+    "entry": "claw_mfc_memory_throw_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4f5116",
+        "end": "0x4f5118",
+        "reason": "Complete body retained. These two epilogue bytes follow the unconditional owned throw helper; pinned original flags-1 RaiseException must physically Halt, so no permitted execution returns here."
+      },
+      {
+        "start": "0x4a56cf",
+        "end": "0x4a56d7",
+        "reason": "Complete body retained. These eight epilogue bytes follow the sole flags-1 RaiseException call. Returning that physical service or changing its immutable template invalidates the declared nonreturning domain."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2960900877,
+      "cases": 56,
+      "mutants_killed": 20,
+      "mutants_tried": 22,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "d09e23fc168a0ba32aa8d6e996b659774407c4201b9e88a8144630bce3358c3e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "RaiseException is the sole physical fixture and must Halt at its genuine call frame with return PC 0x4a56cf; no returned, caught, unwound or guest-unhandled outcome is claimed.",
+    "Owns both complete original bodies, totaling 98 bytes; 88 bytes are required execution and ten retained epilogue bytes are unreachable in this nonreturning domain.",
+    "The image-backed 32-byte exception template at 0x512720 is immutable original input for each synchronous graph; its original exception code, noncontinuable flag, three-argument count and metadata version are preserved.",
+    "The wrapper passes its actual live stack pointer cell containing the original global exception-object address and the original throw-metadata address; no synthetic exception object, pointer replacement or dispatcher is permitted.",
+    "Global exception storage and original read-only type metadata retain image lifetime; this family transports their identities without constructing, dereferencing, destroying or dispatching the exception object.",
+    "The runtime helper accepts two opaque pointer-valued stack arguments; both retain caller-supplied backing and lifetime through the physical stop, while the helper owns its real stack-local argument vector.",
+    "Optional ordinary comparison supports only the physical stop and memory/events; optional full source comparison additionally requires all eleven integer CPU fields, genuine return PCs, inherited FS and the entire bounded stack.",
+    "Normal-return preservation masks describe conventional restoration witnesses only and assert nothing at the nonreturning stop; the complete deepest physical CPU state is compared instead.",
+    "Valid mapped disjoint global metadata and bounded stack are required, with sufficient headroom and synchronous observation; invalid memory, ABI, operation-budget timing, asynchronous observers, Windows exception dispatch and application acceptance are outside scope."
+  ],
+  "notes": "Boundary prepared solely from original corpus, hash-checked executable and existing original dependency contracts. No internal fixture, guest graph, source implementation or test outcome is supplied by this boundary review."
+}

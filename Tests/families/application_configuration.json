@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "id": "application_configuration",
+  "title": "Original application registry configuration reads",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationConfigurationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b5c50",
+      "name": "Configuration::initialize",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5fb0",
+      "name": "createConfigurationKey",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5db0",
+      "name": "Configuration::selectKey",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5e90",
+      "name": "Configuration::readString",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5f30",
+      "name": "Configuration::readDword",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546834": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegCreateKeyExA",
+      "convention": "stdcall",
+      "argc": 9,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "cstr",
+        "u32",
+        "u32",
+        "u32",
+        "out:4",
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows registry import; cases provide isolated handle, disposition and status semantics without touching the system registry."
+    },
+    "0x54682c": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegQueryValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "out:4",
+        "u32",
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows registry import; cases provide exact ANSI bytes, type, byte-count and status semantics, including caller stack aliases; dynamic data extent is validated by the fixture."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_configuration.cases.py",
+    "entry": "claw_application_configuration_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2438792066,
+      "cases": 155,
+      "mutants_killed": 37,
+      "mutants_tried": 41,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.949,
+      "reasons": [],
+      "build_inputs_sha256": "790fdbcbe5c5d4d9b270fdcbfae5468a5db86e068276046900cfc943835ac876"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "RegCreateKeyExA is an isolated scripted operating-system boundary; all nine arguments, output handles, disposition writes and status codes are observed without changing the system registry.",
+    "RegQueryValueExA is an isolated scripted operating-system boundary; all six arguments, caller-provided byte capacity, type, data and length writes are observed without reading system settings.",
+    "The five whole functions retain their original intervals with no coverage exemptions; they call no external original CRT functions and no game function is replaced by a fixture.",
+    "Boundary readiness is not native integration or proof of continuous menu-to-game flow; caller startup and source-path behavior remains independently owned."
+  ],
+  "notes": "Boundary reviewed against hash-checked v1.0 corpus and caller instructions; all five results are consumed u32 values. The key wrapper is stdcall with three arguments because incoming ECX is overwritten. Object layout, physical stack aliases, read-only string requirements and case guidance are in the ignored packet NOTES.md."
+}

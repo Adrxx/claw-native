@@ -1,0 +1,575 @@
+[
+  {
+    "start_ms": 0,
+    "end_ms": 11900,
+    "action": "stage",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 11900,
+    "end_ms": 12036,
+    "action": "unassisted",
+    "keys": [],
+    "set_x": 42210,
+    "set_y": 2440
+  },
+  {
+    "start_ms": 12036,
+    "end_ms": 14246,
+    "action": "recover",
+    "keys": [],
+    "cheat": "MPKFA",
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 14246,
+    "end_ms": 14314,
+    "action": "pickup0",
+    "keys": [],
+    "set_x": 43561,
+    "set_y": 2739
+  },
+  {
+    "start_ms": 14314,
+    "end_ms": 14331,
+    "action": "contact0",
+    "keys": [
+      39
+    ],
+    "set_x": 42210,
+    "set_y": 2440
+  },
+  {
+    "start_ms": 14331,
+    "end_ms": 14807,
+    "action": "wait0",
+    "keys": []
+  },
+  {
+    "start_ms": 14807,
+    "end_ms": 14824,
+    "action": "air0",
+    "keys": [
+      39
+    ],
+    "set_x": 42170,
+    "set_y": 2420
+  },
+  {
+    "start_ms": 14824,
+    "end_ms": 14960,
+    "action": "shot0",
+    "keys": [
+      17
+    ]
+  },
+  {
+    "start_ms": 14960,
+    "end_ms": 17255,
+    "action": "recover0",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 17255,
+    "end_ms": 17323,
+    "action": "pickup1",
+    "keys": [],
+    "set_x": 39969,
+    "set_y": 2588
+  },
+  {
+    "start_ms": 17323,
+    "end_ms": 17340,
+    "action": "contact1",
+    "keys": [
+      39
+    ],
+    "set_x": 41360,
+    "set_y": 2440
+  },
+  {
+    "start_ms": 17340,
+    "end_ms": 17816,
+    "action": "wait1",
+    "keys": []
+  },
+  {
+    "start_ms": 17816,
+    "end_ms": 17833,
+    "action": "air1",
+    "keys": [
+      39
+    ],
+    "set_x": 41320,
+    "set_y": 2420
+  },
+  {
+    "start_ms": 17833,
+    "end_ms": 17969,
+    "action": "shot1",
+    "keys": [
+      17
+    ]
+  },
+  {
+    "start_ms": 17969,
+    "end_ms": 20264,
+    "action": "recover1",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 20264,
+    "end_ms": 20332,
+    "action": "pickup2",
+    "keys": [],
+    "set_x": 43561,
+    "set_y": 2739
+  },
+  {
+    "start_ms": 20332,
+    "end_ms": 20349,
+    "action": "contact2",
+    "keys": [
+      39
+    ],
+    "set_x": 42210,
+    "set_y": 2440
+  },
+  {
+    "start_ms": 20349,
+    "end_ms": 20825,
+    "action": "wait2",
+    "keys": []
+  },
+  {
+    "start_ms": 20825,
+    "end_ms": 20842,
+    "action": "air2",
+    "keys": [
+      39
+    ],
+    "set_x": 42170,
+    "set_y": 2420
+  },
+  {
+    "start_ms": 20842,
+    "end_ms": 20978,
+    "action": "shot2",
+    "keys": [
+      17
+    ]
+  },
+  {
+    "start_ms": 20978,
+    "end_ms": 23273,
+    "action": "recover2",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 23273,
+    "end_ms": 23341,
+    "action": "pickup3",
+    "keys": [],
+    "set_x": 39969,
+    "set_y": 2588
+  },
+  {
+    "start_ms": 23341,
+    "end_ms": 23358,
+    "action": "contact3",
+    "keys": [
+      39
+    ],
+    "set_x": 41360,
+    "set_y": 2440
+  },
+  {
+    "start_ms": 23358,
+    "end_ms": 23834,
+    "action": "wait3",
+    "keys": []
+  },
+  {
+    "start_ms": 23834,
+    "end_ms": 23851,
+    "action": "air3",
+    "keys": [
+      39
+    ],
+    "set_x": 41320,
+    "set_y": 2420
+  },
+  {
+    "start_ms": 23851,
+    "end_ms": 23987,
+    "action": "shot3",
+    "keys": [
+      17
+    ]
+  },
+  {
+    "start_ms": 23987,
+    "end_ms": 26282,
+    "action": "recover3",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 26282,
+    "end_ms": 26299,
+    "action": "vulnerable-0-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 26299,
+    "end_ms": 26809,
+    "action": "vulnerable-0-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 26809,
+    "end_ms": 27149,
+    "action": "vulnerable-0-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 27149,
+    "end_ms": 29529,
+    "action": "vulnerable-0-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 29529,
+    "end_ms": 29546,
+    "action": "vulnerable-1-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 29546,
+    "end_ms": 30056,
+    "action": "vulnerable-1-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 30056,
+    "end_ms": 30396,
+    "action": "vulnerable-1-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 30396,
+    "end_ms": 32776,
+    "action": "vulnerable-1-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 32776,
+    "end_ms": 32793,
+    "action": "vulnerable-2-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 32793,
+    "end_ms": 33303,
+    "action": "vulnerable-2-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 33303,
+    "end_ms": 33643,
+    "action": "vulnerable-2-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 33643,
+    "end_ms": 36023,
+    "action": "vulnerable-2-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 36023,
+    "end_ms": 36040,
+    "action": "vulnerable-3-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 36040,
+    "end_ms": 36550,
+    "action": "vulnerable-3-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 36550,
+    "end_ms": 36890,
+    "action": "vulnerable-3-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 36890,
+    "end_ms": 39270,
+    "action": "vulnerable-3-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 39270,
+    "end_ms": 39287,
+    "action": "vulnerable-4-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 39287,
+    "end_ms": 39797,
+    "action": "vulnerable-4-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 39797,
+    "end_ms": 40137,
+    "action": "vulnerable-4-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 40137,
+    "end_ms": 42517,
+    "action": "vulnerable-4-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 42517,
+    "end_ms": 42534,
+    "action": "vulnerable-5-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 42534,
+    "end_ms": 43044,
+    "action": "vulnerable-5-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 43044,
+    "end_ms": 43384,
+    "action": "vulnerable-5-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 43384,
+    "end_ms": 45764,
+    "action": "vulnerable-5-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 45764,
+    "end_ms": 45781,
+    "action": "vulnerable-6-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 45781,
+    "end_ms": 46291,
+    "action": "vulnerable-6-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 46291,
+    "end_ms": 46631,
+    "action": "vulnerable-6-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 46631,
+    "end_ms": 49011,
+    "action": "vulnerable-6-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 49011,
+    "end_ms": 49028,
+    "action": "vulnerable-7-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 49028,
+    "end_ms": 49538,
+    "action": "vulnerable-7-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 49538,
+    "end_ms": 49878,
+    "action": "vulnerable-7-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 49878,
+    "end_ms": 52258,
+    "action": "vulnerable-7-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 52258,
+    "end_ms": 52275,
+    "action": "vulnerable-8-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 52275,
+    "end_ms": 52785,
+    "action": "vulnerable-8-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 52785,
+    "end_ms": 53125,
+    "action": "vulnerable-8-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 42304,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 53125,
+    "end_ms": 55505,
+    "action": "vulnerable-8-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 55505,
+    "end_ms": 55522,
+    "action": "vulnerable-9-1-1",
+    "keys": [
+      39
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 55522,
+    "end_ms": 56032,
+    "action": "vulnerable-9-0-30",
+    "keys": []
+  },
+  {
+    "start_ms": 56032,
+    "end_ms": 56372,
+    "action": "vulnerable-9-1-20",
+    "keys": [
+      17
+    ],
+    "set_x": 41309,
+    "set_y": 1067
+  },
+  {
+    "start_ms": 56372,
+    "end_ms": 58752,
+    "action": "vulnerable-9-0-140",
+    "keys": [],
+    "set_x": 41820,
+    "set_y": 1850
+  },
+  {
+    "start_ms": 58752,
+    "end_ms": 62832,
+    "action": "complete-death-animation",
+    "keys": [],
+    "set_x": 41385,
+    "set_y": 1067
+  }
+]

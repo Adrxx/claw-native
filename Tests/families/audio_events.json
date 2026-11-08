@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "id": "audio_events",
+  "title": "Original audio routing and parameter dispatch",
+  "abi": "canonical",
+  "sources": [
+    "Sources/AudioEventsCanonicalRuntime.cpp",
+    "Sources/AudioEvents.cpp",
+    "Sources/AudioEvents.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4208e0",
+      "name": "playDirect",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x420910",
+      "name": "playName",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c820",
+      "name": "queueSpeech",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c8a0",
+      "name": "queueSpeechName",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b3b90",
+      "name": "volumeTableValue",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b45f0",
+      "name": "playPool",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c88e0",
+      "name": "playSpatial",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/audio_events.cases.py",
+    "entry": "claw_audio_events_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4b460e",
+        "end": "0x4b4613",
+        "reason": "Unreachable in the valid-backed synchronous object domain: 0x4b45f0 checks manager+0x78 and immediately invokes unchanged 0x4b4430, whose identical no-callback guard cannot now be false. Other selector null outcomes dereference null in 0x4b5270/0x4b5240 before returning, so cannot reach this normal root epilogue."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2595567869,
+      "cases": 269,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.932,
+      "reasons": [],
+      "build_inputs_sha256": "29cec8370ce59ce5e7b7b756ed7d47891270781c7c943edfd47d91944ef98897"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The volume value entry 0x4b3b90 accepts only signed integers 0 through 100; the exact adapter fails closed for every other word and makes no arbitrary-input math claim.",
+    "The original table-fill loop 0x4b3c80 remains owned by audio_manager_lifecycle; its appearance in legacy measurements does not add ownership here.",
+    "Existing portable AudioEvents APIs remain reusable; canonical memory transport is a separate source and native joins remain unverified.",
+    "Physical audio effects are case-provided virtual methods; resource selection, scalar setters, name lookup and diagnostics remain original game callees rather than fixtures.",
+    "The name-map CRT comparison path is bounded to the original single-byte mode at global 0x540e00 equal to zero."
+  ],
+  "notes": "Full existing game-owned audio event surface plus the reviewed bounded volume-value entry; sources retain the portable body selected by the ownership review."
+}

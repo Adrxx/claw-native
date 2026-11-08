@@ -1,0 +1,688 @@
+{
+  "schema": 1,
+  "id": "menu_dialog_resources",
+  "title": "Original popup dialog resource parsing and geometry",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuDialogResourcesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4e1b20",
+      "name": "Popup::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e2090",
+      "name": "Popup::initializeResources",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e2160",
+      "name": "Popup::narrowResourceString",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e21a0",
+      "name": "Popup::parseDialogResource",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e25e0",
+      "name": "Popup::initializeFonts",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e2670",
+      "name": "Popup::measureDialogGeometry",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546d04": {
+      "kind": "fixture",
+      "name": "SystemParametersInfoA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546a54": {
+      "kind": "fixture",
+      "name": "SizeofResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x5468bc": {
+      "kind": "fixture",
+      "name": "GetStockObject",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546cc0": {
+      "kind": "fixture",
+      "name": "GetWindowRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546b7c": {
+      "kind": "fixture",
+      "name": "OffsetRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x54687c": {
+      "kind": "fixture",
+      "name": "CreateCompatibleDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x54690c": {
+      "kind": "fixture",
+      "name": "CreateCompatibleBitmap",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546870": {
+      "kind": "fixture",
+      "name": "BitBlt",
+      "convention": "stdcall",
+      "argc": 9,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546b60": {
+      "kind": "fixture",
+      "name": "LoadCursorA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546c7c": {
+      "kind": "fixture",
+      "name": "GetDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546894": {
+      "kind": "fixture",
+      "name": "GetDeviceCaps",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x5468ac": {
+      "kind": "fixture",
+      "name": "DPtoLP",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x546c80": {
+      "kind": "fixture",
+      "name": "ReleaseDC",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x5468a8": {
+      "kind": "fixture",
+      "name": "CreateFontIndirectA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows resource or GDI operation supplied by the host"
+    },
+    "0x4fb7d8": {
+      "kind": "fixture",
+      "name": "AfxGetThread",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4f7b4e": {
+      "kind": "fixture",
+      "name": "CDialog::CreateIndirect",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4f8f44": {
+      "kind": "fixture",
+      "name": "CWnd::DestroyWindow",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4f7b10": {
+      "kind": "fixture",
+      "name": "CDialog destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4fcfff": {
+      "kind": "fixture",
+      "name": "CDC::Attach",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4fd6db": {
+      "kind": "fixture",
+      "name": "CGdiObject::Attach",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4fd150": {
+      "kind": "fixture",
+      "name": "CDC SelectObject handle wrapper",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4fd067": {
+      "kind": "fixture",
+      "name": "CDC::DeleteDC",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4fd732": {
+      "kind": "fixture",
+      "name": "CGdiObject::DeleteObject",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC Windows TLS and physical handle lifecycle cannot execute without the native operating-system host"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4fcfe9": {
+      "kind": "fixture",
+      "name": "CDC::FromHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x4fd6c5": {
+      "kind": "fixture",
+      "name": "CGdiObject::FromHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x546d20": {
+      "kind": "fixture",
+      "name": "GetSysColor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x54689c": {
+      "kind": "fixture",
+      "name": "PatBlt",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x5468f0": {
+      "kind": "fixture",
+      "name": "CreateSolidBrush",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x5468ec": {
+      "kind": "fixture",
+      "name": "CreatePen",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x54691c": {
+      "kind": "fixture",
+      "name": "SelectObject",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x5468e4": {
+      "kind": "fixture",
+      "name": "MoveToEx",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    },
+    "0x5468e8": {
+      "kind": "fixture",
+      "name": "LineTo",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32/GDI operation or MFC thread-local physical handle lookup; original game drawing and MFC constructors remain executable."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_dialog_resources.cases.py",
+    "entry": "claw_menu_dialog_resources_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4e20bf",
+        "end": "0x4e20c3",
+        "reason": "The unchanged original callee 0x4e29a0 has one normal return at 0x4e2f57 and unconditionally sets EAX=1 at 0x4e2f47; this four-byte failure epilogue cannot execute without replacing game code or corrupting control flow."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1801185316,
+      "cases": 81,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.953,
+      "reasons": [],
+      "build_inputs_sha256": "e92eb2cf3b9324c6b5550b0b057c9802e08e6dea25c71ecd0584e6d06acabb38"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a physical host stand-in (allocate).",
+    "operator delete is a physical host stand-in (release).",
+    "SetRectEmpty is a physical host stand-in (scripted).",
+    "SystemParametersInfoA is a physical host stand-in (scripted).",
+    "FindResourceA is a physical host stand-in (scripted).",
+    "LoadResource is a physical host stand-in (scripted).",
+    "LockResource is a physical host stand-in (scripted).",
+    "SizeofResource is a physical host stand-in (scripted).",
+    "lstrlenA is a physical host stand-in (scripted).",
+    "GetStockObject is a physical host stand-in (scripted).",
+    "GetWindowRect is a physical host stand-in (scripted).",
+    "OffsetRect is a physical host stand-in (scripted).",
+    "GetSystemMetrics is a physical host stand-in (scripted).",
+    "SetRect is a physical host stand-in (scripted).",
+    "CreateCompatibleDC is a physical host stand-in (scripted).",
+    "CreateCompatibleBitmap is a physical host stand-in (scripted).",
+    "BitBlt is a physical host stand-in (scripted).",
+    "LoadCursorA is a physical host stand-in (scripted).",
+    "lstrcpynA is a physical host stand-in (scripted).",
+    "GetDC is a physical host stand-in (scripted).",
+    "GetDeviceCaps is a physical host stand-in (scripted).",
+    "DPtoLP is a physical host stand-in (scripted).",
+    "ReleaseDC is a physical host stand-in (scripted).",
+    "CreateFontIndirectA is a physical host stand-in (scripted).",
+    "AfxGetThread is a physical host stand-in (scripted).",
+    "CDialog::CreateIndirect is a physical host stand-in (scripted).",
+    "CWnd::DestroyWindow is a physical host stand-in (scripted).",
+    "CDialog destructor is a physical host stand-in (scripted).",
+    "CDC::Attach is a physical host stand-in (scripted).",
+    "CGdiObject::Attach is a physical host stand-in (scripted).",
+    "CDC SelectObject handle wrapper is a physical host stand-in (scripted).",
+    "CDC::DeleteDC is a physical host stand-in (scripted).",
+    "CGdiObject::DeleteObject is a physical host stand-in (scripted).",
+    "CDC::FromHandle is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "CGdiObject::FromHandle is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "GetSysColor is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "PatBlt is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "CreateSolidBrush is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "CreatePen is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "SelectObject is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "MoveToEx is scripted at the physical Windows/GDI or MFC handle-map boundary.",
+    "LineTo is scripted at the physical Windows/GDI or MFC handle-map boundary."
+  ],
+  "notes": "Boundary checked against original assembly; popup-owned state and parser/geometry decisions remain game code. __ftol executes original code with the full exact live x87 stack."
+}

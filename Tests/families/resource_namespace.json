@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "id": "resource_namespace",
+  "title": "Original resource namespace lookup",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ResourceNamespaceCanonicalRuntime.cpp"
+  ],
+  "docs": [
+    "docs/resource-namespace-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4b67f0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b68c0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b68e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6900",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6920",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6940",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6960",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b6980",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7540",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7cd0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7dc0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7f00",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7f20",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7f50",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7f80",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8060",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b80d0",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b80e0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8140",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b8170",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d5350",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d54c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d54f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/resource_namespace.cases.py",
+    "entry": "claw_resource_namespace_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4b7e41",
+        "end": "0x4b7e50",
+        "reason": "Unreachable for bounded accessible path strings: 0x4b7e05 initializes EBX to ECX-1, the backward scan only decrements EBX, and ECX remains unchanged until the equality test at 0x4b7e3d; EBX cannot equal ECX. Independently reviewed against hash-verified original disassembly by boundary role and coordinator before translation."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4260361687,
+      "cases": 490,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.917,
+      "reasons": [],
+      "build_inputs_sha256": "e53b7a665e86601ab8208a4fddd0238b956f0846202b55589979df882b67a0ab"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Original stricmp at 0x4a3cf0 and strncpy at 0x4b0a70 execute unchanged; comparison cases select the C locale with 0x540e88 equal to zero to avoid operating-system locale and locking paths.",
+    "Path inputs must terminate in accessible memory and leave original stack saves and return addresses intact; overlapping original leaf and directory storage within the local frame remains in scope.",
+    "The existing elected app integration uses the legacy entry; the separate canonical entry is admitted independently and does not establish native composition acceptance."
+  ],
+  "notes": "Full legacy ownership is retained, including 0x4b7f00. All 23 entries return consumed EAX values. Canonical ABI review uses original corpus only; the original legacy app module and header are preserved unchanged. Canonical source is separate so its mutation gate measures only the elected canonical entry implementation."
+}

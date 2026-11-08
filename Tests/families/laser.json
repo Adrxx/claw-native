@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "id": "laser",
+  "title": "Laser object logic",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LaserRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4553d0",
+      "name": "Laser object callback",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "interval_end": "0x455481"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/laser.cases.py",
+    "entry": "claw_laser_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x455429",
+        "end": "0x45542b",
+        "reason": "Allocation failure sets the creature pointer to null and immediately dereferences it at 0x45542b. This cannot complete as a valid returning invocation; only the two-byte null assignment is exempt, not the constructor, vcall, or shared continuation."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3277035454,
+      "cases": 30,
+      "mutants_killed": 19,
+      "mutants_tried": 21,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8a941633c86d266a491fba6da8ce44b84657af810b3ed56828185dee811c3e93"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Boundary reviewed against hash-verified original v1.0. The complete callback owns [0x4553d0,0x455481), including the corpus continuation mislabeled 0x455449; interval_end extends ownership to the real return rather than narrowing it. cdecl with one owner pointer; machine EAX is always 1, while the registered object-callback contract ignores it (returns void). See ignored work/packets/laser/NOTES.md and laser-full.asm for complete boundary evidence."
+}

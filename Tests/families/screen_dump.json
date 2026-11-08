@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "id": "screen_dump",
+  "title": "Screen dump command",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ScreenDumpRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x495be0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4b5f30": {
+      "kind": "fixture",
+      "name": "native setting read",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native platform boundary: registry, MFC string formatting/lifetime, or DirectDraw BMP file transport."
+    },
+    "0x4b5e50": {
+      "kind": "fixture",
+      "name": "native setting write",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native platform boundary: registry, MFC string formatting/lifetime, or DirectDraw BMP file transport."
+    },
+    "0x4f6439": {
+      "kind": "fixture",
+      "name": "CString construction",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native platform boundary: registry, MFC string formatting/lifetime, or DirectDraw BMP file transport."
+    },
+    "0x4f4f58": {
+      "kind": "fixture",
+      "name": "CString format",
+      "convention": "cdecl",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native platform boundary: registry, MFC string formatting/lifetime, or DirectDraw BMP file transport."
+    },
+    "0x4f6584": {
+      "kind": "fixture",
+      "name": "CString destruction",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native platform boundary: registry, MFC string formatting/lifetime, or DirectDraw BMP file transport."
+    },
+    "0x4b9e10": {
+      "kind": "fixture",
+      "name": "native BMP write",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native platform boundary: registry, MFC string formatting/lifetime, or DirectDraw BMP file transport."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/screen_dump.cases.py",
+    "entry": "claw_screen_dump_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2167256644,
+      "cases": 157,
+      "mutants_killed": 24,
+      "mutants_tried": 24,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "0b31ad5ccbb155b82d54a89170120fe55664c83989f44a5ff61e13a8c8ef721b"
+    }
+  },
+  "integration": {
+    "level": "live",
+    "in_app_target": true,
+    "swift_references": [
+      "Sources/ClawNativeMenuInterface.swift"
+    ]
+  },
+  "limits": [
+    "Registry settings, MFC CString lifetime and formatting, and DirectDraw BMP output are native platform fixtures; game validation, count increment, argument selection and result propagation execute unchanged."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

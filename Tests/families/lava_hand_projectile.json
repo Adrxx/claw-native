@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "id": "lava_hand_projectile",
+  "title": "Lava hand projectile",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LavaHandProjectileRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x456b00",
+      "name": "LavaHandProjectile::logic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456c20",
+      "name": "LavaHandProjectile::dispatchState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x457020",
+      "name": "LavaHandProjectile::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4571a0",
+      "name": "LavaHandProjectile::aim",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4573b0",
+      "name": "LavaHandProjectile::beginExplosion",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x457460",
+      "name": "LavaHandProjectile::advanceExplosion",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4574e0",
+      "name": "LavaHandProjectile::updateTrail",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/lava_hand_projectile.cases.py",
+    "entry": "claw_lava_hand_projectile_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x456b5c",
+        "end": "0x456b5e",
+        "reason": "Original null operator-new result sets EDI to zero here and immediately dereferences it at 0x456b5e; verified original-only failure probe faults reading address zero. No successful original execution can take this branch."
+      },
+      {
+        "start": "0x456c75",
+        "end": "0x456ca3",
+        "reason": "Original 0x4db6e0 sets EBP to the null realloc result at 0x4db70b or 0x4db77f, then calls 0x4dc680, whose mov eax,[ebp+4] faults reading address 4. Verified original-only failure probe; table growth cannot return failure to this block."
+      },
+      {
+        "start": "0x456cbe",
+        "end": "0x456cd5",
+        "reason": "The second registry expansion is unreachable: the first lookup either starts in bounds or original 0x4db6e0 expands bounds to include the state. Between lookups only scratch at registry+0x20 is written, with no callback. The first failed expansion faults inside 0x4dc680 before returning."
+      },
+      {
+        "start": "0x456cef",
+        "end": "0x456d22",
+        "reason": "The second registry expansion cannot execute after a successful first lookup: bounds still include the unchanged state and no callback intervenes. Moreover, either expansion returning null would first fault at original 0x4dc680 after realloc sets EBP to zero."
+      },
+      {
+        "start": "0x4572c1",
+        "end": "0x457312",
+        "reason": "Original 0x4571a5/0x4571a8 overwrites acceleration Y with 2000.0; the squared acceleration sum at 0x45723b is at least 4000000 for finite values. Hash-checked original constants scale this by 0.25 and compare against +/-0.1, so normalization is impossible. Infinity exceeds the bound; unordered values take the C0 branch at 0x4572b2 (or the earlier speed rejection)."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 199,
+        "operator": "drop-statement",
+        "source_sha256": "8050967e612d185a79df38e631947e3398da91b152d7baabca312db1dbeecb39",
+        "mutant_sha256": "5c70cb755c79aaa97af46adfe496463a5231f8aadeb76ac295e6c8af221c3a13",
+        "reason": "The deleted sign change corresponds to original FCHS at 0x4572a7, negating the epsilon before comparison. Original 0x4571a5/0x4571a8 fixes acceleration Y to 2000.0, so squared magnitude times 0.25 is at least 1000000. Comparing it with +0.1 or -0.1 gives identical ordering; infinity is greater and unordered has the same C0 result. Both compared operands are popped at 0x4572ab, so the changed epsilon cannot affect later arithmetic. Verified original constants through hash-checked claw()."
+      },
+      {
+        "line": 208,
+        "operator": "drop-statement",
+        "source_sha256": "8050967e612d185a79df38e631947e3398da91b152d7baabca312db1dbeecb39",
+        "mutant_sha256": "2f47f62f2c80acab7bf2db0d756ae0c3984fc2a0a7429cd44965116790b0accc",
+        "reason": "The deleted operation lies wholly inside the original normalization block 0x4572c1..0x457312. Original 0x4571a5/0x4571a8 fixes acceleration Y to 2000.0; squared magnitude at 0x45723b times the hash-checked 0.25 constant is at least 1000000, greater than the original epsilon 0.1. Infinity takes the quadratic branch and unordered values take the C0 branch at 0x4572b2. This single deletion changes neither the preceding comparison nor any reachable path; the original proves this block unreachable without changing constants."
+      },
+      {
+        "line": 214,
+        "operator": "drop-statement",
+        "source_sha256": "8050967e612d185a79df38e631947e3398da91b152d7baabca312db1dbeecb39",
+        "mutant_sha256": "c3b1ba64063b75cda5c48156799815ddb8633b3c6f4cc662137cd44450421f19",
+        "reason": "The deleted operation lies wholly inside the original normalization block 0x4572c1..0x457312. Original 0x4571a5/0x4571a8 fixes acceleration Y to 2000.0; squared magnitude at 0x45723b times the hash-checked 0.25 constant is at least 1000000, greater than the original epsilon 0.1. Infinity takes the quadratic branch and unordered values take the C0 branch at 0x4572b2. This single deletion changes neither the preceding comparison nor any reachable path; the original proves this block unreachable without changing constants."
+      },
+      {
+        "line": 217,
+        "operator": "drop-statement",
+        "source_sha256": "8050967e612d185a79df38e631947e3398da91b152d7baabca312db1dbeecb39",
+        "mutant_sha256": "694980fd0da682cfdf7c5c78feaf6125bd20b22475f4e68d7ad43dba91b1f9e7",
+        "reason": "The deleted operation lies wholly inside the original normalization block 0x4572c1..0x457312. Original 0x4571a5/0x4571a8 fixes acceleration Y to 2000.0; squared magnitude at 0x45723b times the hash-checked 0.25 constant is at least 1000000, greater than the original epsilon 0.1. Infinity takes the quadratic branch and unordered values take the C0 branch at 0x4572b2. This single deletion changes neither the preceding comparison nor any reachable path; the original proves this block unreachable without changing constants."
+      },
+      {
+        "line": 224,
+        "operator": "drop-statement",
+        "source_sha256": "8050967e612d185a79df38e631947e3398da91b152d7baabca312db1dbeecb39",
+        "mutant_sha256": "06685e82a2e24613bc42fb324ad5fd3577242e994b2db6536259a1819caa8a50",
+        "reason": "The deleted operation lies wholly inside the original normalization block 0x4572c1..0x457312. Original 0x4571a5/0x4571a8 fixes acceleration Y to 2000.0; squared magnitude at 0x45723b times the hash-checked 0.25 constant is at least 1000000, greater than the original epsilon 0.1. Infinity takes the quadratic branch and unordered values take the C0 branch at 0x4572b2. This single deletion changes neither the preceding comparison nor any reachable path; the original proves this block unreachable without changing constants."
+      },
+      {
+        "line": 227,
+        "operator": "drop-statement",
+        "source_sha256": "8050967e612d185a79df38e631947e3398da91b152d7baabca312db1dbeecb39",
+        "mutant_sha256": "fa61af2c52aa7eb9676b40677c8ac9ada02b9484320b6b34fe7d0041a7d37013",
+        "reason": "The deleted operation lies wholly inside the original normalization block 0x4572c1..0x457312. Original 0x4571a5/0x4571a8 fixes acceleration Y to 2000.0; squared magnitude at 0x45723b times the hash-checked 0.25 constant is at least 1000000, greater than the original epsilon 0.1. Infinity takes the quadratic branch and unordered values take the C0 branch at 0x4572b2. This single deletion changes neither the preceding comparison nor any reachable path; the original proves this block unreachable without changing constants."
+      },
+      {
+        "line": 232,
+        "operator": "drop-statement",
+        "source_sha256": "8050967e612d185a79df38e631947e3398da91b152d7baabca312db1dbeecb39",
+        "mutant_sha256": "a91ba7b173264f2b8b26230e7742d5337fe60c0eb5c7ef74ade85caed012bac2",
+        "reason": "The deleted operation lies wholly inside the original normalization block 0x4572c1..0x457312. Original 0x4571a5/0x4571a8 fixes acceleration Y to 2000.0; squared magnitude at 0x45723b times the hash-checked 0.25 constant is at least 1000000, greater than the original epsilon 0.1. Infinity takes the quadratic branch and unordered values take the C0 branch at 0x4572b2. This single deletion changes neither the preceding comparison nor any reachable path; the original proves this block unreachable without changing constants."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 788293138,
+      "cases": 399,
+      "mutants_killed": 36,
+      "mutants_tried": 48,
+      "mutants_equivalent": 7,
+      "mutation_score": 0.923,
+      "reasons": [],
+      "build_inputs_sha256": "15c457e15ac864b7dc9d7cbe040144c820cd80c327f09c6d25d08c61e3ad2ff4"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Boundary checked against original disassembly for all seven seeds; __ftol executes original code with an exact x87 operand. Coverage exclusions are original null-allocation faults and provably unreachable duplicate-lookup and normalization paths, checked against original instructions and constants."
+}

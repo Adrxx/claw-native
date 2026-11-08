@@ -1,0 +1,258 @@
+{
+  "schema": 1,
+  "id": "menu_popup_surface",
+  "title": "Original popup backing surface and cursor transitions",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuPopupSurfaceRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x439480",
+      "name": "capturePopupBacking",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x439590",
+      "name": "drawPopupToDeviceContext",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x439630",
+      "name": "restorePopupBacking",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4396f0",
+      "name": "pollPopupInput",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43a6e0",
+      "name": "showPopupCursor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43a720",
+      "name": "hidePopupCursor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x43a760",
+      "name": "hidePreviousPopup",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cab10",
+      "name": "copyBackSurface",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452ae0",
+      "name": "showOptionsSurface",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x452af0",
+      "name": "hideOptionsSurface",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fdc0",
+      "name": "showControlsSurface",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fdd0",
+      "name": "hideControlsSurface",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Copies the source rectangle to the destination; cases supply the Win32 memory effect."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor display counter; cases supply signed counter results."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical keyboard state read by the unchanged input poller."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical cursor position read by the unchanged input poller."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "Physical cursor repositioning by the unchanged input poller."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "out:52"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical joystick state read by the unchanged input poller."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 thread storage used by the unchanged MFC handle wrapper; cases provide initialized thread and handle-map objects."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_popup_surface.cases.py",
+    "entry": "claw_menu_popup_surface_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2433371548,
+      "cases": 80,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "5f0b37bddd0f97aeb86de0987753c43f80a533c6187a993350229bb3a2954d65"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "CopyRect is a stand-in (scripted); copies the source rectangle to the destination; cases supply the Win32 memory effect.",
+    "ShowCursor is a stand-in (scripted); win32 cursor display counter; cases supply signed counter results.",
+    "GetAsyncKeyState is a stand-in (scripted); physical keyboard state read by the unchanged input poller.",
+    "GetCursorPos is a stand-in (scripted); physical cursor position read by the unchanged input poller.",
+    "SetCursorPos is a stand-in (return-one); physical cursor repositioning by the unchanged input poller.",
+    "joyGetPosEx is a stand-in (scripted); physical joystick state read by the unchanged input poller.",
+    "TlsGetValue is a stand-in (scripted); win32 thread storage used by the unchanged MFC handle wrapper; cases provide initialized thread and handle-map objects.",
+    "Cases provide DirectDraw and popup virtual callbacks; this family does not exercise an actual display device.",
+    "MFC thread storage and the permanent device-context handle map are initialized by cases; MFC lazy startup and exception paths are outside these cases.",
+    "Graphics diagnostic globals are disabled in cases so unchanged error logging does not enter message-box or file-output paths."
+  ],
+  "notes": "Boundary reviewed from the original disassembly; all twelve owned entries are thiscall with no stack arguments. Original callees, including the MFC handle wrapper, remain executable original code. See the ignored packet NOTES.md for object layouts, branch decisions, stack locals, and physical import setup."
+}

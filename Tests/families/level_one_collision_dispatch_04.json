@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "level_one_collision_dispatch_04",
+  "title": "Level 1 registry search, velocity flip, attack-state shim and diagnostic return PC",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneCollisionDispatch04Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x406120",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dc3d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dc850",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4db5f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 1473,
+        "output_mask": 1473,
+        "preserve_mask": 0
+      }
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_collision_dispatch_04.cases.py",
+    "entry": "claw_level_one_collision_dispatch_04_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 467399232,
+      "cases": 524,
+      "mutants_killed": 17,
+      "mutants_tried": 21,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.944,
+      "reasons": [],
+      "build_inputs_sha256": "311e0d9c14f4ed3ef93d560daf258b2d49c1bef911e9a09f88b69165f8f783cc"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

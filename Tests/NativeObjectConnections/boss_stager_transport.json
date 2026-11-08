@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "scope": "finite BossStager native physical transport comparison",
+  "fixtures": {
+    "SetRect": {
+      "slot": 5533020,
+      "target": 1744834560,
+      "convention": "stdcall",
+      "argc": 5
+    },
+    "malloc": {
+      "address": 4868320,
+      "convention": "cdecl",
+      "argc": 1,
+      "alignment": 16,
+      "fill": 204
+    },
+    "named-registry": {
+      "address": 5202566,
+      "convention": "thiscall",
+      "argc": 2
+    },
+    "list-append": {
+      "address": 5198277,
+      "convention": "thiscall",
+      "argc": 1
+    }
+  }
+}

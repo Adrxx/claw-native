@@ -1,0 +1,7136 @@
+{
+  "schema": 1,
+  "id": "static_initializer_wrappers",
+  "title": "Original static table wrappers with genuine CALL and source JMP transfers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticInitializerWrappersRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x501fbd",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x501fbd",
+          "end": "0x501fc7",
+          "sha256": "7ddb2c2d5f1f7942b7942f2ea788a65c2c3c5ce8f1b88b83a671b395e99fa87d"
+        }
+      ]
+    },
+    {
+      "address": "0x50226e",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x50226e",
+          "end": "0x502278",
+          "sha256": "7ddb2c2d5f1f7942b7942f2ea788a65c2c3c5ce8f1b88b83a671b395e99fa87d"
+        }
+      ]
+    },
+    {
+      "address": "0x502c90",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502c90",
+          "end": "0x502c9a",
+          "sha256": "2820c962bcc34cbe70ed8b9c19e759a52934c685fdc49266d3bba7cb64d26753"
+        }
+      ]
+    },
+    {
+      "address": "0x502876",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502876",
+          "end": "0x502880",
+          "sha256": "7ddb2c2d5f1f7942b7942f2ea788a65c2c3c5ce8f1b88b83a671b395e99fa87d"
+        }
+      ]
+    },
+    {
+      "address": "0x502c51",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502c51",
+          "end": "0x502c5b",
+          "sha256": "7ddb2c2d5f1f7942b7942f2ea788a65c2c3c5ce8f1b88b83a671b395e99fa87d"
+        }
+      ]
+    },
+    {
+      "address": "0x503722",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x503722",
+          "end": "0x50372c",
+          "sha256": "7ddb2c2d5f1f7942b7942f2ea788a65c2c3c5ce8f1b88b83a671b395e99fa87d"
+        }
+      ]
+    },
+    {
+      "address": "0x503748",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x503748",
+          "end": "0x503752",
+          "sha256": "7ddb2c2d5f1f7942b7942f2ea788a65c2c3c5ce8f1b88b83a671b395e99fa87d"
+        }
+      ]
+    },
+    {
+      "address": "0x403540",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x403540",
+          "end": "0x40354a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4042b0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4042b0",
+          "end": "0x4042ba",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4064c0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4064c0",
+          "end": "0x4064ca",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x406e90",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x406e90",
+          "end": "0x406e9a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4074a0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4074a0",
+          "end": "0x4074aa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x408520",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x408520",
+          "end": "0x40852a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x409150",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x409150",
+          "end": "0x40915a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x409fe0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x409fe0",
+          "end": "0x409fea",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x40b820",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40b820",
+          "end": "0x40b82a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x40e220",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40e220",
+          "end": "0x40e22a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x40eb80",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40eb80",
+          "end": "0x40eb8a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x40fad0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40fad0",
+          "end": "0x40fada",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x410a20",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x410a20",
+          "end": "0x410a2a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x410fd0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x410fd0",
+          "end": "0x410fda",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x411480",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x411480",
+          "end": "0x41148a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x411930",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x411930",
+          "end": "0x41193a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x411e10",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x411e10",
+          "end": "0x411e1a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x412400",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x412400",
+          "end": "0x41240a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x412970",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x412970",
+          "end": "0x41297a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x412e20",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x412e20",
+          "end": "0x412e2a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x413600",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x413600",
+          "end": "0x41360a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x413b20",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x413b20",
+          "end": "0x413b2a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x414190",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x414190",
+          "end": "0x41419a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x414d80",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x414d80",
+          "end": "0x414d8a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x415410",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x415410",
+          "end": "0x41541a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x415aa0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x415aa0",
+          "end": "0x415aaa",
+          "sha256": "ed201de9c7b403ba73b81410efe6e217f722bc5898b939f6c6cbe21d180d7104"
+        }
+      ]
+    },
+    {
+      "address": "0x4212c0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4212c0",
+          "end": "0x4212ca",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4251e0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4251e0",
+          "end": "0x4251ea",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x425220",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425220",
+          "end": "0x425225",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x425260",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425260",
+          "end": "0x42526a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4252a0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4252a0",
+          "end": "0x4252aa",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4252e0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4252e0",
+          "end": "0x4252ea",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x425320",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425320",
+          "end": "0x42532a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x425360",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425360",
+          "end": "0x42536a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4253a0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4253a0",
+          "end": "0x4253aa",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4253e0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4253e0",
+          "end": "0x4253ea",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x425420",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425420",
+          "end": "0x42542a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x425460",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425460",
+          "end": "0x42546a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4313e0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4313e0",
+          "end": "0x4313ea",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x431d90",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x431d90",
+          "end": "0x431d9a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x432630",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x432630",
+          "end": "0x43263a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x433a70",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x433a70",
+          "end": "0x433a7a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4348f0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4348f0",
+          "end": "0x4348fa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x436890",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x436890",
+          "end": "0x43689a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4368d0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4368d0",
+          "end": "0x4368da",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x436910",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x436910",
+          "end": "0x43691a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x437500",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x437500",
+          "end": "0x43750a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x437550",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x437550",
+          "end": "0x43755a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4380a0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4380a0",
+          "end": "0x4380aa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x43acc0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43acc0",
+          "end": "0x43acca",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x43cd60",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43cd60",
+          "end": "0x43cd6a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x43d330",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d330",
+          "end": "0x43d33a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x43d3e0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d3e0",
+          "end": "0x43d3ea",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x43d430",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d430",
+          "end": "0x43d43a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x441270",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x441270",
+          "end": "0x44127a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x441ca0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x441ca0",
+          "end": "0x441caa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x443350",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x443350",
+          "end": "0x44335a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x445a90",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x445a90",
+          "end": "0x445a9a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x446610",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x446610",
+          "end": "0x44661a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4487f0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4487f0",
+          "end": "0x4487fa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x448dd0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x448dd0",
+          "end": "0x448dda",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x449530",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x449530",
+          "end": "0x44953a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x449d00",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x449d00",
+          "end": "0x449d0a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x44c7e0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x44c7e0",
+          "end": "0x44c7ea",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x453cb0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x453cb0",
+          "end": "0x453cb5",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x453cf0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x453cf0",
+          "end": "0x453cf5",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x454380",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x454380",
+          "end": "0x45438a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4555a0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4555a0",
+          "end": "0x4555aa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x455aa0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x455aa0",
+          "end": "0x455aaa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x456280",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x456280",
+          "end": "0x45628a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x456bc0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x456bc0",
+          "end": "0x456bca",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4576e0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4576e0",
+          "end": "0x4576ea",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x458220",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x458220",
+          "end": "0x45822a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x458740",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x458740",
+          "end": "0x45874a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x45a3a0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x45a3a0",
+          "end": "0x45a3aa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x45aca0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x45aca0",
+          "end": "0x45aca5",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x4606b0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4606b0",
+          "end": "0x4606ba",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x462a90",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x462a90",
+          "end": "0x462a9a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x463ae0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x463ae0",
+          "end": "0x463aea",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x465140",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x465140",
+          "end": "0x46514a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x465d50",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x465d50",
+          "end": "0x465d5a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x468a70",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x468a70",
+          "end": "0x468a7a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x46f640",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x46f640",
+          "end": "0x46f64a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x473ee0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x473ee0",
+          "end": "0x473eea",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x474780",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474780",
+          "end": "0x47478a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x474ed0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474ed0",
+          "end": "0x474eda",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x474f20",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474f20",
+          "end": "0x474f2a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x474f60",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474f60",
+          "end": "0x474f6a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x47cd10",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47cd10",
+          "end": "0x47cd1a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x47dac0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47dac0",
+          "end": "0x47daca",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x47e880",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47e880",
+          "end": "0x47e88a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x47f7a0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47f7a0",
+          "end": "0x47f7aa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x483120",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x483120",
+          "end": "0x48312a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x484370",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x484370",
+          "end": "0x48437a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x484870",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x484870",
+          "end": "0x48487a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x485900",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x485900",
+          "end": "0x48590a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x487340",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x487340",
+          "end": "0x48734a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x488980",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x488980",
+          "end": "0x48898a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x489090",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x489090",
+          "end": "0x48909a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4897f0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4897f0",
+          "end": "0x4897fa",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x48b060",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x48b060",
+          "end": "0x48b06a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x48d1d0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x48d1d0",
+          "end": "0x48d1da",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x48e560",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x48e560",
+          "end": "0x48e56a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x492380",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x492380",
+          "end": "0x49238a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x493f70",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x493f70",
+          "end": "0x493f7a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4970d0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4970d0",
+          "end": "0x4970da",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x498160",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x498160",
+          "end": "0x49816a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x49f160",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f160",
+          "end": "0x49f16a",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x49f850",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f850",
+          "end": "0x49f85a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x49f890",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f890",
+          "end": "0x49f89a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4a01d0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a01d0",
+          "end": "0x4a01da",
+          "sha256": "32f9544bc551c1f0af9faffd5c427df12a5b7ba39814dfd881bceff7d002e270"
+        }
+      ]
+    },
+    {
+      "address": "0x4ff951",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4ff951",
+          "end": "0x4ff95b",
+          "sha256": "7ddb2c2d5f1f7942b7942f2ea788a65c2c3c5ce8f1b88b83a671b395e99fa87d"
+        }
+      ]
+    },
+    {
+      "address": "0x502405",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502405",
+          "end": "0x50240a",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x502426",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502426",
+          "end": "0x502430",
+          "sha256": "781413c6288bcce3e9a28104ffad57d506ab92ff75804861d109390fa84a8406"
+        }
+      ]
+    },
+    {
+      "address": "0x50245e",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x50245e",
+          "end": "0x502468",
+          "sha256": "781413c6288bcce3e9a28104ffad57d506ab92ff75804861d109390fa84a8406"
+        }
+      ]
+    },
+    {
+      "address": "0x502546",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502546",
+          "end": "0x50254b",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x5028d7",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x5028d7",
+          "end": "0x5028dc",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x502b00",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502b00",
+          "end": "0x502b05",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x502b4d",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502b4d",
+          "end": "0x502b52",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x4f821d",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f821d",
+          "end": "0x4f8222",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x4f8233",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f8233",
+          "end": "0x4f823d",
+          "sha256": "2387dee89b24e8e643377d7e53821095edfe793da05cc40ace0900aa5f7e3b76"
+        }
+      ]
+    },
+    {
+      "address": "0x4f8271",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f8271",
+          "end": "0x4f827b",
+          "sha256": "2387dee89b24e8e643377d7e53821095edfe793da05cc40ace0900aa5f7e3b76"
+        }
+      ]
+    },
+    {
+      "address": "0x4f82af",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f82af",
+          "end": "0x4f82b9",
+          "sha256": "2387dee89b24e8e643377d7e53821095edfe793da05cc40ace0900aa5f7e3b76"
+        }
+      ]
+    },
+    {
+      "address": "0x4f82ed",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f82ed",
+          "end": "0x4f82f7",
+          "sha256": "2387dee89b24e8e643377d7e53821095edfe793da05cc40ace0900aa5f7e3b76"
+        }
+      ]
+    },
+    {
+      "address": "0x502cc6",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502cc6",
+          "end": "0x502cd0",
+          "sha256": "781413c6288bcce3e9a28104ffad57d506ab92ff75804861d109390fa84a8406"
+        }
+      ]
+    },
+    {
+      "address": "0x502cfe",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502cfe",
+          "end": "0x502d08",
+          "sha256": "781413c6288bcce3e9a28104ffad57d506ab92ff75804861d109390fa84a8406"
+        }
+      ]
+    },
+    {
+      "address": "0x502d30",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502d30",
+          "end": "0x502d3a",
+          "sha256": "2820c962bcc34cbe70ed8b9c19e759a52934c685fdc49266d3bba7cb64d26753"
+        }
+      ]
+    },
+    {
+      "address": "0x4ffce4",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4ffce4",
+          "end": "0x4ffce9",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x4ffd07",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4ffd07",
+          "end": "0x4ffd0c",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    },
+    {
+      "address": "0x4b9110",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4b9110",
+          "end": "0x4b911a",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4bc0d0",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4bc0d0",
+          "end": "0x4bc0da",
+          "sha256": "4154085efc09ee8d36ae72be05d3630d9e5b39d96e774aeb7667552fe06aa4f2"
+        }
+      ]
+    },
+    {
+      "address": "0x4db600",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4db600",
+          "end": "0x4db605",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x4dbb70",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dbb70",
+          "end": "0x4dbb75",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc160",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc160",
+          "end": "0x4dc165",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc260",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc260",
+          "end": "0x4dc265",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x4dc380",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4dc380",
+          "end": "0x4dc385",
+          "sha256": "ec7d2aa54ab353ae3e298f2752ca2bce4eae1ebdb8c1ddeefde03cd044576859"
+        }
+      ]
+    },
+    {
+      "address": "0x503813",
+      "name": "StaticInitializerWrapper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x503813",
+          "end": "0x503818",
+          "sha256": "e8ebd827d1f36d7cfa5e5220610aa6370284d1589989363f48ac40166362d449"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x403550": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x403570": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4042c0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4042e0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4064d0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4064f0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x406ea0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x406ec0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4074b0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4074d0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x408530": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x408550": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x409160": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x409180": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x409ff0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40a010": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40b830": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40b840": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40e230": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40e250": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40eb90": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40ebb0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40fae0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x40fb00": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x410a30": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x410a50": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x410fe0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411000": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411490": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4114b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411940": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411960": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411e20": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x411e40": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412410": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412430": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412980": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4129a0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412e30": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x412e50": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x413610": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x413630": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x413b30": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x413b50": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4141a0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4141c0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x414d90": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x414db0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x415420": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x415440": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x415ab0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x415cc0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4212d0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4212f0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4251f0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425200": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425230": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425270": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425280": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4252b0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4252c0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4252f0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425300": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425330": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425340": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425370": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425380": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4253b0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4253c0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4253f0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425400": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425430": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425440": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425470": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x425480": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4313f0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x431410": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x431da0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x431dc0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x432640": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x432660": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x433a80": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x433aa0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x434900": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x434920": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4368a0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4368b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4368e0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4368f0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x436920": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x436930": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x437510": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x437520": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x437560": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x437570": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4380b0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4380d0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43acd0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43acf0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43cd70": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43cd90": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d340": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d350": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d3f0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d410": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d440": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x43d460": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x441280": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4412a0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x441cb0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x441cd0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x443360": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x443380": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x445aa0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x445ac0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x446620": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x446640": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x448800": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x448820": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x448de0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x448e00": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x449540": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x449560": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x449d10": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x449d30": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x44c7f0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x44c810": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x453cc0": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x453d00": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x454390": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4543b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4555b0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4555d0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x455ab0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x455ad0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x456290": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4562b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x456bd0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x456bf0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4576f0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x457710": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x458230": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x458250": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x458750": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x458770": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x45a3b0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x45a3d0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x45acb0": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4606c0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4606e0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x462aa0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x462ac0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x463af0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x463b10": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x465150": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x465170": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x465d60": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x465d80": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x468a80": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x468aa0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x46f650": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x46f670": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x473ef0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x473f10": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474790": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4747b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474ee0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474ef0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474f30": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474f40": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474f70": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x474f80": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47cd20": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47cd40": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47dad0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47daf0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47e890": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47e8b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47f7b0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x47f7d0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x483130": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x483150": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x484380": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4843a0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x484880": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4848a0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x485910": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x485930": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x487350": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x487370": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x488990": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4889b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4890a0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4890c0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x489800": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x489820": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48b070": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48b090": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48d1e0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48d1f0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48e570": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x48e590": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x492390": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4923b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x493f80": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x493fa0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4970e0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x497100": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x498170": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x498190": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f170": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f190": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f860": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f870": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f8a0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x49f8b0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a01e0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a0200": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4b9120": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4b9130": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4bc0e0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4bc0f0": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4db610": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dbb80": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dc170": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dc270": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4dc390": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f8222": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f823d": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f824a": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f827b": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f8288": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f82b9": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f82c6": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f82f7": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f8304": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ff95b": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ff95c": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ffce9": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4ffd0c": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x501fc7": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x501fc8": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502278": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502279": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50240a": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502430": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502442": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502468": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50247a": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50254b": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502880": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502881": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x5028dc": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502b05": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502b52": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502c5b": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502c5c": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502c9a": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502ca4": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502cd0": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502ce2": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502d08": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502d1a": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502d3a": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502d44": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50372c": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50372d": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x503752": {
+      "kind": "whole",
+      "name": "OriginalStaticConstructor",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x503753": {
+      "kind": "whole",
+      "name": "OriginalStaticRegistration",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x503818": {
+      "kind": "whole",
+      "name": "OriginalStaticInitializer",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a2cf1": {
+      "kind": "whole",
+      "name": "OriginalSharedConstructorTail",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f54ea": {
+      "kind": "whole",
+      "name": "OriginalSharedConstructorTail",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f6439": {
+      "kind": "whole",
+      "name": "OriginalSharedConstructorTail",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502dac": {
+      "kind": "whole",
+      "name": "OriginalSharedConstructorTail",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x546894": {
+      "kind": "fixture",
+      "name": "GDI32.dll!GetDeviceCaps",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546928": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapReAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x54692c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapSize",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546954": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!VirtualFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546960": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546964": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!HeapFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546974": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetStdHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546990": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!VirtualAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469bc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentThread",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469f4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetModuleFileNameA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a14": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LoadLibraryA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a18": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetProcAddress",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a94": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetProcessVersion",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546af8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!WriteFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b60": {
+      "kind": "fixture",
+      "name": "USER32.dll!LoadCursorA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b64": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColorBrush",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c2c": {
+      "kind": "fixture",
+      "name": "USER32.dll!RegisterWindowMessageA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c7c": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c80": {
+      "kind": "fixture",
+      "name": "USER32.dll!ReleaseDC",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546d20": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546d28": {
+      "kind": "fixture",
+      "name": "USER32.dll!LoadStringA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4a6560": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 usable capacity",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coordinator-selected CRT memory-service v1 physical owner boundary; original registry and constructor source remains unchanged."
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coordinator-selected CRT memory-service v1 physical owner boundary; original registry and constructor source remains unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_initializer_wrappers.cases.py",
+    "entry": "claw_static_initializer_wrappers_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3561011319,
+      "cases": 314,
+      "mutants_killed": 48,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "0cb25bd90886f648af923c9bbc1a86c2af3ceeb2ee437e79ffcf5d01982259be"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Only 144 zero-argument static-table wrappers are owned; all immediate constructors, initializer bodies and registration leaves execute unchanged original instructions.",
+    "Full integer source input/output masks are 0x7ff; preserve_mask zero asserts no transitive preservation invariant, while every selected original output is still compared.",
+    "Void means the dispatcher ignores a semantic return; original live EAX must survive every CALL and tail and remains a full selected output witness.",
+    "Exact JMP sites are elected during case setup with Env.source_tail_edge; the manifest schema has no tail-site field. The packet notes retain all 144 root-tail sites and 22 constructor-tail sites.",
+    "Scripted physical imports must model observable memory and ownership effects; a physical stop has no returned tail disposition.",
+    "RaiseException never receives fabricated normal success; genuine exception/unwind closure is outside the ordinary wrapper contract and requires separate guest authorization.",
+    "GetProcAddress and original indirect callbacks must retain real original code identities when taken; no constructor or initializer body may be replaced by an env.stub.",
+    "Direct source inspection is a conservative closure with unresolved dynamic callbacks; it is not connected startup, native constructor closure or app acceptance.",
+    "The integer source envelope is not a separately captured x87/SSE state certificate for original descendants.",
+    "GDI32.dll!GetDeviceCaps is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!HeapReAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!HeapSize is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!VirtualFree is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!RaiseException is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!HeapAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!HeapFree is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GetStdHandle is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!VirtualAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GetCurrentThread is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GetCurrentThreadId is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GlobalLock is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GlobalUnlock is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!lstrlenA is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!InterlockedDecrement is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GetModuleFileNameA is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!LoadLibraryA is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GetProcAddress is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!TlsGetValue is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!LocalReAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!TlsSetValue is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GlobalReAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GlobalHandle is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!TlsAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GetProcessVersion is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!LeaveCriticalSection is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!InitializeCriticalSection is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!LocalAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!EnterCriticalSection is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GetVersion is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!WriteFile is a stand-in (scripted); only its physical effects are modeled.",
+    "KERNEL32.dll!GlobalAlloc is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!LoadCursorA is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!GetSysColorBrush is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!RegisterWindowMessageA is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!GetSystemMetrics is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!GetDC is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!ReleaseDC is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!GetCursorPos is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!GetSysColor is a stand-in (scripted); only its physical effects are modeled.",
+    "USER32.dll!LoadStringA is a stand-in (scripted); only its physical effects are modeled.",
+    "malloc is a stand-in (allocate); only its physical effects are modeled.",
+    "free is a stand-in (release); only its physical effects are modeled.",
+    "operator new is a stand-in (allocate); only its physical effects are modeled.",
+    "operator delete is a stand-in (release); only its physical effects are modeled.",
+    "CRT memory-service v1 supplies malloc/free/capacity/realloc through one live allocation owner; capacity at 0x4a6560 is cdecl1/u32 and realloc at 0x4a9070 is cdecl2/u32, retaining actual caller cleanup and argument words.",
+    "Capacity accepts only an exact live allocation base and returns its stored usable capacity, separate from requested size; interior, retired or foreign pointers are unsupported, never synthetic success.",
+    "Realloc v1 preserves the old byte prefix on in-place or moved success; failure returns zero with old identity, bytes and capacity intact. Realloc(null,n) delegates to allocation; realloc(live,0) retires and returns zero.",
+    "The selected bounded allocation domain uses 16-byte alignment and rounded usable capacity with initial new-mode zero; source new-handler retry or arithmetic outside the declared bounds requires an honest stop.",
+    "Memory services never prefill the callback vector, bypass capacity queries, rewrite registry globals, synthesize source lock calls or supply fake small-block/Windows heap metadata. Registration and fatal source paths remain original.",
+    "Windows CRT heap internals behind the selected capacity/realloc boundary are excluded from this comparison domain; previously declared conservative import references do not require executing those internals.",
+    "CRT memory-service v1 usable capacity is a scripted physical stand-in sharing the malloc/free/realloc owner ledger.",
+    "CRT memory-service v1 realloc is a scripted physical stand-in sharing the malloc/free/capacity owner ledger."
+  ]
+}

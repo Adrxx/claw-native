@@ -1,0 +1,493 @@
+{
+  "schema": 1,
+  "id": "v13_cheat_dispatch",
+  "title": "v1.3 complete cheat dispatcher and game acknowledgement helpers",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/V13CheatDispatchRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "shared_sources": [
+    {
+      "family": "v13_cheat_presentation",
+      "sources": [
+        "Sources/V13CheatPresentationRuntime.cpp"
+      ]
+    }
+  ],
+  "owned": [
+    {
+      "address": "0x42a9b0",
+      "interval_end": "0x42c204",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c780",
+      "interval_end": "0x42c79b",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42c7a0",
+      "interval_end": "0x42c7de",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4233e0",
+      "interval_end": "0x42344d",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x421bb0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x429890": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x429b30": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void"
+    },
+    "0x429d80": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x42a5d0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32"
+    },
+    "0x42a630": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32"
+    },
+    "0x42a670": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32"
+    },
+    "0x42def0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32"
+    },
+    "0x42e080": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32"
+    },
+    "0x42e310": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void"
+    },
+    "0x42e410": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void"
+    },
+    "0x42e530": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void"
+    },
+    "0x4702c0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void"
+    },
+    "0x4b4ed0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4b55b0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32"
+    },
+    "0x4b55e0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4cb0b0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32"
+    },
+    "0x4cb160": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x420ee0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x441df0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void"
+    },
+    "0x441e10": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void"
+    },
+    "0x463c90": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32"
+    },
+    "0x4a595b": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "name": "rand",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4a5b6e": {
+      "kind": "fixture",
+      "convention": "cdecl",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "name": "sprintf",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4fc6b4": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "name": "MFC CString map lookup",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4fcd34": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "name": "MFC CString empty",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4fb719": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "name": "MFC string list remove all",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4fb80b": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "name": "MFC string list add head",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4fb883": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "name": "MFC string list add tail",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4b3da0": {
+      "kind": "fixture",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "name": "physical audio playback",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x50c4cc": {
+      "kind": "fixture",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "name": "PostMessageA",
+      "reason": "Native C runtime, MFC storage, or physical output service replaces the platform implementation; cases capture requests and observable service effects."
+    },
+    "0x4bc4f0": {
+      "kind": "fixture",
+      "name": "palette set entries",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    },
+    "0x4bc560": {
+      "kind": "fixture",
+      "name": "palette save",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    },
+    "0x4bc5b0": {
+      "kind": "fixture",
+      "name": "palette restore",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    },
+    "0x50c61c": {
+      "kind": "fixture",
+      "name": "AIL_set_sequence_tempo",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical palette or Miles audio backend service replaced by native rendering/audio. Cases record all service requests and provider effects."
+    },
+    "0x50c620": {
+      "kind": "fixture",
+      "name": "AIL_sequence_status",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native physical music or MFC storage boundary; original game enumeration and readiness logic remain executed."
+    },
+    "0x4fc525": {
+      "kind": "fixture",
+      "name": "MFC map GetNextAssoc",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native physical music or MFC storage boundary; original game enumeration and readiness logic remain executed."
+    },
+    "0x4fcda9": {
+      "kind": "fixture",
+      "name": "MFC CString destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native physical music or MFC storage boundary; original game enumeration and readiness logic remain executed."
+    },
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap or MFC container service replaces platform allocation/storage; original state factory and cleanup decisions remain executed."
+    },
+    "0x4fbd2a": {
+      "kind": "fixture",
+      "name": "MFC pointer array SetSize",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Native heap or MFC container service replaces platform allocation/storage; original state factory and cleanup decisions remain executed."
+    },
+    "0x50c58c": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native monotonic clock replaces the physical Windows timer."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_cheat_dispatch.cases.py",
+    "entry": "claw_v13_cheat_dispatch_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2923826631,
+      "cases": 419,
+      "mutants_killed": 46,
+      "mutants_tried": 54,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.979,
+      "reasons": [],
+      "build_inputs_sha256": "4df1deba571551e6f07b8e86ccfd63d03b94d87d65375fccc855724fc360e836"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

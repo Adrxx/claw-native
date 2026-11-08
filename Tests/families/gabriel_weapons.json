@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "gabriel_weapons",
+  "title": "Original Gabriel weapon closure",
+  "abi": "legacy",
+  "sources": [
+    "Sources/GabrielWeaponsRuntime.cpp",
+    "Sources/GabrielWeaponsRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/GabrielWeaponsRuntime.cpp": "ec3e02bcdc6a749287fdaf26393a84447bdf7326e71bc9c3eb30a18d938df87b",
+    "Sources/GabrielWeaponsRuntime.h": "df063f9b3ec0c63b466b92e876705edf356dfaf9681c1d4f748da1c53b027ef5"
+  },
+  "docs": [
+    "docs/gabriel-weapons-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_gabriel_weapons_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/gabriel_weapons_helpers.py"
+    ],
+    "work_dirs": [
+      "work/gabriel-weapons-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-gabriel-weapons-independent.log"
+      ],
+      "worker_evidence": [
+        "work/gabriel-weapons-agent/sanitizer.log",
+        "work/gabriel-weapons-agent/verification.json",
+        "work/gabriel-weapons-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_gabriel_weapons_runtime.py": "pass"
+      },
+      "seconds": 45.8
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2624360221,
+      "owned": 24,
+      "owned_inferred_from_tests": false,
+      "directly_called": 23,
+      "fully_executed": 21,
+      "bytes_owned": 4534,
+      "bytes_executed": 4347,
+      "coverage": 0.9588
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_eight_gabriel_bomb_01 (0x445ef0, 0x446340, 0x4463f0, 0x446490); level_eight_gabriel_cannon (0x446a70, 0x446c20, 0x446ca0, 0x446d70, 0x446e10, 0x446eb0); level_seven_crab_bomb_shared (0x432550, 0x432560); level_two_cannon_objects_01 (0x4145b0, 0x4145f0, 0x414640, 0x414660, 0x4146b0, 0x414860, 0x4148b0, 0x414a60); level_two_cannon_projectiles_01 (0x414030, 0x4141f0, 0x414b20, 0x414be0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

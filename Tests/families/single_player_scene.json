@@ -1,0 +1,591 @@
+{
+  "schema": 1,
+  "id": "single_player_scene",
+  "title": "Original single-player construction and startup",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SinglePlayerSceneCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x40b5c0",
+      "name": "State::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f0d0",
+      "name": "State::initialize",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46a6d0",
+      "name": "SinglePlayer::initialize",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46aeb0",
+      "name": "SinglePlayer::loadLevel",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42af50",
+      "name": "Application::hasDefaultDimensions",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42aa50",
+      "name": "Application::resetGameGlobals",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cea10",
+      "name": "Scene::initializeManagers",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cdf20",
+      "name": "SceneManager::initialize",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cfa60",
+      "name": "ImageController::initializeEffects",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "CRT heap ends in OS calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "CRT heap release pairs with allocation"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "CRT heap ends in OS calls"
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT random generator reads TLS through OS imports"
+    },
+    "0x4a3040": {
+      "kind": "fixture",
+      "name": "srand",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "CRT seed setter calls 0x4a7dc0, whose TLS access ends in OS imports"
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 cursor display counter"
+    },
+    "0x546ccc": {
+      "kind": "fixture",
+      "name": "UpdateWindow",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "return-one",
+      "reason": "Win32 window update"
+    },
+    "0x546864": {
+      "kind": "fixture",
+      "name": "DirectSoundCreate",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "DirectSound platform creation through original thunk 0x4f4480"
+    },
+    "0x4a3920": {
+      "kind": "whole",
+      "name": "sprintf integer profile",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32"
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic operation used by original-backed CString copy/release at 4f6449/4f6584"
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic operation used by original-backed CString copy/release at 4f6449/4f6584"
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical millisecond clock reached by original fade 4bb990 and dimension-reset timing 4b83d0."
+    },
+    "0x546ad0": {
+      "kind": "fixture",
+      "name": "GetFullPathNameA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "cstr",
+        "u32",
+        "u32",
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical pathname service at original 4f77a2; custom-world file parsing remains original."
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical bounded pathname copy at original 4f77b1 after path normalization failure."
+    },
+    "0x546b00": {
+      "kind": "fixture",
+      "name": "CreateFileA",
+      "convention": "stdcall",
+      "argc": 7,
+      "arguments": [
+        "cstr",
+        "u32",
+        "u32",
+        "ptr:12",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical read-only custom-world file open at original 4f752e."
+    },
+    "0x546afc": {
+      "kind": "fixture",
+      "name": "ReadFile",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "out:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical byte transport at original 4f758c; 4cd530 validates header and 436e60 parses the level."
+    },
+    "0x546a04": {
+      "kind": "fixture",
+      "name": "CloseHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical file close at original 4f767d; original MFC lifetime and CString release execute unchanged."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical string-length import at original CString assignment 4f66dd; original CString allocation, copy, and lifetime remain unchanged."
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:28",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical window-message queue read at original 4b893a, reached by successful level startup through 4b8910; original queue-drain loop remains unchanged."
+    },
+    "0x546e9c": {
+      "kind": "fixture",
+      "name": "AIL_allocate_sequence_handle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence backend imported from mss32.dll by original music constructor 4b58a0; original track selection, byte copy, registration and lifetime execute unchanged."
+    },
+    "0x546e98": {
+      "kind": "fixture",
+      "name": "AIL_init_sequence",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence backend imported from mss32.dll by original music constructor 4b58a0; original track selection, byte copy, registration and lifetime execute unchanged."
+    },
+    "0x546e94": {
+      "kind": "fixture",
+      "name": "AIL_release_sequence_handle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Miles sequence backend imported from mss32.dll by original music constructor 4b58a0; original track selection, byte copy, registration and lifetime execute unchanged."
+    },
+    "0x546af4": {
+      "kind": "fixture",
+      "name": "SetFilePointer",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical custom-world file position and size transport through original CFile 4f774d -> 4f75f5 -> SetFilePointer at 4f7603; original file parsing remains unchanged."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical RECT copy import at original selected-world-plane initializer 4d0689; world parsing and viewport selection remain original."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical SetRect operation in the original selected-world-plane viewport graph; original plane parsing and geometry computations remain unchanged."
+    },
+    "0x546888": {
+      "kind": "fixture",
+      "name": "SetBkMode",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical GDI text service reached by original custom-world loading label 46f040; game label formatting, position and call ordering remain original."
+    },
+    "0x546880": {
+      "kind": "fixture",
+      "name": "SetTextColor",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical GDI text service reached by original custom-world loading label 46f040; game label formatting, position and call ordering remain original."
+    },
+    "0x546d30": {
+      "kind": "fixture",
+      "name": "DrawTextA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "ptr:16",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical text draw at original custom-world loading label 46f16e; game label formatting, rectangle and call ordering remain original."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/single_player_scene.cases.py",
+    "entry": "claw_single_player_scene_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4cea6f",
+        "end": "0x4cea71",
+        "reason": "Only the null-allocation arm for scene +0x4: original later unconditionally dereferences this null child at 0x4cee3d before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4ceabd",
+        "end": "0x4ceabf",
+        "reason": "Only the null-allocation arm for scene +0x8: original later unconditionally dereferences this null child at 0x4ced35 before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4ceb03",
+        "end": "0x4ceb05",
+        "reason": "Only the null-allocation arm for scene +0xc: original later unconditionally dereferences this null child at 0x4ced58 before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4ceb4e",
+        "end": "0x4ceb50",
+        "reason": "Only the null-allocation arm for scene +0x10: original later unconditionally dereferences this null child at 0x4ced7b before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4ceb99",
+        "end": "0x4ceb9b",
+        "reason": "Only the null-allocation arm for scene +0x14: original later unconditionally dereferences this null child at 0x4ced9e before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4cec00",
+        "end": "0x4cec02",
+        "reason": "Only the null-allocation arm for scene +0x18: original later unconditionally dereferences this null child at 0x4cedc1 before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4cec32",
+        "end": "0x4cec34",
+        "reason": "Only the null-allocation arm for scene +0x24: original later unconditionally dereferences this null child at 0x4cee10 before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4ceccb",
+        "end": "0x4ceccd",
+        "reason": "Only the null-allocation arm for scene +0x2c: original later unconditionally dereferences this null child at 0x4cede4 before any possible normal return. Earlier manager/world methods unconditionally succeed. Null-page faults and guest exception unwinding are outside the normal-return contract; the allocation test and all nonnull construction remain required. The allocator must not repair another child or replace game methods."
+      },
+      {
+        "start": "0x4cecfa",
+        "end": "0x4cecfc",
+        "reason": "Null 0x884 graphics child is later read from scene+0x1c by original 4d5510 at 4d552e, then passed at 4d555d to original 4bc220, which unconditionally stores at receiver+0x878 and +0x87c (4bc228/4bc232) before any physical service or normal failure return. All preceding manager and world probes unconditionally succeed. Only this two-byte null arm is exempt under the normal-return-only contract."
+      },
+      {
+        "start": "0x4ced3e",
+        "end": "0x4ced55",
+        "reason": "Error 1001 cannot follow a normal return: the actual freshly constructed vtable 0x513c20 slot +0x18 targets original 0x4bd250, which unconditionally returns one. The original vtable and callee are hash-verified; no game callback replacement or vtable rewrite is permitted. Excludes only the impossible error arm, not its test or any reachable setup."
+      },
+      {
+        "start": "0x4ced61",
+        "end": "0x4ced78",
+        "reason": "Error 1002 cannot follow a normal return: the actual freshly constructed vtable 0x513be8 slot +0x18 targets original 0x4bd250, which unconditionally returns one. The original vtable and callee are hash-verified; no game callback replacement or vtable rewrite is permitted. Excludes only the impossible error arm, not its test or any reachable setup."
+      },
+      {
+        "start": "0x4ced84",
+        "end": "0x4ced9b",
+        "reason": "Error 1003 cannot follow a normal return: the actual freshly constructed vtable 0x513b88 slot +0x18 targets original 0x4cfa60, which unconditionally returns one. The original vtable and callee are hash-verified; no game callback replacement or vtable rewrite is permitted. Excludes only the impossible error arm, not its test or any reachable setup."
+      },
+      {
+        "start": "0x4ceda7",
+        "end": "0x4cedbe",
+        "reason": "Error 1004 cannot follow a normal return: the actual freshly constructed vtable 0x513b60 slot +0x18 targets original 0x4bd250, which unconditionally returns one. The original vtable and callee are hash-verified; no game callback replacement or vtable rewrite is permitted. Excludes only the impossible error arm, not its test or any reachable setup."
+      },
+      {
+        "start": "0x4cedca",
+        "end": "0x4cede1",
+        "reason": "Error 1005 cannot follow a normal return: the actual freshly constructed vtable 0x513b28 slot +0x18 targets original 0x4bd250, which unconditionally returns one. The original vtable and callee are hash-verified; no game callback replacement or vtable rewrite is permitted. Excludes only the impossible error arm, not its test or any reachable setup."
+      },
+      {
+        "start": "0x4ceded",
+        "end": "0x4cee04",
+        "reason": "Error 1006 cannot follow a normal return: the actual freshly constructed vtable 0x513ad8 slot +0x18 targets original 0x4cdf20, which unconditionally returns one. The original vtable and callee are hash-verified; no game callback replacement or vtable rewrite is permitted. Excludes only the impossible error arm, not its test or any reachable setup."
+      },
+      {
+        "start": "0x4cee1a",
+        "end": "0x4cee31",
+        "reason": "Error 1007 cannot follow a normal return: the actual freshly constructed vtable 0x513938 slot +0x34 targets original 0x4cb040, which unconditionally returns one. The original vtable and callee are hash-verified; no game callback replacement or vtable rewrite is permitted. Excludes only the impossible error arm, not its test or any reachable setup."
+      },
+      {
+        "start": "0x4cee4e",
+        "end": "0x4cee59",
+        "reason": "Error 1008 assignment is dominated by original display 0x4ca6f0 returning zero only after it preserves a nonzero scene+0x38 or sets 2001, 2002, or 2003 (4ca7f6..4ca819,4ca82a..4ca84d,4ca865..4ca888). No call intervenes before 4cee49 reads that same field, so the zero-error arm is impossible. The display failure test and sticky-error preservation remain required."
+      },
+      {
+        "start": "0x4ceebd",
+        "end": "0x4ceec9",
+        "reason": "Error 1010 arm requires original 0x4ca280 to return zero, but the freshly constructed sound manager has +0xc=this scene and caller passes force=1. Original 4ca280 therefore takes 4ca2a8 and unconditionally returns one, even with audio absent. A null sound allocation can only return earlier on display/audio failure; otherwise dereference faults. Shared failure epilogue 4ceec9 remains required."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1727043380,
+      "cases": 142,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.915,
+      "reasons": [],
+      "build_inputs_sha256": "d3849f57f2c176babf775824afbb93b86f68e71eba33c2296c47245e4e7eca0f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "CRT heap ends in OS calls.",
+    "CRT heap release pairs with allocation.",
+    "CRT heap ends in OS calls.",
+    "CRT random generator reads TLS through OS imports.",
+    "CRT seed setter calls 0x4a7dc0, whose TLS access ends in OS imports.",
+    "Win32 cursor display counter.",
+    "Win32 window update.",
+    "DirectSound platform creation through original thunk 0x4f4480.",
+    "Only normal returns are specified; guest exception unwinding is not transported by this ordinary ABI.",
+    "Legacy app integration continues through the unchanged legacy module and is not evidence for this canonical module.",
+    "Physical millisecond clock reached by original fade 4bb990 and dimension-reset timing 4b83d0.",
+    "Physical pathname service at original 4f77a2; custom-world file parsing remains original.",
+    "Physical bounded pathname copy at original 4f77b1 after path normalization failure.",
+    "Physical read-only custom-world file open at original 4f752e.",
+    "Physical byte transport at original 4f758c; 4cd530 validates header and 436e60 parses the level.",
+    "Physical file close at original 4f767d; original MFC lifetime and CString release execute unchanged.",
+    "Physical string-length import at original CString assignment 4f66dd; original CString allocation, copy, and lifetime remain unchanged.",
+    "Physical window-message queue read at original 4b893a, reached by successful level startup through 4b8910; original queue-drain loop remains unchanged.",
+    "Physical Miles sequence backend imported from mss32.dll by original music constructor 4b58a0; original track selection, byte copy, registration and lifetime execute unchanged.",
+    "Physical custom-world file position and size transport through original CFile 4f774d -> 4f75f5 -> SetFilePointer at 4f7603; original file parsing remains unchanged.",
+    "Physical RECT copy import at original selected-world-plane initializer 4d0689; world parsing and viewport selection remain original.",
+    "Physical SetRect operation in the original selected-world-plane viewport graph; original plane parsing and geometry computations remain unchanged.",
+    "Physical GDI text service reached by original custom-world loading label 46f040; game label formatting, position and call ordering remain original.",
+    "Physical text draw at original custom-world loading label 46f16e; game label formatting, rectangle and call ordering remain original."
+  ],
+  "notes": "Reviewed game ownership excludes delegated world/state-five bodies, elected graphics_record_constructor 0x4ce960 and booty_progression 0x4bd250, and CRT/MFC/native startup. Canonical migration preserves legacy files unchanged."
+}

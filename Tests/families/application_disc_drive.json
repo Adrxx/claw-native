@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "id": "application_disc_drive",
+  "title": "Original application disc-drive discovery",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationDiscDriveRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42b020",
+      "name": "Application::discoverDiscDrive",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4b5e90": {
+      "kind": "whole",
+      "name": "Configuration::readString",
+      "convention": "thiscall",
+      "argc": 4
+    },
+    "0x4a3920": {
+      "kind": "whole",
+      "name": "CRT sprintf fixed source format",
+      "convention": "cdecl",
+      "argc": 3
+    },
+    "0x54682c": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegQueryValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "out:4",
+        "out:30",
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Isolated OS registry; query type, capacity, bytes and status are scripted without replacing game/CRT bodies."
+    },
+    "0x546a28": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentDirectoryA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "out:255"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS directory service; bounded ANSI output with source capacity255."
+    },
+    "0x546a2c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetDriveTypeA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical OS drive classification; cases provide an isolated virtual-drive map."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_disc_drive.cases.py",
+    "entry": "claw_application_disc_drive_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1423027663,
+      "cases": 49,
+      "mutants_killed": 25,
+      "mutants_tried": 28,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.962,
+      "reasons": [],
+      "build_inputs_sha256": "1a14bf214f183f337505a12a1826d3f82c90f380acdc4a8016dc101aa32d73cc"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "All274 owned bytes retained without exemption. Registry getter and fixed-format sprintf execute original code on both comparison sides.",
+    "Only the three OS imports are fixtures; fixed immutable source format excludes broader CRT/locale paths.",
+    "AL is the semantic drive byte; u32 transports exact original EAX residue for every path.",
+    "Synthetic OS roots are comparison inputs, not original-disc admission or connected startup/menu acceptance."
+  ],
+  "notes": "Boundary reviewed against pinned v1.0 original instructions/probes; exact EAX residue, nested entry stack positions and source data ranges are in ignored packet NOTES.md. No source game or CRT fixture."
+}

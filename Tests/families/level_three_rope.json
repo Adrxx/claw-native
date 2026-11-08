@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "id": "level_three_rope",
+  "title": "Level 3 rope closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelThreeRopeRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x403100",
+      "name": "RopeLogicDispatch",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4031c0",
+      "name": "RopeControllerConstruct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4035a0",
+      "name": "RopeStateDispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x403850",
+      "name": "RopeUpdate",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4038d0",
+      "name": "RopeFrameUpdate",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x465450",
+      "name": "RopeEnterIdle",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "_ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x403b40": {
+      "kind": "whole",
+      "name": "RopeIntegrate",
+      "convention": "thiscall",
+      "argc": 2,
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Win32 import reached by the original RTTI path when the state table entry is null"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_three_rope.cases.py",
+    "entry": "claw_level_three_rope_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40315c",
+        "end": "0x40315e",
+        "reason": "Allocation-failure path zeroes EDI then unconditionally reads [EDI] at 0x40315e. Verified by original run (work/packets/level_three_rope/probe_failures.py): with operator new returning 0 the original faults with a null pointer access at 0x40315e, so no normal return exists. The native body must keep the read."
+      },
+      {
+        "start": "0x4035f5",
+        "end": "0x403623",
+        "reason": "First table grow failure path, reached only when 0x4db6e0 returns 0. That needs realloc to return 0, after which 0x4db788 calls 0x4dc680, which reads [EBP+4] with EBP 0 and faults before returning. Verified by original run (work/packets/level_three_rope/probe_failures.py): both lower and upper grow with realloc returning 0 fault at 0x4dc680."
+      },
+      {
+        "start": "0x40366f",
+        "end": "0x4036a2",
+        "reason": "Second table grow failure path, same cause as the first: 0x4db6e0 returns 0 only after realloc returned 0, and the original faults at 0x4dc680 (read of address 4) first. Verified by original run (work/packets/level_three_rope/probe_failures.py): second-grow-null probe faults at 0x4dc680."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3793540162,
+      "cases": 542,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "ddf1cf52e376039a8066f5718709df25ff7c30234a2c46cb28df4019e833a309"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr is a declared pointer-validation fixture."
+  ],
+  "notes": "Boundary checked against original corpus disassembly; 0x403850 consumes one ignored stack word, and exact x87 declarations preserve conversion and integration transport."
+}

@@ -1,0 +1,439 @@
+{
+  "schema": 1,
+  "id": "mfc_tls_values",
+  "title": "Original MFC thread-local value retrieval and storage",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcTlsValuesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x50335e",
+      "name": "MfcTlsSlot::getValue",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x503167",
+      "name": "MfcTlsManager::setValue",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1090,
+        "optional": true
+      }
+    }
+  ],
+  "callees": {
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock acquisition tracks section identity, owner and recursion."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock release balances the current owner and section."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle unlock decrements its lock count; zero can be a successful final unlock."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global reallocation preserves the prefix and preserves old ownership on failure."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle lock returns its data pointer; the cached IAT target remains this same physical import."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:1",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated."
+    },
+    "0x502fb6": {
+      "kind": "whole",
+      "name": "MfcTlsManager::initialize",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1122,
+        "optional": true
+      },
+      "reason": "Whole original initializer at return PC0x503381."
+    },
+    "0x502ff8": {
+      "kind": "whole",
+      "name": "MfcTlsManager::allocateSlot",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024,
+        "optional": true
+      },
+      "reason": "Whole original slot allocator at return PC0x503392; backed saved-register aliases remain observable."
+    },
+    "0x502f84": {
+      "kind": "whole",
+      "name": "MfcLocalAllocation::checked",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Whole original checked allocator at return PC0x50319c with size16 and genuine failure chain."
+    },
+    "0x502f26": {
+      "kind": "whole",
+      "name": "MfcList::prepend",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Whole original list insertion at return PC0x5031c7, retaining full machine EAX despite semantic void."
+    },
+    "0x4a4a20": {
+      "kind": "whole",
+      "name": "CRT memset",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1106,
+        "optional": true
+      },
+      "reason": "Whole original byte fill at return PC0x503225, including argument and saved-EDI aliases."
+    },
+    "0x4f50fd": {
+      "kind": "whole",
+      "name": "MFC memory exception throw helper",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Whole original nonreturning throw at return PC0x503205; original0x4a5690 reaches physical RaiseException without fabricated return or unwind."
+    },
+    "0x502335": {
+      "kind": "whole",
+      "name": "MfcThreadState::factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Whole original argument-selected callback at return PC0x5033be, with actual compiler frame, checked allocation and thread constructor."
+    },
+    "0x502369": {
+      "kind": "whole",
+      "name": "MfcModuleState::factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Whole original alternate argument-selected callback at return PC0x5033be; declaration supplies signature, not arbitrary callback authority."
+    },
+    "0x502301": {
+      "kind": "whole",
+      "name": "MfcApplicationThreadRecord::factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Whole original argument-selected application callback at CALL0x5033ba/return0x5033be, selected by genuine consumer CALL0x5025ca/return0x5025cf; original compiler scopes, checked allocation and constructors execute unchanged. Optional transport applies only to this caller declaration: ordinary TLS unit calls bridge the unchanged original body; source TLS calls still require exact full masks. The native application owner retains required source capability and gains no ordinary native election."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_tls_values.cases.py",
+    "entry": "claw_mfc_tls_values_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x503385",
+        "end": "0x503387",
+        "reason": "The only incoming conditional edge tests the fixed nonzero literal 0x540af8 copied into EAX without an intervening call or mutable operand; the other path jumps past these two bytes. Impossible for every ordinary entry with unchanged instructions."
+      },
+      {
+        "start": "0x5031aa",
+        "end": "0x5031ac",
+        "reason": "The sole incoming branch tests the original 0x502f84 result. It returns its saved nonzero LocalAlloc pointer or calls original 0x4f50fd then 0x4a5690, which raises flags-1 noncontinuable exception and must Halt. No permitted returning path yields null. Returning RaiseException fixtures invalidate this exemption."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "codex": {
+      "prior_ordinary_only": {
+        "level": "admitted",
+        "gate": {
+          "kind": "admission",
+          "status": "admitted",
+          "seed": 2092541609,
+          "cases": 44,
+          "mutants_killed": 28,
+          "mutants_tried": 35,
+          "mutants_equivalent": 0,
+          "mutation_score": 0.933,
+          "reasons": []
+        }
+      },
+      "note": "Prior ordinary and two-factory source admissions retained as provenance; current gate records132cases for all three callbacks.",
+      "prior_two_factory_source": {
+        "level": "admitted",
+        "gate": {
+          "kind": "admission",
+          "status": "admitted",
+          "seed": 1039910026,
+          "cases": 110,
+          "mutants_killed": 66,
+          "mutants_tried": 82,
+          "mutants_equivalent": 0,
+          "mutation_score": 0.943,
+          "reasons": []
+        }
+      }
+    },
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4028226401,
+      "cases": 132,
+      "mutants_killed": 66,
+      "mutants_tried": 82,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.943,
+      "reasons": [],
+      "build_inputs_sha256": "ae94dc1d375074a82d878f344400dcf072c3f4852dc0b6b65b30c7f15f67e828"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "TlsAlloc is a modeled physical service: physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion.",
+    "TlsGetValue is a modeled physical service: physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null.",
+    "TlsSetValue is a modeled physical service: physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged.",
+    "InitializeCriticalSection is a modeled physical service: physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions.",
+    "EnterCriticalSection is a modeled physical service: physical lock acquisition tracks section identity, owner and recursion.",
+    "LeaveCriticalSection is a modeled physical service: physical lock release balances the current owner and section.",
+    "GlobalAlloc is a modeled physical service: physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null.",
+    "GlobalHandle is a modeled physical service: physical conversion from a global data pointer to its handle also accepts null on initial allocation failure.",
+    "GlobalUnlock is a modeled physical service: physical handle unlock decrements its lock count; zero can be a successful final unlock.",
+    "GlobalReAlloc is a modeled physical service: physical movable global reallocation preserves the prefix and preserves old ownership on failure.",
+    "GlobalLock is a modeled physical service: physical handle lock returns its data pointer; the cached IAT target remains this same physical import.",
+    "LocalAlloc is a modeled physical service: physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents.",
+    "LocalReAlloc is a modeled physical service: physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure.",
+    "RaiseException is a modeled physical service: physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated.",
+    "The caller-supplied factory is a genuine cdecl callback with no arguments; original MFC factory bodies remain original when supplied, and are never replaced with game-state fixtures.",
+    "Failure evidence ends at nonreturning RaiseException and does not establish Windows exception dispatch, hidden-frame unwinding, lock cleanup or app-side exception support.",
+    "Owned functions retain all 119 and 227 original bytes; only two separately proven two-byte instruction ranges are exempt from required execution.",
+    "Cases require live backing for every indexed access, including the original unchecked final store for an out-of-logical-range zero value; no bounds correction is part of this family.",
+    "Optional source capability observes all eleven CPU fields and the entire bounded stack; getter preserves FS and setter preserves EBX, EBP and FS over supported backed aliases.",
+    "Source callback capability is finite and argument-selected: original0x502335,0x502369 and0x502301 execute whole at CALL0x5033ba/return0x5033be; this does not grant arbitrary callback authority or establish complete CWinApp/startup execution.",
+    "The nested owned setter must execute its translated complete source body at the real child frame and return PC; no context-free shortcut or original-setter bridge establishes that translation.",
+    "Existing compiled integration metadata concerns the prior ordinary implementation and does not establish the optional source extension or native cold TLS composition.",
+    "The optional source domain inherits prepend0x502f26 preservation0x472 and excludes aliases that overwrite its saved ESI; the real cold manager link offset4 satisfies that contract, while ordinary behavior remains unchanged.",
+    "Application factory allocation0x84 and record spans are fresh and disjoint from active controls and saved restoration slots, preserving its declared0x472 contract. Genuine TLS consumers return at0x50229e and0x5025cf; reaching the latter does not execute its CWinApp publication instruction."
+  ],
+  "notes": "Application callback authority extension admitted with132independent cases, all required coverage and ordinary/source modes. Whole119-byte getter/227-byte setter, ordinary and optional source modes, masks400/442 and existing exemptions retained. Genuine consumer continuations0x50229e/0x5025cf; whole factories execute original bodies outside TLS ownership. See work/coordination/application-tls-boundary-plan.md."
+}

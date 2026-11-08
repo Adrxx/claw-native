@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "id": "graphics_manager_lifecycle",
+  "title": "Original graphics-manager lifecycle",
+  "abi": "canonical",
+  "sources": [
+    "Sources/GraphicsManagerLifecycleCanonical.cpp"
+  ],
+  "docs": [
+    "docs/graphics-manager-lifecycle-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4b9540",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "surfaceRelease"
+    },
+    {
+      "address": "0x4bc120",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "managerConstruct"
+    },
+    {
+      "address": "0x4bc1b0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "managerDestroy"
+    },
+    {
+      "address": "0x4bc220",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "managerInitialize"
+    },
+    {
+      "address": "0x4bc400",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "managerRelease"
+    },
+    {
+      "address": "0x4bc4b0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "surfaceListRelease"
+    },
+    {
+      "address": "0x4bc5f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "surfaceDeletingDestroy"
+    },
+    {
+      "address": "0x4bc610",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "surfaceDestroy"
+    },
+    {
+      "address": "0x4bc9d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "paletteListRelease"
+    },
+    {
+      "address": "0x4bcc50",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "name": "enumerateAndSortModes"
+    },
+    {
+      "address": "0x4bcda0",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "enumerationCallback"
+    },
+    {
+      "address": "0x4bcde0",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "modeGreater"
+    },
+    {
+      "address": "0x4bd0c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "updatePixelMasks"
+    },
+    {
+      "address": "0x4bd1c0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared",
+      "name": "setDisplayMode"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime heap ends in operating-system calls; pairs with operator new."
+    },
+    "0x546850": {
+      "kind": "fixture",
+      "name": "DirectDrawCreate",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "out:4",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "DirectDraw import requires a physical display device; cases supply the HRESULT and output interface."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "User32 notification import reached through original error reporting."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "User32 dialog import reached through original error reporting."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/graphics_manager_lifecycle.cases.py",
+    "entry": "claw_graphics_manager_lifecycle_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "codex": {
+      "legacy_metadata": {
+        "sources": [
+          "Sources/GraphicsManagerLifecycleRuntime.cpp",
+          "Sources/GraphicsManagerLifecycleRuntime.h"
+        ],
+        "source_sha256": {
+          "Sources/GraphicsManagerLifecycleRuntime.cpp": "7bdaa423cafe4a5f225b607fd9d511b30dc528d2b74b66948bcf3feb90d194ff",
+          "Sources/GraphicsManagerLifecycleRuntime.h": "7ee00b784ed6ad6ddfebe8adbc36996ad4698bdf5ea5ffb13d98899a6ca5b368"
+        },
+        "oracle": {
+          "kind": "legacy",
+          "commands": [
+            {
+              "script": "Tests/compare_graphics_manager_lifecycle_runtime.py"
+            }
+          ],
+          "helpers": [
+            "Tests/graphics_manager_lifecycle_helpers.py"
+          ],
+          "work_dirs": [
+            "work/graphics-manager-lifecycle-agent",
+            "work/original-disc-assets"
+          ]
+        },
+        "evidence": {
+          "level": "legacy-frozen",
+          "codex": {
+            "root_logs": [
+              "work/root-graphics-manager-lifecycle-asan.log",
+              "work/root-graphics-manager-lifecycle-independent.log"
+            ],
+            "worker_evidence": [
+              "work/graphics-manager-lifecycle-agent/verification.json",
+              "work/graphics-manager-lifecycle-agent/verify.log"
+            ]
+          },
+          "baseline": {
+            "date": "2026-10-12",
+            "status": "pass",
+            "scripts": {
+              "Tests/compare_graphics_manager_lifecycle_runtime.py": "pass"
+            },
+            "seconds": 3.7
+          },
+          "gate": {
+            "kind": "legacy-measurement",
+            "date": "2026-10-12",
+            "plain": "pass",
+            "salted": "pass",
+            "salt": 224039361,
+            "owned": 18,
+            "owned_inferred_from_tests": false,
+            "directly_called": 16,
+            "fully_executed": 16,
+            "bytes_owned": 2116,
+            "bytes_executed": 1977,
+            "coverage": 0.9343
+          }
+        },
+        "integration": {
+          "level": "elected",
+          "in_app_target": true,
+          "in_bridging_header": true,
+          "swift_references": [
+            "Sources/ClawNativePaletteResources.swift"
+          ]
+        }
+      }
+    },
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1649062880,
+      "cases": 299,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "c01cca00fde6e3789979bced0c0128beff735837b146c733a757b7f29c6f0da8"
+    }
+  },
+  "integration": {
+    "level": "source-only",
+    "in_app_target": false,
+    "in_bridging_header": false,
+    "swift_references": []
+  },
+  "limits": [
+    "Operator new is an allocation fixture; no native CRT heap is certified.",
+    "Operator delete is a release fixture; no native CRT heap is certified.",
+    "DirectDrawCreate is a scripted Windows import; no real display device is created.",
+    "MessageBeep is a scripted Windows import; no real notification is emitted.",
+    "MessageBoxA is a scripted Windows import; no real dialog is displayed.",
+    "DirectDraw virtual services and surface deleting-destructor pointers are supplied by cases; native display integration is separate.",
+    "MFC container destructors 0x4f5192 and 0x4f551d are platform dependencies executed as unchanged original code, not owned or recertified.",
+    "The canonical source is source-only; historical elected legacy integration metadata is retained under evidence.codex.",
+    "Static-init wrappers 0x4bc0e0 and 0x4bc100 only construct/destroy the global MFC CArray through CRT startup/atexit; they remain outside game recovery."
+  ],
+  "notes": "Canonical migration preserves all fourteen game-policy owners and all nine reviewed menu owners. Excluded MFC destructors 0x4f5192/0x4f551d remain unchanged original dependencies. Excluded global CArray startup/destruction thunks 0x4bc0e0/0x4bc100 contain only a fixed receiver and a tail jump to MFC; original 0x4bc0d0 and CRT atexit registration 0x4bc0f0 prove startup ownership. Legacy runtime source/header, comparisons and integration remain unchanged; historical metadata is retained under evidence.codex. Ordinary ABI covers normal-return behavior and does not claim guest exception dispatch."
+}

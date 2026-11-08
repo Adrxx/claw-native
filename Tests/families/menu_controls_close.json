@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "id": "menu_controls_close",
+  "title": "Controls close dispatch and activation flags",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuControlsCloseRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4247c0",
+      "name": "Controls::confirmClose",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4247e0",
+      "name": "Controls::cancelClose",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x424800",
+      "name": "Controls::dispatchClose",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42eab0",
+      "name": "Controls::activate",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42eae0",
+      "name": "Controls::deactivate",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Asynchronous native window message enqueue; game code chooses whether and what to post."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_controls_close.cases.py",
+    "entry": "claw_menu_controls_close_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3085955328,
+      "cases": 242,
+      "mutants_killed": 21,
+      "mutants_tried": 26,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.913,
+      "reasons": [],
+      "build_inputs_sha256": "b70eb3be7af944d50a1308e2fba7fcc1955fe88b5ff39a8ec661cf5438b41404"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "PostMessageA is a physical asynchronous message queue stand-in; it does not execute or replace any game handler."
+  ],
+  "notes": "Boundary checked against the hash-verified original. Confirm/cancel tail-call the real owned close dispatcher through the supplied vtable. Activation callbacks preserve every control flag except bit zero."
+}

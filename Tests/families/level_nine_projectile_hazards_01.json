@@ -1,0 +1,257 @@
+{
+  "schema": 1,
+  "id": "level_nine_projectile_hazards_01",
+  "title": "Level 9 projectile hazards",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelNineProjectileHazards01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x462330",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48a8c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x497f70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4981c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x498580",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x498590",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4985f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x498690",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4988b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4988f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4f4f58": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 3,
+      "returns": "void",
+      "reason": "The owned projectile callsite passes CString pointer, format and the decimal index as three physical words."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic operation reached by CString destruction; cases decrement the pointed reference count."
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Original null state-dispatch fallback calls 0x4a36f0, whose valid nonnull-object path probes RTTI storage with the Windows pointer-readability service at 0x4a3760."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows string-length platform service reached by the original alternate-image CString formatting/release path."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_nine_projectile_hazards_01.cases.py",
+    "entry": "claw_level_nine_projectile_hazards_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x498215",
+        "end": "0x498243",
+        "reason": "Original MFC table-grow allocation failure via 0x4db6e0 faults at 0x4dc680 reading null+4 before returning to this fallback; independently replayed both lookup failures with declared realloc fixture, recorded in work/packets/level_nine_projectile_hazards_01/coordinator-original-grow-failures.json."
+      },
+      {
+        "start": "0x49828f",
+        "end": "0x4982c2",
+        "reason": "Original MFC table-grow allocation failure via 0x4db6e0 faults at 0x4dc680 reading null+4 before returning to this fallback; independently replayed both lookup failures with declared realloc fixture, recorded in work/packets/level_nine_projectile_hazards_01/coordinator-original-grow-failures.json."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3070252945,
+      "cases": 125,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.907,
+      "reasons": [],
+      "build_inputs_sha256": "a7a26daf76f548435ac84fe17b64a6869bae225883120658d2e38a6bde002d61"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "InterlockedDecrement is a scripted platform atomic operation on the pointed reference count.",
+    "IsBadReadPtr is the declared pointer-readability platform stand-in for original RTTI inspection.",
+    "lstrlenA is a scripted platform string-length service reading the supplied NUL-terminated bytes."
+  ],
+  "notes": "Reviewed against original instruction corpus; SawBlade4 is cdecl with one physical stack argument. The variadic CString format call has three physical operands."
+}

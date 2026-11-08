@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "raux",
+  "title": "Original Raux and CBoss runtime",
+  "abi": "legacy",
+  "sources": [
+    "Sources/RauxRuntime.cpp",
+    "Sources/RauxRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/RauxRuntime.cpp": "705ed77c47cc6b6b719499d72ace603536d7ad3ed860f87c179821e2411144dc",
+    "Sources/RauxRuntime.h": "d2723c65c7e1a6e1ef390d01bddb6e2b317f1a8ade768d028355fd33bc2e5ad7"
+  },
+  "docs": [
+    "docs/raux-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_raux_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/raux_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/raux-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-raux-independent.log"
+      ],
+      "worker_evidence": [
+        "work/raux-agent/sanitizer.log",
+        "work/raux-agent/verification.json",
+        "work/raux-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_raux_runtime.py": "pass"
+      },
+      "seconds": 84.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2469971695,
+      "owned": 11,
+      "owned_inferred_from_tests": false,
+      "directly_called": 8,
+      "fully_executed": 7,
+      "bytes_owned": 3114,
+      "bytes_executed": 2765,
+      "coverage": 0.8879
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_player_actions_04 (0x4208b0); level_two_raux_core (0x47e210, 0x47e2d0, 0x47e7f0, 0x47e8e0, 0x47ece0, 0x47eef0); level_two_raux_shared (0x40e0d0, 0x40e280, 0x40e660, 0x4a07e0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

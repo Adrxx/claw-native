@@ -1,0 +1,480 @@
+{
+  "schema": 1,
+  "id": "booty_results",
+  "title": "Booty Results",
+  "abi": "canonical",
+  "sources": [
+    "Sources/BootyResultsCanonical.cpp"
+  ],
+  "docs": [
+    "docs/booty-results-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x40b020",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40b040",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40d470",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40db10",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40db60",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40dc10",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40dc50",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40dca0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40dcb0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40dd50",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40de90",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40df00",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40df60",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e020",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40e040",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48f470",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48ffa0",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x490370",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4903c0",
+      "convention": "thiscall",
+      "argc": 7,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x498930",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x498f90",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x499170",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x499450",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4995d0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x499630",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4997c0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4998c0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x499c30",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x499cd0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x499d60",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c89e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c89f0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Allocator boundary replaces the operating-system heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Allocator boundary replaces the operating-system heap."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Allocator boundary replaces the operating-system heap."
+    },
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT rand reads thread-local storage through imports."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 import; cases control the operating-system result."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 import; cases control the operating-system result."
+    },
+    "0x546cb4": {
+      "kind": "fixture",
+      "name": "BeginPaint",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 import; cases control the operating-system result."
+    },
+    "0x546cb8": {
+      "kind": "fixture",
+      "name": "EndPaint",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 import; cases control the operating-system result."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      },
+      "reason": "Original conversion consumes the exact x87 operand; EAX supplies the used low integer word."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical string-length import reached by original CString construction from component owners 0x499170, 0x499450, and 0x499630."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic decrement at original CString release callsite 0x4f6592, reached by component construction."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical atomic word increment reached by original CString copy in full 0x40d470 construction."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical import reached by original CString, palette, or input descendant; verified original callsites in packet."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical import reached by original CString, palette, or input descendant; verified original callsites in packet."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/booty_results.cases.py",
+    "entry": "claw_booty_results_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x40d676",
+        "end": "0x40d67a",
+        "reason": "Null-allocation branch has no defined returning execution: Original490760 is called with null ECX at40d691 and unconditionally writes receiver+0xc at49077a. The original branch remains translated; successful returning cases require this allocation to succeed."
+      },
+      {
+        "start": "0x40d6bb",
+        "end": "0x40d6bf",
+        "reason": "Null-allocation branch has no defined returning execution: The preceding successful490760 publishes the nonzero controller to parent logic+0x18 at40d69e. With normal allocator semantics, original4903c0 therefore cannot take its missing-controller early return and writes null receiver+8 at4903f5. An allocator clearing unrelated game state is outside the allocator service contract. The original branch remains translated; successful returning cases require this allocation to succeed."
+      },
+      {
+        "start": "0x40d751",
+        "end": "0x40d753",
+        "reason": "Null-allocation branch has no defined returning execution: Original490760 is called with null ECX at40d765 and unconditionally writes receiver+0xc at49077a. The original branch remains translated; successful returning cases require this allocation to succeed."
+      },
+      {
+        "start": "0x40d78b",
+        "end": "0x40d78f",
+        "reason": "Null-allocation branch has no defined returning execution: The preceding successful490760 publishes the nonzero controller to parent logic+0x18 at40d76e. With normal allocator semantics, original4903c0 therefore cannot take its missing-controller early return and writes null receiver+8 at4903f5. An allocator clearing unrelated game state is outside the allocator service contract. The original branch remains translated; successful returning cases require this allocation to succeed."
+      },
+      {
+        "start": "0x40d920",
+        "end": "0x40d922",
+        "reason": "Null-allocation branch has no defined returning execution: Null allocation is assigned to ESI and unconditionally written at ESI+0x8c at40d930. The original branch remains translated; successful returning cases require this allocation to succeed."
+      },
+      {
+        "start": "0x49047e",
+        "end": "0x490480",
+        "reason": "Null-allocation branch has no defined returning execution: Original490760 is called with null ECX at4904a2 and unconditionally writes receiver+0xc at49077a. The original branch remains translated; successful returning cases require this allocation to succeed."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 297652447,
+      "cases": 267,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "30d09e048b323279b3e73d616cb8f4061ca927cb78d27178cd1191333ac1df91"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a allocate fixture: Allocator boundary replaces the operating-system heap.",
+    "operator delete is a release fixture: Allocator boundary replaces the operating-system heap.",
+    "malloc is a allocate fixture: Allocator boundary replaces the operating-system heap.",
+    "rand is a scripted fixture: CRT rand reads thread-local storage through imports.",
+    "PostMessageA is a scripted fixture: Physical Win32 import; cases control the operating-system result.",
+    "ShowCursor is a scripted fixture: Physical Win32 import; cases control the operating-system result.",
+    "BeginPaint is a scripted fixture: Physical Win32 import; cases control the operating-system result.",
+    "EndPaint is a scripted fixture: Physical Win32 import; cases control the operating-system result.",
+    "lstrlenA: Physical string-length import reached by original CString construction from component owners 0x499170, 0x499450, and 0x499630.",
+    "InterlockedDecrement models the physical atomic operation; original CString lifetime logic remains unchanged.",
+    "InterlockedIncrement models the physical atomic word operation; original CString copying remains unchanged.",
+    "timeGetTime is a physical service fixture; original game descendant logic remains unchanged.",
+    "GetAsyncKeyState is a physical service fixture; original game descendant logic remains unchanged."
+  ],
+  "notes": "Canonical migration preserves all 32 legacy owned entries. Legacy runtime files remain unchanged; the new module is source-only. Original-backed game and library callees remain outside ownership. Additional reachable physical imports require boundary review, never substitution of game bodies."
+}

@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "id": "pickup_points",
+  "title": "Original pickup points actor",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PickupPointsCanonical.cpp"
+  ],
+  "docs": [
+    "docs/pickup-points-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x40f680",
+      "name": "imageFrameAt",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4737c0",
+      "name": "spawnPickupPoints",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x473a70",
+      "name": "updatePickupPoints",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7900",
+      "name": "selectImageFrame",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7970",
+      "name": "selectFirstImageFrame",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The original actor factory and list node allocation reach the operating-system heap."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with original actor and list allocations on cleanup paths."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pickup_points.cases.py",
+    "entry": "claw_pickup_points_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 315556849,
+      "cases": 177,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.927,
+      "reasons": [],
+      "build_inputs_sha256": "d4791cf7805de6d82c044dceced284b3dbdb30842c39166f6a2a3405c4527073"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new is a deterministic heap fixture; no operating-system allocation executes.",
+    "Operator delete is a heap release fixture; no operating-system deallocation executes."
+  ],
+  "notes": "Canonical migration retains the complete five-function owned surface. Sources/PickupPointsRuntime.cpp and Sources/PickupPointsRuntime.h remain unchanged legacy app adapters and are excluded from this canonical oracle build."
+}

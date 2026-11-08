@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "id": "level_one_audio_events_01",
+  "title": "Observed Level 1 audio events batch 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneAudioEvents01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x48bfd0",
+      "name": "currentAudioEvent",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c1e0",
+      "name": "soundTrigger",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c410",
+      "name": "soundTriggerWide",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c430",
+      "name": "soundTriggerNarrow",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c630",
+      "name": "playerSpeechMarker",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48c8f0",
+      "name": "enemySoundTrigger",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48ca40",
+      "name": "enemySoundTriggerWide",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48ca60",
+      "name": "enemySoundTriggerNarrow",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x48cc60",
+      "name": "enemySpeechMarker",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x490130",
+      "name": "sceneTransition",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4b45f0": {
+      "kind": "fixture",
+      "name": "playAudio",
+      "convention": "thiscall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical audio voice acquisition and DirectSound playback cannot run without the native audio device provider."
+    },
+    "0x4b8960": {
+      "kind": "fixture",
+      "name": "waitMilliseconds",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical multimedia-clock busy wait requires real timeGetTime progress and is supplied by the native timing provider."
+    },
+    "0x4bc670": {
+      "kind": "fixture",
+      "name": "createRenderSurface",
+      "convention": "thiscall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "DirectDraw surface construction reaches device COM methods and platform surface ownership; cases supply the native rendering service result."
+    },
+    "0x4b9c50": {
+      "kind": "fixture",
+      "name": "blitRenderSurface",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical DirectDraw Blt and lost-surface recovery require a rendering device."
+    },
+    "0x4bc4f0": {
+      "kind": "fixture",
+      "name": "releaseRenderSurface",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Platform surface-list removal and DirectDraw object destruction belong to the rendering provider."
+    },
+    "0x4ec050": {
+      "kind": "fixture",
+      "name": "createRenderFader",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CFaderMgr creates physical rendering effects over device surfaces; cases inspect the original-initialized descriptor and supply renderer handles."
+    },
+    "0x4ec9c0": {
+      "kind": "fixture",
+      "name": "runRenderFader",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Timed rendering effect execution uses GetTickCount and device presentation; the native renderer supplies the effect service."
+    },
+    "0x4ec600": {
+      "kind": "fixture",
+      "name": "releaseRenderFader",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "CFaderMgr removes and destroys provider-owned rendering effects; cases supply that physical rendering lifecycle."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows string-length import reachable from original CString assignment requires an import fixture."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic decrement import reachable from original CString destruction requires an import fixture."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_audio_events_01.cases.py",
+    "entry": "claw_level_one_audio_events_01_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 899304954,
+      "cases": 163,
+      "mutants_killed": 42,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.933,
+      "reasons": [],
+      "build_inputs_sha256": "cdd9945a575d3012d14e02d133880f6ec304f9be47773ddcdc9c4f5bb3a5e821"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero): C runtime lock: enters an operating-system critical section; the game is single-threaded here",
+    "_unlock is a stand-in (return-zero): C runtime unlock: leaves an operating-system critical section",
+    "operator new is a stand-in (allocate): the C runtime heap ends in operating-system calls",
+    "operator delete is a stand-in (release): pairs with operator new",
+    "playAudio is a stand-in (scripted): Physical audio voice acquisition and DirectSound playback cannot run without the native audio device provider.",
+    "waitMilliseconds is a stand-in (scripted): Physical multimedia-clock busy wait requires real timeGetTime progress and is supplied by the native timing provider.",
+    "createRenderSurface is a stand-in (scripted): DirectDraw surface construction reaches device COM methods and platform surface ownership; cases supply the native rendering service result.",
+    "blitRenderSurface is a stand-in (scripted): Physical DirectDraw Blt and lost-surface recovery require a rendering device.",
+    "releaseRenderSurface is a stand-in (scripted): Platform surface-list removal and DirectDraw object destruction belong to the rendering provider.",
+    "createRenderFader is a stand-in (scripted): CFaderMgr creates physical rendering effects over device surfaces; cases inspect the original-initialized descriptor and supply renderer handles.",
+    "runRenderFader is a stand-in (scripted): Timed rendering effect execution uses GetTickCount and device presentation; the native renderer supplies the effect service.",
+    "releaseRenderFader is a stand-in (scripted): CFaderMgr removes and destroys provider-owned rendering effects; cases supply that physical rendering lifecycle.",
+    "KERNEL32.dll!lstrlenA is a stand-in (scripted): Windows string-length import reachable from original CString assignment requires an import fixture.",
+    "KERNEL32.dll!InterlockedDecrement is a stand-in (scripted): Windows atomic decrement import reachable from original CString destruction requires an import fixture."
+  ],
+  "notes": "Boundary checked against the ten original disassemblies; exact seed ownership retained. Original game helpers, MFC map lookup, fader-descriptor construction and CString operations execute unchanged; only physical rendering/audio/timing, imports, CRT locking and heap services are fixtures. No original instruction coverage exemptions."
+}

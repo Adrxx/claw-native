@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "static_inline_configuration",
+  "title": "Original static inline display configuration",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticInlineConfigurationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x425230",
+      "name": "Static inline display configuration",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "body_ranges": [
+        {
+          "start": "0x425230",
+          "end": "0x425251",
+          "sha256": "245d46212226c1c3640eabb195614f05e3a47ec87e60a5c4edc50ca841909119"
+        }
+      ]
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_inline_configuration.cases.py",
+    "entry": "claw_static_inline_configuration_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3037008781,
+      "cases": 40,
+      "mutants_killed": 9,
+      "mutants_tried": 9,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "c0f5b27265ca07df482890dbde1793678df07a8de8f020753f023e3762b690ea"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The complete 33-byte body is owned, with no coverage exemptions or physical service fixtures.",
+    "The existing static wrapper remains separately owned; its direct tail transfer gives this body the original driver's return frame without a callback registration.",
+    "Optional full source context observes all integer registers, arithmetic flags, the real return PC, FS head and the complete bounded stack; ordinary entry retains its void cdecl ABI.",
+    "Only the boundary is prepared: blind original cases, native translation, admission and grouped startup composition remain required."
+  ],
+  "notes": "Boundary checked against the pinned original through Tests.clawparity.program.claw(); exact original behavior and source-state obligations are recorded in the ignored worker packet. No implementation, cases or admission evidence is supplied by this manifest."
+}

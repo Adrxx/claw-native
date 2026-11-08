@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "id": "menu_application",
+  "title": "Menu application readiness, dimensions, viewport and camera policy",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuApplicationRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x425640",
+      "name": "Application::ready",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429e10",
+      "name": "Application::reportDiagnostic",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429eb0",
+      "name": "Application::requestRedraw",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429ed0",
+      "name": "Application::layoutViewport",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42a000",
+      "name": "Application::ensureMenuDimensions",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42a060",
+      "name": "Application::resizeScene",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42ae70",
+      "name": "Application::updateCameraThresholds",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical monotonic clock reached through original 0x42abf0/0x4b83d0."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "CRT x87 integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached directly or through unchanged original display/world diagnostic code."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached directly or through unchanged original display/world diagnostic code."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached directly or through unchanged original display/world diagnostic code."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached directly or through unchanged original display/world diagnostic code."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "CRT heap service ends in operating-system calls; game allocation policy remains original."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "CRT heap service ends in operating-system calls; game allocation policy remains original."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "CRT heap service ends in operating-system calls; game allocation policy remains original."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_application.cases.py",
+    "entry": "claw_menu_application_entry",
+    "equivalent_mutants": [
+      {
+        "line": 69,
+        "operator": "le-to-lt",
+        "source_sha256": "87e2f6d66cf4752e59f2c8965e11017e1b834bb7b6899b33fdffb30f691859a2",
+        "mutant_sha256": "97ef31015a430f249ef25195e8b420c98a09e540df31365c6415caf6175e78b2",
+        "reason": "At original 0x429ee7..0x429ef1, clamping signed layout <=1 to exactly1 is equivalent to clamping signed layout <1: equality already holds layout=1, and the assignment changes no value or guest memory. No observable call/store occurs inside this local scalar assignment; all subsequent behavior and arguments are identical for every32bit layout."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4152104676,
+      "cases": 105,
+      "mutants_killed": 46,
+      "mutants_tried": 48,
+      "mutants_equivalent": 1,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "fa6e4388de019202669c483ce9768a38d16af7737b76713b718ecfeb40a94057"
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeScene.swift"
+    ]
+  },
+  "limits": [
+    "Physical timeGetTime is scripted; original timer reset code runs unchanged.",
+    "SetRect and CopyRect use case-controlled physical rectangle effects.",
+    "MessageBeep and MessageBoxA are case-controlled physical diagnostics; game diagnostic formatting and dispatch remain original.",
+    "CRT new, delete and malloc use the shared fixture heap; game allocation and list policy remain original.",
+    "The unchanged CRT conversion at 0x4a30e0 consumes one declared x87 operand; layout and camera arithmetic remain owned game policy.",
+    "Native first menu binding uses actual 640 by 480 display dimensions; native resize and extended arithmetic backend integration require separate evidence."
+  ],
+  "notes": "Reviewed owned addition for menu-batch-application-services. Preserves existing 0x42a000 ownership and test domain; adds readiness, diagnostic dispatch, redraw/layout, resize and camera policy at exact elected original addresses. All nonphysical game callees execute original code. Native first-menu/join acceptance remains separate."
+}

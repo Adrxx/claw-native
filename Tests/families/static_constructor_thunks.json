@@ -1,0 +1,3226 @@
+{
+  "schema": 1,
+  "id": "static_constructor_thunks",
+  "title": "Original static constructor-call thunks with genuine receiver and tail frames",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StaticConstructorThunksRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x501fc7",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x501fc7",
+          "end": "0x501fc8",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x502278",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502278",
+          "end": "0x502279",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x502c9a",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502c9a",
+          "end": "0x502ca4",
+          "sha256": "31f2cd92164288eab7178c74dd3e1cfcc647977aed81367b9445aae39a20fec3"
+        }
+      ]
+    },
+    {
+      "address": "0x502880",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502880",
+          "end": "0x502881",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x502c5b",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502c5b",
+          "end": "0x502c5c",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x50372c",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x50372c",
+          "end": "0x50372d",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x503752",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x503752",
+          "end": "0x503753",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x403550",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x403550",
+          "end": "0x403565",
+          "sha256": "2fb295d7c3e5bdc8bbf2c60b0caeedc6354a1d726dbb34ec98c136b8f75fe628"
+        }
+      ]
+    },
+    {
+      "address": "0x4042c0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4042c0",
+          "end": "0x4042d5",
+          "sha256": "e4c8b92311290a65603e7f591575f7a9460a5bd51f6fc706cd46663e133044ba"
+        }
+      ]
+    },
+    {
+      "address": "0x4064d0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4064d0",
+          "end": "0x4064e5",
+          "sha256": "6ce5badf335eed725c55a4c2c0e2bc1d08be1359c370e6a0ebae104c65090871"
+        }
+      ]
+    },
+    {
+      "address": "0x406ea0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x406ea0",
+          "end": "0x406eb5",
+          "sha256": "26ca81ee4e917aa6e8280b6943f74746a311e00c88f48c409e3c9a466bd307cf"
+        }
+      ]
+    },
+    {
+      "address": "0x4074b0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4074b0",
+          "end": "0x4074c5",
+          "sha256": "048065fc36e692b8c2f2887dc27fe69e49e6fa8802160b071de5d8183db3932d"
+        }
+      ]
+    },
+    {
+      "address": "0x408530",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x408530",
+          "end": "0x408545",
+          "sha256": "bba7be4c507ac5dc4c6f729a47f69d4711efded126c61558f083475361dd51a7"
+        }
+      ]
+    },
+    {
+      "address": "0x409160",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x409160",
+          "end": "0x409175",
+          "sha256": "c3f87286d5e84d9722458d535d45fad86e4a4a7117c7b5bf86be7de0c14d522e"
+        }
+      ]
+    },
+    {
+      "address": "0x409ff0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x409ff0",
+          "end": "0x40a005",
+          "sha256": "e3f02b1536ed7cf06a4f915a2c2a0a03267b38588e46aab9c4a4ea1a4986810f"
+        }
+      ]
+    },
+    {
+      "address": "0x40b830",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40b830",
+          "end": "0x40b840",
+          "sha256": "18895c475e2c7392441d2c309cf3caf7699b7f6386b0e0445cd97e1e8234c194"
+        }
+      ]
+    },
+    {
+      "address": "0x40e230",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40e230",
+          "end": "0x40e245",
+          "sha256": "a8532f217b1e6b620b2ba776ea4d7872a021844846b131e83b7c14b9dc5d9afb"
+        }
+      ]
+    },
+    {
+      "address": "0x40eb90",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40eb90",
+          "end": "0x40eba5",
+          "sha256": "dafad00e5df8d67ead3aeb12cfce6c68590a963b4cd85d2970d365a91403ae09"
+        }
+      ]
+    },
+    {
+      "address": "0x40fae0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x40fae0",
+          "end": "0x40faf5",
+          "sha256": "9965e29dd39b9b8d93f45d19f6f130ab38bd71f091c4cbf6dfcd0b85cd7b4386"
+        }
+      ]
+    },
+    {
+      "address": "0x410a30",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x410a30",
+          "end": "0x410a45",
+          "sha256": "63f6d1f294880424813177deb80c6381464b41f402838721ccbc33f3acf6bc32"
+        }
+      ]
+    },
+    {
+      "address": "0x410fe0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x410fe0",
+          "end": "0x410ff5",
+          "sha256": "dac4ecb6997edfcf219f82586f473fdb5321f6de47b246d0860d38d6b3157c22"
+        }
+      ]
+    },
+    {
+      "address": "0x411490",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x411490",
+          "end": "0x4114a5",
+          "sha256": "f4a05c527f3aed2de8d04574a2316eb22e1f47e1f962a89eadf3694ee3126ca3"
+        }
+      ]
+    },
+    {
+      "address": "0x411940",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x411940",
+          "end": "0x411955",
+          "sha256": "d5cb2311e4879f9ecbe84cb3d2d9b26fb2b1d5d79fae1d0bc309b5c2d03db3f5"
+        }
+      ]
+    },
+    {
+      "address": "0x411e20",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x411e20",
+          "end": "0x411e35",
+          "sha256": "67adbcb2c1329398c899cc73ee97cf8e422061c485fd6d25352f41cceb693925"
+        }
+      ]
+    },
+    {
+      "address": "0x412410",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x412410",
+          "end": "0x412425",
+          "sha256": "7635fe6af4e98f39a1cf2c3b77b0706a72b7c26b45f63b91f3af34a1d07a3615"
+        }
+      ]
+    },
+    {
+      "address": "0x412980",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x412980",
+          "end": "0x412995",
+          "sha256": "83da154dff83f0488c387957779dadcc47dcb1a2ed0a8e05ab8db054d49c62ad"
+        }
+      ]
+    },
+    {
+      "address": "0x412e30",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x412e30",
+          "end": "0x412e45",
+          "sha256": "3899bcb5a57e8f2cf2e1b047078160f9df55a02ac4a30389163bd4997da27871"
+        }
+      ]
+    },
+    {
+      "address": "0x413610",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x413610",
+          "end": "0x413625",
+          "sha256": "33dc4924848605b947b41f9210a8ca3a05c2686c2fcec1e38f2db8ec327ee027"
+        }
+      ]
+    },
+    {
+      "address": "0x413b30",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x413b30",
+          "end": "0x413b45",
+          "sha256": "1a0271c812fdd8f4f59476eb545d2fc74c173bcae09e2f549365619952865440"
+        }
+      ]
+    },
+    {
+      "address": "0x4141a0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4141a0",
+          "end": "0x4141b5",
+          "sha256": "0f204e8228ef71b844d797ab283ec6581471dae16557080b230ad17124d02427"
+        }
+      ]
+    },
+    {
+      "address": "0x414d90",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x414d90",
+          "end": "0x414da5",
+          "sha256": "b623cfaee5a475336e7a1243fad9ff8d808e3d4b8c0c2f8ef8bb6d94098ab35e"
+        }
+      ]
+    },
+    {
+      "address": "0x415420",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x415420",
+          "end": "0x415435",
+          "sha256": "4a69bc911843903795a712dc7c56cedf929ef5ad0e3633ea55ff00ec6dc715a9"
+        }
+      ]
+    },
+    {
+      "address": "0x415ab0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x415ab0",
+          "end": "0x415cb7",
+          "sha256": "658ec02a7943b158f6c9bbca62b3fbbf45a41d0c80894e4f42c58ac8e7172542"
+        }
+      ]
+    },
+    {
+      "address": "0x4212d0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4212d0",
+          "end": "0x4212e5",
+          "sha256": "e3c9bbfd0e0f634fd153c9d51ec968cc39c31c11bd4bde3b221cea95769c91ec"
+        }
+      ]
+    },
+    {
+      "address": "0x4251f0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4251f0",
+          "end": "0x425200",
+          "sha256": "ae81e52c953b8cf90b87fa6da1f32a8e71bed65f53f63754420472986bb20522"
+        }
+      ]
+    },
+    {
+      "address": "0x425270",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425270",
+          "end": "0x42527a",
+          "sha256": "1db558abe3e6adf85a35e5e31dbc0a0d20131e2a04b3fb61a6a554e40863f579"
+        }
+      ]
+    },
+    {
+      "address": "0x4252b0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4252b0",
+          "end": "0x4252ba",
+          "sha256": "2c62a047cbf2fc99a555456364098b9ce1fc8987405eb6536db1e8a350cda9de"
+        }
+      ]
+    },
+    {
+      "address": "0x4252f0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4252f0",
+          "end": "0x4252fa",
+          "sha256": "532d685e5b8fae1d3f0bd3a4f5254e74aff52386bf8290dd6e259aa079a6a8e4"
+        }
+      ]
+    },
+    {
+      "address": "0x425330",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425330",
+          "end": "0x42533a",
+          "sha256": "07aa14aa70a38e419eefa8cf8ab18435f6d8fad8108f7f6802d51a6a782f057a"
+        }
+      ]
+    },
+    {
+      "address": "0x425370",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425370",
+          "end": "0x42537a",
+          "sha256": "35434cdd85e4be125ac203a23eeed33ef849beea6e57fdd99d088e11db19fd98"
+        }
+      ]
+    },
+    {
+      "address": "0x4253b0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4253b0",
+          "end": "0x4253ba",
+          "sha256": "4c28ff1f7158cbb06edc295cfb444b725710c404f660e65f81c5601fb7367ec8"
+        }
+      ]
+    },
+    {
+      "address": "0x4253f0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4253f0",
+          "end": "0x4253fa",
+          "sha256": "98fe4294bead1b151410e06939727aa8acddc55bcf4f16d2ccd6fe93338652ea"
+        }
+      ]
+    },
+    {
+      "address": "0x425430",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425430",
+          "end": "0x42543a",
+          "sha256": "d974361c57325328f76c87fec4d331602180a538931f66641c21a4708377bad5"
+        }
+      ]
+    },
+    {
+      "address": "0x425470",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x425470",
+          "end": "0x42547a",
+          "sha256": "20c0f0b293ce6ad36ff594163e58c2a5dbc5b633528b43dbd4228e59324e011c"
+        }
+      ]
+    },
+    {
+      "address": "0x4313f0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4313f0",
+          "end": "0x431405",
+          "sha256": "490187a389c71798247c70730d8a17f61f416819782d5ec78310aae5df65bfd6"
+        }
+      ]
+    },
+    {
+      "address": "0x431da0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x431da0",
+          "end": "0x431db5",
+          "sha256": "1c1581fceb8db21cf59c6a4b0bd4146b6a001d3bbd3d171c80255fc6a9fa314a"
+        }
+      ]
+    },
+    {
+      "address": "0x432640",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x432640",
+          "end": "0x432655",
+          "sha256": "0344659487a38152adcca6ed4d3c0c23fa0676da16982891847b26420885c235"
+        }
+      ]
+    },
+    {
+      "address": "0x433a80",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x433a80",
+          "end": "0x433a95",
+          "sha256": "bd823377d998fadcfd8cf96c4f1c07b669c685e0c14e0ee05df1ca8340596fd5"
+        }
+      ]
+    },
+    {
+      "address": "0x434900",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x434900",
+          "end": "0x434915",
+          "sha256": "fa7561be41cb9d07fece83bcd403e056c261a0d3f9bd5ce2ec15d2c0c990d30a"
+        }
+      ]
+    },
+    {
+      "address": "0x4368a0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4368a0",
+          "end": "0x4368aa",
+          "sha256": "c1282e4a63e48396693d590793656f24b02a0cf4197fe72cc3f411d55613e3c7"
+        }
+      ]
+    },
+    {
+      "address": "0x4368e0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4368e0",
+          "end": "0x4368ea",
+          "sha256": "cdfc05eb3e0901d4d4f2eadf5232625899ce459449720b9506c920b7d4980977"
+        }
+      ]
+    },
+    {
+      "address": "0x436920",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x436920",
+          "end": "0x43692a",
+          "sha256": "07b59c3ec0c75bef457e05a95b48273634657f2c3d9ba67acae370e3ec61819c"
+        }
+      ]
+    },
+    {
+      "address": "0x437510",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x437510",
+          "end": "0x437520",
+          "sha256": "0f36e37b1add51e1277d859c27a7e01f805360e3c275b958b2767d4d9257d4c8"
+        }
+      ]
+    },
+    {
+      "address": "0x437560",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x437560",
+          "end": "0x437570",
+          "sha256": "6842c159c478752aff0508ab9ae57d4e4928e9f46ed67e305a95c5826e2e5574"
+        }
+      ]
+    },
+    {
+      "address": "0x4380b0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4380b0",
+          "end": "0x4380c5",
+          "sha256": "06f05559674569a7bd10a8a4b9941f013cddc417df8fa1b26b9f791d06f90721"
+        }
+      ]
+    },
+    {
+      "address": "0x43acd0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43acd0",
+          "end": "0x43ace5",
+          "sha256": "82c94fa9a50db72e37c2a88fd6cfa11f3d0b0d50d79e890f1ac2331f94d1f53c"
+        }
+      ]
+    },
+    {
+      "address": "0x43cd70",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43cd70",
+          "end": "0x43cd85",
+          "sha256": "bb458e2b3deb855e6273de25508053c5f70e0719e31ca84f6fee1487c0fabf9d"
+        }
+      ]
+    },
+    {
+      "address": "0x43d340",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d340",
+          "end": "0x43d34d",
+          "sha256": "ceef61bb0d16e9e62c01ba2c257898f029b794b0624ab6fff549d99c14917621"
+        }
+      ]
+    },
+    {
+      "address": "0x43d3f0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d3f0",
+          "end": "0x43d405",
+          "sha256": "aa01e66d48186bfa555bb6f7b64954478f107c216cbc5bdb9e14d3feb6abe819"
+        }
+      ]
+    },
+    {
+      "address": "0x43d440",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x43d440",
+          "end": "0x43d455",
+          "sha256": "6d90e033b85ffb1fb48063041a9e111d1e0deecc737f5bb9ab35bd14e60a6e6c"
+        }
+      ]
+    },
+    {
+      "address": "0x441280",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x441280",
+          "end": "0x441295",
+          "sha256": "9cb89dce2687632a5e75dd8fb2a7f3d989c26e4e31b80e498b9a9028042cca19"
+        }
+      ]
+    },
+    {
+      "address": "0x441cb0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x441cb0",
+          "end": "0x441cc5",
+          "sha256": "677c94741de3a62da749d117ed08382506da881337c55d88cfb87e70f0763e9d"
+        }
+      ]
+    },
+    {
+      "address": "0x443360",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x443360",
+          "end": "0x443375",
+          "sha256": "895dcf559cab98c833714aa2e0ebaac2e070ba1bd1f5444c76ed00d1e3b73a27"
+        }
+      ]
+    },
+    {
+      "address": "0x445aa0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x445aa0",
+          "end": "0x445ab5",
+          "sha256": "9afa5955cec1ff82a3fb70055c797b2a8303988fff1a63729fdf9a3fc1da038c"
+        }
+      ]
+    },
+    {
+      "address": "0x446620",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x446620",
+          "end": "0x446635",
+          "sha256": "ebb44991ab4d063a07bcec9dfcc36686851b78353299ae7897029b013fe52f38"
+        }
+      ]
+    },
+    {
+      "address": "0x448800",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x448800",
+          "end": "0x448815",
+          "sha256": "2ea750731cc0f766b1696c03f80dd0ee185ea669ff905b5e31e293c432527605"
+        }
+      ]
+    },
+    {
+      "address": "0x448de0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x448de0",
+          "end": "0x448df5",
+          "sha256": "b4523509c16b551469b56a56a21da1ec9a76cb4171379540edd5a3a0d89ba267"
+        }
+      ]
+    },
+    {
+      "address": "0x449540",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x449540",
+          "end": "0x449555",
+          "sha256": "7c5f0aaf149702e6ec8e65d3c7b2db8381cea7d9533d624dfb1d136b2272d7bd"
+        }
+      ]
+    },
+    {
+      "address": "0x449d10",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x449d10",
+          "end": "0x449d25",
+          "sha256": "b928035d8d18d8176f081af8df7f1cc448b9864995475f8dffe169641c96094b"
+        }
+      ]
+    },
+    {
+      "address": "0x44c7f0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x44c7f0",
+          "end": "0x44c805",
+          "sha256": "5ffce8066b1ccb5a20f5d47fd96005346708211b7d911dc330eed39bc9b94f8e"
+        }
+      ]
+    },
+    {
+      "address": "0x454390",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x454390",
+          "end": "0x4543a5",
+          "sha256": "c60b0e17051dfc23260ba63963e65d2999317318c4cc44207fb75882aab55908"
+        }
+      ]
+    },
+    {
+      "address": "0x4555b0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4555b0",
+          "end": "0x4555c5",
+          "sha256": "5b8a680ac68a89e21a458975662b8a02f522a870f24bd1e8c5a5617586c93135"
+        }
+      ]
+    },
+    {
+      "address": "0x455ab0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x455ab0",
+          "end": "0x455ac5",
+          "sha256": "5f00f82338d2c900d964f5ac772807829cd84a330886476fe28d8ac9c9954754"
+        }
+      ]
+    },
+    {
+      "address": "0x456290",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x456290",
+          "end": "0x4562a5",
+          "sha256": "35ce23e2572aadc98a46ac4ab0808fc7f161d3e673f4cd975b667801a9d79f44"
+        }
+      ]
+    },
+    {
+      "address": "0x456bd0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x456bd0",
+          "end": "0x456be5",
+          "sha256": "1eddc129871f1cbb5169a2d4bc5507f750bea32f5981795dbfb6aa57438ff9eb"
+        }
+      ]
+    },
+    {
+      "address": "0x4576f0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4576f0",
+          "end": "0x457705",
+          "sha256": "9200b21b48a63cc78f0b27b35d492a2491fb60fc4f75a72018fdc5059cd3403c"
+        }
+      ]
+    },
+    {
+      "address": "0x458230",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x458230",
+          "end": "0x458245",
+          "sha256": "1d99f0b077f05ff40ffe1a58915db4f16a3482e979a302ab2f10f0f35e4fdb3d"
+        }
+      ]
+    },
+    {
+      "address": "0x458750",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x458750",
+          "end": "0x458765",
+          "sha256": "bf8ba771436afa51adc7d0833172aab0cfc064b1b82ed9f886c9fee717272cea"
+        }
+      ]
+    },
+    {
+      "address": "0x45a3b0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x45a3b0",
+          "end": "0x45a3c5",
+          "sha256": "c3bf5c6e9d514fe0af92581b4146bdd14d2683ac281e6a70208c2d163c8681be"
+        }
+      ]
+    },
+    {
+      "address": "0x4606c0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4606c0",
+          "end": "0x4606d5",
+          "sha256": "68471d6ae920222acf188a9ae335c60278fd91322c4734537885c0879f158396"
+        }
+      ]
+    },
+    {
+      "address": "0x462aa0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x462aa0",
+          "end": "0x462ab5",
+          "sha256": "b1bd4de27ba8308e12a12874b985eed302cd7099670bb6d181218f7099b18068"
+        }
+      ]
+    },
+    {
+      "address": "0x463af0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x463af0",
+          "end": "0x463b05",
+          "sha256": "10b86f68e40d9d015d75e1e350b51abb010246f9b9d2747c015c4a3ca13ba272"
+        }
+      ]
+    },
+    {
+      "address": "0x465150",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x465150",
+          "end": "0x465165",
+          "sha256": "b4356f0e53182cb885b5c55377c8d066962dbe6a56f2b46a6ad7bc1e2e4994e3"
+        }
+      ]
+    },
+    {
+      "address": "0x465d60",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x465d60",
+          "end": "0x465d75",
+          "sha256": "6d1c6e5200fcf2b56786a9bffb9bc0ce34da69ba6d3963ceebd867f7c5748191"
+        }
+      ]
+    },
+    {
+      "address": "0x468a80",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x468a80",
+          "end": "0x468a95",
+          "sha256": "be9231a772974ba8f6eb6ed4248d86a0cd8d3121dc5733444c95a408a35fb811"
+        }
+      ]
+    },
+    {
+      "address": "0x46f650",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x46f650",
+          "end": "0x46f665",
+          "sha256": "8b5295be533094bce692f9a163c89efaa34055299da4d153be1a9f5304b433a0"
+        }
+      ]
+    },
+    {
+      "address": "0x473ef0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x473ef0",
+          "end": "0x473f05",
+          "sha256": "c7cdd9a0fc19bd8184de04a3fcce83f1b8be9ab304a0caa45952b05c46fe09f3"
+        }
+      ]
+    },
+    {
+      "address": "0x474790",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474790",
+          "end": "0x4747a5",
+          "sha256": "b3b16a1efd42041167a237a7b9f4b220239b49ed1c866d985e5d9aa59ae46241"
+        }
+      ]
+    },
+    {
+      "address": "0x474ee0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474ee0",
+          "end": "0x474eea",
+          "sha256": "7d2d806989803beeaedc54374c710cb7bb076576d60dceceba9776350557eaca"
+        }
+      ]
+    },
+    {
+      "address": "0x474f30",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474f30",
+          "end": "0x474f3a",
+          "sha256": "aa9b8da0e427bd01e9b1866db3f48c0edeca889696c94e8cdbb490119c2fba46"
+        }
+      ]
+    },
+    {
+      "address": "0x474f70",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x474f70",
+          "end": "0x474f7a",
+          "sha256": "0e43eb55f714c692389c25b4bc427eb26f0062752850f843fdbfd2d6ae2970b0"
+        }
+      ]
+    },
+    {
+      "address": "0x47cd20",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47cd20",
+          "end": "0x47cd35",
+          "sha256": "63ca26baf2a7e577e6c4f0619e768f83d94ef882118f076e0f33f851ebba4cd4"
+        }
+      ]
+    },
+    {
+      "address": "0x47dad0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47dad0",
+          "end": "0x47dae5",
+          "sha256": "68b3b283585fde6cf2423ae18a644a679b4147508a5229de93506972e18b414e"
+        }
+      ]
+    },
+    {
+      "address": "0x47e890",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47e890",
+          "end": "0x47e8a5",
+          "sha256": "63d55ba3a01a4859eee419491b612c235ab5e27c32c3ae847d9856de36fa4189"
+        }
+      ]
+    },
+    {
+      "address": "0x47f7b0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x47f7b0",
+          "end": "0x47f7c5",
+          "sha256": "11fba5633312991837a76d63cb1355719bb74d626c1bc2e54b99df60fa79be4f"
+        }
+      ]
+    },
+    {
+      "address": "0x483130",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x483130",
+          "end": "0x483145",
+          "sha256": "a1c0ad7e81630d71acebbc313ee1681b2a1de6bdd32b53f7edfe436aa6c7a0ba"
+        }
+      ]
+    },
+    {
+      "address": "0x484380",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x484380",
+          "end": "0x484395",
+          "sha256": "51995195b42d74a9596b93b755f0b8624003d10c2404c55fc804df0c286c53d3"
+        }
+      ]
+    },
+    {
+      "address": "0x484880",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x484880",
+          "end": "0x484895",
+          "sha256": "f9bd039c1431a89c4a0304a9fd39f5f87b5f265a5e424b458b2b1a85aa22c7a0"
+        }
+      ]
+    },
+    {
+      "address": "0x485910",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x485910",
+          "end": "0x485925",
+          "sha256": "256ddc7cf68e9db62a43f21e8de22ceb02ce058f501e3065936489dc157fe6a2"
+        }
+      ]
+    },
+    {
+      "address": "0x487350",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x487350",
+          "end": "0x487365",
+          "sha256": "7916fb735b817d779584ec9e4f78b17c09c3a24530a594c191b9991149f72e95"
+        }
+      ]
+    },
+    {
+      "address": "0x488990",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x488990",
+          "end": "0x4889a5",
+          "sha256": "378293dca5b1181821076c177a68e4ba6f79e004607b77bf0bfa79eb68eb0a7b"
+        }
+      ]
+    },
+    {
+      "address": "0x4890a0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4890a0",
+          "end": "0x4890b5",
+          "sha256": "dd4c5e2be0e6e0651fc836be87d60ed47dbe5cfed07554377d72b7b2e1444142"
+        }
+      ]
+    },
+    {
+      "address": "0x489800",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x489800",
+          "end": "0x489815",
+          "sha256": "a6e41860866aacd4974d19457f3bc588345fd16f58e4fff798d62e808b687012"
+        }
+      ]
+    },
+    {
+      "address": "0x48b070",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x48b070",
+          "end": "0x48b085",
+          "sha256": "3bc174685245e1f31abbb88ed72833103bc811f09c793a8a6b1ffc1b00495150"
+        }
+      ]
+    },
+    {
+      "address": "0x48d1e0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x48d1e0",
+          "end": "0x48d1ea",
+          "sha256": "c4c5a9d49236d90e11afef979efac00da05ff59ab528a739d9fd90b42482fa32"
+        }
+      ]
+    },
+    {
+      "address": "0x48e570",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x48e570",
+          "end": "0x48e585",
+          "sha256": "b3935f7171df40cabd379974ed84fc77211aa5f86e7fb027bfb35d08b170da0d"
+        }
+      ]
+    },
+    {
+      "address": "0x492390",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x492390",
+          "end": "0x4923a5",
+          "sha256": "6363d03cf4da878b29e63a9d4b5a7ead6dc598c3dafec9c8aadb95b56d578edb"
+        }
+      ]
+    },
+    {
+      "address": "0x493f80",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x493f80",
+          "end": "0x493f95",
+          "sha256": "fa5d96a612c0f03f067706392dcd4078afebb20e740fa5754075b7f4c27e9744"
+        }
+      ]
+    },
+    {
+      "address": "0x4970e0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4970e0",
+          "end": "0x4970f5",
+          "sha256": "e3a692f8157300fd025a1f0e0109cd10a75479c03eb0f88df20c3d4d664c88e7"
+        }
+      ]
+    },
+    {
+      "address": "0x498170",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x498170",
+          "end": "0x498185",
+          "sha256": "4366f0b7c5f10103414d93aaab370aec7d1315c758be9314de35e1c41eaa30f3"
+        }
+      ]
+    },
+    {
+      "address": "0x49f170",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f170",
+          "end": "0x49f185",
+          "sha256": "ceb47e00f114c7bd05a63c446db46f6979376ef0944ceedc98945ad2073526c5"
+        }
+      ]
+    },
+    {
+      "address": "0x49f860",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f860",
+          "end": "0x49f86a",
+          "sha256": "ec7f2c351c0294c428701ce09f51c6f7ce99dac314a108704756f187243cdb34"
+        }
+      ]
+    },
+    {
+      "address": "0x49f8a0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x49f8a0",
+          "end": "0x49f8aa",
+          "sha256": "cde3cd0a75a8d797590deba713fafa0ec607b464d44949294259f4f0d481b5dc"
+        }
+      ]
+    },
+    {
+      "address": "0x4a01e0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a01e0",
+          "end": "0x4a01f5",
+          "sha256": "5a5a2ed70ef686f74986a31ce9e42bf615af6c791fe4d86d8a474aa44978955b"
+        }
+      ]
+    },
+    {
+      "address": "0x4ff95b",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4ff95b",
+          "end": "0x4ff95c",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        }
+      ]
+    },
+    {
+      "address": "0x502430",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502430",
+          "end": "0x502442",
+          "sha256": "d7842aace2c4bb7dd55e2aa352463f65c41d69f1938987e0ad8c31e982754368"
+        }
+      ]
+    },
+    {
+      "address": "0x502468",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502468",
+          "end": "0x50247a",
+          "sha256": "b1b1f7e3545e910b77d86739f75430faedc2565c615becda48cc0a2deb0ea045"
+        }
+      ]
+    },
+    {
+      "address": "0x4f823d",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f823d",
+          "end": "0x4f824a",
+          "sha256": "ed075e25aac4db77b182fb593955fcdb97f3ac0dabe01e5b0870c08b24fef462"
+        }
+      ]
+    },
+    {
+      "address": "0x4f827b",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f827b",
+          "end": "0x4f8288",
+          "sha256": "a636be6b15f3ce2b0a495e0f07200e0414f844a11309d0c3462806f142f382d7"
+        }
+      ]
+    },
+    {
+      "address": "0x4f82b9",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f82b9",
+          "end": "0x4f82c6",
+          "sha256": "62073818bf43332d3d71ffde6351915bfad1f68da544aa7ea03ad8dd1631fe4b"
+        }
+      ]
+    },
+    {
+      "address": "0x4f82f7",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f82f7",
+          "end": "0x4f8304",
+          "sha256": "31a99507df1b07c0529b852a042963e679a639d43e303fcfc38b19dcd93b1c39"
+        }
+      ]
+    },
+    {
+      "address": "0x502cd0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502cd0",
+          "end": "0x502ce2",
+          "sha256": "2330e5cf4856f46b824fbd510b572a41750fcd2db90673d00fe5123e5c136f56"
+        }
+      ]
+    },
+    {
+      "address": "0x502d08",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502d08",
+          "end": "0x502d1a",
+          "sha256": "fb2e8fa9985623d2bd43342058933a5d603894fdd302c7c8c5fc55a59f6f51fb"
+        }
+      ]
+    },
+    {
+      "address": "0x502d3a",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x502d3a",
+          "end": "0x502d44",
+          "sha256": "3c32929c7413c7c3ca471f808c210c233ca3db0ea74d0636944f0f99f805726d"
+        }
+      ]
+    },
+    {
+      "address": "0x4b9120",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4b9120",
+          "end": "0x4b912a",
+          "sha256": "cae330cc7c00e23653d148fcea8396ea96c71414115e712f82fbd9590e028368"
+        }
+      ]
+    },
+    {
+      "address": "0x4bc0e0",
+      "name": "StaticConstructorThunk",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4bc0e0",
+          "end": "0x4bc0ea",
+          "sha256": "f95865f109aa57211b316419c4c391ed495c4203605c03a537972e4ece2910b0"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x403ad0": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x440ee0": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x440f30": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a13f4": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a141e": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a2cf1": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a2e53": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a2e7d": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f54ea": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f6439": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f65f2": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f8371": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x50257f": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x502dac": {
+      "kind": "whole",
+      "name": "OriginalDeeperConstructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Approved allocator or CRT physical-service boundary; internal constructor and initializer source remains original."
+    },
+    "0x546894": {
+      "kind": "fixture",
+      "name": "GDI32.dll!GetDeviceCaps",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469bc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentThread",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a94": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetProcessVersion",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b60": {
+      "kind": "fixture",
+      "name": "USER32.dll!LoadCursorA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546b64": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColorBrush",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c7c": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546c80": {
+      "kind": "fixture",
+      "name": "USER32.dll!ReleaseDC",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546d20": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetSysColor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x546d28": {
+      "kind": "fixture",
+      "name": "USER32.dll!LoadStringA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows import reached by unchanged original descendants; cases model its effects and failures explicitly."
+    },
+    "0x4a6560": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 usable capacity",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coordinator-selected CRT memory-service v1 physical owner boundary; original registry and constructor source remains unchanged."
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "CRT memory-service v1 realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Coordinator-selected CRT memory-service v1 physical owner boundary; original registry and constructor source remains unchanged."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/static_constructor_thunks.cases.py",
+    "entry": "claw_static_constructor_thunks_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 419013986,
+      "cases": 383,
+      "mutants_killed": 48,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "50c59be12e916cceafdd249f50c2ec0969ab6ddb628928cbe45221e968fda867"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Only the 126 constructor-call children of the original static wrappers are owned; the 18 JMP-only initializer bodies and all shared/deeper constructor targets are excluded.",
+    "Every owned entry is cdecl0 and semantic void with 0x7ff/0x7ff integer source transport and conservative preserve_mask zero; original live EAX and flags remain selected output witnesses.",
+    "The 22 receiver-setting JMP thunks inherit the real wrapper CALL return at wrapper+5; source_tail uses the same physical frame and owns the sole conventional RET. Never fabricate CALL for JMP.",
+    "Immediate deeper constructors execute unchanged original whole code with actual ECX, arguments and RET pop; no constructor or initializer source body is a fixture.",
+    "Approved CRT memory-service v1 capacity/realloc/malloc/free share one exact-live-base owner, requested versus rounded usable capacity, identity and byte-prefix semantics. Initial new-mode zero and bounded arithmetic apply; unsupported retries stop honestly.",
+    "Original EH-bearing descendants remain original and cannot be converted to fabricated successful returns. Genuine guest exceptions need separate transport; bounded successful original paths or explicit physical stops are the declared ordinary domain.",
+    "Full integer source masks are not a separate captured x87/SSE state certificate for original descendants; no owned thunk computes or returns x87 values.",
+    "Original indirect callback identity and ABI must remain real when taken; unsupported callbacks or platform resolution stop honestly rather than becoming source fixtures.",
+    "This is source-only boundary preparation, not the complete 144-entry static sequence or connected native startup/gameplay.",
+    "malloc is an explicitly approved physical stand-in (allocate); observable memory/ownership effects must be modeled coherently.",
+    "operator new is an explicitly approved physical stand-in (allocate); observable memory/ownership effects must be modeled coherently.",
+    "operator delete is an explicitly approved physical stand-in (release); observable memory/ownership effects must be modeled coherently.",
+    "GDI32.dll!GetDeviceCaps is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!RaiseException is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GetCurrentThread is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GetCurrentThreadId is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GlobalLock is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GlobalUnlock is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!lstrlenA is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!InterlockedDecrement is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!TlsGetValue is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!LocalReAlloc is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!TlsSetValue is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GlobalReAlloc is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GlobalHandle is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!TlsAlloc is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GetProcessVersion is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!LeaveCriticalSection is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!InitializeCriticalSection is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!LocalAlloc is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!EnterCriticalSection is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GetVersion is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "KERNEL32.dll!GlobalAlloc is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!LoadCursorA is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!GetSysColorBrush is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!GetSystemMetrics is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!GetDC is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!ReleaseDC is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!GetCursorPos is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!GetSysColor is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "USER32.dll!LoadStringA is an explicitly approved physical stand-in (scripted); observable memory/ownership effects must be modeled coherently.",
+    "Capacity 0x4a6560 and realloc 0x4a9070 retain the already selected CRT memory-service v1 physical declarations as peer policy; static inspection finds no direct route to them from this isolated constructor-thunk batch.",
+    "The complete 10-byte thunk at 0x4bc0e0 is canonically owned here. Its older graphics_manager_lifecycle legacy compatibility adapter is unchanged and unverified by this source-only preparation; legacy and canonical admission/election remain distinct."
+  ]
+}

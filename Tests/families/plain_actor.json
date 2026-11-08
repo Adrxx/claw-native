@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "plain_actor",
+  "title": "Original plain actor creation",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlainActorRuntime.cpp",
+    "Sources/PlainActorRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlainActorRuntime.cpp": "cdf1ba70ae7070ed5b3678f8419600747a2643a08acae0b99200f6cae80049c1",
+    "Sources/PlainActorRuntime.h": "dec4acc9b0072d0c5c9a1c35a84745e44d35a0d77d607aca8e1aa5dbbba30092"
+  },
+  "docs": [
+    "docs/plain-actor-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_plain_actor_runtime.py"
+      }
+    ],
+    "work_dirs": [
+      "work/plain-actor-runtime-check"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_plain_actor_runtime.py": "pass"
+      },
+      "seconds": 2.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 4125326165,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 3,
+      "bytes_owned": 496,
+      "bytes_executed": 492,
+      "coverage": 0.9919
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeScene.swift"
+    ]
+  },
+  "limits": []
+}

@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "powerup_object",
+  "title": "Original SpecialPowerup and CursePowerup objects",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PowerupObjectRuntime.cpp",
+    "Sources/PowerupObjectRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PowerupObjectRuntime.cpp": "7f1daaf48bc144fe626ac05463b05a36a9f1edd2eeed83c98fb5c1104cc9962d",
+    "Sources/PowerupObjectRuntime.h": "de7e2763be0ff2f25ad779c95460e605be135da76982cda6b8f6d55b7eb6610d"
+  },
+  "docs": [
+    "docs/powerup-object-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_powerup_object_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/powerup_object_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/powerup-object-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-powerup-object-independent.log"
+      ],
+      "worker_evidence": [
+        "work/powerup-object-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_powerup_object_runtime.py": "pass"
+      },
+      "seconds": 5.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-18",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2594905623,
+      "owned": 7,
+      "owned_inferred_from_tests": false,
+      "directly_called": 7,
+      "fully_executed": 4,
+      "bytes_owned": 3513,
+      "bytes_executed": 3362,
+      "coverage": 0.957
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeCurses.swift",
+      "Sources/ClawNativeSpecialPowerups.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: checkpoint_logic (0x40af90); level_one_batch_powerups_01 (0x470430, 0x470a20); level_one_batch_powerups_02 (0x417050, 0x436860); level_one_batch_powerups_03 (0x41ee60); level_one_loot_breakables_01 (0x4170b0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

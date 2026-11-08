@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "id": "v13_raw_fields",
+  "title": "v1.3 raw actor and logic stream fields",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/V13RawFieldsRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "canonical_sources": [
+    "Sources/V13RawFieldsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4c7ab0",
+      "interval_end": "0x4c7f04",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7f10",
+      "interval_end": "0x4c831d",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6680",
+      "interval_end": "0x4d6a9a",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6aa0",
+      "interval_end": "0x4d6ec1",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d7010",
+      "interval_end": "0x4d70fd",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4fcaea": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocator."
+    },
+    "0x4fcb13": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Native heap allocator."
+    },
+    "0x4a6b1f": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Native heap allocator."
+    },
+    "0x50c318": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string length import."
+    },
+    "0x4fcda9": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void"
+    },
+    "0x4c7690": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4c7770": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4c7850": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x4fc6b4": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x4fcee6": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x50c310": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native atomic reference count."
+    },
+    "0x50c314": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native atomic reference count."
+    },
+    "0x4fc525": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void"
+    },
+    "0x4fcb1e": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_raw_fields.cases.py",
+    "entry": "claw_v13_raw_fields_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 421591580,
+      "cases": 139,
+      "mutants_killed": 47,
+      "mutants_tried": 64,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.979,
+      "reasons": [],
+      "build_inputs_sha256": "c71dfc7a100ecea88c4b76b3f200ff8610286eaca853459b43120e8ed71fefbf"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

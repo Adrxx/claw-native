@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "id": "enemy_motion_aux",
+  "title": "Original common enemy lift, release, and ledge helpers",
+  "abi": "legacy",
+  "sources": [
+    "Sources/EnemyMotionAux.cpp",
+    "Sources/EnemyMotionAux.h"
+  ],
+  "source_sha256": {
+    "Sources/EnemyMotionAux.cpp": "81a0cd7abeb666cd89986b308901314c48d2565d26af32a78c8e41fc5ee2ffcc",
+    "Sources/EnemyMotionAux.h": "ed50468a189da182b3b90d4b2dc67a82038caab0435872de0508b2d8a2a0f403"
+  },
+  "docs": [
+    "docs/enemy-motion-aux.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_enemy_motion_aux.py"
+      }
+    ],
+    "helpers": [
+      "Tests/enemy_motion_aux_helpers.py"
+    ],
+    "work_dirs": [
+      "work/enemy-motion-aux-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_enemy_motion_aux.py": "pass"
+      },
+      "seconds": 63.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1580928565,
+      "owned": 98,
+      "owned_inferred_from_tests": true,
+      "directly_called": 98,
+      "fully_executed": 97,
+      "bytes_owned": 8729,
+      "bytes_executed": 8719,
+      "coverage": 0.9989
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeBreakables.swift",
+      "Sources/ClawNativeHumanoid.swift"
+    ]
+  },
+  "limits": []
+}

@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "id": "v13_boss_damage",
+  "title": "v1.3 outgoing boss damage assignment boundaries",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13BossDamageRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x48111e",
+      "interval_end": "0x481128",
+      "name": "Raux contact",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      },
+      "confidence": "declared"
+    },
+    {
+      "address": "0x455ba7",
+      "interval_end": "0x455bb1",
+      "name": "Katherine contact",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      },
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a3cea",
+      "interval_end": "0x4a3cf4",
+      "name": "Wolvington contact",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      },
+      "confidence": "declared"
+    },
+    {
+      "address": "0x40508e",
+      "interval_end": "0x405098",
+      "name": "Aquatis contact",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      },
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4a4941",
+      "interval_end": "0x4a494b",
+      "name": "Wolvington magic",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      },
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4474f1",
+      "interval_end": "0x447503",
+      "name": "Gabriel bomb zero-only default",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      },
+      "confidence": "declared"
+    },
+    {
+      "address": "0x483521",
+      "interval_end": "0x48352b",
+      "name": "RedTail knife",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      },
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_boss_damage.cases.py",
+    "entry": "claw_v13_boss_damage_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 906101885,
+      "cases": 536,
+      "mutants_killed": 10,
+      "mutants_tried": 10,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "cf26f6d8bc8fb5a69042ee6972f0314b04b47587782a4377bd80bdeedada8a8a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "notes": "Explicit compiler-context regions own only the changed damage assignments and Gabriel conditional default. Full constructors and retained scaling remain outside this admission. Continuations are the genuine instructions immediately following the assignments. App adapters share the admitted base constants in the established native layout."
+}

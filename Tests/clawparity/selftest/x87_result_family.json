@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "id": "x87_result_selftest",
+  "title": "Owned x87 result channel against unchanged 0x420af0",
+  "abi": "canonical",
+  "program": "claw-v1.0",
+  "sources": ["Tests/clawparity/selftest/X87ResultModule.cpp"],
+  "owned": [
+    {"address": "0x420af0", "name": "motionXResult", "convention": "thiscall", "argc": 2, "returns": "x87",
+     "x87_result": {"pop": 0, "push": 1}, "confidence": "declared"}
+  ],
+  "callees": {},
+  "oracle": {"kind": "clawparity", "cases": "Tests/clawparity/selftest/x87_result_cases.py",
+             "entry": "claw_x87_result_motion_selftest_entry"},
+  "evidence": {"level": "none"},
+  "integration": {"level": "source-only"},
+  "notes": "Not a family. Harness control for owned x87 results; only the equal-factor exit is implemented."
+}

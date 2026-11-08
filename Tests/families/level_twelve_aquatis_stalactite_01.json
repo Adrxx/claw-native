@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "id": "level_twelve_aquatis_stalactite_01",
+  "title": "Level 12 Aquatis stalactite closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwelveAquatisStalactite01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x407500",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4078b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407bd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407bf0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407c10",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407c40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407cc0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407d50",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407e40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407e90",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407f20",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407f80",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x407fb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_args": 1
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows pointer-accessibility query reached by original RTTI helper 0x4a36f0; checks guest mapped ranges without replacing game decisions."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_twelve_aquatis_stalactite_01.cases.py",
+    "entry": "claw_level_twelve_aquatis_stalactite_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x407555",
+        "end": "0x407583",
+        "reason": "Original 0x4db6e0 sets EBP to the realloc result at 0x4db70b/0x4db77f. Its only zero return requires null realloc, but first calls 0x4dc680 at 0x4db788 with EBP zero; the original instruction at 0x4dc680 reads [EBP+4] and faults before return. Checked original disassembly; successful lower and upper growth are covered."
+      },
+      {
+        "start": "0x40759e",
+        "end": "0x4075b5",
+        "reason": "The repeated lookup uses the same index and bounds with no intervening call or bounds write after the first successful lookup. Original 0x4db6e0 expands the bounds to contain the index on success (0x4db757 or 0x4db7dc); initial in-range lookup leaves them unchanged. Thus this second out-of-range growth block cannot execute for a coherent dispatch table. Checked original 0x407500 and 0x4db6e0 disassembly and both successful growth paths."
+      },
+      {
+        "start": "0x4075cf",
+        "end": "0x407602",
+        "reason": "Second-lookup failure fallback is unreachable: the repeated bounds check cannot fail after the first successful lookup without an intervening bounds mutation. Independently a null realloc in original 0x4db6e0 faults in 0x4dc680 on [EBP+4] before returning zero. Checked original disassembly."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2212016624,
+      "cases": 177,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "a6a747d3ac2f32c459c7ab4c9d2819797fe2edf99758b72476b1ccf2e4c50a36"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr uses the declared guest-memory readability fixture."
+  ],
+  "notes": "Original-reviewed game-owned AquatisStalactite dispatch, constructor, destruction, reset and states; constructor uses explicit x87 input transport to unchanged __ftol."
+}

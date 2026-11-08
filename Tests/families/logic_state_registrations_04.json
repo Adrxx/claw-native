@@ -1,0 +1,389 @@
+{
+  "schema": 1,
+  "id": "logic_state_registrations_04",
+  "title": "Original logic state registrations group 4",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LogicStateRegistrations04Runtime.cpp"
+  ],
+  "canonical_sources": [
+    "Sources/LogicStateRegistrations04Runtime.cpp"
+  ],
+  "shared_sources": [
+    {
+      "family": "logic_state_registry_core",
+      "sources": [
+        "Sources/LogicStateRegistryCoreRuntime.cpp",
+        "Sources/LogicStateRegistryCoreRuntime.h"
+      ]
+    }
+  ],
+  "owned": [
+    {
+      "address": "0x446780",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x448970",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x448f50",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4496a0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x449e70",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44c950",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4544f0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x455720",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x455c20",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456400",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x456d30",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string length import reached from original string assignment"
+    },
+    "0x546928": {
+      "kind": "fixture",
+      "name": "HeapReAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 process heap reallocation import reached from original CRT realloc"
+    },
+    "0x546960": {
+      "kind": "fixture",
+      "name": "HeapAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 process heap allocation import reachable from original CRT realloc small-block fallback"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/logic_state_registrations_04.cases.py",
+    "entry": "claw_logic_state_registrations_04_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x446841",
+        "end": "0x446859",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x4468e4",
+        "end": "0x4468fd",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x44697b",
+        "end": "0x4469a4",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x446a44",
+        "end": "0x446a68",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x448a00",
+        "end": "0x448a29",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x448ac9",
+        "end": "0x448afd",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x448fe0",
+        "end": "0x449009",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x4490a9",
+        "end": "0x4490dd",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x449770",
+        "end": "0x449799",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x449839",
+        "end": "0x44986d",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x454755",
+        "end": "0x45476e",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x4557b0",
+        "end": "0x4557d9",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x455879",
+        "end": "0x4558ad",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x455c9e",
+        "end": "0x455cb6",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x455d46",
+        "end": "0x455d5f",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x455ddd",
+        "end": "0x455e06",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x455ea8",
+        "end": "0x455ecc",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x45647e",
+        "end": "0x456496",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x456526",
+        "end": "0x45653f",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x4565bd",
+        "end": "0x4565e6",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x456688",
+        "end": "0x4566ac",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x456df1",
+        "end": "0x456e09",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x456e94",
+        "end": "0x456ead",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x456f2b",
+        "end": "0x456f54",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      },
+      {
+        "start": "0x456ff4",
+        "end": "0x457018",
+        "reason": "Array growth-failure continuation requires 0x4db6e0 to return zero. Failed realloc is copied into EBP, then diagnostic helper 0x4dc680 reads unmapped address 4 before grow can return; the ordinary comparison cannot reach this normal-return continuation."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3493198360,
+      "cases": 162,
+      "mutants_killed": 14,
+      "mutants_tried": 14,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "42ccca8cdae830d3993befdf94aed7d31a2e634fb96baae8ebccf108006d1a44"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "lstrlenA is a stand-in (scripted).",
+    "HeapReAlloc is a stand-in (scripted).",
+    "HeapAlloc is a stand-in (scripted).",
+    "Original array realloc failure sets EBP to zero and faults inside diagnostic helper 0x4dc680 at address 4 before grow returns; the ordinary comparison cannot certify the fault outcome or the excluded normal-return failure continuations."
+  ],
+  "notes": "Boundary checked against original disassembly. All eleven registrations are cdecl with zero stack arguments and void return. Existing registry core is an unchanged auxiliary canonical source; unowned parent registration callees retain original-code boundaries."
+}

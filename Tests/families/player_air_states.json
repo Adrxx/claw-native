@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "player_air_states",
+  "title": "Original v1.0 climbing and long-fall landing",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerAirStates.cpp",
+    "Sources/PlayerAirStates.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerAirStates.cpp": "c90cb556b1769fbfdd59c86458295ae523222566f397d64a0962551b1ec2bce0",
+    "Sources/PlayerAirStates.h": "c147f01b6d6a2a6532718469289b89bc86e4c2a55d0c07eb3b4dc041b02d8627"
+  },
+  "docs": [
+    "docs/player-air-states.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_air_states.py"
+      }
+    ],
+    "helpers": [
+      "Tests/air_state_helpers.py"
+    ],
+    "work_dirs": [
+      "work/air-state-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/air-state-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_air_states.py": "pass"
+      },
+      "seconds": 7.7
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3940381109,
+      "owned": 6,
+      "owned_inferred_from_tests": true,
+      "directly_called": 6,
+      "fully_executed": 4,
+      "bytes_owned": 5186,
+      "bytes_executed": 3990,
+      "coverage": 0.7694
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": []
+}

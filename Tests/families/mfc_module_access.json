@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "id": "mfc_module_access",
+  "title": "Original MFC module state lookup and checked local allocation",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcModuleAccessRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x50228f",
+      "name": "MfcModuleState::get",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x502f84",
+      "name": "MfcLocalAllocation::checked",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    }
+  ],
+  "callees": {
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock acquisition tracks section identity, owner and recursion."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock release balances the current owner and section."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle unlock decrements its lock count; zero can be a successful final unlock."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global reallocation preserves the prefix and preserves old ownership on failure."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle lock returns its data pointer; the cached IAT target remains this same physical import."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:1",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical compatibility-version service used by original singleton-lock initialization; MFC constructors remain original."
+    },
+    "0x4f50fd": {
+      "kind": "whole",
+      "name": "Original checked-allocation failure throw",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    "0x50335e": {
+      "kind": "whole",
+      "name": "Original MFC thread-slot value lookup",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024,
+        "optional": true
+      }
+    },
+    "0x503420": {
+      "kind": "whole",
+      "name": "Original complete MFC singleton lookup",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0,
+        "optional": true
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_module_access.cases.py",
+    "entry": "claw_mfc_module_access_entry",
+    "equivalent_mutants": [
+      {
+        "line": 79,
+        "operator": "drop-statement",
+        "source_sha256": "2d0765d1dfca8715d19eac501721f319f0faf529b43993cda00d192408ed20a1",
+        "mutant_sha256": "7557e97edec490ae1ad9686541b7423d357a8208d28c70c54ab4fb1bb45633fe",
+        "reason": "Independent full-domain proof: work/coordination/mfc-module-getter-equivalent-review.md. Call transport materializes the identical argument word before any original instruction or physical observation; intervening native operations do not read the changed slot. Includes arbitrary allowed stack/FS aliases, flags and physical Halt. Valid mapped memory, sufficient guard budget and synchronous observation domain only; excludes invalid ABI/memory/IAT, budget/access counters and per-access observers. Keep original store. Re-review if call transport observes or validates argument slots before overwriting them. Revalidated for child-header correction in work/coordination/mfc-module-getter-contract-equivalent-review.md; CPU-only copy-back retains parent header and does not alter argument materialization or store convergence."
+      },
+      {
+        "line": 96,
+        "operator": "drop-statement",
+        "source_sha256": "2d0765d1dfca8715d19eac501721f319f0faf529b43993cda00d192408ed20a1",
+        "mutant_sha256": "3b0108823b6bc3ca3a3e3508e8dc6251992c12ba0c6839c2e8c60e9f63d5bb82",
+        "reason": "Independent full-domain proof: work/coordination/mfc-module-getter-equivalent-review.md. Call transport materializes the identical argument word before any original instruction or physical observation; intervening native operations do not read the changed slot. Includes arbitrary allowed stack/FS aliases, flags and physical Halt. Valid mapped memory, sufficient guard budget and synchronous observation domain only; excludes invalid ABI/memory/IAT, budget/access counters and per-access observers. Keep original store. Re-review if call transport observes or validates argument slots before overwriting them. Revalidated for child-header correction in work/coordination/mfc-module-getter-contract-equivalent-review.md; CPU-only copy-back retains parent header and does not alter argument materialization or store convergence."
+      },
+      {
+        "line": 118,
+        "operator": "drop-statement",
+        "source_sha256": "2d0765d1dfca8715d19eac501721f319f0faf529b43993cda00d192408ed20a1",
+        "mutant_sha256": "828015d33208d5fdf0250e4405f55399abe74b08034c938edb2105985975ccfd",
+        "reason": "Independent full-domain proof: work/coordination/mfc-module-getter-equivalent-review.md. Call transport materializes the identical argument word before any original instruction or physical observation; intervening native operations do not read the changed slot. Includes arbitrary allowed stack/FS aliases, flags and physical Halt. Valid mapped memory, sufficient guard budget and synchronous observation domain only; excludes invalid ABI/memory/IAT, budget/access counters and per-access observers. Keep original store. Re-review if call transport observes or validates argument slots before overwriting them. Revalidated for child-header correction in work/coordination/mfc-module-getter-contract-equivalent-review.md; CPU-only copy-back retains parent header and does not alter argument materialization or store convergence."
+      },
+      {
+        "line": 120,
+        "operator": "drop-statement",
+        "source_sha256": "2d0765d1dfca8715d19eac501721f319f0faf529b43993cda00d192408ed20a1",
+        "mutant_sha256": "e223b52b6dd36bec51a137fcf852540091f9c52ab4c37dfc48cbcead6df1d35c",
+        "reason": "Independent full-domain proof: work/coordination/mfc-module-getter-equivalent-review.md. Call transport materializes the identical argument word before any original instruction or physical observation; intervening native operations do not read the changed slot. Includes arbitrary allowed stack/FS aliases, flags and physical Halt. Valid mapped memory, sufficient guard budget and synchronous observation domain only; excludes invalid ABI/memory/IAT, budget/access counters and per-access observers. Keep original store. Re-review if call transport observes or validates argument slots before overwriting them. Revalidated for child-header correction in work/coordination/mfc-module-getter-contract-equivalent-review.md; CPU-only copy-back retains parent header and does not alter argument materialization or store convergence."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 411417223,
+      "cases": 280,
+      "mutants_killed": 9,
+      "mutants_tried": 14,
+      "mutants_equivalent": 4,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "217ac67a9a2a6b8e9a9ba3e1f99ef3ff568f833bded27b0ab59f636b2a477c24"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Complete68ownedbytes, no exemptions. Only physicalOS import fixtures; MFC slot lookup/singleton/factories/constructors/throw helpers remain original.",
+    "Normal and pre-raise failure comparisons do not establish native exception dispatch, window startup or menu acceptance.",
+    "Optional full-register checked-allocation source capability passed173blindcases and independent re-admission. Module lookup retains its ordinary ABI; original throw dependency executes unchanged and allocation failure is only a genuine physical RaiseException stop, not native EH acceptance.",
+    "Semantic source parity covers valid mapped spans, sufficient guards/budget and synchronous observation at calls/returns/physical Halt; host operation/access counters, invalid-memory/ABI/budget diagnostic timing and asynchronous per-access observers are not original CPU semantics. Two early argument-store equivalents depend on documented call-frame materialization; stores remain in native code.",
+    "Optional module getter source capability is undergoing callee-contract re-admission. Original whole50335e/503420 remain dependencies on both comparison sides; physical RaiseException halt is only a failure prefix, not native singleton EH or startup acceptance. Existing checked allocator metadata and ordinary cases are unchanged obligations."
+  ],
+  "notes": "Original whole38byte module lookup and30byte allocation wrapper reviewed in ignored startup-mfc-boundary.md; all internal callees including singleton and factory/compiler helpers run original for comparisons. LocalAlloc failure reaches true original throw helpers and noncontinuable physical RaiseException Halt."
+}

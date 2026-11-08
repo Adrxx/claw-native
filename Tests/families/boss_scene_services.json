@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "id": "boss_scene_services",
+  "title": "BossStager scene rectangle and boss music selection",
+  "abi": "canonical",
+  "sources": [
+    "Sources/BossSceneServicesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42a450",
+      "name": "Manager::sceneRectangle",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42b000",
+      "name": "Manager::selectBossMusic",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46cab0",
+      "name": "SinglePlayerScene::selectBossMusic",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows rectangle construction is supplied natively."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/boss_scene_services.cases.py",
+    "entry": "claw_boss_scene_services_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1794608121,
+      "cases": 149,
+      "mutants_killed": 42,
+      "mutants_tried": 42,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "1e5ac8cdf0aa332668473247ecc1928584ef2bef18f90545cb26d366accfcf7e"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "SetRect is a native platform fixture.",
+    "Physical music play and stop virtual methods are case-supplied services; music selection and lookup execute original game code.",
+    "The existing 0x42a630 readiness helper is reused through its original address; this family does not duplicate its ownership."
+  ],
+  "notes": "Single-player manager+0x2c uses vtable 0x50c264: +0x10 is 0x40af90 and +0x60 is 0x46cab0, established by original 0x428c40 mode-3 allocation/publication and hash-checked vtable bytes. The latter selects BOSS music, not camera reset. 0x42a450 is thiscall RET4 returning its output pointer; both other roots are thiscall RET0 returning u32. wire-object-boss-stager must reuse CheckpointTimerRuntime readiness and MusicRuntime selection with native audio; check this family with make gate FAMILY=boss_scene_services ARGS=--record before scripts/check-native-object-connection.sh boss_stager."
+}

@@ -1,0 +1,420 @@
+{
+  "schema": 1,
+  "id": "palette_resource",
+  "title": "Original PAL resource and physical palette orchestration",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PaletteResourceCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4bb2a0",
+      "name": "destroyBackend",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4810",
+      "name": "destroyWrapper",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6670",
+      "name": "unloadWrapper",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6690",
+      "name": "applyWrapper",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb870",
+      "name": "backupEntries",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bbf60",
+      "name": "applySystemPalette",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc9b0",
+      "name": "registerBackend",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bca10",
+      "name": "removeBackend",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d47f0",
+      "name": "deleteWrapper",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bcac0",
+      "name": "createFromTriples",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bcb40",
+      "name": "createFromEntries",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d65a0",
+      "name": "loadTriples",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d65e0",
+      "name": "loadEntries",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b96f0",
+      "name": "setDisplayPalette",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d6620",
+      "name": "loadPcxBytes",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4420",
+      "name": "loadResource",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d44f0",
+      "name": "createNamedTriples",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4570",
+      "name": "createNamedResourceFile",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bcbc0",
+      "name": "createFromPcx",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb100",
+      "name": "initializeEntries",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb240",
+      "name": "initializeTriples",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb5a0",
+      "name": "initializePcx",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb800",
+      "name": "setEntries",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb910",
+      "name": "fillEntries",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb990",
+      "name": "fadeEntries",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d4240",
+      "name": "ensureSurfaceReady",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d45f0",
+      "name": "loadPcxResource",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d46f0",
+      "name": "removeWrapper",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Original CRT heap allocation ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Original CRT heap release ends in operating-system calls."
+    },
+    "0x546910": {
+      "kind": "fixture",
+      "name": "CreateDCA",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546894": {
+      "kind": "fixture",
+      "name": "GetDeviceCaps",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546914": {
+      "kind": "fixture",
+      "name": "GetSystemPaletteEntries",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x5468b0": {
+      "kind": "fixture",
+      "name": "DeleteDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; cases supply its native service result and memory effects."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows embedded-resource import reached through original 0x4d6560 -> 0x4bca40 -> 0x4bb180 -> 0x4bb740; palette loading and extension dispatch remain original-backed."
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows embedded-resource import reached through original 0x4d6560 -> 0x4bca40 -> 0x4bb180 -> 0x4bb740; palette loading and extension dispatch remain original-backed."
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Windows embedded-resource import reached through original 0x4d6560 -> 0x4bca40 -> 0x4bb180 -> 0x4bb740; palette loading and extension dispatch remain original-backed."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/palette_resource.cases.py",
+    "entry": "claw_palette_resource_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4bcaf6",
+        "end": "0x4bcaf8",
+        "reason": "Allocation-null constructor arm cannot return safely: original immediately calls/dereferences the null backend or wrapper before any normal failure return. No null-page allocation or fabricated success is permitted."
+      },
+      {
+        "start": "0x4bcb76",
+        "end": "0x4bcb78",
+        "reason": "Allocation-null constructor arm cannot return safely: original immediately calls/dereferences the null backend or wrapper before any normal failure return. No null-page allocation or fabricated success is permitted."
+      },
+      {
+        "start": "0x4d4526",
+        "end": "0x4d4528",
+        "reason": "Allocation-null constructor arm cannot return safely: original immediately calls/dereferences the null backend or wrapper before any normal failure return. No null-page allocation or fabricated success is permitted."
+      },
+      {
+        "start": "0x4d45a6",
+        "end": "0x4d45a8",
+        "reason": "Allocation-null constructor arm cannot return safely: original immediately calls/dereferences the null backend or wrapper before any normal failure return. No null-page allocation or fabricated success is permitted."
+      },
+      {
+        "start": "0x4d4665",
+        "end": "0x4d4667",
+        "reason": "Allocation-null constructor arm cannot return safely: original immediately calls/dereferences the null backend or wrapper before any normal failure return. No null-page allocation or fabricated success is permitted."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4092587521,
+      "cases": 145,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.978,
+      "reasons": [],
+      "build_inputs_sha256": "13de8f1d9609a11d5c7ef3e5d616229a78105a67e5acba29800d8b5873c91808"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a fixture: Original CRT heap allocation ends in operating-system calls.",
+    "operator delete is a fixture: Original CRT heap release ends in operating-system calls.",
+    "CreateDCA is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "GetDeviceCaps is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "GetSystemPaletteEntries is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "DeleteDC is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "timeGetTime is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "lstrlenA is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "InterlockedDecrement is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "InterlockedIncrement is a fixture: Windows import; cases supply its native service result and memory effects.",
+    "FindResourceA provides physical embedded-resource bytes only; game palette decoding remains original-backed.",
+    "LoadResource provides physical embedded-resource bytes only; game palette decoding remains original-backed.",
+    "LockResource provides physical embedded-resource bytes only; game palette decoding remains original-backed."
+  ],
+  "notes": "Canonical migration preserves all 25 legacy dispatch owners and adds reviewed controller policies 0x4d4240, 0x4d45f0 and 0x4d46f0. Legacy PaletteResourceRuntime source, header and app API remain unchanged. MFC containers, CString, resource loading and diagnostic reporter execute as original callees. Physical DirectDraw methods are case-supplied indirect services. No native join or visible-menu acceptance is claimed. Original vtable +0x2c targets 0x4d6560 filename/resource loading, not 0x4d65e0 raw entries; virtual dispatch must read the actual target."
+}

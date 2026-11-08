@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "id": "application_configuration_writes",
+  "title": "Original application registry configuration string write, value delete and close",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationConfigurationWritesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b5df0",
+      "name": "Configuration::writeString",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5f80",
+      "name": "Configuration::deleteValue",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b5d70",
+      "name": "Configuration::close",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546824": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegSetValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32",
+        "u32",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows registry import; cases observe the key handle, value name, REG_SZ type, string bytes and byte count, and script the status without touching the system registry."
+    },
+    "0x546820": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegDeleteValueA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows registry import; cases observe the key handle and value name and script the status without touching the system registry."
+    },
+    "0x546830": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegCloseKey",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows registry import reached through a register loaded from its import slot; cases observe each closed handle and script the status."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_configuration_writes.cases.py",
+    "entry": "claw_application_configuration_writes_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1746198889,
+      "cases": 129,
+      "mutants_killed": 34,
+      "mutants_tried": 35,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "11e224367913c360c49236f652f9185959199821784d6699b55c31aa2c946a5f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Boundary reviewed against the hash-checked v1.0 disassembly. Object layout shared with application_configuration: +0x00 open flag, +0x08/+0x0c/+0x10 parent key handles, +0x14 base key, +0x18 selected key. 0x4b5df0 is thiscall with (value name, string) and returns 1 only on RegSetValueExA success, 0 when closed or either pointer is null; the byte count includes the terminator. 0x4b5f80 is thiscall with (value name) and returns 1 only on RegDeleteValueA success; a null name returns the null argument itself (0). 0x4b5d70 clears the open flag and closes +0x08, +0x0c, +0x10, then +0x14 only when it differs from +0x18, then +0x18; a closed object does nothing. Results of RegCloseKey are ignored."
+}

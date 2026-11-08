@@ -1,0 +1,1355 @@
+{
+  "schema": 1,
+  "id": "state_five",
+  "title": "Retail state-five menu controller",
+  "abi": "canonical",
+  "sources": [
+    "Sources/StateFiveCanonical.cpp"
+  ],
+  "docs": [
+    "docs/state-five-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x429510",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429530",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42b990",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42b9c0",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ace0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b050",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b130",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b240",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b3f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b540",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b650",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b880",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b8c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b960",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45b9a0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ba50",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45bbc0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45bd90",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45be10",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c240",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c3d0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c420",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c4a0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c580",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c610",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c6f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c7c0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c800",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45c880",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45cb90",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45cd60",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45cd90",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ce60",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ce80",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45cee0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45cfa0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d000",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d070",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d0f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d150",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d3b0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d3f0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d410",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d500",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d720",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45d750",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45db40",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45dc90",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e040",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e0e0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e1b0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e370",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e5c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e7c0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e880",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e8f0",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45e990",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ea80",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ef00",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45ef30",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45eff0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45f100",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45f360",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45f490",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45f940",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fa50",
+      "convention": "stdcall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fa80",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fbb0",
+      "convention": "cdecl",
+      "argc": 5,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fde0",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x45fee0",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x546d50": {
+      "kind": "fixture",
+      "name": "USER32.dll!PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546d54": {
+      "kind": "fixture",
+      "name": "USER32.dll!ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "USER32.dll!SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546880": {
+      "kind": "fixture",
+      "name": "GDI32.dll!SetTextColor",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546d30": {
+      "kind": "fixture",
+      "name": "USER32.dll!DrawTextA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546888": {
+      "kind": "fixture",
+      "name": "GDI32.dll!SetBkMode",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546cac": {
+      "kind": "fixture",
+      "name": "USER32.dll!PeekMessageA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546cb4": {
+      "kind": "fixture",
+      "name": "USER32.dll!BeginPaint",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546cb8": {
+      "kind": "fixture",
+      "name": "USER32.dll!EndPaint",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a24": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetTickCount",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "WINMM.dll!timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546d9c": {
+      "kind": "fixture",
+      "name": "USER32.dll!SetCursorPos",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546ce4": {
+      "kind": "fixture",
+      "name": "USER32.dll!GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546de8": {
+      "kind": "fixture",
+      "name": "WINMM.dll!joyGetPosEx",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546cd4": {
+      "kind": "fixture",
+      "name": "USER32.dll!PtInRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x5469a0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetEnvironmentVariableA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a28": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentDirectoryA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546b38": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetCurrentDirectoryA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a30": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!OpenFile",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546e6c": {
+      "kind": "fixture",
+      "name": "mss32.dll!_AIL_set_XMIDI_master_volume@8",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546e8c": {
+      "kind": "fixture",
+      "name": "mss32.dll!_AIL_XMIDI_master_volume@4",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "USER32.dll!MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "USER32.dll!MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a08": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!OutputDebugStringA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546ca8": {
+      "kind": "fixture",
+      "name": "USER32.dll!TranslateMessage",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546cb0": {
+      "kind": "fixture",
+      "name": "USER32.dll!DispatchMessageA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546d2c": {
+      "kind": "fixture",
+      "name": "USER32.dll!DialogBoxParamA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a20": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!CreateProcessA",
+      "convention": "stdcall",
+      "argc": 10,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x54682c": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegQueryValueExA",
+      "convention": "stdcall",
+      "argc": 6,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546830": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegCloseKey",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546834": {
+      "kind": "fixture",
+      "name": "ADVAPI32.dll!RegCreateKeyExA",
+      "convention": "stdcall",
+      "argc": 9,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "USER32.dll!CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported service reached directly or through unchanged original callees."
+    },
+    "0x4a4250": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 2,
+      "x87_exact": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    "0x4a4350": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 2,
+      "x87_exact": {
+        "pop": 0,
+        "push": 1
+      }
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x45fe40": {
+      "kind": "whole",
+      "name": "scene_display canonical owner; original-backed parity delegation",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x45fe60": {
+      "kind": "whole",
+      "name": "scene_display canonical owner; original-backed parity delegation",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void"
+    },
+    "0x5469cc": {
+      "kind": "fixture",
+      "name": "KERNEL32.dll!lstrcpynA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical imported bounded string copy reached through unchanged original IFC initialization callees; original calls at 0x4fc192 and 0x4ff99f push destination, source, and count with callee cleanup."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/state_five.cases.py",
+    "entry": "claw_state_five_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x45de1e",
+        "end": "0x45de20",
+        "reason": "The original allocation-null arm sets EDI to zero at 0x45de1e, then unconditionally dereferences [EDI] at 0x45de23; it cannot complete within this family normal-return contract. All surrounding allocation-success and cleanup paths remain required; no null allocation is treated as game success."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 16,
+        "operator": "minus-one",
+        "mutant_sha256": "ef18b5f0e36ddbcc0fbd3b5d641086ff5c38830a0a9c301e55609b728a512042",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Every Flags::sub call supplies width 32. This mutation changes only the unselected non-32-bit ternary arm, so it cannot change any invocation."
+      },
+      {
+        "line": 983,
+        "operator": "drop-statement",
+        "mutant_sha256": "03f3db9a71e023ff0ae354d3a1ab668b21c091130cce29b0cc4c7990caf01428",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Original 0x45b137 saves EDI; its only later consumption is the terminal restore at 0x45b231. No pointer to this saved word escapes and the restored native local is not an exported result under the ordinary ABI."
+      },
+      {
+        "line": 4241,
+        "operator": "drop-statement",
+        "mutant_sha256": "1e20ed7ca7c26061f9cc5898f2c40d3277ecc0ea740840a0d1439fc2cf9cb691",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "The return-address word for original call 0x45c376 to 0x45c7c0 is not read by the callee or its normal callees. Only incoming arguments and local aliases are consumed. Ordinary canonical return uses C++ control flow; return-PC inspection is outside this contract."
+      },
+      {
+        "line": 4663,
+        "operator": "drop-statement",
+        "mutant_sha256": "b6d4604ae328e930de808297126cb25a0577045868ef85f5507f4c427cd4248f",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "The return-address word for original call 0x45c510 to 0x45c3d0 is never inspected or passed by address. The callee consumes its three arguments and returns normally at 0x45c419. The ordinary contract has no return-PC channel."
+      },
+      {
+        "line": 6764,
+        "operator": "drop-statement",
+        "mutant_sha256": "2e52e4bb1700c1186e805f892d23987fd7b52f68e84590b96495c6773491a59a",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Original call 0x45cc8e to 0x45f490 uses a local output alias and incoming arguments, never its entry return word. The return at 0x45f4f9 is ordinary C++ control flow in the translation; deleting this unobserved return-PC store changes no permitted output."
+      },
+      {
+        "line": 8041,
+        "operator": "drop-statement",
+        "mutant_sha256": "7e7e290b5d71c307db050b491afaa08a7b6745254bd6ee3a8702916c090916bf",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Original call 0x45d268 to 0x42b9c0 reads incoming words at entry+4 and entry+8, publishes application fields and posts a message, but never reads or exposes entry+0. The ordinary canonical ABI does not observe the stored return PC."
+      },
+      {
+        "line": 10634,
+        "operator": "shift-offset",
+        "mutant_sha256": "3986fd64792606d8a6a28e62a81564fe728b7a21a9676c19a62b636bd41dc9d4",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "At original 0x45df69 this mutation moves the SEH state store from entry-4 to entry+0. On this failure-return continuation the CString destructor receives entry-0x58, and the epilogue reads the saved FS head at entry-0xc and register saves, not either changed word. Equivalent only for the declared ordinary normal-return contract, which excludes guest exception unwinds and return-PC inspection."
+      },
+      {
+        "line": 10910,
+        "operator": "shift-offset",
+        "mutant_sha256": "84861fbd3bc0e2abf329f3a28f8ceff74ba7edd9321c9648dce46359027aaf07",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "At the call corresponding to original 0x45e12e, the shifted argument read selects the saved EDI word at entry-0xc instead of the explicitly pushed zero. This canonical body initializes EDI to zero and saves it unconditionally; no intervening call or store touches that saved word. Both reads therefore yield zero for every permitted invocation."
+      },
+      {
+        "line": 11337,
+        "operator": "drop-statement",
+        "mutant_sha256": "9dcae2f4c85118965387dd4976f29638d9eb042da8e538ede099cc6ba832a538",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Original 0x45e3a1 writes a temporary address to entry-4. Normal CString work uses ECX directly; subsequent temporary preparations overwrite this scratch word. Its final restore into ECX is terminal and ECX is not an exported result. No guest exception transport is claimed."
+      },
+      {
+        "line": 12049,
+        "operator": "drop-statement",
+        "mutant_sha256": "df0fb413e631bbb37f9e2d629989c5a455c345fd6d047199c40659f53e7a8d86",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Original 0x45e7c0 saves ESI; only terminal restores at 0x45e86f or 0x45e874 consume this word. It is not passed by address and the restored native local is not observable through the ordinary ABI."
+      },
+      {
+        "line": 12388,
+        "operator": "drop-statement",
+        "mutant_sha256": "7fb6479bca5f876ec4fb0c812aefb70c571177292be8a6b6cddb6985aef12b71",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Original 0x45e9a8 saves EBX; live loop state uses separate locals. Its only read is the terminal restore at 0x45ea6e followed by stack cleanup and return. No permitted normal-return output depends on the saved value."
+      },
+      {
+        "line": 13398,
+        "operator": "drop-statement",
+        "mutant_sha256": "8547592811bf04dd17eb17fb1ce9c8e9803c2949a82eba25460244e7586fc75c",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "Original 0x45f104 saves ESI, read only by terminal restores. The owned code clamps music to 0..100 at 0x45f22e..0x45f23e and sound to 0..80 at 0x45f2e1..0x45f2f1. The hash-verified sound multiplier at 0x50e8b0 is negative 0.125, so subtraction of the converted negative index accesses initialized table slots, never the saved ESI word. This conclusion follows from owned clamps, not a restriction to selected test inputs."
+      },
+      {
+        "line": 13794,
+        "operator": "drop-statement",
+        "mutant_sha256": "0ee804163e83b6f833c0cbe98cb2f6d6c1cac6198bc7dd2cd29d117c4812f9e2",
+        "source_sha256": "2c0e471e131c8cafbe269ce7220af527ed634e021c9f2ee260034ddb2dbe233b",
+        "reason": "At original 0x45f434 the force=1 argument is irrelevant on this callsite: 0x45f42e/0x45f430 invoke 0x429ed0 only when the new clamped scale differs from application+0x68. The callee repeats that comparison at 0x429ef1/0x429ef4, bypasses its sole initial force read at 0x429ef6, and overwrites the argument slot at 0x429f23 before any callback. All other arguments and effects are retained."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4196783536,
+      "cases": 800,
+      "mutants_killed": 26,
+      "mutants_tried": 48,
+      "mutants_equivalent": 13,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "45d9b5c79a2f40e4823bbe4a129ccb61169edab2d4a8ab2e080d4dcac19824b1"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "operator new is a physical fixture; cases supply deterministic service behavior.",
+    "operator delete is a physical fixture; cases supply deterministic service behavior.",
+    "malloc is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!PostMessageA is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!GetCursorPos is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!ShowCursor is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!SetRect is a physical fixture; cases supply deterministic service behavior.",
+    "GDI32.dll!SetTextColor is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!DrawTextA is a physical fixture; cases supply deterministic service behavior.",
+    "GDI32.dll!SetBkMode is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!PeekMessageA is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!BeginPaint is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!EndPaint is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!GetTickCount is a physical fixture; cases supply deterministic service behavior.",
+    "WINMM.dll!timeGetTime is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!SetCursorPos is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!GetAsyncKeyState is a physical fixture; cases supply deterministic service behavior.",
+    "WINMM.dll!joyGetPosEx is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!PtInRect is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!InterlockedDecrement is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!InterlockedIncrement is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!lstrlenA is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!SetEnvironmentVariableA is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!GetCurrentDirectoryA is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!GetLastError is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!SetCurrentDirectoryA is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!OpenFile is a physical fixture; cases supply deterministic service behavior.",
+    "mss32.dll!_AIL_set_XMIDI_master_volume@8 is a physical fixture; cases supply deterministic service behavior.",
+    "mss32.dll!_AIL_XMIDI_master_volume@4 is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!MessageBoxA is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!MessageBeep is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!OutputDebugStringA is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!TranslateMessage is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!DispatchMessageA is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!DialogBoxParamA is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!CreateProcessA is a physical fixture; cases supply deterministic service behavior.",
+    "ADVAPI32.dll!RegQueryValueExA is a physical fixture; cases supply deterministic service behavior.",
+    "ADVAPI32.dll!RegCloseKey is a physical fixture; cases supply deterministic service behavior.",
+    "ADVAPI32.dll!RegCreateKeyExA is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!EnterCriticalSection is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!InitializeCriticalSection is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!LeaveCriticalSection is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!GetCurrentThreadId is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!TlsSetValue is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!SetLastError is a physical fixture; cases supply deterministic service behavior.",
+    "KERNEL32.dll!TlsGetValue is a physical fixture; cases supply deterministic service behavior.",
+    "USER32.dll!CopyRect is a physical fixture; cases supply deterministic service behavior.",
+    "Original game and C runtime callees execute unchanged; no game body is a fixture.",
+    "The ordinary canonical contract covers normal returns; guest exception unwinds and attached SEH handlers are outside this family evidence.",
+    "Exact x87 whole boundaries preserve the original floor, ceiling and integer conversion at the original startup control word.",
+    "Legacy StateFiveRuntime app exports remain separate; this canonical module is source-only until separately integrated.",
+    "Surface-holder destructors 0x45fe40 and 0x45fe60 retain the existing scene_display canonical election and execute unchanged original bodies at this parity boundary.",
+    "KERNEL32.dll!lstrcpynA at import slot 0x5469cc is a physical scripted stdcall3 fixture (destination, source, count); cases supply the bounded copy and return pointer while original IFC parsing and initialization continue unchanged."
+  ],
+  "notes": "All 72 legacy behaviors retained as 70 state-five owned entries plus 0x45fe40/0x45fe60 delegated to the existing scene_display canonical owner. Coordinator approved overlap consolidation; all 33 task elections remain state-five. ABI and return contracts reviewed from original disassembly and corpus caller uses. Canonical export deliberately differs from preserved legacy app export."
+}

@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "id": "pid_raster",
+  "title": "Original compressed PID palette-index raster",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PIDRaster.cpp",
+    "Sources/PIDRaster.h"
+  ],
+  "source_sha256": {
+    "Sources/PIDRaster.cpp": "f02e97f82a18aa526b98b37f1980710b6e07b8295decd8b982969a7452ef5067",
+    "Sources/PIDRaster.h": "09ad41201acd2c1d9416d6292ccf5f77d064f6a6e2a4471fbe01e4dc06d6d650"
+  },
+  "docs": [
+    "docs/pid-raster.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_pid_raster.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/raster-agent/libPIDRaster.dylib",
+          "--assets",
+          "App/GameData"
+        ],
+        "prerequisites": [
+          "clang++ -std=c++17 -dynamiclib Sources/PIDRaster.cpp -o work/raster-agent/libPIDRaster.dylib"
+        ]
+      }
+    ],
+    "extra": [
+      "Tests/PIDRaster/main.swift"
+    ],
+    "work_dirs": [
+      "work/raster-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-pid-raster-independent.log"
+      ],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_pid_raster.py": "pass"
+      },
+      "seconds": 63.6
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1915658979,
+      "owned": 2,
+      "owned_inferred_from_tests": true,
+      "directly_called": 2,
+      "fully_executed": 1,
+      "bytes_owned": 285,
+      "bytes_executed": 175,
+      "coverage": 0.614
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawAssets.swift",
+      "Sources/ClawNativeRendering.swift",
+      "Tests/PIDRaster/main.swift"
+    ]
+  },
+  "limits": []
+}

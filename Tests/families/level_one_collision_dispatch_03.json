@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "id": "level_one_collision_dispatch_03",
+  "title": "Level 1 actor collision probes",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneCollisionDispatch03Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4cc2b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ccdd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ccf80",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 6,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cd060",
+      "name": "",
+      "convention": "stdcall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cd120",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_collision_dispatch_03.cases.py",
+    "entry": "claw_level_one_collision_dispatch_03_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1196797874,
+      "cases": 661,
+      "mutants_killed": 39,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.929,
+      "reasons": [],
+      "build_inputs_sha256": "954d7ff58e0f764fc5b98a39f620193012fb1ff727254b7748a0bad8cd6c7436"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

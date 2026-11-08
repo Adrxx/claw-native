@@ -1,0 +1,661 @@
+{
+  "schema": 1,
+  "id": "menu_popup_construction",
+  "title": "Popup and resource context construction",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuPopupConstructionRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x438c40",
+      "name": "MenuPopup::initialize",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4399d0",
+      "name": "MenuPopup::createSelectedPopup",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4236c0",
+      "name": "Popup::construct",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x423840",
+      "name": "Popup::initialize",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x424b90",
+      "name": "Popup::selectResourceDirectory",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x424ca0",
+      "name": "Popup::resolveImage",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4f7b10": {
+      "kind": "fixture",
+      "name": "CDialog::~CDialog",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "MFC dialog teardown reaches Windows handle-map and lifecycle services."
+    },
+    "0x4f7b4e": {
+      "kind": "fixture",
+      "name": "CDialog::CreateIndirect",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC dialog creation requires a live Windows callback dispatcher and thread window maps."
+    },
+    "0x4f8f44": {
+      "kind": "fixture",
+      "name": "CWnd::DestroyWindow",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC window destruction requires Windows handle maps and message dispatch."
+    },
+    "0x4fb7d8": {
+      "kind": "fixture",
+      "name": "AfxGetThread",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC thread lookup depends on Windows TLS and initialized module-thread state."
+    },
+    "0x4fcfff": {
+      "kind": "fixture",
+      "name": "CDC::Attach",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC device-context attachment reaches thread-local Windows handle maps."
+    },
+    "0x4fd067": {
+      "kind": "fixture",
+      "name": "CDC::DeleteDC",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC device-context teardown detaches Windows thread-local handles."
+    },
+    "0x4fd150": {
+      "kind": "fixture",
+      "name": "SelectObject wrapper",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC selected-object wrapping uses thread-local Windows handle maps."
+    },
+    "0x4fd6db": {
+      "kind": "fixture",
+      "name": "CGdiObject::Attach",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC GDI attachment reaches thread-local Windows handle maps."
+    },
+    "0x4fd732": {
+      "kind": "fixture",
+      "name": "CGdiObject::DeleteObject",
+      "convention": "thiscall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC GDI teardown detaches Windows thread-local handles."
+    },
+    "0x546870": {
+      "kind": "fixture",
+      "name": "BitBlt",
+      "convention": "stdcall",
+      "argc": 9,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x54687c": {
+      "kind": "fixture",
+      "name": "CreateCompatibleDC",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x5468bc": {
+      "kind": "fixture",
+      "name": "GetStockObject",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x54690c": {
+      "kind": "fixture",
+      "name": "CreateCompatibleBitmap",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546a54": {
+      "kind": "fixture",
+      "name": "SizeofResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546b7c": {
+      "kind": "fixture",
+      "name": "OffsetRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:16",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546c44": {
+      "kind": "fixture",
+      "name": "GetSystemMetrics",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546cc0": {
+      "kind": "fixture",
+      "name": "GetWindowRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546d04": {
+      "kind": "fixture",
+      "name": "SystemParametersInfoA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "out:340",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546d58": {
+      "kind": "fixture",
+      "name": "CopyRect",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "out:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects."
+    },
+    "0x4fcfe9": {
+      "kind": "fixture",
+      "name": "CDC::FromHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC resolves a Win32 device-context handle through thread-local handle maps; cases supply the backed platform wrapper."
+    },
+    "0x546d4c": {
+      "kind": "fixture",
+      "name": "IsRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 tests a signed RECT for empty or inverted dimensions; cases implement the platform query while original painting executes."
+    },
+    "0x4fd1ac": {
+      "kind": "fixture",
+      "name": "CDC::SelectObject(CFont*)",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "ptr:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "MFC selects a physical font into device contexts and resolves the previous handle through Windows TLS maps; cases supply the backed previous-font wrapper."
+    },
+    "0x546d20": {
+      "kind": "fixture",
+      "name": "GetSysColor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32/GDI physical drawing service reached by original popup border painting; cases supply native device effects and handles."
+    },
+    "0x5468ec": {
+      "kind": "fixture",
+      "name": "CreatePen",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32/GDI physical drawing service reached by original popup border painting; cases supply native device effects and handles."
+    },
+    "0x5468e4": {
+      "kind": "fixture",
+      "name": "MoveToEx",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "out:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32/GDI physical drawing service reached by original popup border painting; cases supply native device effects and handles."
+    },
+    "0x5468e8": {
+      "kind": "fixture",
+      "name": "LineTo",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32/GDI physical drawing service reached by original popup border painting; cases supply native device effects and handles."
+    },
+    "0x546b10": {
+      "kind": "fixture",
+      "name": "lstrcpyA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 ANSI string copy; the case copies the source and terminator into backed destination storage, with size determined by the source."
+    },
+    "0x546d94": {
+      "kind": "fixture",
+      "name": "UnionRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "out:16",
+        "ptr:16",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 combines physical invalidation rectangles; cases implement signed RECT union and empty-rectangle semantics."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_popup_construction.cases.py",
+    "entry": "claw_menu_popup_construction_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3227504370,
+      "cases": 69,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.911,
+      "reasons": [],
+      "build_inputs_sha256": "f76f65c15b47349b3ac86664713da75080617f91bdad94772d54e1ae1a7dca9b"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc at 0x4a48e0 is a stand-in (allocate); the C runtime heap ends in operating-system calls",
+    "_lock at 0x4a7bc0 is a stand-in (return-zero); C runtime lock: enters an operating-system critical section; the game is single-threaded here",
+    "_unlock at 0x4a7c40 is a stand-in (return-zero); C runtime unlock: leaves an operating-system critical section",
+    "operator new at 0x4f63ec is a stand-in (allocate); the C runtime heap ends in operating-system calls",
+    "operator delete at 0x4f6428 is a stand-in (release); pairs with operator new",
+    "CDialog::~CDialog at 0x4f7b10 is a stand-in (scripted); MFC dialog teardown reaches Windows handle-map and lifecycle services.",
+    "CDialog::CreateIndirect at 0x4f7b4e is a stand-in (scripted); MFC dialog creation requires a live Windows callback dispatcher and thread window maps.",
+    "CWnd::DestroyWindow at 0x4f8f44 is a stand-in (scripted); MFC window destruction requires Windows handle maps and message dispatch.",
+    "AfxGetThread at 0x4fb7d8 is a stand-in (scripted); MFC thread lookup depends on Windows TLS and initialized module-thread state.",
+    "CDC::Attach at 0x4fcfff is a stand-in (scripted); MFC device-context attachment reaches thread-local Windows handle maps.",
+    "CDC::DeleteDC at 0x4fd067 is a stand-in (scripted); MFC device-context teardown detaches Windows thread-local handles.",
+    "SelectObject wrapper at 0x4fd150 is a stand-in (scripted); MFC selected-object wrapping uses thread-local Windows handle maps.",
+    "CGdiObject::Attach at 0x4fd6db is a stand-in (scripted); MFC GDI attachment reaches thread-local Windows handle maps.",
+    "CGdiObject::DeleteObject at 0x4fd732 is a stand-in (scripted); MFC GDI teardown detaches Windows thread-local handles.",
+    "BitBlt at 0x546870 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "CreateCompatibleDC at 0x54687c is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "GetStockObject at 0x5468bc is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "CreateCompatibleBitmap at 0x54690c is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "lstrlenA at 0x5469e4 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "InterlockedDecrement at 0x5469e8 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "InterlockedIncrement at 0x5469ec is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "SizeofResource at 0x546a54 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "LockResource at 0x546ac4 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "FindResourceA at 0x546ac8 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "LoadResource at 0x546acc is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "OffsetRect at 0x546b7c is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "GetSystemMetrics at 0x546c44 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "GetWindowRect at 0x546cc0 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "GetCursorPos at 0x546cd0 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "SetRectEmpty at 0x546cdc is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "SystemParametersInfoA at 0x546d04 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "CopyRect at 0x546d58 is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "SetRect at 0x546d5c is a stand-in (scripted); Physical Win32 service reached by owned code or unchanged original popup initialization; cases supply its API effects.",
+    "CDC::FromHandle is scripted platform handle lookup; cases provide a backed device-context wrapper without replacing game drawing decisions.",
+    "IsRectEmpty is a scripted Win32 RECT query with signed coordinate semantics.",
+    "CDC::SelectObject(CFont*) is a scripted physical font selection and handle-wrapper boundary; original popup painting remains executable.",
+    "GetSysColor is scripted at the Win32/GDI physical boundary; original border drawing decisions remain executable.",
+    "CreatePen is scripted at the Win32/GDI physical boundary; original border drawing decisions remain executable.",
+    "MoveToEx is scripted at the Win32/GDI physical boundary; original border drawing decisions remain executable.",
+    "LineTo is scripted at the Win32/GDI physical boundary; original border drawing decisions remain executable.",
+    "lstrcpyA is a scripted variable-length Win32 ANSI string copy; cases provide the memory effect and original destination return.",
+    "UnionRect is scripted at the Win32 rectangle boundary; original popup invalidation decisions remain executable."
+  ],
+  "notes": "Boundary reviewed against the hash-checked v1.0 corpus. The six seeds remain the entire owned set. Platform fixtures replace only allocation, locking, Win32 services and MFC window/GDI lifecycle; all game callees remain original. See the local packet notes for hidden CString arguments, real disassembly branches and minimal successful resource setup."
+}

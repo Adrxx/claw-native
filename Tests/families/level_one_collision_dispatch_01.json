@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "id": "level_one_collision_dispatch_01",
+  "title": "Level 1 tile-manager collision dispatch",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneCollisionDispatch01Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x4cbb60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cbcd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cbe30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_collision_dispatch_01.cases.py",
+    "entry": "claw_level_one_collision_dispatch_01_entry",
+    "equivalent_mutants": [
+      {
+        "line": 148,
+        "operator": "lt-to-le",
+        "mutant_sha256": "4a8c02e2af1497cd920286203c58fb6289083dfb6be1ac2fe4c708271ff5b472",
+        "source_sha256": "1e90f3c0c9e0e7c4a0e46f590535600be91a5b0765806cff0932c5f2d21f10aa",
+        "reason": "The mutant changes `<` to `<=` on the clamp: when nextX equals x the clamp assigns x to nextX, which already equals x, so no value changes."
+      },
+      {
+        "line": 156,
+        "operator": "lt-to-le",
+        "mutant_sha256": "cec0837a721f65f179a0b6d4ceff9f7f2270d4d37ff527b9a52d3028e7ca3e03",
+        "source_sha256": "1e90f3c0c9e0e7c4a0e46f590535600be91a5b0765806cff0932c5f2d21f10aa",
+        "reason": "The mutant changes `<` to `<=` on the clamp: when nextY equals y the clamp assigns y to nextY, which already equals y, so no value changes."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3011732083,
+      "cases": 648,
+      "mutants_killed": 49,
+      "mutants_tried": 53,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "08580366a3bb8f6062ff3cc5e1efc9aaf9aff43a58e2c1b73111f8fe74b34bd9"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

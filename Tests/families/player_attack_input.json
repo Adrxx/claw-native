@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "player_attack_input",
+  "title": "Original attack input, entries, and marker updater",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerAttackInput.cpp",
+    "Sources/PlayerAttackInput.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerAttackInput.cpp": "d194d165f17f881c49aaccde590e304517551fe5a0ecd2673815df87ba5b1efb",
+    "Sources/PlayerAttackInput.h": "6a5581b3f0e84db7be5ae7b1d45d7bad82ab5a6a8b71b4599f462511a4231afe"
+  },
+  "docs": [
+    "docs/player-attack-input.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_attack_input.py"
+      }
+    ],
+    "helpers": [
+      "Tests/attack_input_helpers.py"
+    ],
+    "work_dirs": [
+      "work/attack-input-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/attack-input-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_attack_input.py": "pass"
+      },
+      "seconds": 14.4
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2754693971,
+      "owned": 10,
+      "owned_inferred_from_tests": true,
+      "directly_called": 10,
+      "fully_executed": 9,
+      "bytes_owned": 5229,
+      "bytes_executed": 5208,
+      "coverage": 0.996
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": []
+}

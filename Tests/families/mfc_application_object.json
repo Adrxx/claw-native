@@ -1,0 +1,414 @@
+{
+  "schema": 1,
+  "id": "mfc_application_object",
+  "title": "Whole original CWinApp constructor",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcApplicationObjectRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x50257f",
+      "name": "CWinApp::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x50257f",
+          "end": "0x502669",
+          "sha256": "773a9a0d6f2a97ff7aa5c5a391b2439094c9b172ecbcada61b8795de5ccfb682"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48c0": {
+      "kind": "whole",
+      "name": "MfcCompilerScope::register",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      }
+    },
+    "0x503510": {
+      "kind": "whole",
+      "name": "Original complete CWinThread constructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x4a56e0": {
+      "kind": "whole",
+      "name": "Original complete CRT strdup; native capability unadmitted",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x50228f": {
+      "kind": "whole",
+      "name": "Original complete module getter",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024
+      }
+    },
+    "0x50335e": {
+      "kind": "whole",
+      "name": "Original complete TLS getter selecting genuine application factory502301",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1024
+      }
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS-index allocation returns a distinct live index or 0xffffffff on exhaustion."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS lookup uses both the current thread and allocated index, returning the stored pointer or null."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "ptr:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical TLS publication stores the exact container pointer only on success; a failed return leaves TLS unchanged."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical initialization of the exact 24-byte critical-section record, with nonreturning service exceptions."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock acquisition tracks section identity, owner and recursion."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:24"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical lock release balances the current owner and section."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global allocation preserves exact flags and separate handle/data identities; failure returns null."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:1"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical conversion from a global data pointer to its handle also accepts null on initial allocation failure."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle unlock decrements its lock count; zero can be a successful final unlock."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical movable global reallocation preserves the prefix and preserves old ownership on failure."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical handle lock returns its data pointer; the cached IAT target remains this same physical import."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical local allocation returns live memory or null; flags 0x40 zero bytes, while flags zero do not promise initialized contents."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "ptr:1",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical fixed-block reallocation with flags 2 preserves the old prefix and keeps the old allocation alive on failure."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception boundary: flags 1 must Halt without returning, reached through unchanged original throw helpers; no exception dispatch is fabricated."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical compatibility-version service used by original singleton-lock initialization; MFC constructors remain original."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical cursor reads provide signed POINT coordinates or failure under explicit test-owned OS policy; no internal constructor/helper substitutions."
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Known CRT allocation boundary for original strdup; allocate exact requested live bytes or return zero. No MFC or name helper becomes a fixture."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546ab8": {
+      "kind": "fixture",
+      "name": "SetLastError",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546984": {
+      "kind": "fixture",
+      "name": "IsBadWritePtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x546988": {
+      "kind": "fixture",
+      "name": "IsBadCodePtr",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical service only: coherent CRT TLS/last-error or actual mapped-range permission predicate. Do not replace original handlers, type search, cleanup or funclets."
+    },
+    "0x5469bc": {
+      "kind": "fixture",
+      "name": "GetCurrentThread",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical current logical thread service; exact call order, full source snapshots and returned DWORD are observed."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical current logical thread service; exact call order, full source snapshots and returned DWORD are observed."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_application_object.cases.py",
+    "entry": "claw_mfc_application_object_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1397134478,
+      "cases": 56,
+      "mutants_killed": 51,
+      "mutants_tried": 54,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.981,
+      "reasons": [],
+      "build_inputs_sha256": "08b16acca5a2239c0200bfbeb5e83d5bba3364e4d0a03dd88f392bcf8740ff4d"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Complete234-byte constructor; required full CPU/FS source transport and whole bounded-stack comparison; no coverage exemptions.",
+    "Source preservation0x472 requires receiver/name/duplicate/module/thread/application/manager/array spans and physical-service writes disjoint from the entire active source stack and all active saved controls/restoration slots. Fresh allocations remain distinct live identities; bounded NUL-terminated names and DF clear. Original code/return PCs/EH metadata immutable; full eleven-field outputs remain observed.",
+    "Known CRT malloc4a48e0 is an allocation fixture; strdup4a56e0 and every original MFC child execute whole.",
+    "Physical imports are modeled services with explicit ownership and logical-thread policy, not native OS or startup acceptance.",
+    "Nonreturning physical failure stops are prefixes only; no CWinApp catch/unwind or shipping CRT exception dispatcher is claimed.",
+    "Static initialization, native dependency closure, actual CRT heap/locks/TLS/atexit and app UI acceptance remain separate."
+  ],
+  "notes": "Whole constructor boundary reviewed against pinned original in work/coordination/cwinapp-boundary-plan.md. Genuine static caller return4251ff; source masks and complete234-byte coverage require fresh independent original cases. No shipping CRT/static startup or exception dispatch claim."
+}

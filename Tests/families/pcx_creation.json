@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "id": "pcx_creation",
+  "title": "PCX image creation from memory",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PCXCreationCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4be810",
+      "name": "PCXImage::createFromMemory",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pcx_creation.cases.py",
+    "entry": "claw_pcx_creation_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4be904",
+        "end": "0x4be90c",
+        "reason": "Unreachable under the ordinary object contract: this block requires conversion to destination depth 8 and device +0x878 equal to zero at 0x4be8f6, but 0x4be88c/0x4be893 already return for that value. There is no intervening call or write to the device; the original reload must be retained. The half-open range excludes the live common path at 0x4be90c."
+      },
+      {
+        "start": "0x4be9ec",
+        "end": "0x4bea01",
+        "reason": "Unreachable for valid live PCX header and allocator inputs: original decoders 0x4bef50 and 0x4bf070 return zero only for null destination or source and make no outside calls. The destination is checked nonzero at 0x4be99c/0x4be99e or 0x4be9d7/0x4be9d9; source is the valid header address plus 0x80 and cannot wrap to null. Null allocation returns earlier. The half-open range excludes the live common path at 0x4bea01; owned code remains implemented."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 189776095,
+      "cases": 96,
+      "mutants_killed": 31,
+      "mutants_tried": 35,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.969,
+      "reasons": [],
+      "build_inputs_sha256": "4f0236d032a61626711fa6ab1c745c57c11c03bebeaa929b044245b6740ae660"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new uses the comparison allocator and can be scripted to fail.",
+    "Operator delete uses the comparison release fixture.",
+    "Surface creation and DirectDraw methods are indirect case-supplied callbacks, with no physical display involved.",
+    "Decoders and converters remain unchanged original callees owned by pcx_image.",
+    "Cases keep the optional original diagnostic subsystem disabled or avoid its error-reporting paths."
+  ],
+  "notes": "Canonical comparison owns only 0x4be810; legacy measured entry counts included a callee. The separate canonical source and export preserve the existing legacy runtime ABI. Global palette scratch at 0x541fb0 is shared with the image families. Unreachable ranges were reviewed by the coordinator before case authoring."
+}

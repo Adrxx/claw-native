@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "id": "human_combat",
+  "title": "Original Human typed combat",
+  "abi": "legacy",
+  "sources": [
+    "Sources/HumanCombat.cpp",
+    "Sources/HumanCombat.h"
+  ],
+  "source_sha256": {
+    "Sources/HumanCombat.cpp": "c4ea5707037913416d8197a1421537578aa44f174f89bf3ca71ab56b9b311329",
+    "Sources/HumanCombat.h": "39f67ca70091ebc93591894283dd7da49a56aed6229f24deb2852a5d09eba9db"
+  },
+  "docs": [
+    "docs/human-combat.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_human_combat.py"
+      }
+    ],
+    "helpers": [
+      "Tests/human_combat_helpers.py"
+    ],
+    "work_dirs": [
+      "work/human-combat-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_human_combat.py": "pass"
+      },
+      "seconds": 23.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 500638607,
+      "owned": 95,
+      "owned_inferred_from_tests": true,
+      "directly_called": 95,
+      "fully_executed": 92,
+      "bytes_owned": 7021,
+      "bytes_executed": 6945,
+      "coverage": 0.9892
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeHumanoid.swift"
+    ]
+  },
+  "limits": []
+}

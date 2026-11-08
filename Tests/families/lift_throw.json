@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "lift_throw",
+  "title": "Original player lifting and throwing",
+  "abi": "legacy",
+  "sources": [
+    "Sources/LiftThrowRuntime.cpp",
+    "Sources/LiftThrowRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/LiftThrowRuntime.cpp": "584b62ac18fde873cfb99005a6b95f8da986063a03cf6fd67fc84a052173435d",
+    "Sources/LiftThrowRuntime.h": "664e978ddf35c0da36d353f8815edf160ddbe96131dbe23274c672b38dca5495"
+  },
+  "docs": [
+    "docs/lift-throw-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_lift_throw_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/lift_throw_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/lift-throw-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-lift-throw-independent.log"
+      ],
+      "worker_evidence": [
+        "work/lift-throw-agent/verification.json",
+        "work/lift-throw-agent/verification.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_lift_throw_runtime.py": "pass"
+      },
+      "seconds": 60.0
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 543911763,
+      "owned": 12,
+      "owned_inferred_from_tests": false,
+      "directly_called": 10,
+      "fully_executed": 6,
+      "bytes_owned": 5822,
+      "bytes_executed": 4957,
+      "coverage": 0.8514
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeCarry.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_batch_soldier_01 (0x404e00); level_one_claw_lift_throw_01 (0x41a850, 0x41b1f0, 0x41b280, 0x41dc50, 0x421010, 0x4dbd20, 0x4dc6d0); level_one_player_actions_02 (0x4171d0); level_one_player_actions_03 (0x41c4e0, 0x41d850); level_one_player_actions_04 (0x420fc0). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

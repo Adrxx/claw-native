@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "id": "level_one_hud_timers_01",
+  "title": "Level 1 HUD frames and number group entries",
+  "abi": "canonical",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/LevelOneHudTimers01Runtime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "owned": [
+    {
+      "address": "0x490590",
+      "name": "HudNumberGroupInit",
+      "convention": "thiscall",
+      "argc": 8,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x490760",
+      "name": "HudBindNumberGroup",
+      "convention": "thiscall",
+      "argc": 7,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4908b0",
+      "name": "ScoreFrame",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x490c40",
+      "name": "HudNumberGroupConstruct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x490c50",
+      "name": "HealthFrame",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x490f80",
+      "name": "WeaponFrame",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4912a0",
+      "name": "LivesFrame",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x491540",
+      "name": "TimerFrame",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_hud_timers_01.cases.py",
+    "entry": "claw_level_one_hud_timers_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x49064c",
+        "end": "0x49064e",
+        "reason": "Allocation failure leaves the new group pointer null, then the original passes it unconditionally as this to 0x490760, whose first store at this+0xc faults; no normally returning original case reaches this path (checked by running the case on the original)."
+      },
+      {
+        "start": "0x490b8e",
+        "end": "0x490b90",
+        "reason": "Allocation failure leaves the new group pointer null, then the original passes it unconditionally as this to 0x490760, whose first store at this+0xc faults; no normally returning original case reaches this path (checked by running the case on the original)."
+      },
+      {
+        "start": "0x490f1c",
+        "end": "0x490f1e",
+        "reason": "Allocation failure leaves the new group pointer null, then the original passes it unconditionally as this to 0x490760, whose first store at this+0xc faults; no normally returning original case reaches this path (checked by running the case on the original)."
+      },
+      {
+        "start": "0x49124c",
+        "end": "0x49124e",
+        "reason": "Allocation failure leaves the new group pointer null, then the original passes it unconditionally as this to 0x490760, whose first store at this+0xc faults; no normally returning original case reaches this path (checked by running the case on the original)."
+      },
+      {
+        "start": "0x4914e9",
+        "end": "0x4914eb",
+        "reason": "Allocation failure leaves the new group pointer null, then the original passes it unconditionally as this to 0x490760, whose first store at this+0xc faults; no normally returning original case reaches this path (checked by running the case on the original)."
+      },
+      {
+        "start": "0x491819",
+        "end": "0x49181b",
+        "reason": "Allocation failure leaves the new group pointer null, then the original passes it unconditionally as this to 0x490760, whose first store at this+0xc faults; no normally returning original case reaches this path (checked by running the case on the original)."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 593,
+        "operator": "lt-to-le",
+        "mutant_sha256": "e981587bc0b2094eef2456704c8cd951e9d12f4ba6a67a4df13887ce4e58e5b2",
+        "source_sha256": "f0267cbe713eeae9d4bdc2d4c43ce445edf26ae0444de41eea60c72a7e26c775",
+        "reason": "Independent fresh case-author and translator original audits: Equivalent for all u32 local values. Original clamps the wrapping lives-minus-one value to zero exactly when its signed value is negative. Changing the zero comparison to inclusive only adds assignment of zero to an already-zero local. No service, memory write, or return depends on taking that local-assignment branch independently of its identical resulting value. Evidence: work/packets/level_one_hud_timers_01/004912a0.asm: 0x4913bf DEC EAX; 0x4913c0 SETS DL; 0x4913c3 DEC EDX; 0x4913c4 AND EAX,EDX; 004912a0.asm 0x4913bf decrements EAX with wrap; 0x4913c0 sets DL from sign, 0x4913c3 decrements mask, 0x4913c4 AND clamps a negative result to zero.; work/readability/level_one_hud_timers_01/{case-author,translator}-equivalence-audit.json."
+      },
+      {
+        "line": 662,
+        "operator": "swap-named-constant",
+        "mutant_sha256": "25e7f04a91b6110f815e68fb2abf889d99f22149f5fa7b5ffd92aedbf478c867",
+        "source_sha256": "f0267cbe713eeae9d4bdc2d4c43ce445edf26ae0444de41eea60c72a7e26c775",
+        "reason": "Independent fresh case-author and translator original audits: Equivalent: the original and mutated 4-byte global reads are wholly inside the same mapped .data section, including the unaligned mutated read. Receiver bits can differ, but the original callee is exactly RET and never reads ECX or memory, emits no fixture event, and has an unused void result. Both reads and the call complete without changing observable state. Evidence: work/packets/level_one_hud_timers_01/00491540.asm: 0x4915af loads ECX from global 0x5371fc; 0x4915b5 calls 0x4bc110. work/packets/level_one_hud_timers_01/callees/004bc110.asm: 0x4bc110 RET is the entire function.; callees/004bc110.asm: 004bc110 c3 ret; hash-checked Program section metadata.; work/readability/level_one_hud_timers_01/{case-author,translator}-equivalence-audit.json."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3981904949,
+      "cases": 785,
+      "mutants_killed": 61,
+      "mutants_tried": 67,
+      "mutants_equivalent": 2,
+      "mutation_score": 0.984,
+      "reasons": [],
+      "build_inputs_sha256": "3199d68e3a128e64fb0b424957a2f14688d1b2e5712c2d6de8b1357ac47fcdc7"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a stand-in (allocate).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "animation_operations",
+  "title": "Bounded animation recovery - 2026-10-11",
+  "abi": "legacy",
+  "sources": [
+    "Sources/AnimationOperations.cpp"
+  ],
+  "source_sha256": {
+    "Sources/AnimationOperations.cpp": "5501e6909576d90f0a25591bf825cb81979baf0b5dd0ec59cc2f805effa28305"
+  },
+  "docs": [
+    "docs/animation-operations.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_animation_operations.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/libAnimationOperations.dylib"
+        ],
+        "prerequisites": [
+          "xcrun clang++ -std=c++17 -dynamiclib Sources/AnimationOperations.cpp -o work/libAnimationOperations.dylib"
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_animation_operations.py": "pass"
+      },
+      "seconds": 0.2
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2748715303,
+      "owned": 1,
+      "owned_inferred_from_tests": true,
+      "directly_called": 1,
+      "fully_executed": 0,
+      "bytes_owned": 1277,
+      "bytes_executed": 207,
+      "coverage": 0.1621
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": false,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "no header of its own"
+}

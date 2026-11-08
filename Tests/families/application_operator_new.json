@@ -1,0 +1,511 @@
+{
+  "schema": 1,
+  "id": "application_operator_new",
+  "title": "Application allocation and original handler retry",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationOperatorNewRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4f63ec",
+      "name": "ApplicationOperatorNew",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      },
+      "body_ranges": [
+        {
+          "start": "0x4f63ec",
+          "end": "0x4f6428",
+          "sha256": "ec0a38d23b356e612dc034b6e5af88257936e293c3874dd031ab796d6a33c3aa"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "whole",
+      "name": "Original CRT malloc; all heap internals remain source",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x5022b5": {
+      "kind": "whole",
+      "name": "Admitted real application-thread accessor",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4f63d0": {
+      "kind": "whole",
+      "name": "Original default new handler; real nonreturning throw path",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4fe0e5": {
+      "kind": "whole",
+      "name": "Original safety-pool handler; source return and retry",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x501fad": {
+      "kind": "whole",
+      "name": "Original generic-thread getter used by reserve handler",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a6560": {
+      "kind": "whole",
+      "name": "Original CRT usable-size query",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a49b0": {
+      "kind": "whole",
+      "name": "Original CRT free",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x4a64b0": {
+      "kind": "whole",
+      "name": "Original CRT in-place expand/shrink",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 0
+      }
+    },
+    "0x546950": {
+      "kind": "fixture",
+      "name": "HeapCreate",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "heap bootstrap. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x54694c": {
+      "kind": "fixture",
+      "name": "HeapDestroy",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "bootstrap failure cleanup. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546990": {
+      "kind": "fixture",
+      "name": "VirtualAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "real small heap reserve/commit and expansion. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546954": {
+      "kind": "fixture",
+      "name": "VirtualFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "commit failure release. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546960": {
+      "kind": "fixture",
+      "name": "HeapAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "allocator fallback and extra descriptor storage. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546964": {
+      "kind": "fixture",
+      "name": "HeapFree",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "failed small heap expansion descriptor cleanup. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546aa4": {
+      "kind": "fixture",
+      "name": "InitializeCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "source lock bootstrap (four existing static records), optional dynamic lock creation. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546aac": {
+      "kind": "fixture",
+      "name": "EnterCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "source lock9 enter. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546a9c": {
+      "kind": "fixture",
+      "name": "LeaveCriticalSection",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "source lock9 leave. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546df0": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "two physical clock observations through admitted base constructor. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546a90": {
+      "kind": "fixture",
+      "name": "TlsAlloc",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Allocates a genuine per-process TLS slot, initialized to0; failureffffffff is an externalthrow frontier.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546a7c": {
+      "kind": "fixture",
+      "name": "TlsGetValue",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Reads current-thread slot; source builds all thread records.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546a84": {
+      "kind": "fixture",
+      "name": "TlsSetValue",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Sets current-thread slot to exact source-provided pointer; succeeds1 in this bounded profile.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical LocalAlloc; flag40 zero-fills; return fresh live backing. Source creates MFC owner/records.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546a80": {
+      "kind": "fixture",
+      "name": "LocalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical LocalReAlloc preserves min(old,new) bytes and obeys movement/zero flags; source builds resized thread slots.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546b1c": {
+      "kind": "fixture",
+      "name": "GlobalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical GlobalAlloc returns tracked handle/backing with declared flags; profile uses2002, no fixture source writes.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x5469c4": {
+      "kind": "fixture",
+      "name": "GlobalLock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalLock returns backing for real handle and tracks lock lifetime.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546a8c": {
+      "kind": "fixture",
+      "name": "GlobalHandle",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalHandle returns handle associated with physical backing; expansion path only.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x5469c8": {
+      "kind": "fixture",
+      "name": "GlobalUnlock",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalUnlock updates real physical lockcount; expansion path only.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546a88": {
+      "kind": "fixture",
+      "name": "GlobalReAlloc",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GlobalReAlloc preserves physical allocation contents and exact movement/flag semantics; expansion path only.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546abc": {
+      "kind": "fixture",
+      "name": "GetVersion",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetVersion returns declared NT4 versionDWORD4 for probe. Real502e47 establishes MFC locking policy; no sourceglobal fixture.. Physical service only; execute all allocator/constructor/TLS/game source unchanged, with real memory/handle/lock lifetime. No game-global or output writes."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Noncontinuable physical RaiseException: flag1/count3 from real4f50fd/4a5690; Halt at genuine frame/RPC4a56cf without fabricated return, dispatch or unwind. Every program getter/factory/constructor/handler remains original source."
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetCursorPos writes its8-bytePOINT physical input through the actual source-provided pointer; used by genuineCWinApp setup. Physical ownership only; every program allocator/getter/handler/constructor remains original source."
+    },
+    "0x5469bc": {
+      "kind": "fixture",
+      "name": "GetCurrentThread",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetCurrentThread returns the declared current-thread pseudohandle; realCWinApp stores it. Physical ownership only; every program allocator/getter/handler/constructor remains original source."
+    },
+    "0x5469c0": {
+      "kind": "fixture",
+      "name": "GetCurrentThreadId",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "GetCurrentThreadId returns the same declared logical-thread ID; realCWinApp stores it. Physical ownership only; every program allocator/getter/handler/constructor remains original source."
+    },
+    "0x54692c": {
+      "kind": "fixture",
+      "name": "HeapSize",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "HeapSize(heap,flags0,exactlivepointer) returns actual physical allocation capacity; source msize remains original. Physical ownership only; every program allocator/getter/handler/constructor remains original source."
+    },
+    "0x546928": {
+      "kind": "fixture",
+      "name": "HeapReAlloc",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "HeapReAlloc(heap,flags0x10,exactlivepointer,size) implements actual in-place shrink with preserved prefix, identity, capacity andquota. No movingrealloc or fake source_expand result. Physical ownership only; every program allocator/getter/handler/constructor remains original source."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_operator_new.cases.py",
+    "entry": "claw_application_operator_new_entry",
+    "heap_bytes": 16777216
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3580464469,
+      "cases": 24,
+      "mutants_killed": 15,
+      "mutants_tried": 16,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.938,
+      "reasons": [],
+      "build_inputs_sha256": "c2e63c5323f8572252c3a6eafa4183fc008de3d518a7cf8ff8fe0d381aefc6ca"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Own whole4f63ec..4f6428,60bytes/27instructions,cdecl1/u32,source7ff/7ff/preserve0. No byte/branch exemptions or partial-prefix admission. Exact sourceCALL/RET, CPU/flags/FS andboundedstack remain observed.",
+    "Legacycarray also lists4f63ec with unknownABI andprovisional evidence. This new complete canonical capability is the intended newelection; do not edit or reuse the oldnativeimplementation. Canonical election and nativeintegration remain separate from draft/admission.",
+    "Real4a48e0 malloc, all CRT heap internals,4f63d0 default handler,4fe0e5 reserve handler,501fad getter,msize4a6560,free4a49b0 and_expand4a64b0 execute original source. No env.stub orfixture for these source callees, even if genericlint/packet advice suggests a stub for an indirectcall.",
+    "Actualoperatornew enters with requestedsize atentryESP+4. Realmalloc CALL4f63fa/RPC4f63ff andselectedhandler CALL4f641b/RPC4f641d both have childESP=entryESP-0x14 andonecdeclargument; accessorCALL4f640e/RPC4f6413 has childESP=entryESP-0x10. Caller POPs consume argumentwords.",
+    "Retain pinned510020=ffffffff sentinel and source-established perthread+28 handler. Initial540fe8=0 is the bounded CRTnewmode. Do not write handler/global/allocator metadata infixtures or use opaque unregistered settervalues as executablecallbacks.",
+    "Success, genuine setter4f63d8(0) normal-null, originaldefaultthrow, and genuine4fe0e5 reserve-return/retry are distinct declared profiles. Nullreserve4fe0e5 throws; it must never be forced to return0. Defaultthrow physicalstop is not guestEH or successfulallocation.",
+    "Genuine reserve setup executes4251f0\u219250257f onimage537008, producing app+b8=0x200(512) andactual module/applicationthread publication. Real4fb412 increments temporary-map count; whole4fb41b(0) decrements it to0, realmalloc allocatespool andsource4fb4e4 writes genericthread+c. No fixture reservefield or fakeappowner.",
+    "Proven retry profile uses actualsourceheap exhaustion and physicalHeapAlloc quota0x210(528). Live512-byte pool leaves16, insufficient for0x134(308) request/0x140(320) capacity. Realhandler msize/_expand produces physicalHeapReAlloc(flags0x10) shrink to0xd0(208), preservingpointer;320quota becomesfree, handlerreturns1 andoriginalnew retries successfully. Services use physicalledger/quota, not sourcePC-based outcome overrides.",
+    "Physicalheap/VM/TLS/Local/Global/criticalsection/process services preserve exact handles, distinct movablehandle/data identities, prefixes, live/retired blocks, reserve/commit rules andlogicalthread ownership. Source owns all caches, slotrecords, constructors andpublication. Clock remains declared for optional realapplicationconstructor setup used by the reviewedprobe.",
+    "Independent ignoredproducer work/coordination/application_safety_pool_retry_probe.py andreceipt work/coordination/application-safety-pool-retry-probe.json observedall60B; receiptSHA658202e8f703115ab088b2058ad8013c3c19193962f57cc903db44575c5b99d4. This is originalfeasibility only; freshblindcases must independently exercise the fullownedbody.",
+    "oracle.heap_bytes=16777216 supplies16MiB backing for the proven real4MiB reserve/64KiB commit plus physicalTLS/Local/Global/application allocations. It does not authorize sourceheapstate injection or an unboundedcase domain.",
+    "RaiseException546958 is a genuine noncontinuablephysicalHalt through real4f50fd/4a5690. No returningthrow, guestdispatch, unwind, cleanupfunclet directentry or coverageexemption is introduced. Outsidehelper ownership is not expanded merely toexecute sourcecases.",
+    "The future nativeCRTservice boundary at4a48e0 is a separateversioned comparison/election. Thisfamily retains fulloriginalallocator execution; never silentlyreroute the admitted492B constructiondomain or this60B oracle to a highlevelmallocfixture.",
+    "No familyadmission, nativehost/election, fullstatic144/WinMain, gameinit/menu/gameplay ordeviceacceptance is established by this draft.",
+    "Genuine handler metadata was recovered by the hash-checked two-address Ghidra seed: 4f63d0..4f63d8 (8 bytes/3 instructions) and 4fe0e5..4fe137 (82 bytes/35 instructions). No old corpus record/file changed, and no extra pointer seeds were added. Corpus ABI remains unknown; the declared cdecl1/u32 callback contract is original-callsite derived. See work/coordination/operator-handler-corpus-repair/receipt.json. No handler fixtures or lint exemptions were introduced."
+  ],
+  "notes": "Blind-author boundary: Tests/families/application_operator_new.notes.md. Original report: work/coordination/application-allocation-boundary.json. Fixed original handlers and every allocator execute source; generic indirectcall stub advice does not apply."
+}

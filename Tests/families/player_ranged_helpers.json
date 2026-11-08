@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "player_ranged_helpers",
+  "title": "Original player ranged helper bodies",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerRangedHelpersRuntime.cpp",
+    "Sources/PlayerRangedHelpersRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerRangedHelpersRuntime.cpp": "5793210690879e0b12d41e2c5e1c57cb159bc42ae538918b95d3fbc25804ed1b",
+    "Sources/PlayerRangedHelpersRuntime.h": "74f9bc691f4eb0bb13ba194d3b77207cdfe78d64e3336a0347f7383e90a58c63"
+  },
+  "docs": [
+    "docs/player-ranged-helpers-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_ranged_helpers_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/player_ranged_helpers_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/original-disc-assets",
+      "work/player-ranged-helpers-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-ranged-helpers-independent.log"
+      ],
+      "worker_evidence": [
+        "work/player-ranged-helpers-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_ranged_helpers_runtime.py": "pass"
+      },
+      "seconds": 10.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2136362353,
+      "owned": 7,
+      "owned_inferred_from_tests": true,
+      "directly_called": 7,
+      "fully_executed": 5,
+      "bytes_owned": 3419,
+      "bytes_executed": 1930,
+      "coverage": 0.5645
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeProjectiles.swift"
+    ]
+  },
+  "limits": []
+}

@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "player_physics",
+  "title": "Player Physics",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerPhysics.cpp",
+    "Sources/PlayerPhysics.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerPhysics.cpp": "7ce914b5577b2bbe6f1933df2c9097530fd5e234d32f0ceb6ad677092631a79b",
+    "Sources/PlayerPhysics.h": "bbe5dd312798c3c19a0f5a1c934bb7dbf170dbb3fdaeedd6f41d9218b5bdb0b5"
+  },
+  "docs": [],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_physics_retarget.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/libPlayerPhysics.dylib"
+        ],
+        "prerequisites": [
+          "xcrun clang++ -std=c++17 -ffp-contract=off -dynamiclib Sources/PlayerPhysics.cpp -o work/libPlayerPhysics.dylib"
+        ]
+      },
+      {
+        "script": "Tests/compare_player_physics.py",
+        "arguments": [
+          "Original/claw10/CLAW.EXE",
+          "work/libPlayerPhysics.dylib"
+        ],
+        "prerequisites": [
+          "xcrun clang++ -std=c++17 -ffp-contract=off -dynamiclib Sources/PlayerPhysics.cpp -o work/libPlayerPhysics.dylib"
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": []
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_physics_retarget.py": "pass",
+        "Tests/compare_player_physics.py": "pass"
+      },
+      "seconds": 4.9
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2645573317,
+      "owned": 8,
+      "owned_inferred_from_tests": true,
+      "directly_called": 8,
+      "fully_executed": 7,
+      "bytes_owned": 3064,
+      "bytes_executed": 3040,
+      "coverage": 0.9922
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": [],
+  "notes": "compare_physics_retarget.py assigned by content: calls claw_physics_retarget declared in PlayerPhysics.h"
+}

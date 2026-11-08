@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "id": "raw_tile_description",
+  "title": "Original raw tile descriptions",
+  "abi": "legacy",
+  "sources": [
+    "Sources/RawTileDescriptionRuntime.cpp",
+    "Sources/RawTileDescriptionRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/RawTileDescriptionRuntime.cpp": "c46570da3f354ed801f65e2bdaa996ec242896da6202a3142449416d19d09c0c",
+    "Sources/RawTileDescriptionRuntime.h": "9ec91cbd7498b9fe8bcba07a38fd4e3c08441545f5bd25b06ccea18ca47e88c6"
+  },
+  "docs": [
+    "docs/raw-tile-description-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x4cddd0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cdde0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cddf0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cdef0",
+      "convention": "unknown",
+      "argc": null,
+      "returns": "unknown",
+      "confidence": "declared"
+    }
+  ],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_raw_tile_description_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/raw_tile_description_runtime_helpers.py"
+    ],
+    "work_dirs": [
+      "work/raw-tile-description-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/raw-tile-description-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_raw_tile_description_runtime.py": "pass"
+      },
+      "seconds": 9.3
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2768381379,
+      "owned": 9,
+      "owned_inferred_from_tests": false,
+      "directly_called": 9,
+      "fully_executed": 9,
+      "bytes_owned": 115,
+      "bytes_executed": 115,
+      "coverage": 1.0
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "Legacy original-address claims narrowed; source membership and legacy comparisons are retained. Superseded claims: booty_progression (0x4bd240, 0x4bd250); checkpoint_logic (0x40af90); level_one_world_collision_03 (0x4cddc0, 0x4cde10). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

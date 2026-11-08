@@ -1,0 +1,315 @@
+{
+  "schema": 1,
+  "id": "call_closure_resource_helpers",
+  "title": "Call closure archive image surface helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CallClosureResourceHelpersRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b7550",
+      "name": "Archive::writeHeader",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b76b0",
+      "name": "Archive::compact",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bdda0",
+      "name": "Surface::loadBitmap",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bfd80",
+      "name": "Image::convertPaletteRuns",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc740",
+      "name": "ImageManager::createImage",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b99d0",
+      "name": "Surface::flipVertical",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a7840": {
+      "kind": "fixture",
+      "name": "fseek",
+      "convention": "cdecl",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT file seek enters operating-system file services."
+    },
+    "0x4a73e0": {
+      "kind": "fixture",
+      "name": "fwrite",
+      "convention": "cdecl",
+      "argc": 4,
+      "arguments": [
+        "ptr:168",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT file write enters operating-system file services."
+    },
+    "0x4a7920": {
+      "kind": "fixture",
+      "name": "fflush",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT flush ends in FlushFileBuffers."
+    },
+    "0x4a7ae0": {
+      "kind": "fixture",
+      "name": "fclose",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT file close enters operating-system file services."
+    },
+    "0x4f1d90": {
+      "kind": "fixture",
+      "name": "fopen wrapper",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "cstr",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "This platform CRT wrapper delegates to file open and operating-system services."
+    },
+    "0x4a3b10": {
+      "kind": "fixture",
+      "name": "time",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT time reads GetLocalTime, GetSystemTime and timezone services."
+    },
+    "0x546adc": {
+      "kind": "fixture",
+      "name": "DeleteFileA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 file deletion import."
+    },
+    "0x546ae0": {
+      "kind": "fixture",
+      "name": "MoveFileA",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "cstr",
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 file rename import."
+    },
+    "0x546b0c": {
+      "kind": "fixture",
+      "name": "GetLastError",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 last-error import."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic beep import reached by original surface lock failure."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic dialog import reached by original surface lock failure."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/call_closure_resource_helpers.cases.py",
+    "entry": "claw_call_closure_resource_helpers_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4bde96",
+        "end": "0x4bde98",
+        "reason": "Original disassembly proves this repeated missing-palette arm cannot execute: conversion with context depth 8 and absent context+0x878 already exits at 0x4bde14; reaching 0x4bde8c retains the same context and field with no intervening call or store."
+      },
+      {
+        "start": "0x4bc7a0",
+        "end": "0x4bc7a2",
+        "reason": "Original-only null-operator-new witness faults on the unconditional surface vtable load at 0x4bc7aa reading address zero. This two-byte null assignment arm cannot complete a valid original execution."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3661736103,
+      "cases": 124,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.932,
+      "reasons": [],
+      "build_inputs_sha256": "8e31b4fb16ded16f5fe2cfc94dc841b55e45813627bd076ee4587112510086e2"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "free is a stand-in (release): the C runtime heap ends in operating-system calls",
+    "_lock is a stand-in (return-zero): C runtime lock: enters an operating-system critical section; the game is single-threaded here",
+    "_unlock is a stand-in (return-zero): C runtime unlock: leaves an operating-system critical section",
+    "operator new is a stand-in (allocate): the C runtime heap ends in operating-system calls",
+    "operator delete is a stand-in (release): pairs with operator new",
+    "fseek is a stand-in (scripted): CRT file seek enters operating-system file services.",
+    "fwrite is a stand-in (scripted): CRT file write enters operating-system file services.",
+    "fflush is a stand-in (scripted): CRT flush ends in FlushFileBuffers.",
+    "fclose is a stand-in (scripted): CRT file close enters operating-system file services.",
+    "fopen wrapper is a stand-in (scripted): This platform CRT wrapper delegates to file open and operating-system services.",
+    "time is a stand-in (scripted): CRT time reads GetLocalTime, GetSystemTime and timezone services.",
+    "DeleteFileA is a stand-in (scripted): Win32 file deletion import.",
+    "MoveFileA is a stand-in (scripted): Win32 file rename import.",
+    "GetLastError is a stand-in (scripted): Win32 last-error import.",
+    "MessageBeep is a stand-in (scripted): Win32 diagnostic beep import reached by original surface lock failure.",
+    "MessageBoxA is a stand-in (scripted): Win32 diagnostic dialog import reached by original surface lock failure."
+  ],
+  "notes": "Boundary checked against original v1.0 disassembly; game callees remain whole original code, physical file/time/dialog services are fixtures."
+}

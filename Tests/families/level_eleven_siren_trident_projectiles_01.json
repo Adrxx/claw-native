@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "id": "level_eleven_siren_trident_projectiles_01",
+  "title": "Level 11 siren and trident projectiles",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelElevenSirenTridentProjectiles01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4104c0",
+      "name": "sirenProjectileLogic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x410580",
+      "name": "tridentProjectileLogic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412880",
+      "name": "sirenProjectileConstruct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4129d0",
+      "name": "sirenProjectileDispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412cb0",
+      "name": "sirenProjectileUpdate",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412ce0",
+      "name": "tridentProjectileConstruct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x413280",
+      "name": "tridentProjectileUpdate",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x413470",
+      "name": "tridentProjectileAnimate",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412e80",
+      "name": "tridentProjectileDispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4133e0",
+      "name": "tridentProjectileExplode",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "x87 integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4107c0": {
+      "kind": "whole",
+      "name": "projectile base constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x4742f0": {
+      "kind": "whole",
+      "name": "projectile base update",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x4c8da0": {
+      "kind": "whole",
+      "name": "world object spawn",
+      "convention": "thiscall",
+      "argc": 6,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_eleven_siren_trident_projectiles_01.cases.py",
+    "entry": "claw_level_eleven_siren_trident_projectiles_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x41051c",
+        "end": "0x41051e",
+        "reason": "The original null operator-new branch sets the object pointer to zero and immediately dereferences it at 0x41051e; it cannot complete an ordinary comparison."
+      },
+      {
+        "start": "0x4105dc",
+        "end": "0x4105de",
+        "reason": "The original null operator-new branch sets the object pointer to zero and immediately dereferences it at 0x4105de; it cannot complete an ordinary comparison."
+      },
+      {
+        "start": "0x412a25",
+        "end": "0x412a53",
+        "reason": "The original table-grow failure cannot return: 0x4db6e0 copies null realloc into EBP at 0x4db70b or 0x4db77f, then 0x4db788 calls 0x4dc680 which reads [EBP+4]. This continuation is unreachable before the original null-address fault."
+      },
+      {
+        "start": "0x412a6e",
+        "end": "0x412a85",
+        "reason": "With a valid ordered table, the first successful lookup or growth already encloses the same signed key. No call or bound write intervenes before the repeated bound checks, so a second growth cannot be reached; first-growth failure faults in original code."
+      },
+      {
+        "start": "0x412a9f",
+        "end": "0x412ad2",
+        "reason": "The repeated growth is unreachable after a successful first lookup on a valid ordered table; additionally any realloc failure in the original growth faults through 0x4dc680 before returning zero."
+      },
+      {
+        "start": "0x412ed5",
+        "end": "0x412f03",
+        "reason": "Original table-grow null realloc faults through 0x4db788 -> 0x4dc680 reading [EBP+4] before returning; checked against hash-pinned original."
+      },
+      {
+        "start": "0x412f1e",
+        "end": "0x412f35",
+        "reason": "First successful lookup or growth encloses the same signed key in a valid ordered table; no intervening call or bounds write before repeated checks. Original null growth faults before returning."
+      },
+      {
+        "start": "0x412f4f",
+        "end": "0x412f82",
+        "reason": "Repeated growth cannot occur after first successful lookup on a valid ordered table; original null realloc faults through 0x4dc680 before returning."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4136680360,
+      "cases": 209,
+      "mutants_killed": 35,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.946,
+      "reasons": [],
+      "build_inputs_sha256": "4a3a1ae9374f76f2e33466c17790e068410513817565a3384b3caa6c9151dc96"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Boundary reviewed against all eight seed disassemblies and the hash-checked original. Exact x87 conversion stays original. No additional game-code fixtures or caller-frame substitutions are required; see the local packet NOTES.md. Added original-reviewed trident dispatch 0x412e80 and explosion state 0x4133e0; full boundary notes and provenance remain local in the packet."
+}

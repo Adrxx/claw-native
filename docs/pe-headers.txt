@@ -1,0 +1,534 @@
+
+work/original/CLAW-1.4.5.4/CLAW.exe:	file format coff-i386
+Characteristics 0x10f
+	relocations stripped
+	executable
+	line numbers stripped
+	symbols stripped
+	32 bit words
+
+Time/Date               Fri Nov  2 10:47:32 2018
+Magic                   010b	(PE32)
+MajorLinkerVersion      6
+MinorLinkerVersion      0
+SizeOfCode              0010b000
+SizeOfInitializedData   0004b200
+SizeOfUninitializedData 00000000
+AddressOfEntryPoint     000a65d9
+BaseOfCode              00001000
+BaseOfData              0010c000
+ImageBase               00400000
+SectionAlignment        00001000
+FileAlignment           00000200
+MajorOSystemVersion     4
+MinorOSystemVersion     0
+MajorImageVersion       0
+MinorImageVersion       0
+MajorSubsystemVersion   4
+MinorSubsystemVersion   0
+Win32Version            00000000
+SizeOfImage             001d5000
+SizeOfHeaders           00001000
+CheckSum                0015dbc6
+Subsystem               00000002	(Windows GUI)
+DllCharacteristics      00000000
+SizeOfStackReserve      00100000
+SizeOfStackCommit       00001000
+SizeOfHeapReserve       00100000
+SizeOfHeapCommit        00001000
+LoaderFlags             00000000
+NumberOfRvaAndSizes     00000010
+
+The Data Directory
+Entry 0 00000000 00000000 Export Directory [.edata (or where ever we found it)]
+Entry 1 0011db60 00000154 Import Directory [parts of .idata]
+Entry 2 001af000 00024150 Resource Directory [.rsrc]
+Entry 3 00000000 00000000 Exception Directory [.pdata]
+Entry 4 00000000 00000000 Security Directory
+Entry 5 00000000 00000000 Base Relocation Directory [.reloc]
+Entry 6 00000000 00000000 Debug Directory
+Entry 7 00000000 00000000 Description Directory
+Entry 8 00000000 00000000 Special Directory
+Entry 9 00000000 00000000 Thread Storage Directory [.tls]
+Entry a 00000000 00000000 Load Configuration Directory
+Entry b 00000000 00000000 Bound Import Directory
+Entry c 0010c000 00000668 Import Address Table Directory
+Entry d 00000000 00000000 Delay Import Directory
+Entry e 00000000 00000000 CLR Runtime Header
+Entry f 00000000 00000000 Reserved
+
+The Import Tables:
+  lookup 0011ddc0 time 00000000 fwd 00000000 name 0011ec18 addr 0010c10c
+
+    DLL Name: KERNEL32.dll
+    Hint/Ord  Name
+         419  HeapSize
+         126  ExitThread
+         636  SetStdHandle
+         277  GetFileType
+         447  LCMapStringA
+         448  LCMapStringW
+         418  HeapReAlloc
+          74  CreateThread
+         413  HeapDestroy
+         411  HeapCreate
+         703  VirtualFree
+         699  VirtualAlloc
+         440  IsBadWritePtr
+         685  UnhandledExceptionFilter
+         178  FreeEnvironmentStringsA
+         523  RaiseException
+         265  GetEnvironmentVariableA
+         373  GetVersionExA
+         125  ExitProcess
+         185  GetACP
+         618  SetFilePointer
+         342  GetStringTypeW
+         651  SetUnhandledExceptionFilter
+         437  IsBadReadPtr
+         434  IsBadCodePtr
+          33  CompareStringA
+          34  CompareStringW
+         610  SetEnvironmentVariableA
+         670  TerminateProcess
+         559  RtlUnwind
+         415  HeapFree
+         409  HeapAlloc
+         179  FreeEnvironmentStringsW
+         262  GetEnvironmentStrings
+         202  GetCommandLineA
+         773  lstrcpynA
+         483  MulDiv
+         175  FormatMessageA
+         460  LocalFree
+         336  GetStartupInfoA
+         283  GetLocalTime
+         349  GetSystemTime
+         368  GetTimeZoneInformation
+         157  FindNextFileA
+         305  GetOEMCP
+         191  GetCPInfo
+         276  GetFileTime
+         274  GetFileSize
+         269  GetFileAttributesA
+         676  TlsGetValue
+         463  LocalReAlloc
+         677  TlsSetValue
+         399  GlobalReAlloc
+         395  GlobalHandle
+         674  TlsAlloc
+          49  CreateEventA
+         664  SuspendThread
+         647  SetThreadPriority
+         556  ResumeThread
+         613  SetEvent
+         325  GetProcessVersion
+         391  GlobalFlags
+         392  GlobalFree
+         449  LeaveCriticalSection
+          85  DeleteCriticalSection
+         426  InitializeCriticalSection
+         456  LocalAlloc
+         102  EnterCriticalSection
+         137  FileTimeToLocalFileTime
+         138  FileTimeToSystemTime
+         163  FindResourceA
+         455  LoadResource
+         469  LockResource
+         393  GlobalGetAtomNameA
+         383  GlobalAddAtomA
+         388  GlobalFindAtomA
+         661  SizeofResource
+         484  MultiByteToWideChar
+         278  GetFullPathNameA
+         148  FindFirstFileA
+         144  FindClose
+         609  SetEndOfFile
+         686  UnlockFile
+         467  LockFile
+         170  FlushFileBuffers
+         735  WriteFile
+         536  ReadFile
+          52  CreateFileA
+         247  GetCurrentProcess
+          99  DuplicateHandle
+         282  GetLastError
+         770  lstrcpyA
+         761  lstrcatA
+         612  SetErrorMode
+         385  GlobalAlloc
+         387  GlobalDeleteAtom
+         764  lstrcmpA
+         767  lstrcmpiA
+         249  GetCurrentThread
+         250  GetCurrentThreadId
+         396  GlobalLock
+         403  GlobalUnlock
+         625  SetLastError
+         338  GetStdHandle
+         339  GetStringTypeA
+         264  GetEnvironmentStringsW
+         621  SetHandleCount
+         722  WideCharToMultiByte
+          68  CreateProcessA
+         245  GetCurrentDirectoryA
+         365  GetTickCount
+         308  GetPrivateProfileIntA
+         662  Sleep
+         314  GetPrivateProfileStringA
+         741  WritePrivateProfileStringA
+         180  FreeLibrary
+         372  GetVersion
+         450  LoadLibraryA
+         723  WinExec
+         381  GetWindowsDirectoryA
+         260  GetDriveTypeA
+         375  GetVolumeInformationA
+         501  OutputDebugStringA
+          27  CloseHandle
+         495  OpenProcess
+         294  GetModuleHandleA
+         318  GetProcAddress
+         292  GetModuleFileNameA
+         718  WaitForSingleObject
+         432  InterlockedIncrement
+         429  InterlockedDecrement
+         776  lstrlenA
+         488  OpenFile
+         605  SetCurrentDirectoryA
+
+  lookup 0011dfdc time 00000000 fwd 00000000 name 0011f388 addr 0010c328
+
+    DLL Name: USER32.dll
+    Hint/Ord  Name
+         142  DestroyWindow
+         295  GetMenuState
+         408  LoadBitmapA
+         286  GetMenuCheckMarkDimensions
+         392  IsDialogMessageA
+         618  ShowWindow
+         400  IsWindowEnabled
+         237  GetClassNameA
+         410  LoadCursorA
+         324  GetSysColorBrush
+         298  GetMessageA
+         141  DestroyMenu
+         291  GetMenuItemID
+         350  GetWindowTextA
+         257  GetDlgCtrlID
+         274  GetKeyState
+         569  SetMenuItemBitmaps
+         452  ModifyMenuA
+          89  CreateWindowExA
+         610  SetWindowsHookExA
+          21  CallNextHookEx
+         235  GetClassLongA
+         578  SetPropA
+         646  UnhookWindowsHookEx
+         314  GetPropA
+          22  CallWindowProcA
+         517  RemovePropA
+         301  GetMessageTime
+         300  GetMessagePos
+         281  GetLastActivePopup
+         264  GetForegroundWindow
+         338  GetWindow
+         603  SetWindowPos
+         512  RegisterWindowMessageA
+         466  OffsetRect
+         625  SystemParametersInfoA
+         347  GetWindowPlacement
+         181  EnableMenuItem
+         356  GrayStringA
+         627  TabbedTextOutA
+         307  GetNextDlgTabItem
+         441  MapWindowPoints
+         132  DefWindowProcA
+         213  FindWindowA
+         342  GetWindowLongA
+         600  SetWindowLongA
+         559  SetFocus
+         405  KillTimer
+         594  SetTimer
+         212  FillRect
+         326  GetSystemMetrics
+         414  LoadIconA
+         445  MessageBeep
+         642  TranslateMessage
+         476  PeekMessageA
+         149  DispatchMessageA
+          12  BeginPaint
+         187  EndPaint
+         221  GetActiveWindow
+         348  GetWindowRect
+         378  InvalidateRect
+         457  MoveWindow
+         657  UpdateWindow
+         252  GetCursorPos
+         490  PtInRect
+         550  SetCursor
+         581  SetRectEmpty
+         377  IntersectRect
+         227  GetAsyncKeyState
+         183  EnableWindow
+         240  GetClientRect
+         666  ValidateRect
+         396  IsIconic
+          51  CheckDlgButton
+         684  wsprintfA
+         446  MessageBoxA
+         259  GetDlgItemInt
+         394  IsDlgButtonChecked
+         555  SetDlgItemInt
+         323  GetSysColor
+         369  InflateRect
+         427  LoadStringA
+         147  DialogBoxParamA
+         175  DrawTextA
+         185  EndDialog
+         263  GetFocus
+         540  SetActiveWindow
+         399  IsWindow
+         260  GetDlgItemTextA
+           2  AdjustWindowRectEx
+         402  IsWindowVisible
+          52  CheckMenuItem
+         606  SetWindowTextA
+         309  GetParent
+         332  GetTopWindow
+         231  GetClassInfoA
+         228  GetCapture
+         678  WinHelpA
+          47  CharUpperA
+         480  PostQuitMessage
+         290  GetMenuItemCount
+         556  SetDlgItemTextA
+         258  GetDlgItem
+         532  SendMessageA
+         398  IsRectEmpty
+         478  PostMessageA
+         614  ShowCursor
+          68  CopyRect
+         580  SetRect
+         498  RegisterClassA
+         284  GetMenu
+         253  GetDC
+         322  GetSubMenu
+         515  ReleaseDC
+         560  SetForegroundWindow
+          58  ClientToScreen
+         527  SendDlgItemMessageA
+         139  DestroyCursor
+          76  CreateDialogIndirectParamA
+         166  DrawFocusRect
+         219  FrameRect
+         169  DrawIcon
+         140  DestroyIcon
+         165  DrawEdge
+         168  DrawFrameControl
+         137  DestroyAcceleratorTable
+         647  UnionRect
+         406  LoadAcceleratorsA
+         422  LoadMenuA
+         639  TranslateAcceleratorA
+         552  SetCursorPos
+
+  lookup 0011dd08 time 00000000 fwd 00000000 name 0011f5fc addr 0010c054
+
+    DLL Name: GDI32.dll
+    Hint/Ord  Name
+          83  DeleteObject
+          17  BitBlt
+         512  StretchBlt
+         366  GetTextExtentPoint32A
+          42  CreateCompatibleDC
+         499  SetTextColor
+         453  SelectClipRgn
+         462  SetBkMode
+          72  CreateRectRgn
+         517  TextOutA
+         461  SetBkColor
+         293  GetDeviceCaps
+          36  CreateBitmap
+         404  PatBlt
+          54  CreateFontA
+         158  ExtTextOutA
+          55  CreateFontIndirectA
+          78  DPtoLP
+          80  DeleteDC
+         448  SaveDC
+         441  RestoreDC
+         351  GetStockObject
+         455  SelectObject
+         495  SetStretchBltMode
+         482  SetMapMode
+         502  SetViewportOrgEx
+         396  OffsetViewportOrgEx
+         501  SetViewportExtEx
+         449  ScaleViewportExtEx
+         505  SetWindowExtEx
+         450  ScaleWindowExtEx
+         282  GetClipBox
+         392  MoveToEx
+         388  LineTo
+          68  CreatePen
+          77  CreateSolidBrush
+         426  PtVisible
+         430  RectVisible
+         149  Escape
+         335  GetObjectA
+          41  CreateCompatibleBitmap
+         373  GetTextMetricsA
+         431  Rectangle
+          43  CreateDCA
+         355  GetSystemPaletteEntries
+
+  lookup 0011e2a8 time 00000000 fwd 00000000 name 0011f616 addr 0010c5f4
+
+    DLL Name: comdlg32.dll
+    Hint/Ord  Name
+           7  GetFileTitleA
+
+  lookup 0011e248 time 00000000 fwd 00000000 name 0011f65a addr 0010c594
+
+    DLL Name: WINSPOOL.DRV
+    Hint/Ord  Name
+          28  ClosePrinter
+         124  OpenPrinterA
+          71  DocumentPropertiesA
+
+  lookup 0011dcb4 time 00000000 fwd 00000000 name 0011f6e2 addr 0010c000
+
+    DLL Name: ADVAPI32.dll
+    Hint/Ord  Name
+         379  RegQueryValueExA
+         347  RegCloseKey
+         378  RegQueryValueA
+         351  RegCreateKeyExA
+         370  RegOpenKeyExA
+         356  RegDeleteValueA
+         390  RegSetValueExA
+
+  lookup 0011dcd4 time 00000000 fwd 00000000 name 0011f73c addr 0010c020
+
+    DLL Name: COMCTL32.dll
+    Hint/Ord  Name
+          34  ImageList_Destroy
+          33  ImageList_Create
+          17
+          58  ImageList_ReplaceIcon
+
+  lookup 0011e230 time 00000000 fwd 00000000 name 0011f79a addr 0010c57c
+
+    DLL Name: WINMM.dll
+    Hint/Ord  Name
+          29  joyGetNumDevs
+          31  joyGetPosEx
+          27  joyGetDevCapsA
+          51  mciSendCommandA
+         152  timeGetTime
+
+  lookup 0011e2b0 time 00000000 fwd 00000000 name 0011f934 addr 0010c5fc
+
+    DLL Name: mss32.dll
+    Hint/Ord  Name
+          91  _AIL_resume_sequence@4
+          39  _AIL_midiOutOpen@12
+         111  _AIL_set_XMIDI_master_volume@8
+         146  _AIL_startup@0
+         140  _AIL_shutdown@0
+         126  _AIL_set_sequence_loop_count@8
+         143  _AIL_start_sequence@4
+          22  _AIL_end_sequence@4
+         127  _AIL_set_sequence_tempo@12
+         105  _AIL_sequence_status@4
+         149  _AIL_stop_sequence@4
+          30  _AIL_init_sequence@12
+          88  _AIL_release_sequence_handle@4
+           2  _AIL_XMIDI_master_volume@4
+           7  _AIL_allocate_sequence_handle@4
+
+  lookup 0011dcf0 time 00000000 fwd 00000000 name 0011f93e addr 0010c03c
+
+    DLL Name: DPLAYX.dll
+    Hint/Ord  Name
+           4
+           2
+           1
+
+  lookup 0011e2f0 time 00000000 fwd 00000000 name 0011f94a addr 0010c63c
+
+    DLL Name: smackw32.DLL
+    Hint/Ord  Name
+          32
+          38
+          14
+          17
+          19
+          23
+          27
+          18
+          21
+          28
+
+  lookup 0011e258 time 00000000 fwd 00000000 name 0011f958 addr 0010c5a4
+
+    DLL Name: WSOCK32.dll
+    Hint/Ord  Name
+          12
+          19
+          16
+         111
+          52
+          23
+         101
+          17
+           2
+          10
+           1
+           4
+           9
+          20
+           3
+           8
+          11
+         112
+          57
+
+  lookup 0011e1fc time 00000000 fwd 00000000 name 0011fa82 addr 0010c548
+
+    DLL Name: WININET.dll
+    Hint/Ord  Name
+         116  InternetQueryDataAvailable
+         105  InternetGetLastResponseInfoA
+          92  InternetCrackUrlA
+          82  InternetCanonicalizeUrlA
+         117  InternetQueryOptionA
+         111  InternetOpenA
+          86  InternetCloseHandle
+         113  InternetOpenUrlA
+         131  InternetSetStatusCallback
+         126  InternetSetFilePointer
+         136  InternetWriteFile
+         119  InternetReadFile
+
+  lookup 0011e1ec time 00000000 fwd 00000000 name 0011fad0 addr 0010c538
+
+    DLL Name: VERSION.dll
+    Hint/Ord  Name
+           1  GetFileVersionInfoSizeA
+           0  GetFileVersionInfoA
+          10  VerQueryValueA
+
+  lookup 0011dd00 time 00000000 fwd 00000000 name 0011fc6a addr 0010c04c
+
+    DLL Name: DSOUND.dll
+    Hint/Ord  Name
+           3  DirectSoundCreate
+
+  lookup 0011dce8 time 00000000 fwd 00000000 name 0011fc8a addr 0010c034
+
+    DLL Name: DDRAW.dll
+    Hint/Ord  Name
+           5  DirectDrawCreate
+

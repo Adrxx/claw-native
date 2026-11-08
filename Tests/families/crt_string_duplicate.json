@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "crt_string_duplicate",
+  "title": "Whole original CRT string duplication",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CrtStringDuplicateRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4a56e0",
+      "name": "strdup",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      },
+      "body_ranges": [
+        {
+          "start": "0x4a56e0",
+          "end": "0x4a5730",
+          "sha256": "84b588289c7dd00fdb228fadca0787eef9be41811872221d5df7e7ec1e2be1b7"
+        }
+      ]
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "Known CRT allocation boundary per boundary role; exact requested live allocation or null, not native CRT heap/lock startup."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/crt_string_duplicate.cases.py",
+    "entry": "claw_crt_string_duplicate_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3399558979,
+      "cases": 234,
+      "mutants_killed": 3,
+      "mutants_tried": 4,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "41e3cafb6ce74764c40313430fd6115c8868b8e7c46e5dc3f4bb3b1f58afce4d"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Complete80-byte original body, required fullCPU/FS7ff/7ff and preservation472; no exemptions.",
+    "Input null or bounded readable NUL-terminated bytes with DF clear, no wrapping ranges. Input/output and fixture writes disjoint from active control stack; allocation fresh, live and nonoverlapping input, with enough backing for the actual second-scan length. Physical malloc must preserve EBP/FS and saved stack controls.",
+    "Malloc is a declared physical allocation fixture, not source CRT malloc/lock/heap acceptance. Null input skips allocation; allocation failure returns null; source string is rescanned after allocation before copying.",
+    "Whole bounded source stack and eleven CPU fields including EFLAGS are observed. No app/static initialization or device acceptance."
+  ]
+}

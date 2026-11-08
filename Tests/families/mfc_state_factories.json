@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "id": "mfc_state_factories",
+  "title": "Original MFC thread and module state factories",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcStateFactoriesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x502335",
+      "name": "MfcThreadState::factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    {
+      "address": "0x502369",
+      "name": "MfcModuleState::factory",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    }
+  ],
+  "callees": {
+    "0x4a48c0": {
+      "kind": "whole",
+      "name": "MfcCompilerScope::register",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      }
+    },
+    "0x502f84": {
+      "kind": "whole",
+      "name": "MfcLocalAllocation::checked",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x501f01": {
+      "kind": "whole",
+      "name": "MfcThreadState::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x501fde": {
+      "kind": "whole",
+      "name": "MfcModuleState::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    },
+    "0x546aa8": {
+      "kind": "fixture",
+      "name": "LocalAlloc",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical checked allocation returns aligned live zeroed storage or null; source allocation/throw chain remains unchanged."
+    },
+    "0x546958": {
+      "kind": "fixture",
+      "name": "RaiseException",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "ptr:12"
+      ],
+      "returns": "void",
+      "fixture": "scripted",
+      "reason": "Physical noncontinuable exception stop with exact original metadata, no source catch/unwind dispatch or fabricated return."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_state_factories.cases.py",
+    "entry": "claw_mfc_state_factories_entry",
+    "equivalent_mutants": [
+      {
+        "line": 55,
+        "operator": "negate",
+        "source_sha256": "fc70bc6e939ed0a21b85f59293c0efd5bf8df468b31649cb8d6a7db7c88839d1",
+        "mutant_sha256": "386e3480de743f8ee1ee412963b818206bc5d1e49726afd10997acaaf942b686",
+        "reason": "Independent full-domain original control/dataflow proof in work/coordination/mfc-factory-full-source-flag-review.md: mutation changes only ZF; successful checked allocation is nonzero and whole thread constructor OR/module constructor XOR overwrite that bit before any observation or physical boundary. Whole constructors never save/read incoming flags; memory, stack, pointer, preserved state and final flags identical. Null allocation physically halts at RaiseException before compare_zero executes. Permitted aligned live allocations exclude active-stack aliasing, constructor fixtures and continuable exception return; proof invalid if that domain changes. Full7ff output re-review independently establishes identical ECX restoration and thread EDX passthrough/module EDX zero; fullCPU, stack and physical halt observables covered."
+      },
+      {
+        "line": 63,
+        "operator": "negate",
+        "source_sha256": "fc70bc6e939ed0a21b85f59293c0efd5bf8df468b31649cb8d6a7db7c88839d1",
+        "mutant_sha256": "f5f88ea97cc72d285372b39d85a6b7f898b73bcb8bfa23ac38264517265402ac",
+        "reason": "Independent full-domain original control/dataflow proof in work/coordination/mfc-factory-full-source-flag-review.md: mutation changes only PF; successful checked allocation is nonzero and whole thread constructor OR/module constructor XOR overwrite that bit before any observation or physical boundary. Whole constructors never save/read incoming flags; memory, stack, pointer, preserved state and final flags identical. Null allocation physically halts at RaiseException before compare_zero executes. Permitted aligned live allocations exclude active-stack aliasing, constructor fixtures and continuable exception return; proof invalid if that domain changes. Full7ff output re-review independently establishes identical ECX restoration and thread EDX passthrough/module EDX zero; fullCPU, stack and physical halt observables covered."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1085527947,
+      "cases": 392,
+      "mutants_killed": 10,
+      "mutants_tried": 13,
+      "mutants_equivalent": 2,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "1cf8ed9fd39ae0640f5f487d384e9bd1dd90125fb5cca5d0978ade2000f467a4"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Whole118ownedbytes with real helper/constructor/allocator bodies; source caller returns and full stack/register/FS state compared.",
+    "Allocation failure reaches original noncontinuable physicalRaiseException; halt prefix is not typed exception cleanup/unwind or full Windows EH acceptance. Separate auxiliary cleanup/handler thunks remain pending; constructors do not throw for valid records.",
+    "Native app needs explicit sourcecontext host/callee election; old context-free canonical allocator/constructors cannot silently service source-aware requests.",
+    "Full7ff source outputs independently re-admitted392cases118/118bytes; native graph composition and actual startup election remain separate evidence."
+  ],
+  "notes": "Complete52/66byte factories reviewed against original unchanged probes in ignored mfc-compiler-scopes-boundary.md and mfc-factory-native-context-boundary.md. cdecl0/u32 with explicit ordinary source context, actual compiler helper unchanged dependency, genuine source continuations and FS/opaqueoldEBP/nonvolatile preservation. Checked allocation cannot legitimately returnzero; branch epilogue bytes execute success, noexemptions."
+}

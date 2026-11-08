@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "id": "level_eleven_laser_state_01",
+  "title": "Level 11 laser state",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelElevenLaserState01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x455490",
+      "name": "Laser state constructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x455600",
+      "name": "Laser state dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4558b0",
+      "name": "Laser idle reset",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x455960",
+      "name": "Laser timed activation",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows pointer accessibility service used by original RTTI lookup 0x4a36f0; the fixture checks the declared live memory range."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_eleven_laser_state_01.cases.py",
+    "entry": "claw_level_eleven_laser_state_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x455655",
+        "end": "0x455683",
+        "reason": "Original table-growth allocation failure cannot return: both lower and upper growth assign the null realloc result to EBP, then call 0x4dc680, which reads [EBP+4]. Hash-verified original probes for indices -3 and 3 with bounds [-2,2] terminate at 0x4dc680 with EBP=0 and null read at 0x4; see ignored packet growth-failure-original.json."
+      },
+      {
+        "start": "0x45569e",
+        "end": "0x4556b5",
+        "reason": "Second growth cannot execute for a valid table: the first lookup either starts in bounds or original 0x4db6e0(index,0) sets low=index at 0x4db757 or high=index at 0x4db7dc while preserving the other bound. No call or bound write occurs before repeated comparisons at 0x455694/0x45569c; clearing scratch 0x5379f0 cannot change bounds 0x5379d8/0x5379dc."
+      },
+      {
+        "start": "0x4556cf",
+        "end": "0x455702",
+        "reason": "Second fallback is reachable only from the provably unreachable second growth at 0x45569e. In addition, a null realloc in original 0x4db6e0 faults at 0x4dc680 rather than returning; verified for both growth directions in ignored packet growth-failure-original.json."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 4044773592,
+      "cases": 241,
+      "mutants_killed": 40,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.93,
+      "reasons": [],
+      "build_inputs_sha256": "d94db14911a06f97fe2ea69c4268c55f9287f01420957e6bf5fc11ad08eb1baa"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "IsBadReadPtr is a stand-in checking live comparison memory."
+  ],
+  "notes": "Boundary reviewed from original corpus. The seed 0x455449 is an interior continuation of admitted laser callback [0x4553d0,0x455481), not an independent entry; ownership remains with laser. Four real laser state entries are owned here. Original table-grow failure was checked in both directions and faults at 0x4dc680 with EBP=0; the repeated bounds checks cannot request another growth after successful lookup. See ignored packet growth-failure-original.json and NOTES.md."
+}

@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "id": "level_six_wolvington_projectile_01",
+  "title": "Level 6 Wolvington projectile",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelSixWolvingtonProjectile01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x410340",
+      "name": "WolvingtonMagicLogic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411cf0",
+      "name": "WolvingtonMagic::construct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x411e70",
+      "name": "WolvingtonMagic::dispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x412150",
+      "name": "WolvingtonMagic::emitAndUpdateLight",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x458010",
+      "name": "WolvingtonLFXLogic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "__ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows atomic reference-count decrement; cases supply the physical import behavior."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_six_wolvington_projectile_01.cases.py",
+    "entry": "claw_level_six_wolvington_projectile_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x41039c",
+        "end": "0x41039e",
+        "reason": "Null operator new leads directly to null vtable read at 0x41039e; original faults. Verified unchanged-original probes in work/packets/level_six_wolvington_projectile_01/original_fault_probe.log."
+      },
+      {
+        "start": "0x4580b9",
+        "end": "0x4580bb",
+        "reason": "Null operator new leads directly to null vtable read at 0x4580bb; original faults. Verified unchanged-original probes in work/packets/level_six_wolvington_projectile_01/original_fault_probe.log."
+      },
+      {
+        "start": "0x411ec5",
+        "end": "0x411ef3",
+        "reason": "First MFC table-grow failure cannot return: 0x4db6e0 zeroes EBP and 0x4dc680 reads [EBP+4], original faults at address 4. Verified unchanged-original probes in work/packets/level_six_wolvington_projectile_01/original_fault_probe.log."
+      },
+      {
+        "start": "0x411f3f",
+        "end": "0x411f72",
+        "reason": "Second MFC table-grow failure cannot return: 0x4db6e0 zeroes EBP and 0x4dc680 reads [EBP+4], original faults at address 4. Verified unchanged-original probes in work/packets/level_six_wolvington_projectile_01/original_fault_probe.log."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3132387921,
+      "cases": 70,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.927,
+      "reasons": [],
+      "build_inputs_sha256": "7a1d9490be07aa20b91048cd1cfd127b2dac8a974f35b3bdff2d1e70b22dc866"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "InterlockedDecrement is a scripted physical import; game and MFC bodies remain original."
+  ],
+  "notes": "Boundary checked against original corpus assembly; 0x410340 takes one caller-cleaned argument, and 0x412150 transports exact x87 operands to original __ftol."
+}

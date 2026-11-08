@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "id": "call_closure_multiplayer_tail",
+  "title": "Recursive multiplayer player lifecycle and packet wrappers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CallClosureMultiplayerTailRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x479000",
+      "name": "Multiplayer::removePlayer",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x47a4b0",
+      "name": "Multiplayer::acceptPlayer",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4776b0",
+      "name": "Multiplayer::sendGameState",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4777d0",
+      "name": "Multiplayer::sendLocalIdentity",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x477810",
+      "name": "Multiplayer::sendIdentity",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x478f30",
+      "name": "Multiplayer::preparePlayer",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x486d50",
+      "name": "PlayerSelection::clearIfSelected",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0930",
+      "name": "NetManager::createPlayer",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0c20",
+      "name": "NetManager::deletePlayer",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0c80",
+      "name": "NetManager::findPlayer",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0cc0",
+      "name": "NetManager::sendPlayers",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0d20",
+      "name": "NetManager::sendIds",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0fc0",
+      "name": "NetPlayer::deletingDestructor",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e0fe0",
+      "name": "NetPlayer::destructor",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e1ae0",
+      "name": "NetPlayer::initialize",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic beep import reached by original surface lock failure."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic dialog import reached by original surface lock failure."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/call_closure_multiplayer_tail.cases.py",
+    "entry": "claw_call_closure_multiplayer_tail_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4e099d",
+        "end": "0x4e099f",
+        "reason": "Original-only new-null witness in work/call-closure/multiplayer-tail-fault-witnesses.json takes this allocation-failure arm, then initializer 0x4e1ae0 unconditionally writes receiver+4 at 0x4e1aef and faults at address 0x4. No valid original execution completes this arm."
+      },
+      {
+        "start": "0x4e0a34",
+        "end": "0x4e0a3f",
+        "reason": "Original AddTail 0x4f51c5 writes returned node+8 unconditionally at 0x4f51d6 before returning that node. It cannot return zero in a valid execution, so original 0x4e0a32 always takes JNE. The original-only list-block-null witness faults earlier at 0x4f5ac1 writing null. The shared cleanup epilogue from 0x4e0a3f remains required and is covered by the physical callback clearing the local player pointer."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "none"
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Heap, CRT locks, string length and atomic operations are physical fixtures.",
+    "Diagnostic beep and message-box effects are fixtures; DirectPlay virtual calls use per-case function pointers and preserve packet contents."
+  ],
+  "notes": "All recursive unowned game targets in multiplayer chain. Do not stub policy or game dependencies. Allocation failures which the original immediately dereferences are original fault paths, not successful returns."
+}

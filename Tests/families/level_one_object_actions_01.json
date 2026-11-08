@@ -1,0 +1,492 @@
+{
+  "schema": 1,
+  "id": "level_one_object_actions_01",
+  "title": "Observed Level 1 level object actions batch 1",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneObjectActions01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4332f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x43eab0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4410f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44aaf0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44bc60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x44c000",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared",
+      "x87_environment": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    {
+      "address": "0x44c840",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 1535,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x44d000",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44d3c0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44edd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x44ef70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 import: cases provide rectangle writes while original game constructors run unchanged."
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 rectangle import; cases perform its exact rectangle write and return success"
+    },
+    "0x4dbd60": {
+      "kind": "whole",
+      "name": "bit set assignment",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "reason": "Original game library code, run on both sides. Its allocation-failure path calls 0x4dc680, which reads the caller's EBP; the caller EBP is declared per owned caller and checked against the original at each site.",
+      "caller_frame": [
+        {
+          "caller": "0x4332f0",
+          "site": "0x43366b",
+          "ebp": {
+            "base": "receiver",
+            "offset": 296
+          }
+        },
+        {
+          "caller": "0x44c000",
+          "site": "0x44c1f4",
+          "ebp": {
+            "base": "receiver",
+            "offset": 560
+          }
+        }
+      ]
+    },
+    "0x4dbe10": {
+      "kind": "whole",
+      "name": "bit set constructor",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "reason": "Original game library code, run on both sides. Its allocation-failure path calls 0x4dc680, which reads the caller's EBP; the caller EBP is declared per owned caller and checked against the original at each site.",
+      "caller_frame": [
+        {
+          "caller": "0x4332f0",
+          "site": "0x433654",
+          "ebp": {
+            "base": "receiver",
+            "offset": 296
+          }
+        },
+        {
+          "caller": "0x44c000",
+          "site": "0x44c1df",
+          "ebp": {
+            "base": "receiver",
+            "offset": 560
+          }
+        }
+      ]
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); reached through the table grow 0x4db6e0; pairs with malloc and free"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Windows import reached through the C runtime typeid 0x4a36f0; the stand-in answers from the run's live objects, image and stack"
+    },
+    "0x4dca10": {
+      "kind": "whole",
+      "name": "constructor initialization chain",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4db6e0": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x4db5f0": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x4db4d0": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    },
+    "0x43d490": {
+      "kind": "whole",
+      "name": "Original source descendant",
+      "convention": "thiscall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      },
+      "reason": "Executes unchanged original instructions with physical CALL frame and CPU outputs required by TownGuard state source dispatch."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_object_actions_01.cases.py",
+    "entry": "claw_level_one_object_actions_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x43393a",
+        "end": "0x4339bf",
+        "reason": "Needs bit 1 of [[esi+0x12c]+0x40] set at 0x433923 and clear at 0x433930, but EBP is esi+0x128 so [ebp+4] is the same pointer [esi+0x12c], and nothing stores between the two tests; both conditions cannot hold."
+      },
+      {
+        "start": "0x44c895",
+        "end": "0x44c8c3",
+        "reason": "Reached only after the 0x4db6e0 table grow returns 0, which happens only after its realloc fails. The grow then calls 0x4dc680 with EBP still 0, so the original reads address 4 and stops with an access violation; no valid returning case can execute these bytes."
+      },
+      {
+        "start": "0x44c8de",
+        "end": "0x44c8f5",
+        "reason": "Reached only when the second range check at 0x44c8d4 fails after the first check passed or the first grow succeeded; the globals are unchanged between, so the id is already in range. The grow-failure leg faults as for 0x44c895."
+      },
+      {
+        "start": "0x44c90f",
+        "end": "0x44c942",
+        "reason": "Reached only after the 0x4db6e0 table grow returns 0, which happens only after its realloc fails. The grow then calls 0x4dc680 with EBP still 0, so the original reads address 4 and stops with an access violation; no valid returning case can execute these bytes."
+      }
+    ],
+    "equivalent_mutants": [
+      {
+        "line": 476,
+        "operator": "shift-offset",
+        "mutant_sha256": "ab7998b2109c1e03f1dc7ec848a11366dbe2abb735af6a7c4b22f2e073f6e446",
+        "source_sha256": "b7a9f29c8511a029979202f46d4e1fff75bb061487b3a0250a9f1cedc47a928f",
+        "reason": "Hash-verified original v1.0: receiver+38 and+3c are zeroed at44bcdd and44bd10. No intervening store or call changes those words before late redundant zeroes at44bf76 and44bf92; changing the late+38 zero to+3c changes no memory or x87 state. Info aliases may observe earlier zeros, but both values at this late point are already zero."
+      },
+      {
+        "line": 983,
+        "operator": "le-to-lt",
+        "mutant_sha256": "15f46df61a7a6931e6ed76826e120637b13819aad10f127cc39a3c3eb64dc16a",
+        "source_sha256": "b7a9f29c8511a029979202f46d4e1fff75bb061487b3a0250a9f1cedc47a928f",
+        "reason": "Hash-verified original v1.0:44c749-44c753 clamps unsigned result to99. At equality either keeping99 or assigning99 has identical memory and x87 effects; branch flags are not consumed by an ordinary caller."
+      },
+      {
+        "line": 1041,
+        "operator": "drop-statement",
+        "mutant_sha256": "704c615ca229d46f21ef265ddb003383fb6fd78b63b71a86d335c51133680b80",
+        "source_sha256": "b7a9f29c8511a029979202f46d4e1fff75bb061487b3a0250a9f1cedc47a928f",
+        "reason": "Hash-verified original v1.0:44c851 clears537898. In-range first lookup executes no calls before44c8ca. Successful out-of-range grow4db6e0 clears its new records, hence takes null-handler fallback without reaching this second clear; failed grow faults in4dc680. The second clear cannot change a value."
+      },
+      {
+        "line": 1333,
+        "operator": "swap-statements",
+        "mutant_sha256": "f59f283686b5ece822d6823f4ca5d5d5f024778384d7abdc33c661a5d8ba1de0",
+        "source_sha256": "b7a9f29c8511a029979202f46d4e1fff75bb061487b3a0250a9f1cedc47a928f",
+        "reason": "Hash-verified original v1.0:44f024 and44f02b invoke integer-only leaves406150 and406180. Their accesses are disjoint receiver+128/+130 and+138/+140, with no nested calls, imports or x87 instructions. The ordinary parent consumes no returned leaf register before replacing it, so the calls commute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 595057526,
+      "cases": 614,
+      "mutants_killed": 38,
+      "mutants_tried": 48,
+      "mutants_equivalent": 4,
+      "mutation_score": 0.974,
+      "reasons": [],
+      "build_inputs_sha256": "7d22d0cf4437ba74a80268ec393bed7507d6b483c29f92c0f65dea24152a6a3f"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRectEmpty is a scripted Win32 fixture that writes an empty rectangle; no window service runs.",
+    "SetRect is a scripted Win32 fixture that writes the requested rectangle; no window service runs."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

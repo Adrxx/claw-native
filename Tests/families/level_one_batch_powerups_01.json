@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "id": "level_one_batch_powerups_01",
+  "title": "Level 1 powerup pickups: special, curse, health, ammo, glitterless",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneBatchPowerups01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x470430",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x470a20",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x470100",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x470d00",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x471100",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_batch_powerups_01.cases.py",
+    "entry": "claw_level_one_batch_powerups_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x47085e",
+        "end": "0x470870",
+        "reason": "the state 0 path stores 0x100 into actor+0xd0 at 0x4704d6 before the only jump to this code; the branch needs actor+0xd0 equal to 1, so it cannot execute"
+      },
+      {
+        "start": "0x470ce0",
+        "end": "0x470cf2",
+        "reason": "the state 0 path stores 0x100 into actor+0xd0 before the only jump to this code; the branch needs actor+0xd0 equal to 1, so it cannot execute"
+      },
+      {
+        "start": "0x470edf",
+        "end": "0x470ef1",
+        "reason": "the state 0 path stores 0x10000 into actor+0xd0 before the only jump to this code; the branch needs actor+0xd0 equal to 1, so it cannot execute"
+      },
+      {
+        "start": "0x471310",
+        "end": "0x471322",
+        "reason": "the state 0 path stores 0x800000 or 0x100 into actor+0xd0 before the only jump to this code; the branch needs actor+0xd0 equal to 1, so it cannot execute"
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 81030874,
+      "cases": 598,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "9a46d9b0dc6361f3e301a4075b29db2fb407397145fc9029b16398a2362c2bba"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate)."
+  ],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "soldier_logic",
+  "title": "Original Soldier logic",
+  "abi": "legacy",
+  "sources": [
+    "Sources/SoldierLogic.cpp",
+    "Sources/SoldierLogic.h"
+  ],
+  "source_sha256": {
+    "Sources/SoldierLogic.cpp": "6b4e431cfb5f0d2d593682d731f9e89bf9dfc53de18af5526bc2006358241b30",
+    "Sources/SoldierLogic.h": "f72b26f784015fe02faaf738b90d0d72482b168bb9c400ee59325017edb13caa"
+  },
+  "docs": [
+    "docs/soldier-logic.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_soldier_logic.py"
+      }
+    ],
+    "helpers": [
+      "Tests/soldier_helpers.py"
+    ],
+    "work_dirs": [
+      "work/soldier-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/soldier-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_soldier_logic.py": "pass"
+      },
+      "seconds": 31.0
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 795981435,
+      "owned": 113,
+      "owned_inferred_from_tests": true,
+      "directly_called": 113,
+      "fully_executed": 109,
+      "bytes_owned": 11245,
+      "bytes_executed": 11024,
+      "coverage": 0.9803
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativeHumanoid.swift"
+    ]
+  },
+  "limits": []
+}

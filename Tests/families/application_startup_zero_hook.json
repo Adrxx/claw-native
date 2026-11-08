@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "id": "application_startup_zero_hook",
+  "title": "Original contextual startup zero hook",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationStartupZeroHookRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42a680",
+      "name": "Application::startupZeroHook (contextual ABI)",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_startup_zero_hook.cases.py",
+    "entry": "claw_application_startup_zero_hook_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 156880792,
+      "cases": 30,
+      "mutants_killed": 1,
+      "mutants_tried": 1,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "d35b3cfecd011d043a7f5fad3371b25b74a055c5373a9d84a1c2c8bc6383dc78"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Complete three-byte function without exemptions. Thiscall0 is scoped to reviewed startup callers; shared/folded address has real cdecl1 callers elsewhere requiring a separately reviewed adapter, not a global ABI claim.",
+    "Admission does not establish connected startup, menus or playability."
+  ],
+  "notes": "Boundary reviewed in ignored work/coordination/startup-pregraphics-boundary.md against pinned original. EAX zero is consumed by the startup caller; no receiver dereference or imports."
+}

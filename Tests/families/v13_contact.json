@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "id": "v13_contact",
+  "title": "v1.3 alternate proposed-position contact movement",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "sources": [
+    "Sources/V13ContactRuntime.cpp"
+  ],
+  "canonical_sources": [
+    "Sources/V13ContactRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4d7860",
+      "interval_end": "0x4d78e3",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d78f0",
+      "interval_end": "0x4d7987",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d7990",
+      "interval_end": "0x4d7b93",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d7ba0",
+      "interval_end": "0x4d7da3",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d7db0",
+      "interval_end": "0x4d7fb3",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d7fc0",
+      "interval_end": "0x4d81c3",
+      "convention": "thiscall",
+      "argc": 5,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d81d0",
+      "interval_end": "0x4d8379",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x421ad0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_contact.cases.py",
+    "entry": "claw_v13_contact_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3132643786,
+      "cases": 227,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.917,
+      "reasons": [],
+      "build_inputs_sha256": "be1dc998f0e519813e7f9128d5c40f9266f7019572d80e7635b2fad3342ecf15"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

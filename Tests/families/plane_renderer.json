@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "id": "plane_renderer",
+  "title": "Original v1.0 plane and actor drawing",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PlaneRendererCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4c91d0",
+      "name": "ActorList::draw",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c9e00",
+      "name": "Actor::draw",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cb9b0",
+      "name": "World::drawPlanesAndActors",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4d0d50",
+      "name": "Plane::drawTiles",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/plane_renderer.cases.py",
+    "entry": "claw_plane_renderer_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4cb9f2",
+        "end": "0x4cb9f4",
+        "reason": "The same ECX count was proven positive before the first plane pointer is read; no call or write intervenes before this repeated count test."
+      },
+      {
+        "start": "0x4cba1d",
+        "end": "0x4cba1f",
+        "reason": "Index starts at one and enters only below the unchanged signed count; no call occurs between that guard and these repeated bounds tests. The bounded loop cannot overflow its index."
+      },
+      {
+        "start": "0x4cba6d",
+        "end": "0x4cba6f",
+        "reason": "A callback may invalidate the current plane index, but this null-plane selection immediately enters drawTiles with receiver zero and dereferences unmapped address +8. Guest memory faults are outside returning comparison cases."
+      },
+      {
+        "start": "0x4d0f0b",
+        "end": "0x4d0f0d",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d0fd2",
+        "end": "0x4d0fd4",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d10b2",
+        "end": "0x4d10b4",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d1195",
+        "end": "0x4d1197",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d1258",
+        "end": "0x4d125a",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d132a",
+        "end": "0x4d132c",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d1446",
+        "end": "0x4d1448",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d1516",
+        "end": "0x4d1518",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      },
+      {
+        "start": "0x4d15f0",
+        "end": "0x4d15f2",
+        "reason": "Out-of-range frame selection sets the frame pointer to zero and immediately dereferences unmapped frame+0x28/+0x2c. No returning case can reach this instruction with valid guest memory; native safety faults are not original successful returns."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 780215950,
+      "cases": 77,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "990f22a4518bb795c272e2809f52f0f55555820b6d38d334b0930c6696aeec48"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Indirect actor and DirectDraw COM calls use case-supplied function pointers; no real drawing occurs.",
+    "Original surface wrappers run unchanged; cases return successful COM status and avoid diagnostic and surface-restore paths."
+  ],
+  "notes": "The canonical module is independent of Sources/PlaneRenderer.cpp and Sources/PlaneRenderer.h; those legacy APIs remain preserved for existing app callers. All four legacy original entry points remain owned."
+}

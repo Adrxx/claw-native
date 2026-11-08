@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "id": "application_viewport_accelerators",
+  "title": "Application viewport size accelerator commands",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ApplicationViewportAcceleratorsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x429e30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x429e70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x42afd0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/application_viewport_accelerators.cases.py",
+    "entry": "claw_application_viewport_accelerators_entry",
+    "equivalent_mutants": [
+      {
+        "line": 32,
+        "operator": "shift-offset",
+        "source_sha256": "bbecbf7faa27c0d14aa62b19ae6442658a7eaa757af1ecc636de66e9e73ef67b",
+        "mutant_sha256": "70291c258185e84f0fd2c7a1ec244732447587baea9ac1602eb873ff3c19cbf3",
+        "reason": "Checked against hash-verified v1.0 (see application_viewport_accelerators.notes.md): the mutant tests +0x30 in place of +0x2c, so the first test repeats the second. Outcomes differ only when +0x2c is zero and +0x30 is not; the mutant then calls 0x42a630, which reads the same zero +0x2c and returns 0 at 0x42a63a without stores or calls, so the function returns 0 with no memory effect, as the original does. Only scratch ECX differs, and the sole callers (0x427541 and 0x427564) overwrite EAX and never read ECX. A Unicorn probe of the byte-patched original matched memory and preserved registers in all 36 runs per function."
+      },
+      {
+        "line": 42,
+        "operator": "drop-statement",
+        "source_sha256": "bbecbf7faa27c0d14aa62b19ae6442658a7eaa757af1ecc636de66e9e73ef67b",
+        "mutant_sha256": "2e49c70df4ad85aaeaf314ea1722a7dd42ec32d672508e8d2955d4e33cc6393f",
+        "reason": "Checked against hash-verified v1.0 (see application_viewport_accelerators.notes.md): the caller passes (size,1,1) to 0x429ed0, which reads +0x68 only at 0x429ef1 to pick between two branches that both reach 0x429f02 because its second argument is 1 (0x429ef6-0x429efc), then stores its clamped size to +0x68 at 0x429f05 before any call. Dropping the caller's own store therefore leaves the whole machine state identical from 0x429f08 on; a Unicorn probe of the original with the store replaced by NOPs matched all memory and registers at 0x429f08 for 21 sizes per function."
+      },
+      {
+        "line": 51,
+        "operator": "shift-offset",
+        "source_sha256": "bbecbf7faa27c0d14aa62b19ae6442658a7eaa757af1ecc636de66e9e73ef67b",
+        "mutant_sha256": "1e8eed23b27a0d290cbaec6cfea468ebb7ed5b8edef7cd365f7d710bea84749a",
+        "reason": "Checked against hash-verified v1.0 (see application_viewport_accelerators.notes.md): the mutant tests +0x30 in place of +0x2c, so the first test repeats the second. Outcomes differ only when +0x2c is zero and +0x30 is not; the mutant then calls 0x42a630, which reads the same zero +0x2c and returns 0 at 0x42a63a without stores or calls, so the function returns 0 with no memory effect, as the original does. Only scratch ECX differs, and the sole callers (0x427541 and 0x427564) overwrite EAX and never read ECX. A Unicorn probe of the byte-patched original matched memory and preserved registers in all 36 runs per function."
+      },
+      {
+        "line": 61,
+        "operator": "drop-statement",
+        "source_sha256": "bbecbf7faa27c0d14aa62b19ae6442658a7eaa757af1ecc636de66e9e73ef67b",
+        "mutant_sha256": "06867594d50d4b484b663f206d392dc737de559a7e18c67a39d8a46b5d481f53",
+        "reason": "Checked against hash-verified v1.0 (see application_viewport_accelerators.notes.md): the caller passes (size,1,1) to 0x429ed0, which reads +0x68 only at 0x429ef1 to pick between two branches that both reach 0x429f02 because its second argument is 1 (0x429ef6-0x429efc), then stores its clamped size to +0x68 at 0x429f05 before any call. Dropping the caller's own store therefore leaves the whole machine state identical from 0x429f08 on; a Unicorn probe of the original with the store replaced by NOPs matched all memory and registers at 0x429f08 for 21 sizes per function."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3072740729,
+      "cases": 401,
+      "mutants_killed": 21,
+      "mutants_tried": 27,
+      "mutants_equivalent": 4,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "6267a564de3e942e8c779d597d50e24fc8593d211fe71242386194fde7c4fd9b"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

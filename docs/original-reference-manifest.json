@@ -1,0 +1,23 @@
+{
+  "retrieved": "2026-10-11",
+  "source_pages": [
+    "https://captainclaw.net/en/support.html",
+    "https://captainclaw.net/en/downloads.html"
+  ],
+  "references": [
+    {
+      "path": "Original/claw10.zip",
+      "url": "https://captainclaw.net/dl/claw10.zip",
+      "sha256": "bd56bb5a1d17c2fd71589e78342ad1c5e92f3d6e55642670d5bf6ae6ef69d82c",
+      "bytes": 561647,
+      "role": "Site labels executable original v1.0; binary analysis baseline"
+    },
+    {
+      "path": "Original/claw_rip.zip",
+      "url": "https://captainclaw.net/dl/claw_rip.zip",
+      "sha256": "3e959f961a9dde73b84df309345e899b6dfd780893f128829fb6d64d13e487ef",
+      "bytes": 30422890,
+      "role": "Legacy RealArcade/CD rip; resource reference, not v1.0 engine equivalence"
+    }
+  ]
+}

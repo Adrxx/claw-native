@@ -1,0 +1,175 @@
+{
+  "schema": 1,
+  "id": "pcx_image",
+  "title": "PCX decoding and surface color conversion",
+  "abi": "canonical",
+  "sources": [
+    "Sources/PCXImageCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b9e60",
+      "name": "Surface::restoreWithCallback",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b9e90",
+      "name": "Surface::convertPixels",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ba2d0",
+      "name": "Surface::indexedToBGR24",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ba580",
+      "name": "Surface::BGR24ToIndexed",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4babe0",
+      "name": "Surface::decodePCX8",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bad30",
+      "name": "Surface::decodePCX24",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb040",
+      "name": "Surface::width",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb050",
+      "name": "Surface::height",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bb0f0",
+      "name": "Surface::rowOffset",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bebc0",
+      "name": "Surface::loadPCXBuffer",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bef50",
+      "name": "PCX::decodeRaw8",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bf070",
+      "name": "PCX::decodeRaw24",
+      "convention": "thiscall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "The C runtime heap ends in operating-system calls."
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "Pairs with operator new."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/pcx_image.cases.py",
+    "entry": "claw_pcx_image_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4becd5",
+        "end": "0x4becdd",
+        "reason": "The earlier target-depth-8 conversion guard at 0x4bec59 requires context+0x878 nonzero; the repeated read at 0x4becbf has no intervening call or write to that field on this path, so its zero fallback is unreachable."
+      },
+      {
+        "start": "0x4bed71",
+        "end": "0x4bed86",
+        "reason": "Both raw decoders return zero only for a null destination or source: allocation was already checked nonzero, and source is the readable PCX header plus 0x80; all terminating calls here therefore return one, making the decoder-failure cleanup unreachable."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2767883488,
+      "cases": 231,
+      "mutants_killed": 47,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "c3f4b1362374d6afb2b4ee34c29668b3637fc922179eb0dee271787a25cd076a"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Operator new is replaced by the comparison allocator, including explicit allocation failure.",
+    "Operator delete is replaced by the comparison release fixture.",
+    "Cases provide physical surface COM callbacks and the optional restore callback; no DirectDraw device is exercised.",
+    "Legacy PCXImageRuntime sources and their application ABI remain separate from this canonical module."
+  ],
+  "notes": "All twelve previously declared addresses are retained; ordinary game callees execute unchanged original instructions. Raw decoders save incoming ECX before any write despite not subsequently using it, so their physical entry is represented as thiscall with four stack arguments."
+}

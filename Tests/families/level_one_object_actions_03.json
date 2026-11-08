@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "id": "level_one_object_actions_03",
+  "title": "Observed Level 1 level object actions batch 3",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelOneObjectActions03Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x46caf0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46cb40",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x46d520",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x473630",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x473660",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x473ae0",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x473b10",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x486940",
+      "name": "",
+      "convention": "cdecl",
+      "argc": 5,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_one_object_actions_03.cases.py",
+    "entry": "claw_level_one_object_actions_03_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x46cc9c",
+        "end": "0x46cca5",
+        "reason": "Compare of the handler against 0x470100 repeats at 0x46cc8e and 0x46cc95. Every equal value is taken at 0x46cc93, so the jne at 0x46cc9a is always taken and the original cannot execute these bytes. The native body keeps the same compare chain."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 219631466,
+      "cases": 1462,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.957,
+      "reasons": [],
+      "build_inputs_sha256": "be0b44fd6a4619028f2328f0748abdb6b6179bd5fa0a9f6bc1ad4646a154f0e3"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

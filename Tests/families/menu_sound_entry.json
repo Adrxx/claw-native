@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "id": "menu_sound_entry",
+  "title": "Menu sound entry constructor and cleanup",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuSoundEntryRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4ca3b0",
+      "name": "createSoundEntry",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ca670",
+      "name": "deleteSoundEntry",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4ca690",
+      "name": "destroySoundEntry",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "cstr"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 string length used by original CString key assignment."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_sound_entry.cases.py",
+    "entry": "claw_menu_sound_entry_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 723282362,
+      "cases": 51,
+      "mutants_killed": 27,
+      "mutants_tried": 35,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.931,
+      "reasons": [],
+      "build_inputs_sha256": "dbf5b282bfcfe7ab6a293c9663faf1cf61def3084c7abf6548813f65649757c6"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "lstrlenA is a Win32 string-length fixture; no game load, cleanup or dictionary result is scripted."
+  ],
+  "notes": "Owns only constructor 0x4ca3b0 and genuine scalar deleting destructor 0x4ca670 with its game destructor body 0x4ca690. Hash-verified original vtable slot 0x5138b4 contains 0x4ca670. Existing AudioPCMTransfer owns 0x4c8850 and 0x4c88b0; existing ImageControllerLoading owns 0x4f62a8. These dependencies run whole in comparison and remain external native ownership."
+}

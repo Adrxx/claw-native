@@ -1,0 +1,3908 @@
+{
+  "sha256": "350b8d51e1cd52037cd31a7722197a815e4206e7d3052ec632465f1354726263",
+  "operations": [
+    {
+      "kind": 0,
+      "offset": 66,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 67,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 68,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 69,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 70,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 71,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 72,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 73,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 74,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 75,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 76,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 77,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 78,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 79,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 80,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 81,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 82,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 83,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 84,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 85,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 86,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 87,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 88,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 89,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 90,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 91,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 92,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 93,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 94,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 95,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 96,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 97,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 98,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 99,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 100,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 101,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 102,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 103,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 104,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 105,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 106,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 107,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 108,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 109,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 110,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 111,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 112,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 113,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 114,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 115,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 116,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 117,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 118,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 119,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 120,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 121,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 122,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 123,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 124,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 125,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 126,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 127,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 128,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 129,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 130,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 131,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 0,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 1,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 2,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 3,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 4,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 5,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 6,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 7,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 8,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 9,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 10,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 11,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 12,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 13,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 14,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 15,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 16,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 17,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 18,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 19,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 20,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 21,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 22,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 23,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 24,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 25,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 26,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 27,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 28,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 29,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 30,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 31,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 32,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 33,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 34,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 35,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 36,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 37,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 38,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 39,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 40,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 41,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 42,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 43,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 44,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 45,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 46,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 47,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 48,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 49,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 50,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 51,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 52,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 53,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 54,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 55,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 56,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 57,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 58,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 59,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 60,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 61,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 62,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 63,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 64,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 65,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 66,
+      "value": 100
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416628,
+      "name": "GAME_COIN"
+    },
+    {
+      "kind": 1,
+      "offset": 274,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 208,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 132,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5405112,
+      "name": "GAME_TREASURE_COINS"
+    },
+    {
+      "kind": 1,
+      "offset": 0,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 67,
+      "value": 500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416612,
+      "name": "GAME_TREASURE"
+    },
+    {
+      "kind": 1,
+      "offset": 275,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 209,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 133,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416588,
+      "name": "GAME_TREASURE_GOLDBARS"
+    },
+    {
+      "kind": 1,
+      "offset": 1,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 68,
+      "value": 1500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416576,
+      "name": "GAME_RINGS"
+    },
+    {
+      "kind": 1,
+      "offset": 276,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 210,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 134,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416552,
+      "name": "GAME_TREASURE_RINGS_RED"
+    },
+    {
+      "kind": 1,
+      "offset": 2,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 69,
+      "value": 1500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416576,
+      "name": "GAME_RINGS"
+    },
+    {
+      "kind": 1,
+      "offset": 277,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 211,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 135,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416524,
+      "name": "GAME_TREASURE_RINGS_GREEN"
+    },
+    {
+      "kind": 1,
+      "offset": 3,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 70,
+      "value": 1500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416576,
+      "name": "GAME_RINGS"
+    },
+    {
+      "kind": 1,
+      "offset": 278,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 212,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 136,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416496,
+      "name": "GAME_TREASURE_RINGS_BLUE"
+    },
+    {
+      "kind": 1,
+      "offset": 4,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 71,
+      "value": 1500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416576,
+      "name": "GAME_RINGS"
+    },
+    {
+      "kind": 1,
+      "offset": 279,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 213,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 137,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416468,
+      "name": "GAME_TREASURE_RINGS_PURPLE"
+    },
+    {
+      "kind": 1,
+      "offset": 5,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 72,
+      "value": 2500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 280,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 214,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 138,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416428,
+      "name": "GAME_TREASURE_NECKLACE"
+    },
+    {
+      "kind": 1,
+      "offset": 6,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 73,
+      "value": 5000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416416,
+      "name": "GAME_CROSS"
+    },
+    {
+      "kind": 1,
+      "offset": 281,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 215,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 139,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398616,
+      "name": "GAME_TREASURE_CROSSES_RED"
+    },
+    {
+      "kind": 1,
+      "offset": 7,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 74,
+      "value": 5000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416416,
+      "name": "GAME_CROSS"
+    },
+    {
+      "kind": 1,
+      "offset": 282,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 216,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 140,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398588,
+      "name": "GAME_TREASURE_CROSSES_GREEN"
+    },
+    {
+      "kind": 1,
+      "offset": 8,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 75,
+      "value": 5000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416416,
+      "name": "GAME_CROSS"
+    },
+    {
+      "kind": 1,
+      "offset": 283,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 217,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 141,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398560,
+      "name": "GAME_TREASURE_CROSSES_BLUE"
+    },
+    {
+      "kind": 1,
+      "offset": 9,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 76,
+      "value": 5000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416416,
+      "name": "GAME_CROSS"
+    },
+    {
+      "kind": 1,
+      "offset": 284,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 218,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 142,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398528,
+      "name": "GAME_TREASURE_CROSSES_PURPLE"
+    },
+    {
+      "kind": 1,
+      "offset": 10,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 77,
+      "value": 7500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416400,
+      "name": "GAME_SCEPTER"
+    },
+    {
+      "kind": 1,
+      "offset": 285,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 0,
+      "offset": 143,
+      "value": 262144
+    },
+    {
+      "kind": 1,
+      "offset": 219,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398736,
+      "name": "GAME_TREASURE_SCEPTERS_RED"
+    },
+    {
+      "kind": 1,
+      "offset": 11,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 78,
+      "value": 7500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416400,
+      "name": "GAME_SCEPTER"
+    },
+    {
+      "kind": 1,
+      "offset": 286,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 220,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 144,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398704,
+      "name": "GAME_TREASURE_SCEPTERS_GREEN"
+    },
+    {
+      "kind": 1,
+      "offset": 12,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 79,
+      "value": 7500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416400,
+      "name": "GAME_SCEPTER"
+    },
+    {
+      "kind": 1,
+      "offset": 287,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 221,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 145,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398676,
+      "name": "GAME_TREASURE_SCEPTERS_BLUE"
+    },
+    {
+      "kind": 1,
+      "offset": 13,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 80,
+      "value": 7500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416400,
+      "name": "GAME_SCEPTER"
+    },
+    {
+      "kind": 1,
+      "offset": 288,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 222,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 146,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398644,
+      "name": "GAME_TREASURE_SCEPTERS_PURPLE"
+    },
+    {
+      "kind": 1,
+      "offset": 14,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 81,
+      "value": 10000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416384,
+      "name": "GAME_PICKUP2"
+    },
+    {
+      "kind": 1,
+      "offset": 289,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 223,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 147,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398848,
+      "name": "GAME_TREASURE_GECKOS_RED"
+    },
+    {
+      "kind": 1,
+      "offset": 15,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 82,
+      "value": 10000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416384,
+      "name": "GAME_PICKUP2"
+    },
+    {
+      "kind": 1,
+      "offset": 290,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 224,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 148,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398820,
+      "name": "GAME_TREASURE_GECKOS_GREEN"
+    },
+    {
+      "kind": 1,
+      "offset": 16,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 83,
+      "value": 10000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416384,
+      "name": "GAME_PICKUP2"
+    },
+    {
+      "kind": 1,
+      "offset": 291,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 225,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 149,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398792,
+      "name": "GAME_TREASURE_GECKOS_BLUE"
+    },
+    {
+      "kind": 1,
+      "offset": 17,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 84,
+      "value": 10000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416384,
+      "name": "GAME_PICKUP2"
+    },
+    {
+      "kind": 1,
+      "offset": 292,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 226,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 150,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398764,
+      "name": "GAME_TREASURE_GECKOS_PURPLE"
+    },
+    {
+      "kind": 1,
+      "offset": 18,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 85,
+      "value": 25
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416368,
+      "name": "GAME_AMMUNITION"
+    },
+    {
+      "kind": 1,
+      "offset": 293,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384340,
+      "name": "AmmoPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 227,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 151,
+      "value": 8388608
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416348,
+      "name": "GAME_AMMO_DEATHBAG"
+    },
+    {
+      "kind": 1,
+      "offset": 19,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 86,
+      "value": 5
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416368,
+      "name": "GAME_AMMUNITION"
+    },
+    {
+      "kind": 1,
+      "offset": 294,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384340,
+      "name": "AmmoPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 228,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 152,
+      "value": 8388608
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416332,
+      "name": "GAME_AMMO_SHOT"
+    },
+    {
+      "kind": 0,
+      "offset": 87,
+      "value": 10
+    },
+    {
+      "kind": 1,
+      "offset": 20,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416368,
+      "name": "GAME_AMMUNITION"
+    },
+    {
+      "kind": 1,
+      "offset": 295,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384340,
+      "name": "AmmoPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 229,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 153,
+      "value": 8388608
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416312,
+      "name": "GAME_AMMO_SHOTBAG"
+    },
+    {
+      "kind": 1,
+      "offset": 21,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 88,
+      "value": 15000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416296,
+      "name": "GAME_CATNMAG"
+    },
+    {
+      "kind": 1,
+      "offset": 296,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384544,
+      "name": "HealthPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 230,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 154,
+      "value": 65536
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416276,
+      "name": "GAME_CATNIPS_NIP1"
+    },
+    {
+      "kind": 1,
+      "offset": 22,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 89,
+      "value": 30000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416296,
+      "name": "GAME_CATNMAG"
+    },
+    {
+      "kind": 1,
+      "offset": 297,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384544,
+      "name": "HealthPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 231,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 155,
+      "value": 65536
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416256,
+      "name": "GAME_CATNIPS_NIP2"
+    },
+    {
+      "kind": 1,
+      "offset": 23,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 90,
+      "value": 5
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416240,
+      "name": "GAME_FOODITEM"
+    },
+    {
+      "kind": 1,
+      "offset": 298,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384544,
+      "name": "HealthPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 232,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 156,
+      "value": 65536
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416224,
+      "name": "LEVEL_HEALTH"
+    },
+    {
+      "kind": 1,
+      "offset": 24,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 91,
+      "value": 25
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416212,
+      "name": "GAME_MILK"
+    },
+    {
+      "kind": 1,
+      "offset": 299,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384544,
+      "name": "HealthPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 233,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 157,
+      "value": 65536
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416192,
+      "name": "GAME_HEALTH_POTION3"
+    },
+    {
+      "kind": 1,
+      "offset": 25,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 92,
+      "value": 10
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416212,
+      "name": "GAME_MILK"
+    },
+    {
+      "kind": 1,
+      "offset": 300,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384544,
+      "name": "HealthPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 234,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 158,
+      "value": 65536
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416172,
+      "name": "GAME_HEALTH_POTION1"
+    },
+    {
+      "kind": 1,
+      "offset": 26,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 93,
+      "value": 15
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416212,
+      "name": "GAME_MILK"
+    },
+    {
+      "kind": 1,
+      "offset": 301,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384544,
+      "name": "HealthPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 235,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 159,
+      "value": 65536
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416152,
+      "name": "GAME_HEALTH_POTION2"
+    },
+    {
+      "kind": 1,
+      "offset": 27,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 94,
+      "value": 5
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415428,
+      "name": "GAME_MAGICPOWERUP"
+    },
+    {
+      "kind": 1,
+      "offset": 302,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384368,
+      "name": "MagicPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 236,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 160,
+      "value": 1048576
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416136,
+      "name": "GAME_MAGIC_GLOW"
+    },
+    {
+      "kind": 1,
+      "offset": 28,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 95,
+      "value": 10
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415428,
+      "name": "GAME_MAGICPOWERUP"
+    },
+    {
+      "kind": 1,
+      "offset": 303,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384368,
+      "name": "MagicPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 237,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 161,
+      "value": 1048576
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416116,
+      "name": "GAME_MAGIC_STARGLOW"
+    },
+    {
+      "kind": 1,
+      "offset": 29,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 96,
+      "value": 35
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415428,
+      "name": "GAME_MAGICPOWERUP"
+    },
+    {
+      "kind": 1,
+      "offset": 304,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384368,
+      "name": "MagicPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 238,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 162,
+      "value": 1048576
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5390732,
+      "name": "GAME_MAGICCLAW"
+    },
+    {
+      "kind": 1,
+      "offset": 30,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 97,
+      "value": 9901
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415428,
+      "name": "GAME_MAGICPOWERUP"
+    },
+    {
+      "kind": 1,
+      "offset": 305,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384508,
+      "name": "EndOfLevelPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 239,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 163,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415392,
+      "name": "LEVEL_GEM"
+    },
+    {
+      "kind": 1,
+      "offset": 31,
+      "value": 0
+    },
+    {
+      "kind": 3
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5393692,
+      "name": "GAME_MAPPIECE"
+    },
+    {
+      "kind": 1,
+      "offset": 31,
+      "value": 0
+    },
+    {
+      "kind": 5
+    },
+    {
+      "kind": 4
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415392,
+      "name": "LEVEL_GEM"
+    },
+    {
+      "kind": 1,
+      "offset": 31,
+      "value": 0
+    },
+    {
+      "kind": 5
+    },
+    {
+      "kind": 0,
+      "offset": 98,
+      "value": 9902
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415428,
+      "name": "GAME_MAGICPOWERUP"
+    },
+    {
+      "kind": 1,
+      "offset": 306,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 240,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 164,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415036,
+      "name": "GAME_WARP"
+    },
+    {
+      "kind": 1,
+      "offset": 32,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 99,
+      "value": 100
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416628,
+      "name": "GAME_COIN"
+    },
+    {
+      "kind": 1,
+      "offset": 307,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 241,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 165,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5405112,
+      "name": "GAME_TREASURE_COINS"
+    },
+    {
+      "kind": 1,
+      "offset": 33,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 100,
+      "value": 9904
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416368,
+      "name": "GAME_AMMUNITION"
+    },
+    {
+      "kind": 1,
+      "offset": 308,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384340,
+      "name": "AmmoPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 242,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 166,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5387728,
+      "name": "GAME_DYNAMITE"
+    },
+    {
+      "kind": 0,
+      "offset": 101,
+      "value": 9905
+    },
+    {
+      "kind": 1,
+      "offset": 34,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416104,
+      "name": "GAME_CURSE3"
+    },
+    {
+      "kind": 1,
+      "offset": 309,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384292,
+      "name": "CursePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 243,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 167,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416084,
+      "name": "GAME_CURSES_AMMO"
+    },
+    {
+      "kind": 1,
+      "offset": 35,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 102,
+      "value": 9906
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416072,
+      "name": "GAME_CURSE2"
+    },
+    {
+      "kind": 1,
+      "offset": 310,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384292,
+      "name": "CursePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 244,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 168,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416052,
+      "name": "GAME_CURSES_MAGIC"
+    },
+    {
+      "kind": 1,
+      "offset": 36,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 103,
+      "value": 9907
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416040,
+      "name": "GAME_CURSE6"
+    },
+    {
+      "kind": 1,
+      "offset": 311,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384292,
+      "name": "CursePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 245,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 169,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416020,
+      "name": "GAME_CURSES_HEALTH"
+    },
+    {
+      "kind": 1,
+      "offset": 37,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 104,
+      "value": 9908
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416008,
+      "name": "GAME_CURSE5"
+    },
+    {
+      "kind": 1,
+      "offset": 312,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384292,
+      "name": "CursePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 246,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 170,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415988,
+      "name": "GAME_CURSES_LIFE"
+    },
+    {
+      "kind": 1,
+      "offset": 38,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 105,
+      "value": 9909
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415976,
+      "name": "GAME_CURSE4"
+    },
+    {
+      "kind": 1,
+      "offset": 313,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384292,
+      "name": "CursePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 247,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 171,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415952,
+      "name": "GAME_CURSES_TREASURE"
+    },
+    {
+      "kind": 1,
+      "offset": 39,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 106,
+      "value": 9910
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415940,
+      "name": "GAME_CURSE1"
+    },
+    {
+      "kind": 1,
+      "offset": 314,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384292,
+      "name": "CursePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 248,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 172,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415920,
+      "name": "GAME_CURSES_FREEZE"
+    },
+    {
+      "kind": 1,
+      "offset": 40,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 107,
+      "value": 2500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 315,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 249,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 173,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398500,
+      "name": "GAME_TREASURE_CHALICES_RED"
+    },
+    {
+      "kind": 1,
+      "offset": 41,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 108,
+      "value": 2500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 316,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 250,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 174,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398468,
+      "name": "GAME_TREASURE_CHALICES_GREEN"
+    },
+    {
+      "kind": 1,
+      "offset": 42,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 109,
+      "value": 2500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 317,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 251,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 175,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398440,
+      "name": "GAME_TREASURE_CHALICES_BLUE"
+    },
+    {
+      "kind": 1,
+      "offset": 43,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 110,
+      "value": 2500
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 318,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 252,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 176,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5398408,
+      "name": "GAME_TREASURE_CHALICES_PURPLE"
+    },
+    {
+      "kind": 1,
+      "offset": 44,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 111,
+      "value": 15000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 319,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 253,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 177,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415892,
+      "name": "GAME_TREASURE_CROWNS_RED"
+    },
+    {
+      "kind": 1,
+      "offset": 45,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 112,
+      "value": 15000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 320,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 254,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 178,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415864,
+      "name": "GAME_TREASURE_CROWNS_GREEN"
+    },
+    {
+      "kind": 1,
+      "offset": 46,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 113,
+      "value": 15000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 321,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 255,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 179,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415836,
+      "name": "GAME_TREASURE_CROWNS_BLUE"
+    },
+    {
+      "kind": 1,
+      "offset": 47,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 114,
+      "value": 15000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 322,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 256,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 180,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415808,
+      "name": "GAME_TREASURE_CROWNS_PURPLE"
+    },
+    {
+      "kind": 1,
+      "offset": 48,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 115,
+      "value": 25000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 323,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 257,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 181,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415776,
+      "name": "GAME_TREASURE_JEWELEDSKULL_RED"
+    },
+    {
+      "kind": 1,
+      "offset": 49,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 116,
+      "value": 25000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 324,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 0,
+      "offset": 182,
+      "value": 262144
+    },
+    {
+      "kind": 1,
+      "offset": 258,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415740,
+      "name": "GAME_TREASURE_JEWELEDSKULL_GREEN"
+    },
+    {
+      "kind": 1,
+      "offset": 50,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 117,
+      "value": 25000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 325,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 259,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 183,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415708,
+      "name": "GAME_TREASURE_JEWELEDSKULL_BLUE"
+    },
+    {
+      "kind": 1,
+      "offset": 51,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 118,
+      "value": 25000
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 326,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384384,
+      "name": "TreasurePowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 260,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 184,
+      "value": 262144
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415672,
+      "name": "GAME_TREASURE_JEWELEDSKULL_PURPLE"
+    },
+    {
+      "kind": 1,
+      "offset": 52,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 119,
+      "value": 9911
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 327,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 261,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 185,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415652,
+      "name": "GAME_POWERUPS_GHOST"
+    },
+    {
+      "kind": 1,
+      "offset": 53,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 120,
+      "value": 9917
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 328,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 262,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 186,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415624,
+      "name": "GAME_POWERUPS_INVULNERABLE"
+    },
+    {
+      "kind": 1,
+      "offset": 54,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 121,
+      "value": 9918
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415608,
+      "name": "GAME_EXTRALIFE"
+    },
+    {
+      "kind": 1,
+      "offset": 329,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 263,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 187,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415404,
+      "name": "GAME_POWERUPS_EXTRALIFE"
+    },
+    {
+      "kind": 1,
+      "offset": 55,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 122,
+      "value": 9912
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 330,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 264,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 188,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415584,
+      "name": "GAME_POWERUPS_FIRESWORD"
+    },
+    {
+      "kind": 1,
+      "offset": 56,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 123,
+      "value": 9913
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 331,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 265,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 189,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415552,
+      "name": "GAME_POWERUPS_LIGHTNINGSWORD"
+    },
+    {
+      "kind": 1,
+      "offset": 57,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 124,
+      "value": 9914
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 332,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 266,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 190,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415528,
+      "name": "GAME_POWERUPS_ICESWORD"
+    },
+    {
+      "kind": 1,
+      "offset": 58,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 125,
+      "value": 9915
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416452,
+      "name": "GAME_PICKUP1"
+    },
+    {
+      "kind": 1,
+      "offset": 333,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 267,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 191,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415500,
+      "name": "GAME_POWERUPS_PLASMASWORD"
+    },
+    {
+      "kind": 0,
+      "offset": 126,
+      "value": 9902
+    },
+    {
+      "kind": 1,
+      "offset": 59,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5415428,
+      "name": "GAME_MAGICPOWERUP"
+    },
+    {
+      "kind": 1,
+      "offset": 334,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384492,
+      "name": "SpecialPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 268,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 192,
+      "value": 256
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5415484,
+      "name": "GAME_VERTWARP"
+    },
+    {
+      "kind": 1,
+      "offset": 60,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 127,
+      "value": 20
+    },
+    {
+      "kind": 2,
+      "registry": 0,
+      "literal": 5416240,
+      "name": "GAME_FOODITEM"
+    },
+    {
+      "kind": 1,
+      "offset": 335,
+      "value": 0
+    },
+    {
+      "kind": 2,
+      "registry": 1,
+      "literal": 5384544,
+      "name": "HealthPowerup"
+    },
+    {
+      "kind": 1,
+      "offset": 269,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 193,
+      "value": 65536
+    },
+    {
+      "kind": 2,
+      "registry": 2,
+      "literal": 5416224,
+      "name": "LEVEL_HEALTH"
+    },
+    {
+      "kind": 1,
+      "offset": 61,
+      "value": 0
+    },
+    {
+      "kind": 0,
+      "offset": 341,
+      "value": 62
+    },
+    {
+      "kind": 0,
+      "offset": 340,
+      "value": 1
+    }
+  ],
+  "records": [
+    {
+      "id": 0,
+      "image": "GAME_TREASURE_COINS",
+      "value": 100,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_COIN"
+    },
+    {
+      "id": 1,
+      "image": "GAME_TREASURE_GOLDBARS",
+      "value": 500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_TREASURE"
+    },
+    {
+      "id": 2,
+      "image": "GAME_TREASURE_RINGS_RED",
+      "value": 1500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_RINGS"
+    },
+    {
+      "id": 3,
+      "image": "GAME_TREASURE_RINGS_GREEN",
+      "value": 1500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_RINGS"
+    },
+    {
+      "id": 4,
+      "image": "GAME_TREASURE_RINGS_BLUE",
+      "value": 1500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_RINGS"
+    },
+    {
+      "id": 5,
+      "image": "GAME_TREASURE_RINGS_PURPLE",
+      "value": 1500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_RINGS"
+    },
+    {
+      "id": 6,
+      "image": "GAME_TREASURE_NECKLACE",
+      "value": 2500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 7,
+      "image": "GAME_TREASURE_CROSSES_RED",
+      "value": 5000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_CROSS"
+    },
+    {
+      "id": 8,
+      "image": "GAME_TREASURE_CROSSES_GREEN",
+      "value": 5000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_CROSS"
+    },
+    {
+      "id": 9,
+      "image": "GAME_TREASURE_CROSSES_BLUE",
+      "value": 5000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_CROSS"
+    },
+    {
+      "id": 10,
+      "image": "GAME_TREASURE_CROSSES_PURPLE",
+      "value": 5000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_CROSS"
+    },
+    {
+      "id": 11,
+      "image": "GAME_TREASURE_SCEPTERS_RED",
+      "value": 7500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_SCEPTER"
+    },
+    {
+      "id": 12,
+      "image": "GAME_TREASURE_SCEPTERS_GREEN",
+      "value": 7500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_SCEPTER"
+    },
+    {
+      "id": 13,
+      "image": "GAME_TREASURE_SCEPTERS_BLUE",
+      "value": 7500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_SCEPTER"
+    },
+    {
+      "id": 14,
+      "image": "GAME_TREASURE_SCEPTERS_PURPLE",
+      "value": 7500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_SCEPTER"
+    },
+    {
+      "id": 15,
+      "image": "GAME_TREASURE_GECKOS_RED",
+      "value": 10000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP2"
+    },
+    {
+      "id": 16,
+      "image": "GAME_TREASURE_GECKOS_GREEN",
+      "value": 10000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP2"
+    },
+    {
+      "id": 17,
+      "image": "GAME_TREASURE_GECKOS_BLUE",
+      "value": 10000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP2"
+    },
+    {
+      "id": 18,
+      "image": "GAME_TREASURE_GECKOS_PURPLE",
+      "value": 10000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP2"
+    },
+    {
+      "id": 19,
+      "image": "GAME_AMMO_DEATHBAG",
+      "value": 25,
+      "mask": 8388608,
+      "logic": "AmmoPowerup",
+      "sound": "GAME_AMMUNITION"
+    },
+    {
+      "id": 20,
+      "image": "GAME_AMMO_SHOT",
+      "value": 5,
+      "mask": 8388608,
+      "logic": "AmmoPowerup",
+      "sound": "GAME_AMMUNITION"
+    },
+    {
+      "id": 21,
+      "image": "GAME_AMMO_SHOTBAG",
+      "value": 10,
+      "mask": 8388608,
+      "logic": "AmmoPowerup",
+      "sound": "GAME_AMMUNITION"
+    },
+    {
+      "id": 22,
+      "image": "GAME_CATNIPS_NIP1",
+      "value": 15000,
+      "mask": 65536,
+      "logic": "HealthPowerup",
+      "sound": "GAME_CATNMAG"
+    },
+    {
+      "id": 23,
+      "image": "GAME_CATNIPS_NIP2",
+      "value": 30000,
+      "mask": 65536,
+      "logic": "HealthPowerup",
+      "sound": "GAME_CATNMAG"
+    },
+    {
+      "id": 24,
+      "image": "LEVEL_HEALTH",
+      "value": 5,
+      "mask": 65536,
+      "logic": "HealthPowerup",
+      "sound": "GAME_FOODITEM"
+    },
+    {
+      "id": 25,
+      "image": "GAME_HEALTH_POTION3",
+      "value": 25,
+      "mask": 65536,
+      "logic": "HealthPowerup",
+      "sound": "GAME_MILK"
+    },
+    {
+      "id": 26,
+      "image": "GAME_HEALTH_POTION1",
+      "value": 10,
+      "mask": 65536,
+      "logic": "HealthPowerup",
+      "sound": "GAME_MILK"
+    },
+    {
+      "id": 27,
+      "image": "GAME_HEALTH_POTION2",
+      "value": 15,
+      "mask": 65536,
+      "logic": "HealthPowerup",
+      "sound": "GAME_MILK"
+    },
+    {
+      "id": 28,
+      "image": "GAME_MAGIC_GLOW",
+      "value": 5,
+      "mask": 1048576,
+      "logic": "MagicPowerup",
+      "sound": "GAME_MAGICPOWERUP"
+    },
+    {
+      "id": 29,
+      "image": "GAME_MAGIC_STARGLOW",
+      "value": 10,
+      "mask": 1048576,
+      "logic": "MagicPowerup",
+      "sound": "GAME_MAGICPOWERUP"
+    },
+    {
+      "id": 30,
+      "image": "GAME_MAGICCLAW",
+      "value": 35,
+      "mask": 1048576,
+      "logic": "MagicPowerup",
+      "sound": "GAME_MAGICPOWERUP"
+    },
+    {
+      "id": 31,
+      "image": "LEVEL_GEM",
+      "value": 9901,
+      "mask": 256,
+      "logic": "EndOfLevelPowerup",
+      "sound": "GAME_MAGICPOWERUP"
+    },
+    {
+      "id": 32,
+      "image": "GAME_WARP",
+      "value": 9902,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_MAGICPOWERUP"
+    },
+    {
+      "id": 33,
+      "image": "GAME_TREASURE_COINS",
+      "value": 100,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_COIN"
+    },
+    {
+      "id": 34,
+      "image": "GAME_DYNAMITE",
+      "value": 9904,
+      "mask": 256,
+      "logic": "AmmoPowerup",
+      "sound": "GAME_AMMUNITION"
+    },
+    {
+      "id": 35,
+      "image": "GAME_CURSES_AMMO",
+      "value": 9905,
+      "mask": 256,
+      "logic": "CursePowerup",
+      "sound": "GAME_CURSE3"
+    },
+    {
+      "id": 36,
+      "image": "GAME_CURSES_MAGIC",
+      "value": 9906,
+      "mask": 256,
+      "logic": "CursePowerup",
+      "sound": "GAME_CURSE2"
+    },
+    {
+      "id": 37,
+      "image": "GAME_CURSES_HEALTH",
+      "value": 9907,
+      "mask": 256,
+      "logic": "CursePowerup",
+      "sound": "GAME_CURSE6"
+    },
+    {
+      "id": 38,
+      "image": "GAME_CURSES_LIFE",
+      "value": 9908,
+      "mask": 256,
+      "logic": "CursePowerup",
+      "sound": "GAME_CURSE5"
+    },
+    {
+      "id": 39,
+      "image": "GAME_CURSES_TREASURE",
+      "value": 9909,
+      "mask": 256,
+      "logic": "CursePowerup",
+      "sound": "GAME_CURSE4"
+    },
+    {
+      "id": 40,
+      "image": "GAME_CURSES_FREEZE",
+      "value": 9910,
+      "mask": 256,
+      "logic": "CursePowerup",
+      "sound": "GAME_CURSE1"
+    },
+    {
+      "id": 41,
+      "image": "GAME_TREASURE_CHALICES_RED",
+      "value": 2500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 42,
+      "image": "GAME_TREASURE_CHALICES_GREEN",
+      "value": 2500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 43,
+      "image": "GAME_TREASURE_CHALICES_BLUE",
+      "value": 2500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 44,
+      "image": "GAME_TREASURE_CHALICES_PURPLE",
+      "value": 2500,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 45,
+      "image": "GAME_TREASURE_CROWNS_RED",
+      "value": 15000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 46,
+      "image": "GAME_TREASURE_CROWNS_GREEN",
+      "value": 15000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 47,
+      "image": "GAME_TREASURE_CROWNS_BLUE",
+      "value": 15000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 48,
+      "image": "GAME_TREASURE_CROWNS_PURPLE",
+      "value": 15000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 49,
+      "image": "GAME_TREASURE_JEWELEDSKULL_RED",
+      "value": 25000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 50,
+      "image": "GAME_TREASURE_JEWELEDSKULL_GREEN",
+      "value": 25000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 51,
+      "image": "GAME_TREASURE_JEWELEDSKULL_BLUE",
+      "value": 25000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 52,
+      "image": "GAME_TREASURE_JEWELEDSKULL_PURPLE",
+      "value": 25000,
+      "mask": 262144,
+      "logic": "TreasurePowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 53,
+      "image": "GAME_POWERUPS_GHOST",
+      "value": 9911,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 54,
+      "image": "GAME_POWERUPS_INVULNERABLE",
+      "value": 9917,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 55,
+      "image": "GAME_POWERUPS_EXTRALIFE",
+      "value": 9918,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_EXTRALIFE"
+    },
+    {
+      "id": 56,
+      "image": "GAME_POWERUPS_FIRESWORD",
+      "value": 9912,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 57,
+      "image": "GAME_POWERUPS_LIGHTNINGSWORD",
+      "value": 9913,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 58,
+      "image": "GAME_POWERUPS_ICESWORD",
+      "value": 9914,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 59,
+      "image": "GAME_POWERUPS_PLASMASWORD",
+      "value": 9915,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_PICKUP1"
+    },
+    {
+      "id": 60,
+      "image": "GAME_VERTWARP",
+      "value": 9902,
+      "mask": 256,
+      "logic": "SpecialPowerup",
+      "sound": "GAME_MAGICPOWERUP"
+    },
+    {
+      "id": 61,
+      "image": "LEVEL_HEALTH",
+      "value": 20,
+      "mask": 65536,
+      "logic": "HealthPowerup",
+      "sound": "GAME_FOODITEM"
+    },
+    {
+      "id": 62,
+      "image": null,
+      "value": 0,
+      "mask": 0,
+      "logic": null,
+      "sound": null
+    },
+    {
+      "id": 63,
+      "image": null,
+      "value": 0,
+      "mask": 0,
+      "logic": null,
+      "sound": null
+    },
+    {
+      "id": 64,
+      "image": null,
+      "value": 0,
+      "mask": 0,
+      "logic": null,
+      "sound": null
+    },
+    {
+      "id": 65,
+      "image": null,
+      "value": 0,
+      "mask": 0,
+      "logic": null,
+      "sound": null
+    }
+  ],
+  "initializedCount": 62,
+  "lookupCount": 188,
+  "capturedConfigurationWord": 13
+}

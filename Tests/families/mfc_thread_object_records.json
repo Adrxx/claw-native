@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "id": "mfc_thread_object_records",
+  "title": "Original MFC thread object records",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MfcThreadObjectRecordsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4f6a9a",
+      "name": "MfcThreadObject::baseConstruct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x50354d",
+      "name": "MfcThreadObject::resetCursorState",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138,
+        "optional": true
+      }
+    },
+    {
+      "address": "0x503510",
+      "name": "MfcThreadObject::construct",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared",
+      "source_context": {
+        "input_mask": 2047,
+        "output_mask": 2047,
+        "preserve_mask": 1138
+      }
+    }
+  ],
+  "callees": {
+    "0x4a48c0": {
+      "kind": "whole",
+      "name": "MfcCompilerScope::register",
+      "convention": "compiler-context",
+      "argc": 0,
+      "returns": "context",
+      "compiler_context": {
+        "input_mask": 2047,
+        "output_mask": 2047
+      }
+    },
+    "0x546cd0": {
+      "kind": "fixture",
+      "name": "GetCursorPos",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:8"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Physical cursor reads provide signed POINT coordinates or failure under explicit test-owned OS policy; no internal constructor/helper substitutions."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/mfc_thread_object_records.cases.py",
+    "entry": "claw_mfc_thread_object_records_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1689318989,
+      "cases": 120,
+      "mutants_killed": 46,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.979,
+      "reasons": [],
+      "build_inputs_sha256": "56db77d0045b1849e73333659d9d76f7f57a8389f1ceee7ea6da5f77867cf6b3"
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [
+    "Complete143ownedbytes; constructor requires fullsource context for original compiler helper and true FS/EBP/stack restoration. Leaves additionally retain ordinary capability.",
+    "Cursor failure and output writes follow explicit physical OS fixture policy; native cursor service/app election remain separate.",
+    "Registration is not typed source exception dispatch/unwind; staticCWinApp/CRT initialization and playable menu flow remain pending."
+  ],
+  "notes": "Original boundary independently reviewed under ignored work/coordination/cwinapp-static-startup-boundary.md. All3 thiscall0/u32;503510 handler508ca4 helpercontinuation50351a;leaf sourcecalls503526/50353e;physicalcursorreturn50356f. Writable records through0x67, arbitrary unaligned receivers, holes retained. Base push1/popECX and XOR EDX flags/stack outputs must not be omitted in fullsource mode. Rootconstructor actualreturn502597."
+}

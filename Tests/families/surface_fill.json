@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "surface_fill",
+  "title": "Surface color-fill wrapper",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SurfaceFillRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b97c0",
+      "name": "Surface::fill",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "fixture": "scripted",
+      "reason": "Physical USER32 MessageBeep import reached by unchanged original error reporting."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/surface_fill.cases.py",
+    "entry": "claw_surface_fill_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2017058324,
+      "cases": 90,
+      "mutants_killed": 7,
+      "mutants_tried": 8,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "8c6612cba842d8f10bb6dd7b84e774b06de1fef013f9839f439c205e39b54971"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Original surface blit and error reporting execute unchanged original code; DirectDraw virtual methods are supplied by cases.",
+    "The original null-source lost-surface path is retained, including its invalid retry dereference when restore succeeds."
+  ]
+}

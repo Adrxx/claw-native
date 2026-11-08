@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "menu_window_record",
+  "title": "Menu window record initialization",
+  "abi": "canonical",
+  "sources": [
+    "Sources/MenuWindowRecordRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b8410",
+      "name": "WindowRecord::initialize",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/menu_window_record.cases.py",
+    "entry": "claw_menu_window_record_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 3289543727,
+      "cases": 26,
+      "mutants_killed": 6,
+      "mutants_tried": 6,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "233ce919254a6af9119d1b2a73bda32872ffbd4161d4cb6f20f54495a0705d95"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": []
+}

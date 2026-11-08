@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "player_pose_states",
+  "title": "Original duck and look-up updates",
+  "abi": "legacy",
+  "sources": [
+    "Sources/PlayerPoseStates.cpp",
+    "Sources/PlayerPoseStates.h"
+  ],
+  "source_sha256": {
+    "Sources/PlayerPoseStates.cpp": "429d90ba09d0c37ede24a8a3f3247cc5194f268aab5483c8326a178e966834a4",
+    "Sources/PlayerPoseStates.h": "54baa1b2145de41cd5f804bc574ba5a652d45ab4be12e2fbfb45f4a7c7f317de"
+  },
+  "docs": [
+    "docs/player-pose-states.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_player_pose_states.py"
+      }
+    ],
+    "work_dirs": [
+      "work/pose-state-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/pose-state-agent/test-results.txt"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_player_pose_states.py": "pass"
+      },
+      "seconds": 6.8
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 2540666037,
+      "owned": 4,
+      "owned_inferred_from_tests": true,
+      "directly_called": 4,
+      "fully_executed": 3,
+      "bytes_owned": 4110,
+      "bytes_executed": 2917,
+      "coverage": 0.7097
+    }
+  },
+  "integration": {
+    "level": "elected",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": [
+      "Sources/ClawNativePlayer.swift"
+    ]
+  },
+  "limits": []
+}

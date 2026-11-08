@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "id": "call_closure_downstream_interface",
+  "title": "Downstream archive and interface helpers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/CallClosureDownstreamInterfaceRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4b6bd0",
+      "name": "ArchiveDirectory::layoutRecursive",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7950",
+      "name": "Archive::copyRecursive",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4b7b40",
+      "name": "Archive::writeRetry",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4bc990",
+      "name": "Image::loadMasked",
+      "convention": "thiscall",
+      "argc": 3,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf010",
+      "name": "Image::setGlobalSurface",
+      "convention": "stdcall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4dea30",
+      "name": "Interface::renderCenteredLabel",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4deda0",
+      "name": "ImageSlots::at",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4e2110",
+      "name": "Dialog::findRecord",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4a7840": {
+      "kind": "fixture",
+      "name": "fseek",
+      "convention": "cdecl",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT file seek enters operating-system file services."
+    },
+    "0x4a73e0": {
+      "kind": "fixture",
+      "name": "fwrite",
+      "convention": "cdecl",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT file write enters operating-system file services. The buffer extent is size times count, observed by each scripted fixture rather than a fixed pointer extent."
+    },
+    "0x4a3b10": {
+      "kind": "fixture",
+      "name": "time",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "out:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "CRT time reads GetLocalTime, GetSystemTime and timezone services."
+    },
+    "0x5469e4": {
+      "kind": "fixture",
+      "name": "lstrlenA",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x5469ec": {
+      "kind": "fixture",
+      "name": "InterlockedIncrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546ce0": {
+      "kind": "fixture",
+      "name": "IntersectRect",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows import; requires a native operating-system service."
+    },
+    "0x546ca4": {
+      "kind": "fixture",
+      "name": "MessageBeep",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic beep import reached by original surface lock failure."
+    },
+    "0x546d48": {
+      "kind": "fixture",
+      "name": "MessageBoxA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "cstr",
+        "cstr",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 diagnostic dialog import reached by original surface lock failure."
+    },
+    "0x546ac8": {
+      "kind": "fixture",
+      "name": "FindResourceA",
+      "convention": "stdcall",
+      "argc": 3,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows resource service reached through unchanged image loader 0x4be050; the platform owns resource handles and bytes."
+    },
+    "0x546acc": {
+      "kind": "fixture",
+      "name": "LoadResource",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows resource service reached through unchanged image loader 0x4be050; the platform owns resource handles and bytes."
+    },
+    "0x546ac4": {
+      "kind": "fixture",
+      "name": "LockResource",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Windows resource service reached through unchanged image loader 0x4be050; the platform owns resource handles and bytes."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/call_closure_downstream_interface.cases.py",
+    "entry": "claw_call_closure_downstream_interface_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4b6c0b",
+        "end": "0x4b6c0d",
+        "reason": "Original recursive child failure cannot occur: unchanged 0x4b6c50 has its sole return at 0x4b6ec6, sets EAX=1 at 0x4b6eb9 regardless of write results; induction over every terminating directory tree makes every child 0x4b6bd0 return 1."
+      },
+      {
+        "start": "0x4b6c30",
+        "end": "0x4b6c3a",
+        "reason": "Original serializer 0x4b6c50 has its sole return at 0x4b6ec6 and sets EAX=1 at 0x4b6eb9 independently of file-write results. The zero-return arm and its separate epilogue cannot execute."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2357003889,
+      "cases": 125,
+      "mutants_killed": 37,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.925,
+      "reasons": [],
+      "build_inputs_sha256": "e06538ed108f91988a27708b7bcb1cf5dea38f5673cd0e4d6fa2b081cc9d9100"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "malloc is a physical platform stand-in (allocate).",
+    "_lock is a physical platform stand-in (return-zero).",
+    "_unlock is a physical platform stand-in (return-zero).",
+    "operator new is a physical platform stand-in (allocate).",
+    "operator delete is a physical platform stand-in (release).",
+    "free is a physical platform stand-in (release).",
+    "realloc is a physical platform stand-in (reallocate).",
+    "fseek is a physical platform stand-in (scripted).",
+    "fwrite is a physical platform stand-in (scripted).",
+    "time is a physical platform stand-in (scripted).",
+    "lstrlenA is a physical platform stand-in (scripted).",
+    "InterlockedDecrement is a physical platform stand-in (scripted).",
+    "InterlockedIncrement is a physical platform stand-in (scripted).",
+    "IntersectRect is a physical platform stand-in (scripted).",
+    "MessageBeep is a physical platform stand-in (scripted).",
+    "MessageBoxA is a physical platform stand-in (scripted).",
+    "FindResourceA is a physical Windows resource fixture reached by the original image loader.",
+    "LoadResource is a physical Windows resource fixture reached by the original image loader.",
+    "LockResource is a physical Windows resource fixture reached by the original image loader."
+  ],
+  "notes": "Boundary reviewed against original disassembly. Game callees run unchanged; only physical C runtime, allocator and OS services are fixtures."
+}

@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "id": "v13_profiles",
+  "title": "v1.3 normal profile close and developer profile routing",
+  "abi": "canonical",
+  "program": "claw-v1.3",
+  "mutation": "named-layout",
+  "sources": [
+    "Sources/V13ProfilesRuntime.cpp",
+    "Sources/ClawRecoveredLayout.h",
+    "Sources/ClawRecoveredNames.h"
+  ],
+  "canonical_sources": [
+    "Sources/V13ProfilesRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x42a920",
+      "interval_end": "0x42a959",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x487a70",
+      "interval_end": "0x487b27",
+      "convention": "stdcall",
+      "argc": 4,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x425a20",
+      "interval_end": "0x425a32",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x425a40",
+      "interval_end": "0x425a52",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x42d710": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x487b30": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x488140": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x488200": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "u32"
+    },
+    "0x488050": {
+      "kind": "whole",
+      "convention": "cdecl",
+      "argc": 2,
+      "returns": "u32"
+    },
+    "0x50c3e0": {
+      "kind": "fixture",
+      "name": "SetFocus",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c438": {
+      "kind": "fixture",
+      "name": "GetAsyncKeyState",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c43c": {
+      "kind": "fixture",
+      "name": "EnableWindow",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c470": {
+      "kind": "fixture",
+      "name": "DialogBoxParamA",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c478": {
+      "kind": "fixture",
+      "name": "EndDialog",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c47c": {
+      "kind": "fixture",
+      "name": "GetFocus",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c4c0": {
+      "kind": "fixture",
+      "name": "GetDlgItem",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c4c4": {
+      "kind": "fixture",
+      "name": "SendMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c4cc": {
+      "kind": "fixture",
+      "name": "PostMessageA",
+      "convention": "stdcall",
+      "argc": 4,
+      "arguments": [
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c4d0": {
+      "kind": "fixture",
+      "name": "ShowCursor",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native window and input service."
+    },
+    "0x50c58c": {
+      "kind": "fixture",
+      "name": "timeGetTime",
+      "convention": "stdcall",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Native monotonic clock."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/v13_profiles.cases.py",
+    "entry": "claw_v13_profiles_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 72129482,
+      "cases": 546,
+      "mutants_killed": 36,
+      "mutants_tried": 39,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "3a3cbf2960c9b0e7c47832e1794496a0c817205be1f44ea75e05ce95d5b50cda"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  }
+}

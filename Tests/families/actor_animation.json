@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "id": "actor_animation",
+  "title": "Original actor animation selection and callers",
+  "abi": "canonical",
+  "sources": [
+    "Sources/ActorAnimationCanonical.cpp"
+  ],
+  "docs": [
+    "docs/actor-animation-runtime.md"
+  ],
+  "owned": [
+    {
+      "address": "0x420970",
+      "name": "Animation::seek",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x420a10",
+      "name": "Actor::setSequence",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c79e0",
+      "name": "Actor::setNamedSequence",
+      "convention": "thiscall",
+      "argc": 2,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c7a40",
+      "name": "Actor::setNamedAction",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8210",
+      "name": "Animation::clear",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8220",
+      "name": "Animation::select",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8260",
+      "name": "Animation::reset",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c82a0",
+      "name": "Animation::update",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c87f0",
+      "name": "Sequence::record",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4c8810",
+      "name": "Actor::lastImage",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "original float to integer conversion",
+      "convention": "cdecl",
+      "argc": 0,
+      "x87_args": 1,
+      "returns": "u32"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/actor_animation.cases.py",
+    "entry": "claw_actor_animation_canonical_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4c823c",
+        "end": "0x4c823e",
+        "reason": "The original nonpositive sequence count path zeroes EAX, then unconditionally reads [EAX+0x1c] at 0x4c8247. No valid normal-return input can execute this path; expected invalid-memory outcomes are unsupported by the canonical case API. The native body must retain the original read and fault, not add a guard."
+      },
+      {
+        "start": "0x4c827b",
+        "end": "0x4c827d",
+        "reason": "The original nonpositive sequence count path zeroes EAX, then unconditionally reads [EAX+0x1c] at 0x4c8283. No valid normal-return input can execute this path; expected invalid-memory outcomes are unsupported by the canonical case API. The native body must retain the original read and fault, not add a guard."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1191517734,
+      "cases": 315,
+      "mutants_killed": 44,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.936,
+      "reasons": [],
+      "build_inputs_sha256": "0d430e25da952cbe5d061e7f45e784f985d94c5ec59f7b774844eccf37cec8fb"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "The unchanged legacy implementation remains an app dependency; canonical admission does not establish native app composition.",
+    "Original dictionary and audio callees execute as original code; focused cases can disable multibyte locale and physical audio through their existing globals.",
+    "Four original bytes on the nonpositive-count select/reset paths are excluded from normal-return coverage because they unconditionally lead to an invalid read at address 0x1c; no expected-memory-fault comparison is claimed."
+  ],
+  "notes": "Canonical migration owns all eight legacy entries plus reviewed raw sequence lookup and last-image leaves; no legacy source or header changes."
+}

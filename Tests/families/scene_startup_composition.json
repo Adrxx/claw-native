@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "scene_startup_composition",
+  "title": "Scene startup sound-controller election and readiness",
+  "abi": "canonical",
+  "sources": [
+    "Sources/SceneStartupCompositionCanonical.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4ca280",
+      "name": "SoundController::initialize",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4cf7e0",
+      "name": "SoundController::ready",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/scene_startup_composition.cases.py",
+    "entry": "claw_scene_startup_composition_canonical_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1631962884,
+      "cases": 72,
+      "mutants_killed": 21,
+      "mutants_tried": 21,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "a6ad7186c735ba80484589e968d9f5c80a848d81ff0545e08a6f141b28092e44"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "Canonical coverage owns only the two actual game bodies; legacy forwarding paths retain their existing separate family owners.",
+    "Legacy Sources/SceneStartupCompositionRuntime.cpp and its header remain intact for existing native integration; this canonical module is not elected into the app."
+  ],
+  "notes": "Coordinator reviewed actual legacy implementation ownership: 0x4ca280 and 0x4cf7e0 belong here; graphics/audio lifecycle, single-player scene, and other delegated bodies retain their owners. Platform/MFC/CRT entries are excluded."
+}

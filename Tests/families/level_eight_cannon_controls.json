@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "id": "level_eight_cannon_controls",
+  "title": "Level 8 cannon controls closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelEightCannonControlsRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x414de0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415090",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415210",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415250",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4152e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415470",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415840",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4159b0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4159f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x415a60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x546a40": {
+      "kind": "fixture",
+      "name": "IsBadReadPtr",
+      "convention": "stdcall",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "is-bad-read-ptr",
+      "reason": "Kernel32 address accessibility query; fixture checks the active guest memory range."
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_eight_cannon_controls.cases.py",
+    "entry": "claw_level_eight_cannon_controls_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x414e35",
+        "end": "0x414e63",
+        "reason": "Original lower and upper table-growth failure probes both fault on null access at 0x4dc680 inside 0x4db6e0 before returning to this error handler; checked with work/test-env/bin/python work/packets/level_eight_cannon_controls/probe-growth-failure.py."
+      },
+      {
+        "start": "0x4154c5",
+        "end": "0x4154f3",
+        "reason": "Original lower and upper table-growth failure probes both fault on null access at 0x4dc680 inside 0x4db6e0 before returning to this error handler; checked with work/test-env/bin/python work/packets/level_eight_cannon_controls/probe-growth-failure.py."
+      },
+      {
+        "start": "0x414e7e",
+        "end": "0x414e95",
+        "reason": "Second growth and its failure handler cannot execute: the first bounds check either accepts the index or original 0x4db6e0 stores that exact index in the lower or upper bound on success (0x4db757 or 0x4db7dc). No call or bound write intervenes before the repeated comparison. First-growth failure faults in original 0x4dc680."
+      },
+      {
+        "start": "0x414eaf",
+        "end": "0x414ee2",
+        "reason": "Second growth and its failure handler cannot execute: the first bounds check either accepts the index or original 0x4db6e0 stores that exact index in the lower or upper bound on success (0x4db757 or 0x4db7dc). No call or bound write intervenes before the repeated comparison. First-growth failure faults in original 0x4dc680."
+      },
+      {
+        "start": "0x41550e",
+        "end": "0x415525",
+        "reason": "Second growth and its failure handler cannot execute: the first bounds check either accepts the index or original 0x4db6e0 stores that exact index in the lower or upper bound on success (0x4db757 or 0x4db7dc). No call or bound write intervenes before the repeated comparison. First-growth failure faults in original 0x4dc680."
+      },
+      {
+        "start": "0x41553f",
+        "end": "0x415572",
+        "reason": "Second growth and its failure handler cannot execute: the first bounds check either accepts the index or original 0x4db6e0 stores that exact index in the lower or upper bound on success (0x4db757 or 0x4db7dc). No call or bound write intervenes before the repeated comparison. First-growth failure faults in original 0x4dc680."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 2394874448,
+      "cases": 285,
+      "mutants_killed": 41,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.976,
+      "reasons": [],
+      "build_inputs_sha256": "8e35b5dc0d499634b6a1414a7c26b6d9446715fe84e9bf263802dfc083d05433"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "IsBadReadPtr uses the guest-memory accessibility stand-in."
+  ],
+  "notes": "Boundary reviewed against original disassembly: all entries use ECX receivers; constructor SEH bookkeeping is internal and every constructor returns its receiver."
+}

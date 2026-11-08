@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "world_plane",
+  "title": "Original world-plane construction and configuration",
+  "abi": "legacy",
+  "sources": [
+    "Sources/WorldPlaneRuntime.cpp",
+    "Sources/WorldPlaneRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/WorldPlaneRuntime.cpp": "5d120c463ca100c3cb06bdcb5c1e3bc1fa192ddce2cf35c01e5e0f99db87fad2",
+    "Sources/WorldPlaneRuntime.h": "07f827150af920e3abc654d22b3f2a25e5baa4fc947d573f0e2bb57834c08e87"
+  },
+  "docs": [
+    "docs/world-plane-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_world_plane_runtime.py"
+      }
+    ],
+    "helpers": [
+      "Tests/world_plane_helpers.py"
+    ],
+    "extra": [
+      "Tests/world_plane_assets.py"
+    ],
+    "work_dirs": [
+      "work/world-plane-agent"
+    ]
+  },
+  "evidence": {
+    "level": "provisional",
+    "codex": {
+      "root_logs": [],
+      "worker_evidence": [
+        "work/world-plane-agent/verification.json"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_world_plane_runtime.py": "pass"
+      },
+      "seconds": 26.1
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-19",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 1175967547,
+      "owned": 2,
+      "owned_inferred_from_tests": false,
+      "directly_called": 2,
+      "fully_executed": 0,
+      "bytes_owned": 1125,
+      "bytes_executed": 1105,
+      "coverage": 0.9822
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "0x4cb7b0 is owned by the canonical family level_one_world_plane_add_01; this legacy family keeps 0x4d0450 and the app-facing adapter.\n\nLegacy original-address claims retired; source membership and legacy comparisons are retained. Superseded claims: level_one_world_collision_03 (0x4d0450). Historical baseline and legacy gate measurements describe the ownership list before this narrowing; they are not measurements of the remaining claims."
+}

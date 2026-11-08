@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "id": "low_detail_scenery",
+  "title": "Low Detail dormant scenery filter",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LowDetailSceneryRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x46eff0",
+      "name": "low_detail_scenery_filter",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared",
+      "body_ranges": [
+        {
+          "start": "0x46eff0",
+          "end": "0x46f032",
+          "sha256": "a2b9b177f0fe270d13a8246a5402ec6ad976981149e224108566fb5c69615b3d"
+        }
+      ]
+    }
+  ],
+  "callees": {},
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/low_detail_scenery.cases.py",
+    "entry": "claw_low_detail_scenery_entry"
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1008871935,
+      "cases": 77,
+      "mutants_killed": 9,
+      "mutants_tried": 9,
+      "mutants_equivalent": 0,
+      "mutation_score": 1.0,
+      "reasons": [],
+      "build_inputs_sha256": "1760acdeb237726e23ce3be9ac7d144dbe976424c54208cdada128fc728706ba"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [],
+  "notes": "Drafted by tools/claw/draft_spec.py from the disassembly."
+}

@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "id": "level_eight_gabriel_cannon",
+  "title": "Level 8 Gabriel cannon closure",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelEightGabrielCannonRuntime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x446550",
+      "name": "GabrielCannonLogic",
+      "convention": "cdecl",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446670",
+      "name": "GabrielCannonDispatch",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446a70",
+      "name": "GabrielCannonConstruct",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446c20",
+      "name": "GabrielCannonReset",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446ca0",
+      "name": "GabrielCannonUpdate",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446d70",
+      "name": "GabrielCannonRise",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446e10",
+      "name": "GabrielCannonDrop",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x446eb0",
+      "name": "GabrielCannonRotateUpdate",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_eight_gabriel_cannon.cases.py",
+    "entry": "claw_level_eight_gabriel_cannon_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x4465ac",
+        "end": "0x4465ae",
+        "reason": "Original operator-new failure sets controller to zero at 0x4465ac then dereferences it at 0x4465ae; original-only allocation-failure probe confirms null-pointer fault at 0x4465ae."
+      },
+      {
+        "start": "0x4466c5",
+        "end": "0x4466f3",
+        "reason": "Original table-growth failure never returns here: 0x4db6e0 assigns failed realloc result zero to EBP then calls 0x4dc680, which reads [EBP+4]. Original-only probes for growth below and above the range confirm null-pointer fault at 0x4dc680 before this block."
+      },
+      {
+        "start": "0x44670e",
+        "end": "0x446725",
+        "reason": "Second growth is unreachable: an initial in-range lookup has no calls before the second bounds checks; successful original 0x4db6e0 expands the bounds to include the requested id, and failure faults at 0x4dc680 before returning. Checked against original disassembly and original-only growth probes."
+      },
+      {
+        "start": "0x44673f",
+        "end": "0x446772",
+        "reason": "Second-growth failure arm is unreachable with original behavior because the preceding second-growth call is unreachable: the first lookup either leaves in-range bounds unchanged, grows to include id, or faults before returning. No intervening call changes bounds."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 66502004,
+      "cases": 431,
+      "mutants_killed": 43,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.977,
+      "reasons": [],
+      "build_inputs_sha256": "28f01a58085490a0d5aabb9cb42b72ec547005b5ce7a2b3168bf856442097d80"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release)."
+  ],
+  "notes": "Boundary checked against the original corpus disassembly; constructor returns the receiver, while other inspected callers do not consume the handler return values. See the local packet notes for object layouts and branch conditions."
+}

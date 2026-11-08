@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "id": "interface_read_composition",
+  "title": "IFC read composition",
+  "abi": "legacy",
+  "sources": [
+    "Sources/InterfaceReadCompositionRuntime.cpp",
+    "Sources/InterfaceReadCompositionRuntime.h"
+  ],
+  "source_sha256": {
+    "Sources/InterfaceReadCompositionRuntime.cpp": "07cf170c373fe3adcf5e6e6e3d2f50ed795a2d868d817b2fc9bfc72277ca831e",
+    "Sources/InterfaceReadCompositionRuntime.h": "1dfc313bcf13d5eb0355897d5e84099a536321486e99594886c4dd986cda1d9c"
+  },
+  "docs": [
+    "docs/interface-read-composition-runtime.md"
+  ],
+  "owned": [],
+  "oracle": {
+    "kind": "legacy",
+    "commands": [
+      {
+        "script": "Tests/compare_interface_read_composition_runtime.py"
+      },
+      {
+        "script": "Tests/compare_interface_read_file_rewind.py"
+      }
+    ],
+    "helpers": [
+      "Tests/interface_read_composition_helpers.py"
+    ],
+    "extra": [
+      "Tests/exact_sized_interface_read_composition.cpp"
+    ],
+    "work_dirs": [
+      "work/interface-read-composition-agent"
+    ]
+  },
+  "evidence": {
+    "level": "legacy-frozen",
+    "codex": {
+      "root_logs": [
+        "work/root-interface-read-composition-asan.log",
+        "work/root-interface-read-composition-independent.log",
+        "work/root-interface-read-rewind-independent.log"
+      ],
+      "worker_evidence": [
+        "work/interface-read-composition-agent/frozen-sha256.txt",
+        "work/interface-read-composition-agent/verify.log"
+      ]
+    },
+    "baseline": {
+      "date": "2026-10-12",
+      "status": "pass",
+      "scripts": {
+        "Tests/compare_interface_read_composition_runtime.py": "pass",
+        "Tests/compare_interface_read_file_rewind.py": "pass"
+      },
+      "seconds": 284.5
+    },
+    "gate": {
+      "kind": "legacy-measurement",
+      "date": "2026-10-12",
+      "plain": "pass",
+      "salted": "pass",
+      "salt": 3992846853,
+      "owned": 8,
+      "owned_inferred_from_tests": true,
+      "directly_called": 8,
+      "fully_executed": 6,
+      "bytes_owned": 900,
+      "bytes_executed": 821,
+      "coverage": 0.9122
+    }
+  },
+  "integration": {
+    "level": "compiled",
+    "in_app_target": true,
+    "in_bridging_header": true,
+    "swift_references": []
+  },
+  "limits": [],
+  "notes": "compare_interface_read_file_rewind.py assigned by content: uses interface_read_composition_helpers"
+}

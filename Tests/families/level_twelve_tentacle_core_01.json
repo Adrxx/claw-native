@@ -1,0 +1,335 @@
+{
+  "schema": 1,
+  "id": "level_twelve_tentacle_core_01",
+  "title": "Level 12 tentacle core",
+  "abi": "canonical",
+  "sources": [
+    "Sources/LevelTwelveTentacleCore01Runtime.cpp"
+  ],
+  "owned": [
+    {
+      "address": "0x4923e0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4928f0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x492c40",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x492c60",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x492ce0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x492d30",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "void",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x492da0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x492f70",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x492fb0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x493110",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x493450",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    },
+    {
+      "address": "0x4936d0",
+      "name": "",
+      "convention": "thiscall",
+      "argc": 0,
+      "returns": "u32",
+      "confidence": "declared"
+    }
+  ],
+  "callees": {
+    "0x4a3050": {
+      "kind": "fixture",
+      "name": "rand",
+      "convention": "cdecl",
+      "argc": 0,
+      "arguments": [],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "reads thread-local storage through imports; cases supply the sequence"
+    },
+    "0x4a48e0": {
+      "kind": "fixture",
+      "name": "malloc",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a49b0": {
+      "kind": "fixture",
+      "name": "free",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4a7bc0": {
+      "kind": "fixture",
+      "name": "_lock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime lock: enters an operating-system critical section; the game is single-threaded here"
+    },
+    "0x4a7c40": {
+      "kind": "fixture",
+      "name": "_unlock",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "return-zero",
+      "reason": "C runtime unlock: leaves an operating-system critical section"
+    },
+    "0x4a9070": {
+      "kind": "fixture",
+      "name": "realloc",
+      "convention": "cdecl",
+      "argc": 2,
+      "arguments": [
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "reallocate",
+      "reason": "the C runtime heap ends in operating-system calls (HeapReAlloc); pairs with malloc and free"
+    },
+    "0x4f63ec": {
+      "kind": "fixture",
+      "name": "operator new",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "allocate",
+      "reason": "the C runtime heap ends in operating-system calls"
+    },
+    "0x4f6428": {
+      "kind": "fixture",
+      "name": "operator delete",
+      "convention": "cdecl",
+      "argc": 1,
+      "arguments": [
+        "u32"
+      ],
+      "returns": "void",
+      "fixture": "release",
+      "reason": "pairs with operator new"
+    },
+    "0x546d5c": {
+      "kind": "fixture",
+      "name": "SetRect",
+      "convention": "stdcall",
+      "argc": 5,
+      "arguments": [
+        "out:16",
+        "u32",
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect",
+      "reason": "Win32 rectangle initialization is replaced by the declared native fixture."
+    },
+    "0x546cdc": {
+      "kind": "fixture",
+      "name": "SetRectEmpty",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "out:16"
+      ],
+      "returns": "u32",
+      "fixture": "set-rect-empty",
+      "reason": "Win32 rectangle initialization reached through the original base constructor."
+    },
+    "0x5469e8": {
+      "kind": "fixture",
+      "name": "InterlockedDecrement",
+      "convention": "stdcall",
+      "argc": 1,
+      "arguments": [
+        "ptr:4"
+      ],
+      "returns": "u32",
+      "fixture": "scripted",
+      "reason": "Win32 reference-count decrement reached through CString destruction; cases supply the decrement and result."
+    },
+    "0x4a30e0": {
+      "kind": "whole",
+      "name": "ftol",
+      "convention": "cdecl",
+      "argc": 0,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 1,
+        "push": 0
+      }
+    },
+    "0x4332f0": {
+      "kind": "whole",
+      "convention": "thiscall",
+      "argc": 1,
+      "returns": "u32",
+      "x87_exact": {
+        "pop": 0,
+        "push": 0
+      }
+    }
+  },
+  "oracle": {
+    "kind": "clawparity",
+    "cases": "Tests/families/level_twelve_tentacle_core_01.cases.py",
+    "entry": "claw_level_twelve_tentacle_core_01_entry",
+    "coverage_exempt": [
+      {
+        "start": "0x492435",
+        "end": "0x492463",
+        "reason": "Original-reviewed: failed realloc in 0x4db6e0 sets EBP to zero at 0x4db70b or 0x4db77f, then 0x4dc680 reads [EBP+4] and faults before returning zero to this fallback."
+      },
+      {
+        "start": "0x49247e",
+        "end": "0x492495",
+        "reason": "Original-reviewed: first lookup either starts in range or 0x4db6e0 writes the requested lower/upper bound at 0x4db757/0x4db7dc; no call or bound write intervenes before the repeated comparisons, so second growth cannot execute."
+      },
+      {
+        "start": "0x4924af",
+        "end": "0x4924e2",
+        "reason": "Original-reviewed: second growth is unreachable after successful first lookup; additionally its realloc-failure route faults in 0x4dc680 with EBP zero before returning to this fallback."
+      },
+      {
+        "start": "0x492b13",
+        "end": "0x492b1b",
+        "reason": "Original-reviewed: base constructor 0x4332f0 ensures bit 9 at 0x4336b5 via 0x4dbd20 and 0x4dc6d0, leaving unsigned bitset size at least 32. Subsequent original resource lookup helpers do not change that size before 0x492b11; zero-size fallback cannot execute."
+      },
+      {
+        "start": "0x493757",
+        "end": "0x49376b",
+        "reason": "Original-reviewed: prior 0x406020 lookups ensure the same state index lies in 0x537698 bounds; no intervening state/bounds changes occur. 0x441030 at 0x44103b therefore clears 0x5376b8 and returns in-range, so cleanup loop count is zero."
+      },
+      {
+        "start": "0x4937ae",
+        "end": "0x4937c2",
+        "reason": "Original-reviewed: repeated 0x441030 lookup uses the same already in-range state index without intervening state/bounds changes, clears 0x5376b8 at 0x44103b, and returns in-range; cleanup loop count is zero."
+      }
+    ]
+  },
+  "evidence": {
+    "level": "admitted",
+    "gate": {
+      "kind": "admission",
+      "status": "admitted",
+      "seed": 1037712403,
+      "cases": 268,
+      "mutants_killed": 45,
+      "mutants_tried": 48,
+      "mutants_equivalent": 0,
+      "mutation_score": 0.978,
+      "reasons": [],
+      "build_inputs_sha256": "cf19ce4cdff816bcec8273082ca8989d2d24875865153797f355f10784644a47"
+    }
+  },
+  "integration": {
+    "level": "source-only"
+  },
+  "limits": [
+    "rand is a stand-in (scripted).",
+    "malloc is a stand-in (allocate).",
+    "free is a stand-in (release).",
+    "_lock is a stand-in (return-zero).",
+    "_unlock is a stand-in (return-zero).",
+    "realloc is a stand-in (reallocate).",
+    "operator new is a stand-in (allocate).",
+    "operator delete is a stand-in (release).",
+    "SetRect and SetRectEmpty use declared rectangle fixtures.",
+    "InterlockedDecrement is a scripted Win32 reference-count fixture.",
+    "The exact x87 conversion executes unchanged original code.",
+    "Cyclic tentacle-state peers execute unchanged original code until their separate admission and eventual native join."
+  ],
+  "notes": "Boundary reviewed against all twelve original disassemblies; FS exception registration in construction/destruction is compiler bookkeeping, not a game-state decision."
+}
