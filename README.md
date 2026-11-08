@@ -86,9 +86,9 @@ You also need:
   - **iPad:** tap with three fingers to open the checkpoint panel. It has *Save custom checkpoint* and the three saved slots, newest first, each showing how long ago it was saved.
   - **Mac:** Command+3 saves, Command+Shift+3 restores the newest, and Command+Option+Shift+3 opens the slot chooser.
   - Restoring works from the pause menu too.
+  - Saving puts the new save in the newest slot and drops the oldest one when all three are full. The custom checkpoint never touches your normal saves.
 
-  <img src="docs/media/checkpoint-slots.png" width="60%" alt="The custom checkpoint panel with three saved slots">
- Saving puts the new save in the newest slot and drops the oldest one when all three are full. The custom checkpoint never touches your normal saves.
+<img src="docs/media/checkpoint-slots.png" width="60%" alt="The custom checkpoint panel with three saved slots">
 
 ## Custom levels
 
